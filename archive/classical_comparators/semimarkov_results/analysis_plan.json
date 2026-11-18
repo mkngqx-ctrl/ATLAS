@@ -1,0 +1,11 @@
+{
+  "candidates": [
+    "additive: quartic covariate + categorical duration + categorical source time",
+    "interaction: additive + covariate-duration terms + time-by-log-duration"
+  ],
+  "penalty": 1.0,
+  "selection": "minimum observed validation transition log loss over all transitions and first states",
+  "no_generator_breakpoints": true,
+  "no_oracle_selection": true,
+  "no_test_selection": true
+}

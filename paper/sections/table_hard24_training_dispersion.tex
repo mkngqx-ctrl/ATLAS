@@ -1,0 +1,64 @@
+% Approved Suggestion 7, option B: dispersion for main-table neural configurations.
+\begingroup\small
+\setlength{\tabcolsep}{4pt}
+\begin{longtable}{lrrrr}
+\caption{Variation across the nine single-covariate training runs for the neural configurations in Table~1 of the main text. Each ATLAS training run contributes its mean MAE over five sampling seeds at $M=10{,}000$; ATLAS rows use Sobol. Between-run SD is the sample standard deviation of the nine training-run means. Minimum and maximum refer to those means. Sampling SD is the square root of the average within-run sampling variance; it is undefined for direct predictions. CPH and the true-generator oracle are unchanged controls and are omitted here. These summaries are descriptive, not confidence intervals.}\label{tab:harddispersion}\\
+\toprule
+Model / method & Between SD & Minimum & Maximum & Sampling SD \\\midrule
+\endfirsthead
+\multicolumn{5}{l}{\tablename\ \thetable\ (continued)}\\
+\toprule
+Model / method & Between SD & Minimum & Maximum & Sampling SD \\\midrule
+\endhead
+\midrule\multicolumn{5}{r}{Continued on next page}\\\endfoot
+\bottomrule\endlastfoot
+\multicolumn{5}{l}{\textit{Landmark $L=0$}}\\*
+Weibull-MLP & 0.000239 & 0.023829 & 0.024598 & --- \\*
+DRSA (optimized) & 0.007890 & 0.110197 & 0.135464 & --- \\*
+DynamicDeepHit-Lite & 0.002011 & 0.004167 & 0.010698 & --- \\*
+SurvTransformer-Lite & 0.002998 & 0.006564 & 0.015891 & --- \\*
+Dynamic-DeepHit (optimized) & 0.003181 & 0.024291 & 0.033932 & --- \\*
+SurvTransformer & 0.004859 & 0.012103 & 0.025143 & --- \\*
+SurvTransformer-Discrete & 0.002161 & 0.010735 & 0.017151 & --- \\*
+ATLAS-GRU / Sobol & 0.002379 & 0.004393 & 0.010309 & 0.000055 \\*
+ATLAS-RNN / Sobol & 0.002659 & 0.003993 & 0.011482 & 0.000052 \\*
+ATLAS-Transformer / Sobol & 0.004954 & 0.003316 & 0.018088 & 0.000064 \\
+\addlinespace
+\multicolumn{5}{l}{\textit{Landmark $L=20$}}\\*
+Weibull-MLP & 0.000449 & 0.136597 & 0.138008 & --- \\*
+DRSA (optimized) & 0.004728 & 0.140973 & 0.152804 & --- \\*
+DynamicDeepHit-Lite & 0.001936 & 0.139121 & 0.145121 & --- \\*
+SurvTransformer-Lite & 0.002338 & 0.139655 & 0.146120 & --- \\*
+Dynamic-DeepHit (optimized) & 0.008377 & 0.037261 & 0.065852 & --- \\*
+SurvTransformer & 0.009822 & 0.037009 & 0.067081 & --- \\*
+SurvTransformer-Discrete & 0.004971 & 0.039368 & 0.053463 & --- \\*
+ATLAS-GRU / Sobol & 0.003520 & 0.005468 & 0.016233 & 0.000072 \\*
+ATLAS-RNN / Sobol & 0.004691 & 0.008798 & 0.023873 & 0.000056 \\*
+ATLAS-Transformer / Sobol & 0.001328 & 0.006616 & 0.011309 & 0.000058 \\
+\addlinespace
+\multicolumn{5}{l}{\textit{Landmark $L=23$}}\\*
+Weibull-MLP & 0.000381 & 0.185343 & 0.186221 & --- \\*
+DRSA (optimized) & 0.004006 & 0.202487 & 0.214769 & --- \\*
+DynamicDeepHit-Lite & 0.002553 & 0.200399 & 0.208035 & --- \\*
+SurvTransformer-Lite & 0.004553 & 0.196337 & 0.212297 & --- \\*
+Dynamic-DeepHit (optimized) & 0.009616 & 0.046243 & 0.074294 & --- \\*
+SurvTransformer & 0.013379 & 0.067916 & 0.102157 & --- \\*
+SurvTransformer-Discrete & 0.006843 & 0.048906 & 0.073837 & --- \\*
+ATLAS-GRU / Sobol & 0.003435 & 0.008747 & 0.018402 & 0.000050 \\*
+ATLAS-RNN / Sobol & 0.003054 & 0.013198 & 0.022547 & 0.000051 \\*
+ATLAS-Transformer / Sobol & 0.002452 & 0.009737 & 0.017807 & 0.000046 \\
+\addlinespace
+\multicolumn{5}{l}{\textit{Landmark $L=24$}}\\*
+Weibull-MLP & 0.000833 & 0.149664 & 0.152170 & --- \\*
+DRSA (optimized) & 0.004159 & 0.151963 & 0.163361 & --- \\*
+DynamicDeepHit-Lite & 0.001884 & 0.151875 & 0.158396 & --- \\*
+SurvTransformer-Lite & 0.003835 & 0.149574 & 0.163230 & --- \\*
+Dynamic-DeepHit (optimized) & 0.008846 & 0.051325 & 0.075680 & --- \\*
+SurvTransformer & 0.008680 & 0.059305 & 0.083381 & --- \\*
+SurvTransformer-Discrete & 0.010842 & 0.056364 & 0.091665 & --- \\*
+ATLAS-GRU / Sobol & 0.004328 & 0.008064 & 0.020148 & 0.000056 \\*
+ATLAS-RNN / Sobol & 0.004282 & 0.006977 & 0.019457 & 0.000059 \\*
+ATLAS-Transformer / Sobol & 0.002933 & 0.007748 & 0.015835 & 0.000049 \\
+\addlinespace
+\end{longtable}
+\endgroup

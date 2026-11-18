@@ -1,0 +1,475 @@
+{
+  "rows": [
+    {
+      "fit_id": "A00_M0",
+      "seed": 42,
+      "config": {
+        "hidden": 32,
+        "layers": 1,
+        "projection": 0,
+        "alpha": 0.05,
+        "lr": 0.001,
+        "dropout": 0,
+        "l2": 0,
+        "batch": 256
+      },
+      "best_validation_NLL": 2.9431411188221546,
+      "best_epoch": 4,
+      "epochs_completed": 5,
+      "checkpoint": "C:\\Users\\moeni\\Documents\\ATLAS_work\\current\\review\\DRSA_optimization_2026-11-04\\Hard24\\fits\\A00_M0\\seed_42\\best.pt",
+      "stop": "budget"
+    },
+    {
+      "fit_id": "A00_M1",
+      "seed": 42,
+      "config": {
+        "hidden": 128,
+        "layers": 1,
+        "projection": 0,
+        "alpha": 0.05,
+        "lr": 0.001,
+        "dropout": 0,
+        "l2": 0,
+        "batch": 256
+      },
+      "best_validation_NLL": 3.008149422616879,
+      "best_epoch": 4,
+      "epochs_completed": 5,
+      "checkpoint": "C:\\Users\\moeni\\Documents\\ATLAS_work\\current\\review\\DRSA_optimization_2026-11-04\\Hard24\\fits\\A00_M1\\seed_42\\best.pt",
+      "stop": "budget"
+    },
+    {
+      "fit_id": "A00_M2",
+      "seed": 42,
+      "config": {
+        "hidden": 128,
+        "layers": 1,
+        "projection": 64,
+        "alpha": 0.05,
+        "lr": 0.001,
+        "dropout": 0,
+        "l2": 0,
+        "batch": 256
+      },
+      "best_validation_NLL": 3.012062591086449,
+      "best_epoch": 4,
+      "epochs_completed": 5,
+      "checkpoint": "C:\\Users\\moeni\\Documents\\ATLAS_work\\current\\review\\DRSA_optimization_2026-11-04\\Hard24\\fits\\A00_M2\\seed_42\\best.pt",
+      "stop": "budget"
+    },
+    {
+      "fit_id": "A00_M3",
+      "seed": 42,
+      "config": {
+        "hidden": 256,
+        "layers": 2,
+        "projection": 128,
+        "alpha": 0.05,
+        "lr": 0.001,
+        "dropout": 0,
+        "l2": 0,
+        "batch": 256
+      },
+      "best_validation_NLL": 3.008713319223088,
+      "best_epoch": 4,
+      "epochs_completed": 5,
+      "checkpoint": "C:\\Users\\moeni\\Documents\\ATLAS_work\\current\\review\\DRSA_optimization_2026-11-04\\Hard24\\fits\\A00_M3\\seed_42\\best.pt",
+      "stop": "budget"
+    },
+    {
+      "fit_id": "A01_M0",
+      "seed": 42,
+      "config": {
+        "hidden": 32,
+        "layers": 1,
+        "projection": 0,
+        "alpha": 0.1,
+        "lr": 0.001,
+        "dropout": 0,
+        "l2": 0,
+        "batch": 256
+      },
+      "best_validation_NLL": 2.6769799766587856,
+      "best_epoch": 4,
+      "epochs_completed": 5,
+      "checkpoint": "C:\\Users\\moeni\\Documents\\ATLAS_work\\current\\review\\DRSA_optimization_2026-11-04\\Hard24\\fits\\A01_M0\\seed_42\\best.pt",
+      "stop": "budget"
+    },
+    {
+      "fit_id": "A01_M1",
+      "seed": 42,
+      "config": {
+        "hidden": 128,
+        "layers": 1,
+        "projection": 0,
+        "alpha": 0.1,
+        "lr": 0.001,
+        "dropout": 0,
+        "l2": 0,
+        "batch": 256
+      },
+      "best_validation_NLL": 2.7320441703983187,
+      "best_epoch": 4,
+      "epochs_completed": 5,
+      "checkpoint": "C:\\Users\\moeni\\Documents\\ATLAS_work\\current\\review\\DRSA_optimization_2026-11-04\\Hard24\\fits\\A01_M1\\seed_42\\best.pt",
+      "stop": "budget"
+    },
+    {
+      "fit_id": "A01_M2",
+      "seed": 42,
+      "config": {
+        "hidden": 128,
+        "layers": 1,
+        "projection": 64,
+        "alpha": 0.1,
+        "lr": 0.001,
+        "dropout": 0,
+        "l2": 0,
+        "batch": 256
+      },
+      "best_validation_NLL": 2.7203581486632515,
+      "best_epoch": 1,
+      "epochs_completed": 5,
+      "checkpoint": "C:\\Users\\moeni\\Documents\\ATLAS_work\\current\\review\\DRSA_optimization_2026-11-04\\Hard24\\fits\\A01_M2\\seed_42\\best.pt",
+      "stop": "budget"
+    },
+    {
+      "fit_id": "A01_M3",
+      "seed": 42,
+      "config": {
+        "hidden": 256,
+        "layers": 2,
+        "projection": 128,
+        "alpha": 0.1,
+        "lr": 0.001,
+        "dropout": 0,
+        "l2": 0,
+        "batch": 256
+      },
+      "best_validation_NLL": 2.6896079856351607,
+      "best_epoch": 4,
+      "epochs_completed": 5,
+      "checkpoint": "C:\\Users\\moeni\\Documents\\ATLAS_work\\current\\review\\DRSA_optimization_2026-11-04\\Hard24\\fits\\A01_M3\\seed_42\\best.pt",
+      "stop": "budget"
+    },
+    {
+      "fit_id": "A02_M0",
+      "seed": 42,
+      "config": {
+        "hidden": 32,
+        "layers": 1,
+        "projection": 0,
+        "alpha": 0.25,
+        "lr": 0.001,
+        "dropout": 0,
+        "l2": 0,
+        "batch": 256
+      },
+      "best_validation_NLL": 2.436936135827766,
+      "best_epoch": 4,
+      "epochs_completed": 5,
+      "checkpoint": "C:\\Users\\moeni\\Documents\\ATLAS_work\\current\\review\\DRSA_optimization_2026-11-04\\Hard24\\fits\\A02_M0\\seed_42\\best.pt",
+      "stop": "budget"
+    },
+    {
+      "fit_id": "A02_M1",
+      "seed": 42,
+      "config": {
+        "hidden": 128,
+        "layers": 1,
+        "projection": 0,
+        "alpha": 0.25,
+        "lr": 0.001,
+        "dropout": 0,
+        "l2": 0,
+        "batch": 256
+      },
+      "best_validation_NLL": 2.42118424545636,
+      "best_epoch": 4,
+      "epochs_completed": 5,
+      "checkpoint": "C:\\Users\\moeni\\Documents\\ATLAS_work\\current\\review\\DRSA_optimization_2026-11-04\\Hard24\\fits\\A02_M1\\seed_42\\best.pt",
+      "stop": "budget"
+    },
+    {
+      "fit_id": "A02_M2",
+      "seed": 42,
+      "config": {
+        "hidden": 128,
+        "layers": 1,
+        "projection": 64,
+        "alpha": 0.25,
+        "lr": 0.001,
+        "dropout": 0,
+        "l2": 0,
+        "batch": 256
+      },
+      "best_validation_NLL": 2.3913192686177145,
+      "best_epoch": 4,
+      "epochs_completed": 5,
+      "checkpoint": "C:\\Users\\moeni\\Documents\\ATLAS_work\\current\\review\\DRSA_optimization_2026-11-04\\Hard24\\fits\\A02_M2\\seed_42\\best.pt",
+      "stop": "budget"
+    },
+    {
+      "fit_id": "A02_M3",
+      "seed": 42,
+      "config": {
+        "hidden": 256,
+        "layers": 2,
+        "projection": 128,
+        "alpha": 0.25,
+        "lr": 0.001,
+        "dropout": 0,
+        "l2": 0,
+        "batch": 256
+      },
+      "best_validation_NLL": 2.3743504660885613,
+      "best_epoch": 4,
+      "epochs_completed": 5,
+      "checkpoint": "C:\\Users\\moeni\\Documents\\ATLAS_work\\current\\review\\DRSA_optimization_2026-11-04\\Hard24\\fits\\A02_M3\\seed_42\\best.pt",
+      "stop": "budget"
+    },
+    {
+      "fit_id": "A03_M0",
+      "seed": 42,
+      "config": {
+        "hidden": 32,
+        "layers": 1,
+        "projection": 0,
+        "alpha": 0.5,
+        "lr": 0.001,
+        "dropout": 0,
+        "l2": 0,
+        "batch": 256
+      },
+      "best_validation_NLL": 2.2830537138704066,
+      "best_epoch": 5,
+      "epochs_completed": 5,
+      "checkpoint": "C:\\Users\\moeni\\Documents\\ATLAS_work\\current\\review\\DRSA_optimization_2026-11-04\\Hard24\\fits\\A03_M0\\seed_42\\best.pt",
+      "stop": "budget"
+    },
+    {
+      "fit_id": "A03_M1",
+      "seed": 42,
+      "config": {
+        "hidden": 128,
+        "layers": 1,
+        "projection": 0,
+        "alpha": 0.5,
+        "lr": 0.001,
+        "dropout": 0,
+        "l2": 0,
+        "batch": 256
+      },
+      "best_validation_NLL": 2.282808026753293,
+      "best_epoch": 5,
+      "epochs_completed": 5,
+      "checkpoint": "C:\\Users\\moeni\\Documents\\ATLAS_work\\current\\review\\DRSA_optimization_2026-11-04\\Hard24\\fits\\A03_M1\\seed_42\\best.pt",
+      "stop": "budget"
+    },
+    {
+      "fit_id": "A03_M2",
+      "seed": 42,
+      "config": {
+        "hidden": 128,
+        "layers": 1,
+        "projection": 64,
+        "alpha": 0.5,
+        "lr": 0.001,
+        "dropout": 0,
+        "l2": 0,
+        "batch": 256
+      },
+      "best_validation_NLL": 2.2641579874741984,
+      "best_epoch": 3,
+      "epochs_completed": 5,
+      "checkpoint": "C:\\Users\\moeni\\Documents\\ATLAS_work\\current\\review\\DRSA_optimization_2026-11-04\\Hard24\\fits\\A03_M2\\seed_42\\best.pt",
+      "stop": "budget"
+    },
+    {
+      "fit_id": "A03_M3",
+      "seed": 42,
+      "config": {
+        "hidden": 256,
+        "layers": 2,
+        "projection": 128,
+        "alpha": 0.5,
+        "lr": 0.001,
+        "dropout": 0,
+        "l2": 0,
+        "batch": 256
+      },
+      "best_validation_NLL": 2.2482863126770645,
+      "best_epoch": 2,
+      "epochs_completed": 5,
+      "checkpoint": "C:\\Users\\moeni\\Documents\\ATLAS_work\\current\\review\\DRSA_optimization_2026-11-04\\Hard24\\fits\\A03_M3\\seed_42\\best.pt",
+      "stop": "budget"
+    },
+    {
+      "fit_id": "A04_M0",
+      "seed": 42,
+      "config": {
+        "hidden": 32,
+        "layers": 1,
+        "projection": 0,
+        "alpha": 0.75,
+        "lr": 0.001,
+        "dropout": 0,
+        "l2": 0,
+        "batch": 256
+      },
+      "best_validation_NLL": 2.275532236760284,
+      "best_epoch": 5,
+      "epochs_completed": 5,
+      "checkpoint": "C:\\Users\\moeni\\Documents\\ATLAS_work\\current\\review\\DRSA_optimization_2026-11-04\\Hard24\\fits\\A04_M0\\seed_42\\best.pt",
+      "stop": "budget"
+    },
+    {
+      "fit_id": "A04_M1",
+      "seed": 42,
+      "config": {
+        "hidden": 128,
+        "layers": 1,
+        "projection": 0,
+        "alpha": 0.75,
+        "lr": 0.001,
+        "dropout": 0,
+        "l2": 0,
+        "batch": 256
+      },
+      "best_validation_NLL": 2.3116437539341534,
+      "best_epoch": 5,
+      "epochs_completed": 5,
+      "checkpoint": "C:\\Users\\moeni\\Documents\\ATLAS_work\\current\\review\\DRSA_optimization_2026-11-04\\Hard24\\fits\\A04_M1\\seed_42\\best.pt",
+      "stop": "budget"
+    },
+    {
+      "fit_id": "A04_M2",
+      "seed": 42,
+      "config": {
+        "hidden": 128,
+        "layers": 1,
+        "projection": 64,
+        "alpha": 0.75,
+        "lr": 0.001,
+        "dropout": 0,
+        "l2": 0,
+        "batch": 256
+      },
+      "best_validation_NLL": 2.2846651498980983,
+      "best_epoch": 5,
+      "epochs_completed": 5,
+      "checkpoint": "C:\\Users\\moeni\\Documents\\ATLAS_work\\current\\review\\DRSA_optimization_2026-11-04\\Hard24\\fits\\A04_M2\\seed_42\\best.pt",
+      "stop": "budget"
+    },
+    {
+      "fit_id": "A04_M3",
+      "seed": 42,
+      "config": {
+        "hidden": 256,
+        "layers": 2,
+        "projection": 128,
+        "alpha": 0.75,
+        "lr": 0.001,
+        "dropout": 0,
+        "l2": 0,
+        "batch": 256
+      },
+      "best_validation_NLL": 2.258038075659478,
+      "best_epoch": 5,
+      "epochs_completed": 5,
+      "checkpoint": "C:\\Users\\moeni\\Documents\\ATLAS_work\\current\\review\\DRSA_optimization_2026-11-04\\Hard24\\fits\\A04_M3\\seed_42\\best.pt",
+      "stop": "budget"
+    },
+    {
+      "fit_id": "A05_M0",
+      "seed": 42,
+      "config": {
+        "hidden": 32,
+        "layers": 1,
+        "projection": 0,
+        "alpha": 0.9,
+        "lr": 0.001,
+        "dropout": 0,
+        "l2": 0,
+        "batch": 256
+      },
+      "best_validation_NLL": 2.392989502964272,
+      "best_epoch": 2,
+      "epochs_completed": 5,
+      "checkpoint": "C:\\Users\\moeni\\Documents\\ATLAS_work\\current\\review\\DRSA_optimization_2026-11-04\\Hard24\\fits\\A05_M0\\seed_42\\best.pt",
+      "stop": "budget"
+    },
+    {
+      "fit_id": "A05_M1",
+      "seed": 42,
+      "config": {
+        "hidden": 128,
+        "layers": 1,
+        "projection": 0,
+        "alpha": 0.9,
+        "lr": 0.001,
+        "dropout": 0,
+        "l2": 0,
+        "batch": 256
+      },
+      "best_validation_NLL": 2.382222091227151,
+      "best_epoch": 5,
+      "epochs_completed": 5,
+      "checkpoint": "C:\\Users\\moeni\\Documents\\ATLAS_work\\current\\review\\DRSA_optimization_2026-11-04\\Hard24\\fits\\A05_M1\\seed_42\\best.pt",
+      "stop": "budget"
+    },
+    {
+      "fit_id": "A05_M2",
+      "seed": 42,
+      "config": {
+        "hidden": 128,
+        "layers": 1,
+        "projection": 64,
+        "alpha": 0.9,
+        "lr": 0.001,
+        "dropout": 0,
+        "l2": 0,
+        "batch": 256
+      },
+      "best_validation_NLL": 2.2774071235650726,
+      "best_epoch": 1,
+      "epochs_completed": 5,
+      "checkpoint": "C:\\Users\\moeni\\Documents\\ATLAS_work\\current\\review\\DRSA_optimization_2026-11-04\\Hard24\\fits\\A05_M2\\seed_42\\best.pt",
+      "stop": "budget"
+    },
+    {
+      "fit_id": "A05_M3",
+      "seed": 42,
+      "config": {
+        "hidden": 256,
+        "layers": 2,
+        "projection": 128,
+        "alpha": 0.9,
+        "lr": 0.001,
+        "dropout": 0,
+        "l2": 0,
+        "batch": 256
+      },
+      "best_validation_NLL": 2.2940292210812516,
+      "best_epoch": 5,
+      "epochs_completed": 5,
+      "checkpoint": "C:\\Users\\moeni\\Documents\\ATLAS_work\\current\\review\\DRSA_optimization_2026-11-04\\Hard24\\fits\\A05_M3\\seed_42\\best.pt",
+      "stop": "budget"
+    }
+  ],
+  "selected": [
+    "A00_M0",
+    "A00_M1",
+    "A01_M0",
+    "A01_M3",
+    "A02_M3",
+    "A02_M2",
+    "A03_M3",
+    "A03_M2",
+    "A04_M3",
+    "A04_M0",
+    "A05_M2",
+    "A05_M3"
+  ],
+  "budget": 5
+}

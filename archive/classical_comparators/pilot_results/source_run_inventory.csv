@@ -1,0 +1,15 @@
+experiment,training_seed,root,cohort_sha256,evaluation_ids_and_truth_match
+Hard24,42,C:\Users\moeni\Documents\Codex\2026-09-13\thi\work\paper_benchmarks_20260919\full_hard24_add_history_v4,676d66bf67e67a52dba3be50cfe7925d3b49f8f5e9ec9876913ed45146e03c54,True
+Hard24,43,C:\Users\moeni\Documents\Codex\2026-09-13\thi\work\atlas_multiseed_revision_20260927\results\hard24_training_seed_43,676d66bf67e67a52dba3be50cfe7925d3b49f8f5e9ec9876913ed45146e03c54,True
+Hard24,44,C:\Users\moeni\Documents\Codex\2026-09-13\thi\outputs\ATLAS_Hard24_Ten_Seed_Aggregation\archive_cache\79df48cb46a2e073c223\hard24_training_seed_44,676d66bf67e67a52dba3be50cfe7925d3b49f8f5e9ec9876913ed45146e03c54,True
+Hard24,45,C:\Users\moeni\Documents\Codex\2026-09-13\thi\work\atlas_multiseed_revision_20260927\results\hard24_training_seed_45,676d66bf67e67a52dba3be50cfe7925d3b49f8f5e9ec9876913ed45146e03c54,True
+Hard24,50,C:\Users\moeni\Documents\Codex\2026-09-13\thi\outputs\ATLAS_Hard24_Local_Five_Seeds\results\hard24_training_seed_50,676d66bf67e67a52dba3be50cfe7925d3b49f8f5e9ec9876913ed45146e03c54,True
+Hard24,51,C:\Users\moeni\Documents\Codex\2026-09-13\thi\outputs\ATLAS_Hard24_Local_Five_Seeds\results\hard24_training_seed_51,676d66bf67e67a52dba3be50cfe7925d3b49f8f5e9ec9876913ed45146e03c54,True
+Hard24,52,C:\Users\moeni\Documents\Codex\2026-09-13\thi\outputs\ATLAS_Hard24_Local_Five_Seeds\results\hard24_training_seed_52,676d66bf67e67a52dba3be50cfe7925d3b49f8f5e9ec9876913ed45146e03c54,True
+Hard24,62,C:\Users\moeni\Documents\Codex\2026-09-13\thi\outputs\ATLAS_Hard24_Ten_Seed_Aggregation\archive_cache\c673a7eaf23ea5912980\hard24_training_seed_62,676d66bf67e67a52dba3be50cfe7925d3b49f8f5e9ec9876913ed45146e03c54,True
+Hard24,63,C:\Users\moeni\Documents\Codex\2026-09-13\thi\outputs\ATLAS_Hard24_Ten_Seed_Aggregation\archive_cache\dc49f37c81e9397051bb\hard24_training_seed_63,676d66bf67e67a52dba3be50cfe7925d3b49f8f5e9ec9876913ed45146e03c54,True
+CR3,42,C:\Users\moeni\Documents\Codex\2026-09-13\thi\work\paper_benchmarks_20260919\full_cr3cov_v2,db08a45363fd873f7d62d5736e49fbb86df4f199109d56a5b7d683c38d8f2c15,True
+CR3,43,C:\Users\moeni\Documents\Codex\2026-10-01\referenced-chatgpt-conversation-this-is-an\work\raw\cr3_training_seed_43,db08a45363fd873f7d62d5736e49fbb86df4f199109d56a5b7d683c38d8f2c15,True
+CR3,45,C:\Users\moeni\Documents\Codex\2026-10-01\referenced-chatgpt-conversation-this-is-an\work\raw\cr3_training_seed_45,db08a45363fd873f7d62d5736e49fbb86df4f199109d56a5b7d683c38d8f2c15,True
+CR3,46,C:\Users\moeni\Documents\Codex\2026-10-01\referenced-chatgpt-conversation-this-is-an\work\raw\cr3_training_seed_46,db08a45363fd873f7d62d5736e49fbb86df4f199109d56a5b7d683c38d8f2c15,True
+CR3,47,C:\Users\moeni\Documents\Codex\2026-10-01\referenced-chatgpt-conversation-this-is-an\work\raw\cr3_training_seed_47,db08a45363fd873f7d62d5736e49fbb86df4f199109d56a5b7d683c38d8f2c15,True

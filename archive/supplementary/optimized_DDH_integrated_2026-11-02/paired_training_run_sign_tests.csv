@@ -1,0 +1,421 @@
+experiment,landmark,target,ATLAS_model,method,comparison_rule,comparator,wins,losses,ties,one_sided_sign_p,mean_difference,wins_vs_optimized_DDH,training_runs
+CR3,0,CIF_Death_A,ATLAS-GRU,antithetic,fixed strongest mean comparator,DynamicDeepHit,5,0,0,0.03125,-0.0054035102004899305,5,5
+CR3,0,CIF_Death_A,ATLAS-GRU,antithetic,best direct within each training run,setting-specific,5,0,0,0.03125,-0.004983542336010371,5,5
+CR3,0,CIF_Death_A,ATLAS-GRU,conditional_mc,fixed strongest mean comparator,DynamicDeepHit,5,0,0,0.03125,-0.005730855158088147,5,5
+CR3,0,CIF_Death_A,ATLAS-GRU,conditional_mc,best direct within each training run,setting-specific,5,0,0,0.03125,-0.005310887293608587,5,5
+CR3,0,CIF_Death_A,ATLAS-GRU,iid,fixed strongest mean comparator,DynamicDeepHit,5,0,0,0.03125,-0.005409161276741301,5,5
+CR3,0,CIF_Death_A,ATLAS-GRU,iid,best direct within each training run,setting-specific,5,0,0,0.03125,-0.0049891934122617415,5,5
+CR3,0,CIF_Death_A,ATLAS-GRU,importance,fixed strongest mean comparator,DynamicDeepHit,5,0,0,0.03125,-0.0053913172580442,5,5
+CR3,0,CIF_Death_A,ATLAS-GRU,importance,best direct within each training run,setting-specific,5,0,0,0.03125,-0.004971349393564641,5,5
+CR3,0,CIF_Death_A,ATLAS-GRU,sobol,fixed strongest mean comparator,DynamicDeepHit,5,0,0,0.03125,-0.005666868115009461,5,5
+CR3,0,CIF_Death_A,ATLAS-GRU,sobol,best direct within each training run,setting-specific,5,0,0,0.03125,-0.005246900250529903,5,5
+CR3,0,CIF_Death_A,ATLAS-GRU,stratified,fixed strongest mean comparator,DynamicDeepHit,5,0,0,0.03125,-0.005556242172634994,5,5
+CR3,0,CIF_Death_A,ATLAS-GRU,stratified,best direct within each training run,setting-specific,5,0,0,0.03125,-0.005136274308155435,5,5
+CR3,0,CIF_Death_A,ATLAS-GRU,weighted_branching,fixed strongest mean comparator,DynamicDeepHit,5,0,0,0.03125,-0.005303476945507842,5,5
+CR3,0,CIF_Death_A,ATLAS-GRU,weighted_branching,best direct within each training run,setting-specific,5,0,0,0.03125,-0.0048835090810282825,5,5
+CR3,0,CIF_Death_A,ATLAS-Transformer,antithetic,fixed strongest mean comparator,DynamicDeepHit,5,0,0,0.03125,-0.0043058689755423405,5,5
+CR3,0,CIF_Death_A,ATLAS-Transformer,antithetic,best direct within each training run,setting-specific,5,0,0,0.03125,-0.003885901111062781,5,5
+CR3,0,CIF_Death_A,ATLAS-Transformer,conditional_mc,fixed strongest mean comparator,DynamicDeepHit,5,0,0,0.03125,-0.004506089459537626,5,5
+CR3,0,CIF_Death_A,ATLAS-Transformer,conditional_mc,best direct within each training run,setting-specific,5,0,0,0.03125,-0.004086121595058068,5,5
+CR3,0,CIF_Death_A,ATLAS-Transformer,iid,fixed strongest mean comparator,DynamicDeepHit,5,0,0,0.03125,-0.0042174526112646275,5,5
+CR3,0,CIF_Death_A,ATLAS-Transformer,iid,best direct within each training run,setting-specific,5,0,0,0.03125,-0.0037974847467850694,5,5
+CR3,0,CIF_Death_A,ATLAS-Transformer,importance,fixed strongest mean comparator,DynamicDeepHit,5,0,0,0.03125,-0.004228463703453362,5,5
+CR3,0,CIF_Death_A,ATLAS-Transformer,importance,best direct within each training run,setting-specific,5,0,0,0.03125,-0.0038084958389738035,5,5
+CR3,0,CIF_Death_A,ATLAS-Transformer,sobol,fixed strongest mean comparator,DynamicDeepHit,5,0,0,0.03125,-0.004454696068247562,5,5
+CR3,0,CIF_Death_A,ATLAS-Transformer,sobol,best direct within each training run,setting-specific,5,0,0,0.03125,-0.004034728203768003,5,5
+CR3,0,CIF_Death_A,ATLAS-Transformer,stratified,fixed strongest mean comparator,DynamicDeepHit,5,0,0,0.03125,-0.004328726434677628,5,5
+CR3,0,CIF_Death_A,ATLAS-Transformer,stratified,best direct within each training run,setting-specific,5,0,0,0.03125,-0.003908758570198069,5,5
+CR3,0,CIF_Death_A,ATLAS-Transformer,weighted_branching,fixed strongest mean comparator,DynamicDeepHit,5,0,0,0.03125,-0.0042156661693964525,5,5
+CR3,0,CIF_Death_A,ATLAS-Transformer,weighted_branching,best direct within each training run,setting-specific,5,0,0,0.03125,-0.003795698304916893,5,5
+CR3,0,CIF_Death_B,ATLAS-GRU,antithetic,fixed strongest mean comparator,Weibull,5,0,0,0.03125,-0.0014703512492323584,5,5
+CR3,0,CIF_Death_B,ATLAS-GRU,antithetic,best direct within each training run,setting-specific,5,0,0,0.03125,-0.001421060011864359,5,5
+CR3,0,CIF_Death_B,ATLAS-GRU,conditional_mc,fixed strongest mean comparator,Weibull,5,0,0,0.03125,-0.0017135880314851797,5,5
+CR3,0,CIF_Death_B,ATLAS-GRU,conditional_mc,best direct within each training run,setting-specific,5,0,0,0.03125,-0.0016642967941171802,5,5
+CR3,0,CIF_Death_B,ATLAS-GRU,iid,fixed strongest mean comparator,Weibull,5,0,0,0.03125,-0.0014726436069938777,5,5
+CR3,0,CIF_Death_B,ATLAS-GRU,iid,best direct within each training run,setting-specific,5,0,0,0.03125,-0.0014233523696258782,5,5
+CR3,0,CIF_Death_B,ATLAS-GRU,importance,fixed strongest mean comparator,Weibull,5,0,0,0.03125,-0.001486075016260941,5,5
+CR3,0,CIF_Death_B,ATLAS-GRU,importance,best direct within each training run,setting-specific,5,0,0,0.03125,-0.0014367837788929415,5,5
+CR3,0,CIF_Death_B,ATLAS-GRU,sobol,fixed strongest mean comparator,Weibull,5,0,0,0.03125,-0.0016019808186910878,5,5
+CR3,0,CIF_Death_B,ATLAS-GRU,sobol,best direct within each training run,setting-specific,5,0,0,0.03125,-0.0015526895813230885,5,5
+CR3,0,CIF_Death_B,ATLAS-GRU,stratified,fixed strongest mean comparator,Weibull,5,0,0,0.03125,-0.0015056849046376779,5,5
+CR3,0,CIF_Death_B,ATLAS-GRU,stratified,best direct within each training run,setting-specific,5,0,0,0.03125,-0.0014563936672696786,5,5
+CR3,0,CIF_Death_B,ATLAS-GRU,weighted_branching,fixed strongest mean comparator,Weibull,5,0,0,0.03125,-0.0015888814772902777,5,5
+CR3,0,CIF_Death_B,ATLAS-GRU,weighted_branching,best direct within each training run,setting-specific,5,0,0,0.03125,-0.0015395902399222782,5,5
+CR3,0,CIF_Death_B,ATLAS-Transformer,antithetic,fixed strongest mean comparator,Weibull,4,1,0,0.1875,-0.00023040320717336547,4,5
+CR3,0,CIF_Death_B,ATLAS-Transformer,antithetic,best direct within each training run,setting-specific,4,1,0,0.1875,-0.000181111969805366,4,5
+CR3,0,CIF_Death_B,ATLAS-Transformer,conditional_mc,fixed strongest mean comparator,Weibull,4,1,0,0.1875,-0.00047772185428338504,4,5
+CR3,0,CIF_Death_B,ATLAS-Transformer,conditional_mc,best direct within each training run,setting-specific,4,1,0,0.1875,-0.0004284306169153856,4,5
+CR3,0,CIF_Death_B,ATLAS-Transformer,iid,fixed strongest mean comparator,Weibull,4,1,0,0.1875,-0.00021790102301752647,4,5
+CR3,0,CIF_Death_B,ATLAS-Transformer,iid,best direct within each training run,setting-specific,4,1,0,0.1875,-0.00016860978564952697,4,5
+CR3,0,CIF_Death_B,ATLAS-Transformer,importance,fixed strongest mean comparator,Weibull,4,1,0,0.1875,-0.00022814811328608753,4,5
+CR3,0,CIF_Death_B,ATLAS-Transformer,importance,best direct within each training run,setting-specific,4,1,0,0.1875,-0.00017885687591808803,4,5
+CR3,0,CIF_Death_B,ATLAS-Transformer,sobol,fixed strongest mean comparator,Weibull,4,1,0,0.1875,-0.0003312267708662768,4,5
+CR3,0,CIF_Death_B,ATLAS-Transformer,sobol,best direct within each training run,setting-specific,4,1,0,0.1875,-0.0002819355334982773,4,5
+CR3,0,CIF_Death_B,ATLAS-Transformer,stratified,fixed strongest mean comparator,Weibull,4,1,0,0.1875,-0.00030913761748375696,4,5
+CR3,0,CIF_Death_B,ATLAS-Transformer,stratified,best direct within each training run,setting-specific,4,1,0,0.1875,-0.0002598463801157575,4,5
+CR3,0,CIF_Death_B,ATLAS-Transformer,weighted_branching,fixed strongest mean comparator,Weibull,4,1,0,0.1875,-0.00032830997818784885,4,5
+CR3,0,CIF_Death_B,ATLAS-Transformer,weighted_branching,best direct within each training run,setting-specific,4,1,0,0.1875,-0.0002790187408198493,4,5
+CR3,0,Survival,ATLAS-GRU,antithetic,fixed strongest mean comparator,Weibull,5,0,0,0.03125,-0.007379247071978244,5,5
+CR3,0,Survival,ATLAS-GRU,antithetic,best direct within each training run,setting-specific,5,0,0,0.03125,-0.007251943874242985,5,5
+CR3,0,Survival,ATLAS-GRU,conditional_mc,fixed strongest mean comparator,Weibull,5,0,0,0.03125,-0.007616640715847253,5,5
+CR3,0,Survival,ATLAS-GRU,conditional_mc,best direct within each training run,setting-specific,5,0,0,0.03125,-0.007489337518111994,5,5
+CR3,0,Survival,ATLAS-GRU,iid,fixed strongest mean comparator,Weibull,5,0,0,0.03125,-0.007322953531234386,5,5
+CR3,0,Survival,ATLAS-GRU,iid,best direct within each training run,setting-specific,5,0,0,0.03125,-0.007195650333499126,5,5
+CR3,0,Survival,ATLAS-GRU,importance,fixed strongest mean comparator,Weibull,5,0,0,0.03125,-0.007224040980812347,5,5
+CR3,0,Survival,ATLAS-GRU,importance,best direct within each training run,setting-specific,5,0,0,0.03125,-0.007096737783077088,5,5
+CR3,0,Survival,ATLAS-GRU,sobol,fixed strongest mean comparator,Weibull,5,0,0,0.03125,-0.007608288186836816,5,5
+CR3,0,Survival,ATLAS-GRU,sobol,best direct within each training run,setting-specific,5,0,0,0.03125,-0.007480984989101556,5,5
+CR3,0,Survival,ATLAS-GRU,stratified,fixed strongest mean comparator,Weibull,5,0,0,0.03125,-0.007477994036332224,5,5
+CR3,0,Survival,ATLAS-GRU,stratified,best direct within each training run,setting-specific,5,0,0,0.03125,-0.0073506908385969644,5,5
+CR3,0,Survival,ATLAS-GRU,weighted_branching,fixed strongest mean comparator,Weibull,5,0,0,0.03125,-0.0073017672265548225,5,5
+CR3,0,Survival,ATLAS-GRU,weighted_branching,best direct within each training run,setting-specific,5,0,0,0.03125,-0.007174464028819563,5,5
+CR3,0,Survival,ATLAS-Transformer,antithetic,fixed strongest mean comparator,Weibull,4,1,0,0.1875,-0.004992288940642743,5,5
+CR3,0,Survival,ATLAS-Transformer,antithetic,best direct within each training run,setting-specific,4,1,0,0.1875,-0.0048649857429074825,5,5
+CR3,0,Survival,ATLAS-Transformer,conditional_mc,fixed strongest mean comparator,Weibull,4,1,0,0.1875,-0.005125383322079728,5,5
+CR3,0,Survival,ATLAS-Transformer,conditional_mc,best direct within each training run,setting-specific,4,1,0,0.1875,-0.004998080124344469,5,5
+CR3,0,Survival,ATLAS-Transformer,iid,fixed strongest mean comparator,Weibull,4,1,0,0.1875,-0.004884907677165684,5,5
+CR3,0,Survival,ATLAS-Transformer,iid,best direct within each training run,setting-specific,4,1,0,0.1875,-0.0047576044794304245,5,5
+CR3,0,Survival,ATLAS-Transformer,importance,fixed strongest mean comparator,Weibull,4,1,0,0.1875,-0.004799482199804211,5,5
+CR3,0,Survival,ATLAS-Transformer,importance,best direct within each training run,setting-specific,4,1,0,0.1875,-0.004672179002068952,5,5
+CR3,0,Survival,ATLAS-Transformer,sobol,fixed strongest mean comparator,Weibull,4,1,0,0.1875,-0.0051318626305120974,5,5
+CR3,0,Survival,ATLAS-Transformer,sobol,best direct within each training run,setting-specific,4,1,0,0.1875,-0.005004559432776838,5,5
+CR3,0,Survival,ATLAS-Transformer,stratified,fixed strongest mean comparator,Weibull,4,1,0,0.1875,-0.0050855967814800425,5,5
+CR3,0,Survival,ATLAS-Transformer,stratified,best direct within each training run,setting-specific,4,1,0,0.1875,-0.0049582935837447824,5,5
+CR3,0,Survival,ATLAS-Transformer,weighted_branching,fixed strongest mean comparator,Weibull,4,1,0,0.1875,-0.0049264141175992555,5,5
+CR3,0,Survival,ATLAS-Transformer,weighted_branching,best direct within each training run,setting-specific,4,1,0,0.1875,-0.004799110919863995,5,5
+CR3,10,CIF_Death_A,ATLAS-GRU,antithetic,fixed strongest mean comparator,DynamicDeepHit,5,0,0,0.03125,-0.010593530401436874,5,5
+CR3,10,CIF_Death_A,ATLAS-GRU,antithetic,best direct within each training run,setting-specific,5,0,0,0.03125,-0.010593530401436874,5,5
+CR3,10,CIF_Death_A,ATLAS-GRU,conditional_mc,fixed strongest mean comparator,DynamicDeepHit,5,0,0,0.03125,-0.010832169205811685,5,5
+CR3,10,CIF_Death_A,ATLAS-GRU,conditional_mc,best direct within each training run,setting-specific,5,0,0,0.03125,-0.010832169205811685,5,5
+CR3,10,CIF_Death_A,ATLAS-GRU,iid,fixed strongest mean comparator,DynamicDeepHit,5,0,0,0.03125,-0.010582479155463695,5,5
+CR3,10,CIF_Death_A,ATLAS-GRU,iid,best direct within each training run,setting-specific,5,0,0,0.03125,-0.010582479155463695,5,5
+CR3,10,CIF_Death_A,ATLAS-GRU,importance,fixed strongest mean comparator,DynamicDeepHit,5,0,0,0.03125,-0.010527395343845333,5,5
+CR3,10,CIF_Death_A,ATLAS-GRU,importance,best direct within each training run,setting-specific,5,0,0,0.03125,-0.010527395343845333,5,5
+CR3,10,CIF_Death_A,ATLAS-GRU,sobol,fixed strongest mean comparator,DynamicDeepHit,5,0,0,0.03125,-0.01076266307287752,5,5
+CR3,10,CIF_Death_A,ATLAS-GRU,sobol,best direct within each training run,setting-specific,5,0,0,0.03125,-0.01076266307287752,5,5
+CR3,10,CIF_Death_A,ATLAS-GRU,stratified,fixed strongest mean comparator,DynamicDeepHit,5,0,0,0.03125,-0.010669084881012567,5,5
+CR3,10,CIF_Death_A,ATLAS-GRU,stratified,best direct within each training run,setting-specific,5,0,0,0.03125,-0.010669084881012567,5,5
+CR3,10,CIF_Death_A,ATLAS-GRU,weighted_branching,fixed strongest mean comparator,DynamicDeepHit,5,0,0,0.03125,-0.010726565250928088,5,5
+CR3,10,CIF_Death_A,ATLAS-GRU,weighted_branching,best direct within each training run,setting-specific,5,0,0,0.03125,-0.010726565250928088,5,5
+CR3,10,CIF_Death_A,ATLAS-Transformer,antithetic,fixed strongest mean comparator,DynamicDeepHit,5,0,0,0.03125,-0.00923340589377646,5,5
+CR3,10,CIF_Death_A,ATLAS-Transformer,antithetic,best direct within each training run,setting-specific,5,0,0,0.03125,-0.00923340589377646,5,5
+CR3,10,CIF_Death_A,ATLAS-Transformer,conditional_mc,fixed strongest mean comparator,DynamicDeepHit,5,0,0,0.03125,-0.00948552069228409,5,5
+CR3,10,CIF_Death_A,ATLAS-Transformer,conditional_mc,best direct within each training run,setting-specific,5,0,0,0.03125,-0.00948552069228409,5,5
+CR3,10,CIF_Death_A,ATLAS-Transformer,iid,fixed strongest mean comparator,DynamicDeepHit,5,0,0,0.03125,-0.009253528656276846,5,5
+CR3,10,CIF_Death_A,ATLAS-Transformer,iid,best direct within each training run,setting-specific,5,0,0,0.03125,-0.009253528656276846,5,5
+CR3,10,CIF_Death_A,ATLAS-Transformer,importance,fixed strongest mean comparator,DynamicDeepHit,5,0,0,0.03125,-0.00918292593407671,5,5
+CR3,10,CIF_Death_A,ATLAS-Transformer,importance,best direct within each training run,setting-specific,5,0,0,0.03125,-0.00918292593407671,5,5
+CR3,10,CIF_Death_A,ATLAS-Transformer,sobol,fixed strongest mean comparator,DynamicDeepHit,5,0,0,0.03125,-0.00939557649643077,5,5
+CR3,10,CIF_Death_A,ATLAS-Transformer,sobol,best direct within each training run,setting-specific,5,0,0,0.03125,-0.00939557649643077,5,5
+CR3,10,CIF_Death_A,ATLAS-Transformer,stratified,fixed strongest mean comparator,DynamicDeepHit,5,0,0,0.03125,-0.009335141651258958,5,5
+CR3,10,CIF_Death_A,ATLAS-Transformer,stratified,best direct within each training run,setting-specific,5,0,0,0.03125,-0.009335141651258958,5,5
+CR3,10,CIF_Death_A,ATLAS-Transformer,weighted_branching,fixed strongest mean comparator,DynamicDeepHit,5,0,0,0.03125,-0.009369739116549206,5,5
+CR3,10,CIF_Death_A,ATLAS-Transformer,weighted_branching,best direct within each training run,setting-specific,5,0,0,0.03125,-0.009369739116549206,5,5
+CR3,10,CIF_Death_B,ATLAS-GRU,antithetic,fixed strongest mean comparator,DynamicDeepHit,5,0,0,0.03125,-0.007962188498122635,5,5
+CR3,10,CIF_Death_B,ATLAS-GRU,antithetic,best direct within each training run,setting-specific,5,0,0,0.03125,-0.007962188498122635,5,5
+CR3,10,CIF_Death_B,ATLAS-GRU,conditional_mc,fixed strongest mean comparator,DynamicDeepHit,5,0,0,0.03125,-0.008162103056391418,5,5
+CR3,10,CIF_Death_B,ATLAS-GRU,conditional_mc,best direct within each training run,setting-specific,5,0,0,0.03125,-0.008162103056391418,5,5
+CR3,10,CIF_Death_B,ATLAS-GRU,iid,fixed strongest mean comparator,DynamicDeepHit,5,0,0,0.03125,-0.007933508548774707,5,5
+CR3,10,CIF_Death_B,ATLAS-GRU,iid,best direct within each training run,setting-specific,5,0,0,0.03125,-0.007933508548774707,5,5
+CR3,10,CIF_Death_B,ATLAS-GRU,importance,fixed strongest mean comparator,DynamicDeepHit,5,0,0,0.03125,-0.007921079159812943,5,5
+CR3,10,CIF_Death_B,ATLAS-GRU,importance,best direct within each training run,setting-specific,5,0,0,0.03125,-0.007921079159812943,5,5
+CR3,10,CIF_Death_B,ATLAS-GRU,sobol,fixed strongest mean comparator,DynamicDeepHit,5,0,0,0.03125,-0.008085885857249295,5,5
+CR3,10,CIF_Death_B,ATLAS-GRU,sobol,best direct within each training run,setting-specific,5,0,0,0.03125,-0.008085885857249295,5,5
+CR3,10,CIF_Death_B,ATLAS-GRU,stratified,fixed strongest mean comparator,DynamicDeepHit,5,0,0,0.03125,-0.007989353002462292,5,5
+CR3,10,CIF_Death_B,ATLAS-GRU,stratified,best direct within each training run,setting-specific,5,0,0,0.03125,-0.007989353002462292,5,5
+CR3,10,CIF_Death_B,ATLAS-GRU,weighted_branching,fixed strongest mean comparator,DynamicDeepHit,5,0,0,0.03125,-0.008148998536784519,5,5
+CR3,10,CIF_Death_B,ATLAS-GRU,weighted_branching,best direct within each training run,setting-specific,5,0,0,0.03125,-0.008148998536784519,5,5
+CR3,10,CIF_Death_B,ATLAS-Transformer,antithetic,fixed strongest mean comparator,DynamicDeepHit,5,0,0,0.03125,-0.0061042036844281165,5,5
+CR3,10,CIF_Death_B,ATLAS-Transformer,antithetic,best direct within each training run,setting-specific,5,0,0,0.03125,-0.0061042036844281165,5,5
+CR3,10,CIF_Death_B,ATLAS-Transformer,conditional_mc,fixed strongest mean comparator,DynamicDeepHit,5,0,0,0.03125,-0.0062293455336060646,5,5
+CR3,10,CIF_Death_B,ATLAS-Transformer,conditional_mc,best direct within each training run,setting-specific,5,0,0,0.03125,-0.0062293455336060646,5,5
+CR3,10,CIF_Death_B,ATLAS-Transformer,iid,fixed strongest mean comparator,DynamicDeepHit,5,0,0,0.03125,-0.0060732684493902825,5,5
+CR3,10,CIF_Death_B,ATLAS-Transformer,iid,best direct within each training run,setting-specific,5,0,0,0.03125,-0.0060732684493902825,5,5
+CR3,10,CIF_Death_B,ATLAS-Transformer,importance,fixed strongest mean comparator,DynamicDeepHit,5,0,0,0.03125,-0.006075565062575943,5,5
+CR3,10,CIF_Death_B,ATLAS-Transformer,importance,best direct within each training run,setting-specific,5,0,0,0.03125,-0.006075565062575943,5,5
+CR3,10,CIF_Death_B,ATLAS-Transformer,sobol,fixed strongest mean comparator,DynamicDeepHit,5,0,0,0.03125,-0.006166677179452207,5,5
+CR3,10,CIF_Death_B,ATLAS-Transformer,sobol,best direct within each training run,setting-specific,5,0,0,0.03125,-0.006166677179452207,5,5
+CR3,10,CIF_Death_B,ATLAS-Transformer,stratified,fixed strongest mean comparator,DynamicDeepHit,5,0,0,0.03125,-0.0060988592635756724,5,5
+CR3,10,CIF_Death_B,ATLAS-Transformer,stratified,best direct within each training run,setting-specific,5,0,0,0.03125,-0.0060988592635756724,5,5
+CR3,10,CIF_Death_B,ATLAS-Transformer,weighted_branching,fixed strongest mean comparator,DynamicDeepHit,5,0,0,0.03125,-0.006223345448918213,5,5
+CR3,10,CIF_Death_B,ATLAS-Transformer,weighted_branching,best direct within each training run,setting-specific,5,0,0,0.03125,-0.006223345448918213,5,5
+CR3,10,Survival,ATLAS-GRU,antithetic,fixed strongest mean comparator,DynamicDeepHit,5,0,0,0.03125,-0.01406007236617795,5,5
+CR3,10,Survival,ATLAS-GRU,antithetic,best direct within each training run,setting-specific,5,0,0,0.03125,-0.01406007236617795,5,5
+CR3,10,Survival,ATLAS-GRU,conditional_mc,fixed strongest mean comparator,DynamicDeepHit,5,0,0,0.03125,-0.014241562704986641,5,5
+CR3,10,Survival,ATLAS-GRU,conditional_mc,best direct within each training run,setting-specific,5,0,0,0.03125,-0.014241562704986641,5,5
+CR3,10,Survival,ATLAS-GRU,iid,fixed strongest mean comparator,DynamicDeepHit,5,0,0,0.03125,-0.013962316770839835,5,5
+CR3,10,Survival,ATLAS-GRU,iid,best direct within each training run,setting-specific,5,0,0,0.03125,-0.013962316770839835,5,5
+CR3,10,Survival,ATLAS-GRU,importance,fixed strongest mean comparator,DynamicDeepHit,5,0,0,0.03125,-0.01389147726003952,5,5
+CR3,10,Survival,ATLAS-GRU,importance,best direct within each training run,setting-specific,5,0,0,0.03125,-0.01389147726003952,5,5
+CR3,10,Survival,ATLAS-GRU,sobol,fixed strongest mean comparator,DynamicDeepHit,5,0,0,0.03125,-0.014236370477218116,5,5
+CR3,10,Survival,ATLAS-GRU,sobol,best direct within each training run,setting-specific,5,0,0,0.03125,-0.014236370477218116,5,5
+CR3,10,Survival,ATLAS-GRU,stratified,fixed strongest mean comparator,DynamicDeepHit,5,0,0,0.03125,-0.014128740411644487,5,5
+CR3,10,Survival,ATLAS-GRU,stratified,best direct within each training run,setting-specific,5,0,0,0.03125,-0.014128740411644487,5,5
+CR3,10,Survival,ATLAS-GRU,weighted_branching,fixed strongest mean comparator,DynamicDeepHit,5,0,0,0.03125,-0.01421004584821548,5,5
+CR3,10,Survival,ATLAS-GRU,weighted_branching,best direct within each training run,setting-specific,5,0,0,0.03125,-0.01421004584821548,5,5
+CR3,10,Survival,ATLAS-Transformer,antithetic,fixed strongest mean comparator,DynamicDeepHit,5,0,0,0.03125,-0.011182287902318639,5,5
+CR3,10,Survival,ATLAS-Transformer,antithetic,best direct within each training run,setting-specific,5,0,0,0.03125,-0.011182287902318639,5,5
+CR3,10,Survival,ATLAS-Transformer,conditional_mc,fixed strongest mean comparator,DynamicDeepHit,5,0,0,0.03125,-0.011384925956429542,5,5
+CR3,10,Survival,ATLAS-Transformer,conditional_mc,best direct within each training run,setting-specific,5,0,0,0.03125,-0.011384925956429542,5,5
+CR3,10,Survival,ATLAS-Transformer,iid,fixed strongest mean comparator,DynamicDeepHit,5,0,0,0.03125,-0.011117623739741869,5,5
+CR3,10,Survival,ATLAS-Transformer,iid,best direct within each training run,setting-specific,5,0,0,0.03125,-0.011117623739741869,5,5
+CR3,10,Survival,ATLAS-Transformer,importance,fixed strongest mean comparator,DynamicDeepHit,5,0,0,0.03125,-0.011057783985402869,5,5
+CR3,10,Survival,ATLAS-Transformer,importance,best direct within each training run,setting-specific,5,0,0,0.03125,-0.011057783985402869,5,5
+CR3,10,Survival,ATLAS-Transformer,sobol,fixed strongest mean comparator,DynamicDeepHit,5,0,0,0.03125,-0.011334085095025233,5,5
+CR3,10,Survival,ATLAS-Transformer,sobol,best direct within each training run,setting-specific,5,0,0,0.03125,-0.011334085095025233,5,5
+CR3,10,Survival,ATLAS-Transformer,stratified,fixed strongest mean comparator,DynamicDeepHit,5,0,0,0.03125,-0.011261700880910889,5,5
+CR3,10,Survival,ATLAS-Transformer,stratified,best direct within each training run,setting-specific,5,0,0,0.03125,-0.011261700880910889,5,5
+CR3,10,Survival,ATLAS-Transformer,weighted_branching,fixed strongest mean comparator,DynamicDeepHit,5,0,0,0.03125,-0.011276571796740655,5,5
+CR3,10,Survival,ATLAS-Transformer,weighted_branching,best direct within each training run,setting-specific,5,0,0,0.03125,-0.011276571796740655,5,5
+CR3,20,CIF_Death_A,ATLAS-GRU,antithetic,fixed strongest mean comparator,DynamicDeepHit,5,0,0,0.03125,-0.011210553926311876,5,5
+CR3,20,CIF_Death_A,ATLAS-GRU,antithetic,best direct within each training run,setting-specific,5,0,0,0.03125,-0.011210553926311876,5,5
+CR3,20,CIF_Death_A,ATLAS-GRU,conditional_mc,fixed strongest mean comparator,DynamicDeepHit,5,0,0,0.03125,-0.011439418705978078,5,5
+CR3,20,CIF_Death_A,ATLAS-GRU,conditional_mc,best direct within each training run,setting-specific,5,0,0,0.03125,-0.011439418705978078,5,5
+CR3,20,CIF_Death_A,ATLAS-GRU,iid,fixed strongest mean comparator,DynamicDeepHit,5,0,0,0.03125,-0.011231908641176819,5,5
+CR3,20,CIF_Death_A,ATLAS-GRU,iid,best direct within each training run,setting-specific,5,0,0,0.03125,-0.011231908641176819,5,5
+CR3,20,CIF_Death_A,ATLAS-GRU,importance,fixed strongest mean comparator,DynamicDeepHit,5,0,0,0.03125,-0.011293259988641224,5,5
+CR3,20,CIF_Death_A,ATLAS-GRU,importance,best direct within each training run,setting-specific,5,0,0,0.03125,-0.011293259988641224,5,5
+CR3,20,CIF_Death_A,ATLAS-GRU,sobol,fixed strongest mean comparator,DynamicDeepHit,5,0,0,0.03125,-0.011392640087590796,5,5
+CR3,20,CIF_Death_A,ATLAS-GRU,sobol,best direct within each training run,setting-specific,5,0,0,0.03125,-0.011392640087590796,5,5
+CR3,20,CIF_Death_A,ATLAS-GRU,stratified,fixed strongest mean comparator,DynamicDeepHit,5,0,0,0.03125,-0.011297251957654115,5,5
+CR3,20,CIF_Death_A,ATLAS-GRU,stratified,best direct within each training run,setting-specific,5,0,0,0.03125,-0.011297251957654115,5,5
+CR3,20,CIF_Death_A,ATLAS-GRU,weighted_branching,fixed strongest mean comparator,DynamicDeepHit,5,0,0,0.03125,-0.011406560711691275,5,5
+CR3,20,CIF_Death_A,ATLAS-GRU,weighted_branching,best direct within each training run,setting-specific,5,0,0,0.03125,-0.011406560711691275,5,5
+CR3,20,CIF_Death_A,ATLAS-Transformer,antithetic,fixed strongest mean comparator,DynamicDeepHit,5,0,0,0.03125,-0.010637753476007821,5,5
+CR3,20,CIF_Death_A,ATLAS-Transformer,antithetic,best direct within each training run,setting-specific,5,0,0,0.03125,-0.010637753476007821,5,5
+CR3,20,CIF_Death_A,ATLAS-Transformer,conditional_mc,fixed strongest mean comparator,DynamicDeepHit,5,0,0,0.03125,-0.01079831340264265,5,5
+CR3,20,CIF_Death_A,ATLAS-Transformer,conditional_mc,best direct within each training run,setting-specific,5,0,0,0.03125,-0.01079831340264265,5,5
+CR3,20,CIF_Death_A,ATLAS-Transformer,iid,fixed strongest mean comparator,DynamicDeepHit,5,0,0,0.03125,-0.010616775872492167,5,5
+CR3,20,CIF_Death_A,ATLAS-Transformer,iid,best direct within each training run,setting-specific,5,0,0,0.03125,-0.010616775872492167,5,5
+CR3,20,CIF_Death_A,ATLAS-Transformer,importance,fixed strongest mean comparator,DynamicDeepHit,5,0,0,0.03125,-0.010651975667505791,5,5
+CR3,20,CIF_Death_A,ATLAS-Transformer,importance,best direct within each training run,setting-specific,5,0,0,0.03125,-0.010651975667505791,5,5
+CR3,20,CIF_Death_A,ATLAS-Transformer,sobol,fixed strongest mean comparator,DynamicDeepHit,5,0,0,0.03125,-0.010768813237086058,5,5
+CR3,20,CIF_Death_A,ATLAS-Transformer,sobol,best direct within each training run,setting-specific,5,0,0,0.03125,-0.010768813237086058,5,5
+CR3,20,CIF_Death_A,ATLAS-Transformer,stratified,fixed strongest mean comparator,DynamicDeepHit,5,0,0,0.03125,-0.01068351650591397,5,5
+CR3,20,CIF_Death_A,ATLAS-Transformer,stratified,best direct within each training run,setting-specific,5,0,0,0.03125,-0.01068351650591397,5,5
+CR3,20,CIF_Death_A,ATLAS-Transformer,weighted_branching,fixed strongest mean comparator,DynamicDeepHit,5,0,0,0.03125,-0.010794039609486569,5,5
+CR3,20,CIF_Death_A,ATLAS-Transformer,weighted_branching,best direct within each training run,setting-specific,5,0,0,0.03125,-0.010794039609486569,5,5
+CR3,20,CIF_Death_B,ATLAS-GRU,antithetic,fixed strongest mean comparator,DynamicDeepHit,5,0,0,0.03125,-0.007214531741679649,5,5
+CR3,20,CIF_Death_B,ATLAS-GRU,antithetic,best direct within each training run,setting-specific,5,0,0,0.03125,-0.007214531741679649,5,5
+CR3,20,CIF_Death_B,ATLAS-GRU,conditional_mc,fixed strongest mean comparator,DynamicDeepHit,5,0,0,0.03125,-0.007432690223794856,5,5
+CR3,20,CIF_Death_B,ATLAS-GRU,conditional_mc,best direct within each training run,setting-specific,5,0,0,0.03125,-0.007432690223794856,5,5
+CR3,20,CIF_Death_B,ATLAS-GRU,iid,fixed strongest mean comparator,DynamicDeepHit,5,0,0,0.03125,-0.007247550718347992,5,5
+CR3,20,CIF_Death_B,ATLAS-GRU,iid,best direct within each training run,setting-specific,5,0,0,0.03125,-0.007247550718347992,5,5
+CR3,20,CIF_Death_B,ATLAS-GRU,importance,fixed strongest mean comparator,DynamicDeepHit,5,0,0,0.03125,-0.007307460556703784,5,5
+CR3,20,CIF_Death_B,ATLAS-GRU,importance,best direct within each training run,setting-specific,5,0,0,0.03125,-0.007307460556703784,5,5
+CR3,20,CIF_Death_B,ATLAS-GRU,sobol,fixed strongest mean comparator,DynamicDeepHit,5,0,0,0.03125,-0.007355288387328967,5,5
+CR3,20,CIF_Death_B,ATLAS-GRU,sobol,best direct within each training run,setting-specific,5,0,0,0.03125,-0.007355288387328967,5,5
+CR3,20,CIF_Death_B,ATLAS-GRU,stratified,fixed strongest mean comparator,DynamicDeepHit,5,0,0,0.03125,-0.007255893122331556,5,5
+CR3,20,CIF_Death_B,ATLAS-GRU,stratified,best direct within each training run,setting-specific,5,0,0,0.03125,-0.007255893122331556,5,5
+CR3,20,CIF_Death_B,ATLAS-GRU,weighted_branching,fixed strongest mean comparator,DynamicDeepHit,5,0,0,0.03125,-0.007414779335218754,5,5
+CR3,20,CIF_Death_B,ATLAS-GRU,weighted_branching,best direct within each training run,setting-specific,5,0,0,0.03125,-0.007414779335218754,5,5
+CR3,20,CIF_Death_B,ATLAS-Transformer,antithetic,fixed strongest mean comparator,DynamicDeepHit,5,0,0,0.03125,-0.005825254775738457,5,5
+CR3,20,CIF_Death_B,ATLAS-Transformer,antithetic,best direct within each training run,setting-specific,5,0,0,0.03125,-0.005825254775738457,5,5
+CR3,20,CIF_Death_B,ATLAS-Transformer,conditional_mc,fixed strongest mean comparator,DynamicDeepHit,5,0,0,0.03125,-0.0059724071140086574,5,5
+CR3,20,CIF_Death_B,ATLAS-Transformer,conditional_mc,best direct within each training run,setting-specific,5,0,0,0.03125,-0.0059724071140086574,5,5
+CR3,20,CIF_Death_B,ATLAS-Transformer,iid,fixed strongest mean comparator,DynamicDeepHit,5,0,0,0.03125,-0.0057907984637118924,5,5
+CR3,20,CIF_Death_B,ATLAS-Transformer,iid,best direct within each training run,setting-specific,5,0,0,0.03125,-0.0057907984637118924,5,5
+CR3,20,CIF_Death_B,ATLAS-Transformer,importance,fixed strongest mean comparator,DynamicDeepHit,5,0,0,0.03125,-0.005851951908941673,5,5
+CR3,20,CIF_Death_B,ATLAS-Transformer,importance,best direct within each training run,setting-specific,5,0,0,0.03125,-0.005851951908941673,5,5
+CR3,20,CIF_Death_B,ATLAS-Transformer,sobol,fixed strongest mean comparator,DynamicDeepHit,5,0,0,0.03125,-0.005920172253825138,5,5
+CR3,20,CIF_Death_B,ATLAS-Transformer,sobol,best direct within each training run,setting-specific,5,0,0,0.03125,-0.005920172253825138,5,5
+CR3,20,CIF_Death_B,ATLAS-Transformer,stratified,fixed strongest mean comparator,DynamicDeepHit,5,0,0,0.03125,-0.0058594566168748054,5,5
+CR3,20,CIF_Death_B,ATLAS-Transformer,stratified,best direct within each training run,setting-specific,5,0,0,0.03125,-0.0058594566168748054,5,5
+CR3,20,CIF_Death_B,ATLAS-Transformer,weighted_branching,fixed strongest mean comparator,DynamicDeepHit,5,0,0,0.03125,-0.005967248916408173,5,5
+CR3,20,CIF_Death_B,ATLAS-Transformer,weighted_branching,best direct within each training run,setting-specific,5,0,0,0.03125,-0.005967248916408173,5,5
+CR3,20,Survival,ATLAS-GRU,antithetic,fixed strongest mean comparator,DynamicDeepHit,5,0,0,0.03125,-0.015820209542225603,5,5
+CR3,20,Survival,ATLAS-GRU,antithetic,best direct within each training run,setting-specific,5,0,0,0.03125,-0.015820209542225603,5,5
+CR3,20,Survival,ATLAS-GRU,conditional_mc,fixed strongest mean comparator,DynamicDeepHit,5,0,0,0.03125,-0.01607879810574418,5,5
+CR3,20,Survival,ATLAS-GRU,conditional_mc,best direct within each training run,setting-specific,5,0,0,0.03125,-0.01607879810574418,5,5
+CR3,20,Survival,ATLAS-GRU,iid,fixed strongest mean comparator,DynamicDeepHit,5,0,0,0.03125,-0.015850043805926622,5,5
+CR3,20,Survival,ATLAS-GRU,iid,best direct within each training run,setting-specific,5,0,0,0.03125,-0.015850043805926622,5,5
+CR3,20,Survival,ATLAS-GRU,importance,fixed strongest mean comparator,DynamicDeepHit,5,0,0,0.03125,-0.01590012621129549,5,5
+CR3,20,Survival,ATLAS-GRU,importance,best direct within each training run,setting-specific,5,0,0,0.03125,-0.01590012621129549,5,5
+CR3,20,Survival,ATLAS-GRU,sobol,fixed strongest mean comparator,DynamicDeepHit,5,0,0,0.03125,-0.016048678447882984,5,5
+CR3,20,Survival,ATLAS-GRU,sobol,best direct within each training run,setting-specific,5,0,0,0.03125,-0.016048678447882984,5,5
+CR3,20,Survival,ATLAS-GRU,stratified,fixed strongest mean comparator,DynamicDeepHit,5,0,0,0.03125,-0.015909017788262134,5,5
+CR3,20,Survival,ATLAS-GRU,stratified,best direct within each training run,setting-specific,5,0,0,0.03125,-0.015909017788262134,5,5
+CR3,20,Survival,ATLAS-GRU,weighted_branching,fixed strongest mean comparator,DynamicDeepHit,5,0,0,0.03125,-0.016025186610254524,5,5
+CR3,20,Survival,ATLAS-GRU,weighted_branching,best direct within each training run,setting-specific,5,0,0,0.03125,-0.016025186610254524,5,5
+CR3,20,Survival,ATLAS-Transformer,antithetic,fixed strongest mean comparator,DynamicDeepHit,5,0,0,0.03125,-0.014485224443438551,5,5
+CR3,20,Survival,ATLAS-Transformer,antithetic,best direct within each training run,setting-specific,5,0,0,0.03125,-0.014485224443438551,5,5
+CR3,20,Survival,ATLAS-Transformer,conditional_mc,fixed strongest mean comparator,DynamicDeepHit,5,0,0,0.03125,-0.014694651911189594,5,5
+CR3,20,Survival,ATLAS-Transformer,conditional_mc,best direct within each training run,setting-specific,5,0,0,0.03125,-0.014694651911189594,5,5
+CR3,20,Survival,ATLAS-Transformer,iid,fixed strongest mean comparator,DynamicDeepHit,5,0,0,0.03125,-0.014436939691395442,5,5
+CR3,20,Survival,ATLAS-Transformer,iid,best direct within each training run,setting-specific,5,0,0,0.03125,-0.014436939691395442,5,5
+CR3,20,Survival,ATLAS-Transformer,importance,fixed strongest mean comparator,DynamicDeepHit,5,0,0,0.03125,-0.014478583725468763,5,5
+CR3,20,Survival,ATLAS-Transformer,importance,best direct within each training run,setting-specific,5,0,0,0.03125,-0.014478583725468763,5,5
+CR3,20,Survival,ATLAS-Transformer,sobol,fixed strongest mean comparator,DynamicDeepHit,5,0,0,0.03125,-0.014658452577705521,5,5
+CR3,20,Survival,ATLAS-Transformer,sobol,best direct within each training run,setting-specific,5,0,0,0.03125,-0.014658452577705521,5,5
+CR3,20,Survival,ATLAS-Transformer,stratified,fixed strongest mean comparator,DynamicDeepHit,5,0,0,0.03125,-0.014554465785940088,5,5
+CR3,20,Survival,ATLAS-Transformer,stratified,best direct within each training run,setting-specific,5,0,0,0.03125,-0.014554465785940088,5,5
+CR3,20,Survival,ATLAS-Transformer,weighted_branching,fixed strongest mean comparator,DynamicDeepHit,5,0,0,0.03125,-0.014681738770957967,5,5
+CR3,20,Survival,ATLAS-Transformer,weighted_branching,best direct within each training run,setting-specific,5,0,0,0.03125,-0.014681738770957967,5,5
+Hard24,0,Survival,ATLAS-GRU,antithetic,fixed strongest mean comparator,DynamicDeepHit-Lite,5,4,0,0.5,-0.000974066923425969,9,9
+Hard24,0,Survival,ATLAS-GRU,antithetic,best direct within each training run,setting-specific,5,4,0,0.5,-0.0002911719692860914,9,9
+Hard24,0,Survival,ATLAS-GRU,conditional_mc,fixed strongest mean comparator,DynamicDeepHit-Lite,5,4,0,0.5,-0.0011264602356941,9,9
+Hard24,0,Survival,ATLAS-GRU,conditional_mc,best direct within each training run,setting-specific,5,4,0,0.5,-0.00044356528155422247,9,9
+Hard24,0,Survival,ATLAS-GRU,iid,fixed strongest mean comparator,DynamicDeepHit-Lite,5,4,0,0.5,-0.0008693490275121329,9,9
+Hard24,0,Survival,ATLAS-GRU,iid,best direct within each training run,setting-specific,5,4,0,0.5,-0.0001864540733722554,9,9
+Hard24,0,Survival,ATLAS-GRU,importance,fixed strongest mean comparator,DynamicDeepHit-Lite,5,4,0,0.5,-0.0007161168134610534,9,9
+Hard24,0,Survival,ATLAS-GRU,importance,best direct within each training run,setting-specific,5,4,0,0.5,-3.3221859321175794e-05,9,9
+Hard24,0,Survival,ATLAS-GRU,sobol,fixed strongest mean comparator,DynamicDeepHit-Lite,5,4,0,0.5,-0.0011855225901905308,9,9
+Hard24,0,Survival,ATLAS-GRU,sobol,best direct within each training run,setting-specific,5,4,0,0.5,-0.0005026276360506532,9,9
+Hard24,0,Survival,ATLAS-GRU,stratified,fixed strongest mean comparator,DynamicDeepHit-Lite,5,4,0,0.5,-0.00107061551732258,9,9
+Hard24,0,Survival,ATLAS-GRU,stratified,best direct within each training run,setting-specific,5,4,0,0.5,-0.00038772056318270233,9,9
+Hard24,0,Survival,ATLAS-GRU,weighted_branching,fixed strongest mean comparator,DynamicDeepHit-Lite,5,4,0,0.5,-0.0010002405502895753,9,9
+Hard24,0,Survival,ATLAS-GRU,weighted_branching,best direct within each training run,setting-specific,5,4,0,0.5,-0.0003173455961496978,9,9
+Hard24,0,Survival,ATLAS-RNN,antithetic,fixed strongest mean comparator,DynamicDeepHit-Lite,6,3,0,0.25390625,-0.0010912627834166267,9,9
+Hard24,0,Survival,ATLAS-RNN,antithetic,best direct within each training run,setting-specific,5,4,0,0.5,-0.00040836782927674886,9,9
+Hard24,0,Survival,ATLAS-RNN,conditional_mc,fixed strongest mean comparator,DynamicDeepHit-Lite,7,2,0,0.08984375,-0.0012938701722441928,9,9
+Hard24,0,Survival,ATLAS-RNN,conditional_mc,best direct within each training run,setting-specific,6,3,0,0.25390625,-0.0006109752181043157,9,9
+Hard24,0,Survival,ATLAS-RNN,iid,fixed strongest mean comparator,DynamicDeepHit-Lite,6,3,0,0.25390625,-0.0009658859594944731,9,9
+Hard24,0,Survival,ATLAS-RNN,iid,best direct within each training run,setting-specific,5,4,0,0.5,-0.0002829910053545953,9,9
+Hard24,0,Survival,ATLAS-RNN,importance,fixed strongest mean comparator,DynamicDeepHit-Lite,6,3,0,0.25390625,-0.0007672732653048954,9,9
+Hard24,0,Survival,ATLAS-RNN,importance,best direct within each training run,setting-specific,5,4,0,0.5,-8.437831116501767e-05,9,9
+Hard24,0,Survival,ATLAS-RNN,sobol,fixed strongest mean comparator,DynamicDeepHit-Lite,7,2,0,0.08984375,-0.0013600121124814064,9,9
+Hard24,0,Survival,ATLAS-RNN,sobol,best direct within each training run,setting-specific,6,3,0,0.25390625,-0.0006771171583415289,9,9
+Hard24,0,Survival,ATLAS-RNN,stratified,fixed strongest mean comparator,DynamicDeepHit-Lite,6,3,0,0.25390625,-0.0012058419713976238,9,9
+Hard24,0,Survival,ATLAS-RNN,stratified,best direct within each training run,setting-specific,5,4,0,0.5,-0.0005229470172577463,9,9
+Hard24,0,Survival,ATLAS-RNN,weighted_branching,fixed strongest mean comparator,DynamicDeepHit-Lite,6,3,0,0.25390625,-0.0011474703715834932,9,9
+Hard24,0,Survival,ATLAS-RNN,weighted_branching,best direct within each training run,setting-specific,5,4,0,0.5,-0.0004645754174436157,9,9
+Hard24,0,Survival,ATLAS-Transformer,antithetic,fixed strongest mean comparator,DynamicDeepHit-Lite,6,3,0,0.25390625,0.0004574282674552311,9,9
+Hard24,0,Survival,ATLAS-Transformer,antithetic,best direct within each training run,setting-specific,6,3,0,0.25390625,0.0011403232215951085,9,9
+Hard24,0,Survival,ATLAS-Transformer,conditional_mc,fixed strongest mean comparator,DynamicDeepHit-Lite,6,3,0,0.25390625,0.000307748433410045,9,9
+Hard24,0,Survival,ATLAS-Transformer,conditional_mc,best direct within each training run,setting-specific,6,3,0,0.25390625,0.0009906433875499225,9,9
+Hard24,0,Survival,ATLAS-Transformer,iid,fixed strongest mean comparator,DynamicDeepHit-Lite,6,3,0,0.25390625,0.0005884461551776227,9,9
+Hard24,0,Survival,ATLAS-Transformer,iid,best direct within each training run,setting-specific,6,3,0,0.25390625,0.0012713411093175002,9,9
+Hard24,0,Survival,ATLAS-Transformer,importance,fixed strongest mean comparator,DynamicDeepHit-Lite,6,3,0,0.25390625,0.0007719340645758729,9,9
+Hard24,0,Survival,ATLAS-Transformer,importance,best direct within each training run,setting-specific,6,3,0,0.25390625,0.0014548290187157505,9,9
+Hard24,0,Survival,ATLAS-Transformer,sobol,fixed strongest mean comparator,DynamicDeepHit-Lite,6,3,0,0.25390625,0.0002620243631549112,9,9
+Hard24,0,Survival,ATLAS-Transformer,sobol,best direct within each training run,setting-specific,6,3,0,0.25390625,0.0009449193172947885,9,9
+Hard24,0,Survival,ATLAS-Transformer,stratified,fixed strongest mean comparator,DynamicDeepHit-Lite,6,3,0,0.25390625,0.00038621695885748884,9,9
+Hard24,0,Survival,ATLAS-Transformer,stratified,best direct within each training run,setting-specific,6,3,0,0.25390625,0.0010691119129973663,9,9
+Hard24,0,Survival,ATLAS-Transformer,weighted_branching,fixed strongest mean comparator,DynamicDeepHit-Lite,6,3,0,0.25390625,0.00045192203344114276,9,9
+Hard24,0,Survival,ATLAS-Transformer,weighted_branching,best direct within each training run,setting-specific,6,3,0,0.25390625,0.0011348169875810203,9,9
+Hard24,20,Survival,ATLAS-GRU,antithetic,fixed strongest mean comparator,SurvTransformer-Discrete,9,0,0,0.001953125,-0.036506171522554115,9,9
+Hard24,20,Survival,ATLAS-GRU,antithetic,best direct within each training run,setting-specific,9,0,0,0.001953125,-0.03404554779849185,9,9
+Hard24,20,Survival,ATLAS-GRU,conditional_mc,fixed strongest mean comparator,SurvTransformer-Discrete,9,0,0,0.001953125,-0.03666235092426015,9,9
+Hard24,20,Survival,ATLAS-GRU,conditional_mc,best direct within each training run,setting-specific,9,0,0,0.001953125,-0.034201727200197894,9,9
+Hard24,20,Survival,ATLAS-GRU,iid,fixed strongest mean comparator,SurvTransformer-Discrete,9,0,0,0.001953125,-0.036415729072265264,9,9
+Hard24,20,Survival,ATLAS-GRU,iid,best direct within each training run,setting-specific,9,0,0,0.001953125,-0.033955105348203,9,9
+Hard24,20,Survival,ATLAS-GRU,importance,fixed strongest mean comparator,SurvTransformer-Discrete,9,0,0,0.001953125,-0.03631982272625058,9,9
+Hard24,20,Survival,ATLAS-GRU,importance,best direct within each training run,setting-specific,9,0,0,0.001953125,-0.03385919900218831,9,9
+Hard24,20,Survival,ATLAS-GRU,sobol,fixed strongest mean comparator,SurvTransformer-Discrete,9,0,0,0.001953125,-0.03677848615888976,9,9
+Hard24,20,Survival,ATLAS-GRU,sobol,best direct within each training run,setting-specific,9,0,0,0.001953125,-0.034317862434827505,9,9
+Hard24,20,Survival,ATLAS-GRU,stratified,fixed strongest mean comparator,SurvTransformer-Discrete,9,0,0,0.001953125,-0.03665493060439618,9,9
+Hard24,20,Survival,ATLAS-GRU,stratified,best direct within each training run,setting-specific,9,0,0,0.001953125,-0.03419430688033391,9,9
+Hard24,20,Survival,ATLAS-GRU,weighted_branching,fixed strongest mean comparator,SurvTransformer-Discrete,9,0,0,0.001953125,-0.03659039586296475,9,9
+Hard24,20,Survival,ATLAS-GRU,weighted_branching,best direct within each training run,setting-specific,9,0,0,0.001953125,-0.03412977213890249,9,9
+Hard24,20,Survival,ATLAS-RNN,antithetic,fixed strongest mean comparator,SurvTransformer-Discrete,9,0,0,0.001953125,-0.03320926215701191,9,9
+Hard24,20,Survival,ATLAS-RNN,antithetic,best direct within each training run,setting-specific,9,0,0,0.001953125,-0.030748638432949647,9,9
+Hard24,20,Survival,ATLAS-RNN,conditional_mc,fixed strongest mean comparator,SurvTransformer-Discrete,9,0,0,0.001953125,-0.03334902807605541,9,9
+Hard24,20,Survival,ATLAS-RNN,conditional_mc,best direct within each training run,setting-specific,9,0,0,0.001953125,-0.030888404351993137,9,9
+Hard24,20,Survival,ATLAS-RNN,iid,fixed strongest mean comparator,SurvTransformer-Discrete,9,0,0,0.001953125,-0.03318425922746673,9,9
+Hard24,20,Survival,ATLAS-RNN,iid,best direct within each training run,setting-specific,9,0,0,0.001953125,-0.03072363550340447,9,9
+Hard24,20,Survival,ATLAS-RNN,importance,fixed strongest mean comparator,SurvTransformer-Discrete,9,0,0,0.001953125,-0.03314172237628245,9,9
+Hard24,20,Survival,ATLAS-RNN,importance,best direct within each training run,setting-specific,9,0,0,0.001953125,-0.030681098652220185,9,9
+Hard24,20,Survival,ATLAS-RNN,sobol,fixed strongest mean comparator,SurvTransformer-Discrete,9,0,0,0.001953125,-0.03342818935601791,9,9
+Hard24,20,Survival,ATLAS-RNN,sobol,best direct within each training run,setting-specific,9,0,0,0.001953125,-0.030967565631955647,9,9
+Hard24,20,Survival,ATLAS-RNN,stratified,fixed strongest mean comparator,SurvTransformer-Discrete,9,0,0,0.001953125,-0.033381710692867175,9,9
+Hard24,20,Survival,ATLAS-RNN,stratified,best direct within each training run,setting-specific,9,0,0,0.001953125,-0.030921086968804905,9,9
+Hard24,20,Survival,ATLAS-RNN,weighted_branching,fixed strongest mean comparator,SurvTransformer-Discrete,9,0,0,0.001953125,-0.03330890859162517,9,9
+Hard24,20,Survival,ATLAS-RNN,weighted_branching,best direct within each training run,setting-specific,9,0,0,0.001953125,-0.030848284867562907,9,9
+Hard24,20,Survival,ATLAS-Transformer,antithetic,fixed strongest mean comparator,SurvTransformer-Discrete,9,0,0,0.001953125,-0.037235157410039285,9,9
+Hard24,20,Survival,ATLAS-Transformer,antithetic,best direct within each training run,setting-specific,9,0,0,0.001953125,-0.03477453368597702,9,9
+Hard24,20,Survival,ATLAS-Transformer,conditional_mc,fixed strongest mean comparator,SurvTransformer-Discrete,9,0,0,0.001953125,-0.03738661125978327,9,9
+Hard24,20,Survival,ATLAS-Transformer,conditional_mc,best direct within each training run,setting-specific,9,0,0,0.001953125,-0.034925987535721015,9,9
+Hard24,20,Survival,ATLAS-Transformer,iid,fixed strongest mean comparator,SurvTransformer-Discrete,9,0,0,0.001953125,-0.037148846093755135,9,9
+Hard24,20,Survival,ATLAS-Transformer,iid,best direct within each training run,setting-specific,9,0,0,0.001953125,-0.03468822236969287,9,9
+Hard24,20,Survival,ATLAS-Transformer,importance,fixed strongest mean comparator,SurvTransformer-Discrete,9,0,0,0.001953125,-0.03704428194485543,9,9
+Hard24,20,Survival,ATLAS-Transformer,importance,best direct within each training run,setting-specific,9,0,0,0.001953125,-0.034583658220793165,9,9
+Hard24,20,Survival,ATLAS-Transformer,sobol,fixed strongest mean comparator,SurvTransformer-Discrete,9,0,0,0.001953125,-0.03750094703550449,9,9
+Hard24,20,Survival,ATLAS-Transformer,sobol,best direct within each training run,setting-specific,9,0,0,0.001953125,-0.035040323311442224,9,9
+Hard24,20,Survival,ATLAS-Transformer,stratified,fixed strongest mean comparator,SurvTransformer-Discrete,9,0,0,0.001953125,-0.037362953338285744,9,9
+Hard24,20,Survival,ATLAS-Transformer,stratified,best direct within each training run,setting-specific,9,0,0,0.001953125,-0.03490232961422349,9,9
+Hard24,20,Survival,ATLAS-Transformer,weighted_branching,fixed strongest mean comparator,SurvTransformer-Discrete,9,0,0,0.001953125,-0.037305134313955726,9,9
+Hard24,20,Survival,ATLAS-Transformer,weighted_branching,best direct within each training run,setting-specific,9,0,0,0.001953125,-0.03484451058989347,9,9
+Hard24,23,Survival,ATLAS-GRU,antithetic,fixed strongest mean comparator,SurvTransformer-Discrete,9,0,0,0.001953125,-0.04353698284901855,9,9
+Hard24,23,Survival,ATLAS-GRU,antithetic,best direct within each training run,setting-specific,9,0,0,0.001953125,-0.039227326040835384,9,9
+Hard24,23,Survival,ATLAS-GRU,conditional_mc,fixed strongest mean comparator,SurvTransformer-Discrete,9,0,0,0.001953125,-0.04373764086863166,9,9
+Hard24,23,Survival,ATLAS-GRU,conditional_mc,best direct within each training run,setting-specific,9,0,0,0.001953125,-0.039427984060448486,9,9
+Hard24,23,Survival,ATLAS-GRU,iid,fixed strongest mean comparator,SurvTransformer-Discrete,9,0,0,0.001953125,-0.04358261007850115,9,9
+Hard24,23,Survival,ATLAS-GRU,iid,best direct within each training run,setting-specific,9,0,0,0.001953125,-0.03927295327031798,9,9
+Hard24,23,Survival,ATLAS-GRU,importance,fixed strongest mean comparator,SurvTransformer-Discrete,9,0,0,0.001953125,-0.04343910620705615,9,9
+Hard24,23,Survival,ATLAS-GRU,importance,best direct within each training run,setting-specific,9,0,0,0.001953125,-0.03912944939887297,9,9
+Hard24,23,Survival,ATLAS-GRU,sobol,fixed strongest mean comparator,SurvTransformer-Discrete,9,0,0,0.001953125,-0.043848197328334865,9,9
+Hard24,23,Survival,ATLAS-GRU,sobol,best direct within each training run,setting-specific,9,0,0,0.001953125,-0.039538540520151697,9,9
+Hard24,23,Survival,ATLAS-GRU,stratified,fixed strongest mean comparator,SurvTransformer-Discrete,9,0,0,0.001953125,-0.04373465264909557,9,9
+Hard24,23,Survival,ATLAS-GRU,stratified,best direct within each training run,setting-specific,9,0,0,0.001953125,-0.03942499584091241,9,9
+Hard24,23,Survival,ATLAS-GRU,weighted_branching,fixed strongest mean comparator,SurvTransformer-Discrete,9,0,0,0.001953125,-0.043760548145532534,9,9
+Hard24,23,Survival,ATLAS-GRU,weighted_branching,best direct within each training run,setting-specific,9,0,0,0.001953125,-0.03945089133734937,9,9
+Hard24,23,Survival,ATLAS-RNN,antithetic,fixed strongest mean comparator,SurvTransformer-Discrete,9,0,0,0.001953125,-0.0413031533541888,9,9
+Hard24,23,Survival,ATLAS-RNN,antithetic,best direct within each training run,setting-specific,9,0,0,0.001953125,-0.03699349654600563,9,9
+Hard24,23,Survival,ATLAS-RNN,conditional_mc,fixed strongest mean comparator,SurvTransformer-Discrete,9,0,0,0.001953125,-0.04148883555200356,9,9
+Hard24,23,Survival,ATLAS-RNN,conditional_mc,best direct within each training run,setting-specific,9,0,0,0.001953125,-0.037179178743820394,9,9
+Hard24,23,Survival,ATLAS-RNN,iid,fixed strongest mean comparator,SurvTransformer-Discrete,9,0,0,0.001953125,-0.041350741624554904,9,9
+Hard24,23,Survival,ATLAS-RNN,iid,best direct within each training run,setting-specific,9,0,0,0.001953125,-0.037041084816371736,9,9
+Hard24,23,Survival,ATLAS-RNN,importance,fixed strongest mean comparator,SurvTransformer-Discrete,9,0,0,0.001953125,-0.041280372261420256,9,9
+Hard24,23,Survival,ATLAS-RNN,importance,best direct within each training run,setting-specific,9,0,0,0.001953125,-0.036970715453237095,9,9
+Hard24,23,Survival,ATLAS-RNN,sobol,fixed strongest mean comparator,SurvTransformer-Discrete,9,0,0,0.001953125,-0.0416064496024836,9,9
+Hard24,23,Survival,ATLAS-RNN,sobol,best direct within each training run,setting-specific,9,0,0,0.001953125,-0.03729679279430044,9,9
+Hard24,23,Survival,ATLAS-RNN,stratified,fixed strongest mean comparator,SurvTransformer-Discrete,9,0,0,0.001953125,-0.041530854446485514,9,9
+Hard24,23,Survival,ATLAS-RNN,stratified,best direct within each training run,setting-specific,9,0,0,0.001953125,-0.03722119763830235,9,9
+Hard24,23,Survival,ATLAS-RNN,weighted_branching,fixed strongest mean comparator,SurvTransformer-Discrete,9,0,0,0.001953125,-0.04157201418211874,9,9
+Hard24,23,Survival,ATLAS-RNN,weighted_branching,best direct within each training run,setting-specific,9,0,0,0.001953125,-0.03726235737393557,9,9
+Hard24,23,Survival,ATLAS-Transformer,antithetic,fixed strongest mean comparator,SurvTransformer-Discrete,9,0,0,0.001953125,-0.04462925013474871,9,9
+Hard24,23,Survival,ATLAS-Transformer,antithetic,best direct within each training run,setting-specific,9,0,0,0.001953125,-0.04031959332656554,9,9
+Hard24,23,Survival,ATLAS-Transformer,conditional_mc,fixed strongest mean comparator,SurvTransformer-Discrete,9,0,0,0.001953125,-0.04487371222448431,9,9
+Hard24,23,Survival,ATLAS-Transformer,conditional_mc,best direct within each training run,setting-specific,9,0,0,0.001953125,-0.04056405541630115,9,9
+Hard24,23,Survival,ATLAS-Transformer,iid,fixed strongest mean comparator,SurvTransformer-Discrete,9,0,0,0.001953125,-0.044682618052402964,9,9
+Hard24,23,Survival,ATLAS-Transformer,iid,best direct within each training run,setting-specific,9,0,0,0.001953125,-0.040372961244219796,9,9
+Hard24,23,Survival,ATLAS-Transformer,importance,fixed strongest mean comparator,SurvTransformer-Discrete,9,0,0,0.001953125,-0.04461982090767631,9,9
+Hard24,23,Survival,ATLAS-Transformer,importance,best direct within each training run,setting-specific,9,0,0,0.001953125,-0.04031016409949314,9,9
+Hard24,23,Survival,ATLAS-Transformer,sobol,fixed strongest mean comparator,SurvTransformer-Discrete,9,0,0,0.001953125,-0.044970029525107695,9,9
+Hard24,23,Survival,ATLAS-Transformer,sobol,best direct within each training run,setting-specific,9,0,0,0.001953125,-0.04066037271692453,9,9
+Hard24,23,Survival,ATLAS-Transformer,stratified,fixed strongest mean comparator,SurvTransformer-Discrete,9,0,0,0.001953125,-0.04484680003724459,9,9
+Hard24,23,Survival,ATLAS-Transformer,stratified,best direct within each training run,setting-specific,9,0,0,0.001953125,-0.04053714322906142,9,9
+Hard24,23,Survival,ATLAS-Transformer,weighted_branching,fixed strongest mean comparator,SurvTransformer-Discrete,9,0,0,0.001953125,-0.04482831027046591,9,9
+Hard24,23,Survival,ATLAS-Transformer,weighted_branching,best direct within each training run,setting-specific,9,0,0,0.001953125,-0.04051865346228274,9,9
+Hard24,24,Survival,ATLAS-GRU,antithetic,fixed strongest mean comparator,DynamicDeepHit,9,0,0,0.001953125,-0.050905770358261736,9,9
+Hard24,24,Survival,ATLAS-GRU,antithetic,best direct within each training run,setting-specific,9,0,0,0.001953125,-0.04600923165319704,9,9
+Hard24,24,Survival,ATLAS-GRU,conditional_mc,fixed strongest mean comparator,DynamicDeepHit,9,0,0,0.001953125,-0.051194375218724185,9,9
+Hard24,24,Survival,ATLAS-GRU,conditional_mc,best direct within each training run,setting-specific,9,0,0,0.001953125,-0.04629783651365949,9,9
+Hard24,24,Survival,ATLAS-GRU,iid,fixed strongest mean comparator,DynamicDeepHit,9,0,0,0.001953125,-0.050844319349102565,9,9
+Hard24,24,Survival,ATLAS-GRU,iid,best direct within each training run,setting-specific,9,0,0,0.001953125,-0.04594778064403787,9,9
+Hard24,24,Survival,ATLAS-GRU,importance,fixed strongest mean comparator,DynamicDeepHit,9,0,0,0.001953125,-0.0508583930461373,9,9
+Hard24,24,Survival,ATLAS-GRU,importance,best direct within each training run,setting-specific,9,0,0,0.001953125,-0.045961854341072604,9,9
+Hard24,24,Survival,ATLAS-GRU,sobol,fixed strongest mean comparator,DynamicDeepHit,9,0,0,0.001953125,-0.051174749955313535,9,9
+Hard24,24,Survival,ATLAS-GRU,sobol,best direct within each training run,setting-specific,9,0,0,0.001953125,-0.04627821125024884,9,9
+Hard24,24,Survival,ATLAS-GRU,stratified,fixed strongest mean comparator,DynamicDeepHit,9,0,0,0.001953125,-0.05116363132071322,9,9
+Hard24,24,Survival,ATLAS-GRU,stratified,best direct within each training run,setting-specific,9,0,0,0.001953125,-0.046267092615648514,9,9
+Hard24,24,Survival,ATLAS-GRU,weighted_branching,fixed strongest mean comparator,DynamicDeepHit,9,0,0,0.001953125,-0.051127697033075244,9,9
+Hard24,24,Survival,ATLAS-GRU,weighted_branching,best direct within each training run,setting-specific,9,0,0,0.001953125,-0.04623115832801055,9,9
+Hard24,24,Survival,ATLAS-RNN,antithetic,fixed strongest mean comparator,DynamicDeepHit,9,0,0,0.001953125,-0.05295652765402142,9,9
+Hard24,24,Survival,ATLAS-RNN,antithetic,best direct within each training run,setting-specific,9,0,0,0.001953125,-0.04805998894895672,9,9
+Hard24,24,Survival,ATLAS-RNN,conditional_mc,fixed strongest mean comparator,DynamicDeepHit,9,0,0,0.001953125,-0.05321324888447137,9,9
+Hard24,24,Survival,ATLAS-RNN,conditional_mc,best direct within each training run,setting-specific,9,0,0,0.001953125,-0.04831671017940667,9,9
+Hard24,24,Survival,ATLAS-RNN,iid,fixed strongest mean comparator,DynamicDeepHit,9,0,0,0.001953125,-0.05278281218599208,9,9
+Hard24,24,Survival,ATLAS-RNN,iid,best direct within each training run,setting-specific,9,0,0,0.001953125,-0.04788627348092739,9,9
+Hard24,24,Survival,ATLAS-RNN,importance,fixed strongest mean comparator,DynamicDeepHit,9,0,0,0.001953125,-0.05280540697321108,9,9
+Hard24,24,Survival,ATLAS-RNN,importance,best direct within each training run,setting-specific,9,0,0,0.001953125,-0.04790886826814638,9,9
+Hard24,24,Survival,ATLAS-RNN,sobol,fixed strongest mean comparator,DynamicDeepHit,9,0,0,0.001953125,-0.05329972459218752,9,9
+Hard24,24,Survival,ATLAS-RNN,sobol,best direct within each training run,setting-specific,9,0,0,0.001953125,-0.04840318588712282,9,9
+Hard24,24,Survival,ATLAS-RNN,stratified,fixed strongest mean comparator,DynamicDeepHit,9,0,0,0.001953125,-0.05319390999254006,9,9
+Hard24,24,Survival,ATLAS-RNN,stratified,best direct within each training run,setting-specific,9,0,0,0.001953125,-0.04829737128747537,9,9
+Hard24,24,Survival,ATLAS-RNN,weighted_branching,fixed strongest mean comparator,DynamicDeepHit,9,0,0,0.001953125,-0.05316800837445295,9,9
+Hard24,24,Survival,ATLAS-RNN,weighted_branching,best direct within each training run,setting-specific,9,0,0,0.001953125,-0.04827146966938826,9,9
+Hard24,24,Survival,ATLAS-Transformer,antithetic,fixed strongest mean comparator,DynamicDeepHit,9,0,0,0.001953125,-0.053929315110241835,9,9
+Hard24,24,Survival,ATLAS-Transformer,antithetic,best direct within each training run,setting-specific,9,0,0,0.001953125,-0.04903277640517714,9,9
+Hard24,24,Survival,ATLAS-Transformer,conditional_mc,fixed strongest mean comparator,DynamicDeepHit,9,0,0,0.001953125,-0.05422486597394065,9,9
+Hard24,24,Survival,ATLAS-Transformer,conditional_mc,best direct within each training run,setting-specific,9,0,0,0.001953125,-0.049328327268875954,9,9
+Hard24,24,Survival,ATLAS-Transformer,iid,fixed strongest mean comparator,DynamicDeepHit,9,0,0,0.001953125,-0.05387173753648939,9,9
+Hard24,24,Survival,ATLAS-Transformer,iid,best direct within each training run,setting-specific,9,0,0,0.001953125,-0.04897519883142469,9,9
+Hard24,24,Survival,ATLAS-Transformer,importance,fixed strongest mean comparator,DynamicDeepHit,9,0,0,0.001953125,-0.05385445822677262,9,9
+Hard24,24,Survival,ATLAS-Transformer,importance,best direct within each training run,setting-specific,9,0,0,0.001953125,-0.04895791952170793,9,9
+Hard24,24,Survival,ATLAS-Transformer,sobol,fixed strongest mean comparator,DynamicDeepHit,9,0,0,0.001953125,-0.05429762716290634,9,9
+Hard24,24,Survival,ATLAS-Transformer,sobol,best direct within each training run,setting-specific,9,0,0,0.001953125,-0.04940108845784165,9,9
+Hard24,24,Survival,ATLAS-Transformer,stratified,fixed strongest mean comparator,DynamicDeepHit,9,0,0,0.001953125,-0.05414248899777374,9,9
+Hard24,24,Survival,ATLAS-Transformer,stratified,best direct within each training run,setting-specific,9,0,0,0.001953125,-0.04924595029270905,9,9
+Hard24,24,Survival,ATLAS-Transformer,weighted_branching,fixed strongest mean comparator,DynamicDeepHit,9,0,0,0.001953125,-0.054266920089194884,9,9
+Hard24,24,Survival,ATLAS-Transformer,weighted_branching,best direct within each training run,setting-specific,9,0,0,0.001953125,-0.04937038138413019,9,9

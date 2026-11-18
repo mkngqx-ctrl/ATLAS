@@ -1,0 +1,909 @@
+[
+  {
+    "seed": 42,
+    "training": {
+      "benchmark_version": "cr_3cov_v1",
+      "n": 50000,
+      "epochs": 200,
+      "patience": 15,
+      "seed": 42,
+      "cohort_seed": 34001,
+      "scenario": {
+        "horizon": 30,
+        "censor_probability": 0.008,
+        "calcium_min": 8.0,
+        "calcium_max": 13.0,
+        "age_min": 30.0,
+        "age_max": 90.0,
+        "drug_min": 0.0,
+        "drug_max": 1.0,
+        "version": "cr_3cov_v1"
+      },
+      "options": {
+        "DynamicDeepHit": {
+          "model_config": {
+            "hidden": 64,
+            "layers": 2,
+            "attention_hidden": 64,
+            "head_hidden": 64,
+            "head_layers": 4,
+            "dropout": 0.1
+          },
+          "loss_config": {
+            "rank_weight": 0.1,
+            "rank_sigma": 0.1,
+            "auxiliary_weight": 0.1,
+            "l1_weight": 1e-05,
+            "rank_reduction": "per_patient"
+          },
+          "lr": 0.001,
+          "batch_size": 256,
+          "monitor": "concordance",
+          "validation_prefix_limit": 2048,
+          "burn_in_epochs": 5
+        },
+        "SurvTransformer": {
+          "model_config": {
+            "width": 16,
+            "heads": 2,
+            "layers": 6,
+            "intermediate": 64,
+            "head_layers": 4,
+            "dropout": 0.1
+          },
+          "loss_config": {
+            "mortality_weight": 1.0,
+            "duration_weight": 1.0
+          },
+          "lr": 0.001,
+          "batch_size": 256,
+          "weight_decay": 0.0001,
+          "monitor": "loss",
+          "validation_prefix_limit": 2048
+        },
+        "SurvTransformer-Discrete": {
+          "model_config": {
+            "width": 16,
+            "heads": 2,
+            "layers": 6,
+            "intermediate": 64,
+            "head_layers": 4,
+            "dropout": 0.1
+          },
+          "loss_config": {
+            "mortality_weight": 1.0,
+            "duration_weight": 1.0
+          },
+          "lr": 0.001,
+          "batch_size": 256,
+          "weight_decay": 0.0001,
+          "monitor": "loss",
+          "validation_prefix_limit": 2048
+        }
+      },
+      "labels": [
+        "CPH",
+        "DynamicDeepHIt-Lite",
+        "SurvTransformer-Lite",
+        "Weibull",
+        "DRSA",
+        "Glazier-GRU",
+        "Glazier-Transformer",
+        "DynamicDeepHit",
+        "SurvTransformer",
+        "SurvTransformer-Discrete"
+      ],
+      "source_hashes": {
+        "cr_workflow.py": "ce636e36363d661e60e3a369daf713b39470d2810387b11eac5ebfd0e925e37f",
+        "source/history_models.py": "89eb7210876afc7420a3ec27e86658c20dcd2ecd72c9985f7dc37d9c6ea3355d",
+        "source/history_training.py": "a18d049e3e91ad1e1eb0a1ea40dc108887ba0b732623534195523b824db7afd9",
+        "source/legacy_models.py": "a6358b3a22c58763964001da2a88380f48e5b947840df2d6943e356b03488e14",
+        "source/model_training.py": "6dd5b7b7d39f4707579a1e9611e9e57a5b4c11f5aa5c9077370c42b4e535f6ae",
+        "source/samplers_cr.py": "005c0cb8bc9eb8565fddf5ee4cd61494921a0d6135fc79b742dea0af2a369490",
+        "source/sfsa_cr.py": "3b4be0c8ef9ee49f0206ec2b165b346a60c8afe7df9a57a9a55993a3bd893e0f",
+        "test_competing_risks.py": "978266a7008229e566b4747d41110e99a401e7655d7433054b3158da8d09f646"
+      },
+      "device": "cuda"
+    },
+    "evaluation": {
+      "M": 10000,
+      "n_eval": 300,
+      "seeds": [
+        41001,
+        52001,
+        63001,
+        74001,
+        85001
+      ],
+      "landmarks": [
+        0,
+        10,
+        20
+      ],
+      "batch_size": 512,
+      "labels": [
+        "CPH",
+        "DynamicDeepHIt-Lite",
+        "SurvTransformer-Lite",
+        "Weibull",
+        "DRSA",
+        "Glazier-GRU",
+        "Glazier-Transformer",
+        "DynamicDeepHit",
+        "SurvTransformer",
+        "SurvTransformer-Discrete"
+      ],
+      "methods": [
+        "iid",
+        "stratified",
+        "sobol",
+        "antithetic",
+        "importance",
+        "weighted_branching",
+        "conditional_mc"
+      ],
+      "source_hashes": {
+        "cr_workflow.py": "ce636e36363d661e60e3a369daf713b39470d2810387b11eac5ebfd0e925e37f",
+        "source/history_models.py": "89eb7210876afc7420a3ec27e86658c20dcd2ecd72c9985f7dc37d9c6ea3355d",
+        "source/history_training.py": "a18d049e3e91ad1e1eb0a1ea40dc108887ba0b732623534195523b824db7afd9",
+        "source/legacy_models.py": "a6358b3a22c58763964001da2a88380f48e5b947840df2d6943e356b03488e14",
+        "source/model_training.py": "6dd5b7b7d39f4707579a1e9611e9e57a5b4c11f5aa5c9077370c42b4e535f6ae",
+        "source/samplers_cr.py": "005c0cb8bc9eb8565fddf5ee4cd61494921a0d6135fc79b742dea0af2a369490",
+        "source/sfsa_cr.py": "3b4be0c8ef9ee49f0206ec2b165b346a60c8afe7df9a57a9a55993a3bd893e0f",
+        "test_competing_risks.py": "978266a7008229e566b4747d41110e99a401e7655d7433054b3158da8d09f646"
+      },
+      "scenario": {
+        "horizon": 30,
+        "censor_probability": 0.008,
+        "calcium_min": 8.0,
+        "calcium_max": 13.0,
+        "age_min": 30.0,
+        "age_max": 90.0,
+        "drug_min": 0.0,
+        "drug_max": 1.0,
+        "version": "cr_3cov_v1"
+      },
+      "checkpoint_hashes": {
+        "CPH.pkl": "f4f61c383aa783f22b22b62085ff9f2315333a109b826cdfe997ff8b5dbf99b4",
+        "DynamicDeepHIt-Lite.pt": "6ff7056b73f5bf3c3d7a38c8ab68e84e2018bfb00aedfefb49b6fee66703bcaa",
+        "SurvTransformer-Lite.pt": "0f373861b2d9715ebd107d1236c8826386474d17fd5113c1e75fcb09546c42cc",
+        "Weibull.pt": "75a25808bafb0d5889bb0172ab9a9941c0debf5a659d10193012d67a564a93ec",
+        "DRSA.pt": "ff3030cc92c88e8d3dd42012708536c8083ef907703245001d533ba2b5562fe6",
+        "cohort.npz": "db08a45363fd873f7d62d5736e49fbb86df4f199109d56a5b7d683c38d8f2c15",
+        "Glazier-GRU.pt": "49a71567b0bce2f82f6ecd24bc1b33037a60f496b47e97620dee23dadb4f9277",
+        "Glazier-Transformer.pt": "ccfec8e2eb0f7aa88064f3d7b6e3d6560358973ec81bf28d4fa10552c2959d89",
+        "DynamicDeepHit.pt": "84f80c362f7af85a45f503de1c22df279742bec28c14dd8893eb1dc8c5d011d3",
+        "SurvTransformer.pt": "5d6052d0d8e5532230b2f9322e6ffb241a3fdeece057df6b6a7794fd19d14ab5",
+        "SurvTransformer-Discrete.pt": "a94f7ba0c154ed7c02f031ad5fe2804cae4e4d9384f472b97d6e701aa8975c69"
+      }
+    }
+  },
+  {
+    "seed": 43,
+    "training": {
+      "benchmark_version": "cr_3cov_v1",
+      "n": 50000,
+      "epochs": 200,
+      "patience": 15,
+      "seed": 43,
+      "cohort_seed": 34001,
+      "scenario": {
+        "horizon": 30,
+        "censor_probability": 0.008,
+        "calcium_min": 8.0,
+        "calcium_max": 13.0,
+        "age_min": 30.0,
+        "age_max": 90.0,
+        "drug_min": 0.0,
+        "drug_max": 1.0,
+        "version": "cr_3cov_v1"
+      },
+      "options": {
+        "DynamicDeepHit": {
+          "model_config": {
+            "hidden": 64,
+            "layers": 2,
+            "attention_hidden": 64,
+            "head_hidden": 64,
+            "head_layers": 4,
+            "dropout": 0.1
+          },
+          "loss_config": {
+            "rank_weight": 0.1,
+            "rank_sigma": 0.1,
+            "auxiliary_weight": 0.1,
+            "l1_weight": 1e-05,
+            "rank_reduction": "per_patient"
+          },
+          "lr": 0.001,
+          "batch_size": 256,
+          "monitor": "concordance",
+          "validation_prefix_limit": 2048,
+          "burn_in_epochs": 5,
+          "validation_index_seed": 145
+        },
+        "SurvTransformer": {
+          "model_config": {
+            "width": 16,
+            "heads": 2,
+            "layers": 6,
+            "intermediate": 64,
+            "head_layers": 4,
+            "dropout": 0.1
+          },
+          "loss_config": {
+            "mortality_weight": 1.0,
+            "duration_weight": 1.0
+          },
+          "lr": 0.001,
+          "batch_size": 256,
+          "weight_decay": 0.0001,
+          "monitor": "loss",
+          "validation_prefix_limit": 2048,
+          "validation_index_seed": 145
+        },
+        "SurvTransformer-Discrete": {
+          "model_config": {
+            "width": 16,
+            "heads": 2,
+            "layers": 6,
+            "intermediate": 64,
+            "head_layers": 4,
+            "dropout": 0.1
+          },
+          "loss_config": {
+            "mortality_weight": 1.0,
+            "duration_weight": 1.0
+          },
+          "lr": 0.001,
+          "batch_size": 256,
+          "weight_decay": 0.0001,
+          "monitor": "loss",
+          "validation_prefix_limit": 2048,
+          "validation_index_seed": 145
+        }
+      },
+      "labels": [
+        "CPH",
+        "DynamicDeepHIt-Lite",
+        "SurvTransformer-Lite",
+        "Weibull",
+        "DRSA",
+        "Glazier-GRU",
+        "Glazier-Transformer",
+        "DynamicDeepHit",
+        "SurvTransformer",
+        "SurvTransformer-Discrete"
+      ],
+      "source_hashes": {
+        "cr_workflow.py": "80b4dbecf67051d0b2401844760a7f91eb63ab95b71a11429c82cd26485dc51d",
+        "source/history_models.py": "89eb7210876afc7420a3ec27e86658c20dcd2ecd72c9985f7dc37d9c6ea3355d",
+        "source/history_training.py": "32c15355afea765b2529972f5cfde0c0e3ba8e2a4312258a6b10db962fafb6a7",
+        "source/legacy_models.py": "a6358b3a22c58763964001da2a88380f48e5b947840df2d6943e356b03488e14",
+        "source/model_training.py": "6dd5b7b7d39f4707579a1e9611e9e57a5b4c11f5aa5c9077370c42b4e535f6ae",
+        "source/samplers_cr.py": "005c0cb8bc9eb8565fddf5ee4cd61494921a0d6135fc79b742dea0af2a369490",
+        "source/sfsa_cr.py": "3b4be0c8ef9ee49f0206ec2b165b346a60c8afe7df9a57a9a55993a3bd893e0f",
+        "test_competing_risks.py": "978266a7008229e566b4747d41110e99a401e7655d7433054b3158da8d09f646"
+      },
+      "device": "cuda"
+    },
+    "evaluation": {
+      "M": 10000,
+      "n_eval": 300,
+      "seeds": [
+        41001,
+        52001,
+        63001,
+        74001,
+        85001
+      ],
+      "landmarks": [
+        0,
+        10,
+        20
+      ],
+      "batch_size": 512,
+      "labels": [
+        "CPH",
+        "DynamicDeepHIt-Lite",
+        "SurvTransformer-Lite",
+        "Weibull",
+        "DRSA",
+        "Glazier-GRU",
+        "Glazier-Transformer",
+        "DynamicDeepHit",
+        "SurvTransformer",
+        "SurvTransformer-Discrete"
+      ],
+      "methods": [
+        "iid",
+        "stratified",
+        "sobol",
+        "antithetic",
+        "importance",
+        "weighted_branching",
+        "conditional_mc"
+      ],
+      "source_hashes": {
+        "cr_workflow.py": "80b4dbecf67051d0b2401844760a7f91eb63ab95b71a11429c82cd26485dc51d",
+        "source/history_models.py": "89eb7210876afc7420a3ec27e86658c20dcd2ecd72c9985f7dc37d9c6ea3355d",
+        "source/history_training.py": "32c15355afea765b2529972f5cfde0c0e3ba8e2a4312258a6b10db962fafb6a7",
+        "source/legacy_models.py": "a6358b3a22c58763964001da2a88380f48e5b947840df2d6943e356b03488e14",
+        "source/model_training.py": "6dd5b7b7d39f4707579a1e9611e9e57a5b4c11f5aa5c9077370c42b4e535f6ae",
+        "source/samplers_cr.py": "005c0cb8bc9eb8565fddf5ee4cd61494921a0d6135fc79b742dea0af2a369490",
+        "source/sfsa_cr.py": "3b4be0c8ef9ee49f0206ec2b165b346a60c8afe7df9a57a9a55993a3bd893e0f",
+        "test_competing_risks.py": "978266a7008229e566b4747d41110e99a401e7655d7433054b3158da8d09f646"
+      },
+      "scenario": {
+        "horizon": 30,
+        "censor_probability": 0.008,
+        "calcium_min": 8.0,
+        "calcium_max": 13.0,
+        "age_min": 30.0,
+        "age_max": 90.0,
+        "drug_min": 0.0,
+        "drug_max": 1.0,
+        "version": "cr_3cov_v1"
+      },
+      "checkpoint_hashes": {
+        "cohort.npz": "db08a45363fd873f7d62d5736e49fbb86df4f199109d56a5b7d683c38d8f2c15",
+        "CPH.pkl": "a7dce9e368642b93e2de73a299e2f059947dee05d6e633bcd8c0451356a585c4",
+        "DynamicDeepHIt-Lite.pt": "bdd426393faa0b2975b24d92539b0962312f701a499b3b5f3f7e6653a41078d5",
+        "SurvTransformer-Lite.pt": "c34059c228edd73ac2d420d996aa548581cbca8a610d4c4c2b0f858df9ca3160",
+        "Weibull.pt": "13f1fa4c63ed5ff1a1ab6f4b8873239bfdd20eafdb3f22fbba7088084dfac64c",
+        "DRSA.pt": "b20f9e2d49e1c0eddbb7dfceaab346f4660d6076a64498ca8bbb49906bc672bc",
+        "Glazier-GRU.pt": "9f8594c64544fc54a72198d5572ac0627e2abe1cbac8abcdfdad359f2f065ff8",
+        "Glazier-Transformer.pt": "f185e3efa70b5fb1cf150c1fe59fcd272c65261896a42cda5526d99429aca449",
+        "DynamicDeepHit.pt": "5093f01762b2bb58277f709585e0e1a271ea9212445310e4d0214bb06066bf5f",
+        "SurvTransformer.pt": "a136094869028f1db2ae9402fa867c7d639646c35afbc098ab662746e8753e63",
+        "SurvTransformer-Discrete.pt": "a30347893ba3d3e2a07f72bad3fe8e95dbdc33741b7af314028fbdbf3a431c13"
+      }
+    }
+  },
+  {
+    "seed": 45,
+    "training": {
+      "benchmark_version": "cr_3cov_v1",
+      "n": 50000,
+      "epochs": 200,
+      "patience": 15,
+      "seed": 45,
+      "cohort_seed": 34001,
+      "scenario": {
+        "horizon": 30,
+        "censor_probability": 0.008,
+        "calcium_min": 8.0,
+        "calcium_max": 13.0,
+        "age_min": 30.0,
+        "age_max": 90.0,
+        "drug_min": 0.0,
+        "drug_max": 1.0,
+        "version": "cr_3cov_v1"
+      },
+      "options": {
+        "DynamicDeepHit": {
+          "model_config": {
+            "hidden": 64,
+            "layers": 2,
+            "attention_hidden": 64,
+            "head_hidden": 64,
+            "head_layers": 4,
+            "dropout": 0.1
+          },
+          "loss_config": {
+            "rank_weight": 0.1,
+            "rank_sigma": 0.1,
+            "auxiliary_weight": 0.1,
+            "l1_weight": 1e-05,
+            "rank_reduction": "per_patient"
+          },
+          "lr": 0.001,
+          "batch_size": 256,
+          "monitor": "concordance",
+          "validation_prefix_limit": 2048,
+          "burn_in_epochs": 5,
+          "validation_index_seed": 145
+        },
+        "SurvTransformer": {
+          "model_config": {
+            "width": 16,
+            "heads": 2,
+            "layers": 6,
+            "intermediate": 64,
+            "head_layers": 4,
+            "dropout": 0.1
+          },
+          "loss_config": {
+            "mortality_weight": 1.0,
+            "duration_weight": 1.0
+          },
+          "lr": 0.001,
+          "batch_size": 256,
+          "weight_decay": 0.0001,
+          "monitor": "loss",
+          "validation_prefix_limit": 2048,
+          "validation_index_seed": 145
+        },
+        "SurvTransformer-Discrete": {
+          "model_config": {
+            "width": 16,
+            "heads": 2,
+            "layers": 6,
+            "intermediate": 64,
+            "head_layers": 4,
+            "dropout": 0.1
+          },
+          "loss_config": {
+            "mortality_weight": 1.0,
+            "duration_weight": 1.0
+          },
+          "lr": 0.001,
+          "batch_size": 256,
+          "weight_decay": 0.0001,
+          "monitor": "loss",
+          "validation_prefix_limit": 2048,
+          "validation_index_seed": 145
+        }
+      },
+      "labels": [
+        "CPH",
+        "DynamicDeepHIt-Lite",
+        "SurvTransformer-Lite",
+        "Weibull",
+        "DRSA",
+        "Glazier-GRU",
+        "Glazier-Transformer",
+        "DynamicDeepHit",
+        "SurvTransformer",
+        "SurvTransformer-Discrete"
+      ],
+      "source_hashes": {
+        "cr_workflow.py": "80b4dbecf67051d0b2401844760a7f91eb63ab95b71a11429c82cd26485dc51d",
+        "source/history_models.py": "89eb7210876afc7420a3ec27e86658c20dcd2ecd72c9985f7dc37d9c6ea3355d",
+        "source/history_training.py": "32c15355afea765b2529972f5cfde0c0e3ba8e2a4312258a6b10db962fafb6a7",
+        "source/legacy_models.py": "a6358b3a22c58763964001da2a88380f48e5b947840df2d6943e356b03488e14",
+        "source/model_training.py": "6dd5b7b7d39f4707579a1e9611e9e57a5b4c11f5aa5c9077370c42b4e535f6ae",
+        "source/samplers_cr.py": "005c0cb8bc9eb8565fddf5ee4cd61494921a0d6135fc79b742dea0af2a369490",
+        "source/sfsa_cr.py": "3b4be0c8ef9ee49f0206ec2b165b346a60c8afe7df9a57a9a55993a3bd893e0f",
+        "test_competing_risks.py": "978266a7008229e566b4747d41110e99a401e7655d7433054b3158da8d09f646"
+      },
+      "device": "cuda"
+    },
+    "evaluation": {
+      "M": 10000,
+      "n_eval": 300,
+      "seeds": [
+        41001,
+        52001,
+        63001,
+        74001,
+        85001
+      ],
+      "landmarks": [
+        0,
+        10,
+        20
+      ],
+      "batch_size": 512,
+      "labels": [
+        "CPH",
+        "DynamicDeepHIt-Lite",
+        "SurvTransformer-Lite",
+        "Weibull",
+        "DRSA",
+        "Glazier-GRU",
+        "Glazier-Transformer",
+        "DynamicDeepHit",
+        "SurvTransformer",
+        "SurvTransformer-Discrete"
+      ],
+      "methods": [
+        "iid",
+        "stratified",
+        "sobol",
+        "antithetic",
+        "importance",
+        "weighted_branching",
+        "conditional_mc"
+      ],
+      "source_hashes": {
+        "cr_workflow.py": "80b4dbecf67051d0b2401844760a7f91eb63ab95b71a11429c82cd26485dc51d",
+        "source/history_models.py": "89eb7210876afc7420a3ec27e86658c20dcd2ecd72c9985f7dc37d9c6ea3355d",
+        "source/history_training.py": "32c15355afea765b2529972f5cfde0c0e3ba8e2a4312258a6b10db962fafb6a7",
+        "source/legacy_models.py": "a6358b3a22c58763964001da2a88380f48e5b947840df2d6943e356b03488e14",
+        "source/model_training.py": "6dd5b7b7d39f4707579a1e9611e9e57a5b4c11f5aa5c9077370c42b4e535f6ae",
+        "source/samplers_cr.py": "005c0cb8bc9eb8565fddf5ee4cd61494921a0d6135fc79b742dea0af2a369490",
+        "source/sfsa_cr.py": "3b4be0c8ef9ee49f0206ec2b165b346a60c8afe7df9a57a9a55993a3bd893e0f",
+        "test_competing_risks.py": "978266a7008229e566b4747d41110e99a401e7655d7433054b3158da8d09f646"
+      },
+      "scenario": {
+        "horizon": 30,
+        "censor_probability": 0.008,
+        "calcium_min": 8.0,
+        "calcium_max": 13.0,
+        "age_min": 30.0,
+        "age_max": 90.0,
+        "drug_min": 0.0,
+        "drug_max": 1.0,
+        "version": "cr_3cov_v1"
+      },
+      "checkpoint_hashes": {
+        "cohort.npz": "db08a45363fd873f7d62d5736e49fbb86df4f199109d56a5b7d683c38d8f2c15",
+        "CPH.pkl": "7ba96c292737ac62a17cbdc15dfbfc918986cf424f5531858402087398e59e52",
+        "DynamicDeepHIt-Lite.pt": "2ec25feeb50960621f80617808a435b1fa86715d150db7f22d38646bd551c7de",
+        "SurvTransformer-Lite.pt": "c7a99820c686537273ac44c8cb1bbab6d419e42760d1e235384eaf810946e82b",
+        "Weibull.pt": "543c7fb5b3a20e6afe3ff0ac59c97e4817b3e079b397ce1df9c043c0a0832d5b",
+        "DRSA.pt": "ac09aa1d423efcc4f91198df21291d13d3236464a675387ffc80a50bff94c246",
+        "Glazier-GRU.pt": "8e7a03f6081a70ee543aeeb2dea469d5570542bcb7d3ce6cfd7ebb451751b2d5",
+        "Glazier-Transformer.pt": "1a2d46e9658bb6fd1e9b1699cce20c88d302bca5d49542e2f6e28390f4909331",
+        "DynamicDeepHit.pt": "2fe1cb03d142d796afc6aedb43bab24bddb55606f7d5e1aeda02599837d9fa29",
+        "SurvTransformer.pt": "2e58a5719d6b245bbc144da467c9f0c212810eda316335d8d932414153dc86a7",
+        "SurvTransformer-Discrete.pt": "3e38198a9d10c15f82c54087b17f8916929d6e4e474e5ccb598f16c4aa45b6a7"
+      }
+    }
+  },
+  {
+    "seed": 46,
+    "training": {
+      "benchmark_version": "cr_3cov_v1",
+      "n": 50000,
+      "epochs": 200,
+      "patience": 15,
+      "seed": 46,
+      "cohort_seed": 34001,
+      "scenario": {
+        "horizon": 30,
+        "censor_probability": 0.008,
+        "calcium_min": 8.0,
+        "calcium_max": 13.0,
+        "age_min": 30.0,
+        "age_max": 90.0,
+        "drug_min": 0.0,
+        "drug_max": 1.0,
+        "version": "cr_3cov_v1"
+      },
+      "options": {
+        "DynamicDeepHit": {
+          "model_config": {
+            "hidden": 64,
+            "layers": 2,
+            "attention_hidden": 64,
+            "head_hidden": 64,
+            "head_layers": 4,
+            "dropout": 0.1
+          },
+          "loss_config": {
+            "rank_weight": 0.1,
+            "rank_sigma": 0.1,
+            "auxiliary_weight": 0.1,
+            "l1_weight": 1e-05,
+            "rank_reduction": "per_patient"
+          },
+          "lr": 0.001,
+          "batch_size": 256,
+          "monitor": "concordance",
+          "validation_prefix_limit": 2048,
+          "burn_in_epochs": 5,
+          "validation_index_seed": 145
+        },
+        "SurvTransformer": {
+          "model_config": {
+            "width": 16,
+            "heads": 2,
+            "layers": 6,
+            "intermediate": 64,
+            "head_layers": 4,
+            "dropout": 0.1
+          },
+          "loss_config": {
+            "mortality_weight": 1.0,
+            "duration_weight": 1.0
+          },
+          "lr": 0.001,
+          "batch_size": 256,
+          "weight_decay": 0.0001,
+          "monitor": "loss",
+          "validation_prefix_limit": 2048,
+          "validation_index_seed": 145
+        },
+        "SurvTransformer-Discrete": {
+          "model_config": {
+            "width": 16,
+            "heads": 2,
+            "layers": 6,
+            "intermediate": 64,
+            "head_layers": 4,
+            "dropout": 0.1
+          },
+          "loss_config": {
+            "mortality_weight": 1.0,
+            "duration_weight": 1.0
+          },
+          "lr": 0.001,
+          "batch_size": 256,
+          "weight_decay": 0.0001,
+          "monitor": "loss",
+          "validation_prefix_limit": 2048,
+          "validation_index_seed": 145
+        }
+      },
+      "labels": [
+        "CPH",
+        "DynamicDeepHIt-Lite",
+        "SurvTransformer-Lite",
+        "Weibull",
+        "DRSA",
+        "Glazier-GRU",
+        "Glazier-Transformer",
+        "DynamicDeepHit",
+        "SurvTransformer",
+        "SurvTransformer-Discrete"
+      ],
+      "source_hashes": {
+        "cr_workflow.py": "80b4dbecf67051d0b2401844760a7f91eb63ab95b71a11429c82cd26485dc51d",
+        "source/history_models.py": "89eb7210876afc7420a3ec27e86658c20dcd2ecd72c9985f7dc37d9c6ea3355d",
+        "source/history_training.py": "32c15355afea765b2529972f5cfde0c0e3ba8e2a4312258a6b10db962fafb6a7",
+        "source/legacy_models.py": "a6358b3a22c58763964001da2a88380f48e5b947840df2d6943e356b03488e14",
+        "source/model_training.py": "6dd5b7b7d39f4707579a1e9611e9e57a5b4c11f5aa5c9077370c42b4e535f6ae",
+        "source/samplers_cr.py": "005c0cb8bc9eb8565fddf5ee4cd61494921a0d6135fc79b742dea0af2a369490",
+        "source/sfsa_cr.py": "3b4be0c8ef9ee49f0206ec2b165b346a60c8afe7df9a57a9a55993a3bd893e0f",
+        "test_competing_risks.py": "978266a7008229e566b4747d41110e99a401e7655d7433054b3158da8d09f646"
+      },
+      "device": "cuda"
+    },
+    "evaluation": {
+      "M": 10000,
+      "n_eval": 300,
+      "seeds": [
+        41001,
+        52001,
+        63001,
+        74001,
+        85001
+      ],
+      "landmarks": [
+        0,
+        10,
+        20
+      ],
+      "batch_size": 512,
+      "labels": [
+        "CPH",
+        "DynamicDeepHIt-Lite",
+        "SurvTransformer-Lite",
+        "Weibull",
+        "DRSA",
+        "Glazier-GRU",
+        "Glazier-Transformer",
+        "DynamicDeepHit",
+        "SurvTransformer",
+        "SurvTransformer-Discrete"
+      ],
+      "methods": [
+        "iid",
+        "stratified",
+        "sobol",
+        "antithetic",
+        "importance",
+        "weighted_branching",
+        "conditional_mc"
+      ],
+      "source_hashes": {
+        "cr_workflow.py": "80b4dbecf67051d0b2401844760a7f91eb63ab95b71a11429c82cd26485dc51d",
+        "source/history_models.py": "89eb7210876afc7420a3ec27e86658c20dcd2ecd72c9985f7dc37d9c6ea3355d",
+        "source/history_training.py": "32c15355afea765b2529972f5cfde0c0e3ba8e2a4312258a6b10db962fafb6a7",
+        "source/legacy_models.py": "a6358b3a22c58763964001da2a88380f48e5b947840df2d6943e356b03488e14",
+        "source/model_training.py": "6dd5b7b7d39f4707579a1e9611e9e57a5b4c11f5aa5c9077370c42b4e535f6ae",
+        "source/samplers_cr.py": "005c0cb8bc9eb8565fddf5ee4cd61494921a0d6135fc79b742dea0af2a369490",
+        "source/sfsa_cr.py": "3b4be0c8ef9ee49f0206ec2b165b346a60c8afe7df9a57a9a55993a3bd893e0f",
+        "test_competing_risks.py": "978266a7008229e566b4747d41110e99a401e7655d7433054b3158da8d09f646"
+      },
+      "scenario": {
+        "horizon": 30,
+        "censor_probability": 0.008,
+        "calcium_min": 8.0,
+        "calcium_max": 13.0,
+        "age_min": 30.0,
+        "age_max": 90.0,
+        "drug_min": 0.0,
+        "drug_max": 1.0,
+        "version": "cr_3cov_v1"
+      },
+      "checkpoint_hashes": {
+        "cohort.npz": "db08a45363fd873f7d62d5736e49fbb86df4f199109d56a5b7d683c38d8f2c15",
+        "CPH.pkl": "214119f1e5e2018aefadd271d29f0d2e28a7a1553a2a2256c34a68493ce55b87",
+        "DynamicDeepHIt-Lite.pt": "31ce928c45f5d51dce40607aca9adba4614747a1b60a21c2c48e140ad1b95802",
+        "SurvTransformer-Lite.pt": "ca73b02e2d6a604db1cf3831cf4c87f16591ceafaeb930028b4719887db126d7",
+        "Weibull.pt": "ed314b3107ac7f6f447bd7d79ec7f4e1ff97ff544e3fa0d92076117bba7f4c15",
+        "DRSA.pt": "6934ccb15ba19e9b022ef6fd8f3de267bd44deab6882364d38758832da36f7bf",
+        "Glazier-GRU.pt": "1c9d9cb017abb4d7a14ba4238433c82b768fee55cc46a4b1399eb89e0b8bdf13",
+        "Glazier-Transformer.pt": "3e637ae62990708afd38f70e663c841148bc0ba9cc052c3c7a0b91b0676696b7",
+        "DynamicDeepHit.pt": "7670e3b896cb8b0abb37f04d15e1feb0f85502189072f4b231b9b91d48c2c070",
+        "SurvTransformer.pt": "6a9ec48bb123d489617206e5eb2a88ca55200fd4ee4a39fc22338232159321cd",
+        "SurvTransformer-Discrete.pt": "66160538e2438980f544e2ea57899ea35d655f9151ac2e083b2a57c3e65dcb07"
+      }
+    }
+  },
+  {
+    "seed": 47,
+    "training": {
+      "benchmark_version": "cr_3cov_v1",
+      "n": 50000,
+      "epochs": 200,
+      "patience": 15,
+      "seed": 47,
+      "cohort_seed": 34001,
+      "scenario": {
+        "horizon": 30,
+        "censor_probability": 0.008,
+        "calcium_min": 8.0,
+        "calcium_max": 13.0,
+        "age_min": 30.0,
+        "age_max": 90.0,
+        "drug_min": 0.0,
+        "drug_max": 1.0,
+        "version": "cr_3cov_v1"
+      },
+      "options": {
+        "DynamicDeepHit": {
+          "model_config": {
+            "hidden": 64,
+            "layers": 2,
+            "attention_hidden": 64,
+            "head_hidden": 64,
+            "head_layers": 4,
+            "dropout": 0.1
+          },
+          "loss_config": {
+            "rank_weight": 0.1,
+            "rank_sigma": 0.1,
+            "auxiliary_weight": 0.1,
+            "l1_weight": 1e-05,
+            "rank_reduction": "per_patient"
+          },
+          "lr": 0.001,
+          "batch_size": 256,
+          "monitor": "concordance",
+          "validation_prefix_limit": 2048,
+          "burn_in_epochs": 5,
+          "validation_index_seed": 145
+        },
+        "SurvTransformer": {
+          "model_config": {
+            "width": 16,
+            "heads": 2,
+            "layers": 6,
+            "intermediate": 64,
+            "head_layers": 4,
+            "dropout": 0.1
+          },
+          "loss_config": {
+            "mortality_weight": 1.0,
+            "duration_weight": 1.0
+          },
+          "lr": 0.001,
+          "batch_size": 256,
+          "weight_decay": 0.0001,
+          "monitor": "loss",
+          "validation_prefix_limit": 2048,
+          "validation_index_seed": 145
+        },
+        "SurvTransformer-Discrete": {
+          "model_config": {
+            "width": 16,
+            "heads": 2,
+            "layers": 6,
+            "intermediate": 64,
+            "head_layers": 4,
+            "dropout": 0.1
+          },
+          "loss_config": {
+            "mortality_weight": 1.0,
+            "duration_weight": 1.0
+          },
+          "lr": 0.001,
+          "batch_size": 256,
+          "weight_decay": 0.0001,
+          "monitor": "loss",
+          "validation_prefix_limit": 2048,
+          "validation_index_seed": 145
+        }
+      },
+      "labels": [
+        "CPH",
+        "DynamicDeepHIt-Lite",
+        "SurvTransformer-Lite",
+        "Weibull",
+        "DRSA",
+        "Glazier-GRU",
+        "Glazier-Transformer",
+        "DynamicDeepHit",
+        "SurvTransformer",
+        "SurvTransformer-Discrete"
+      ],
+      "source_hashes": {
+        "cr_workflow.py": "80b4dbecf67051d0b2401844760a7f91eb63ab95b71a11429c82cd26485dc51d",
+        "source/history_models.py": "89eb7210876afc7420a3ec27e86658c20dcd2ecd72c9985f7dc37d9c6ea3355d",
+        "source/history_training.py": "32c15355afea765b2529972f5cfde0c0e3ba8e2a4312258a6b10db962fafb6a7",
+        "source/legacy_models.py": "a6358b3a22c58763964001da2a88380f48e5b947840df2d6943e356b03488e14",
+        "source/model_training.py": "6dd5b7b7d39f4707579a1e9611e9e57a5b4c11f5aa5c9077370c42b4e535f6ae",
+        "source/samplers_cr.py": "005c0cb8bc9eb8565fddf5ee4cd61494921a0d6135fc79b742dea0af2a369490",
+        "source/sfsa_cr.py": "3b4be0c8ef9ee49f0206ec2b165b346a60c8afe7df9a57a9a55993a3bd893e0f",
+        "test_competing_risks.py": "978266a7008229e566b4747d41110e99a401e7655d7433054b3158da8d09f646"
+      },
+      "device": "cuda"
+    },
+    "evaluation": {
+      "M": 10000,
+      "n_eval": 300,
+      "seeds": [
+        41001,
+        52001,
+        63001,
+        74001,
+        85001
+      ],
+      "landmarks": [
+        0,
+        10,
+        20
+      ],
+      "batch_size": 512,
+      "labels": [
+        "CPH",
+        "DynamicDeepHIt-Lite",
+        "SurvTransformer-Lite",
+        "Weibull",
+        "DRSA",
+        "Glazier-GRU",
+        "Glazier-Transformer",
+        "DynamicDeepHit",
+        "SurvTransformer",
+        "SurvTransformer-Discrete"
+      ],
+      "methods": [
+        "iid",
+        "stratified",
+        "sobol",
+        "antithetic",
+        "importance",
+        "weighted_branching",
+        "conditional_mc"
+      ],
+      "source_hashes": {
+        "cr_workflow.py": "80b4dbecf67051d0b2401844760a7f91eb63ab95b71a11429c82cd26485dc51d",
+        "source/history_models.py": "89eb7210876afc7420a3ec27e86658c20dcd2ecd72c9985f7dc37d9c6ea3355d",
+        "source/history_training.py": "32c15355afea765b2529972f5cfde0c0e3ba8e2a4312258a6b10db962fafb6a7",
+        "source/legacy_models.py": "a6358b3a22c58763964001da2a88380f48e5b947840df2d6943e356b03488e14",
+        "source/model_training.py": "6dd5b7b7d39f4707579a1e9611e9e57a5b4c11f5aa5c9077370c42b4e535f6ae",
+        "source/samplers_cr.py": "005c0cb8bc9eb8565fddf5ee4cd61494921a0d6135fc79b742dea0af2a369490",
+        "source/sfsa_cr.py": "3b4be0c8ef9ee49f0206ec2b165b346a60c8afe7df9a57a9a55993a3bd893e0f",
+        "test_competing_risks.py": "978266a7008229e566b4747d41110e99a401e7655d7433054b3158da8d09f646"
+      },
+      "scenario": {
+        "horizon": 30,
+        "censor_probability": 0.008,
+        "calcium_min": 8.0,
+        "calcium_max": 13.0,
+        "age_min": 30.0,
+        "age_max": 90.0,
+        "drug_min": 0.0,
+        "drug_max": 1.0,
+        "version": "cr_3cov_v1"
+      },
+      "checkpoint_hashes": {
+        "cohort.npz": "db08a45363fd873f7d62d5736e49fbb86df4f199109d56a5b7d683c38d8f2c15",
+        "CPH.pkl": "3d6b4171d393f654c7ff880676b779351814030b1dd6dd2e0555724d405b323b",
+        "DynamicDeepHIt-Lite.pt": "f1198fb4acee48a1270cdde4e111cd20d6ba66bf6df910bf378811e22f38034d",
+        "SurvTransformer-Lite.pt": "92875456eee875c08aad6ce02de73c5982ce438da250873c04111ed4b5ee0e5e",
+        "Weibull.pt": "1cefc7d8fe12cdf34cc5adf3d70b43a3faeefe1ab398f29edceba08c8b8c45bf",
+        "DRSA.pt": "01b205404f4a2364894642ba8cfc56c20d2757190d929d0af15e86cd6ecc20ce",
+        "Glazier-GRU.pt": "ab7331203dd6097df26d82f6401f09a4452ffb5c79c6627ff0c87c718d09184b",
+        "Glazier-Transformer.pt": "e7f9ad2a441dd5eb75e48683dc800a4f83291368cab93099aeed828c6b05f27f",
+        "DynamicDeepHit.pt": "cdb29ff3f4fc9793a28d224ffb3b9caba80110dc58ab01741638c740b1e57cf7",
+        "SurvTransformer.pt": "660dfd21bbe9bd56d29c6dd09977810ed129fb8357de8d25cb8dcd14d76560d6",
+        "SurvTransformer-Discrete.pt": "8c8efd5ed5bef67abded381036b4fc2cc7db91e21b6ce87e3d1300e9962f9849"
+      }
+    }
+  }
+]

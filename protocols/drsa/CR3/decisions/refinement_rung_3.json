@@ -1,0 +1,85 @@
+{
+  "rows": [
+    {
+      "fit_id": "B0_R0",
+      "seed": 42,
+      "config": {
+        "hidden": 128,
+        "layers": 1,
+        "projection": 64,
+        "alpha": 0.5,
+        "lr": 0.001,
+        "dropout": 0,
+        "l2": 0,
+        "batch": 256
+      },
+      "best_validation_NLL": 1.5557133128612763,
+      "best_epoch": 12,
+      "epochs_completed": 60,
+      "checkpoint": "C:\\Users\\moeni\\Documents\\ATLAS_work\\current\\review\\DRSA_optimization_2026-11-04\\CR3\\fits\\B0_R0\\seed_42\\best.pt",
+      "stop": "budget"
+    },
+    {
+      "fit_id": "B0_R5",
+      "seed": 42,
+      "config": {
+        "hidden": 256,
+        "layers": 2,
+        "projection": 128,
+        "alpha": 0.5,
+        "lr": 0.0015,
+        "dropout": 0.1,
+        "l2": 1e-05,
+        "batch": 256
+      },
+      "best_validation_NLL": 1.558332439619447,
+      "best_epoch": 16,
+      "epochs_completed": 60,
+      "checkpoint": "C:\\Users\\moeni\\Documents\\ATLAS_work\\current\\review\\DRSA_optimization_2026-11-04\\CR3\\fits\\B0_R5\\seed_42\\best.pt",
+      "stop": "budget"
+    },
+    {
+      "fit_id": "B0_R4",
+      "seed": 42,
+      "config": {
+        "hidden": 256,
+        "layers": 1,
+        "projection": 128,
+        "alpha": 0.5,
+        "lr": 0.003,
+        "dropout": 0.2,
+        "l2": 0.0001,
+        "batch": 128
+      },
+      "best_validation_NLL": 1.5605226168186563,
+      "best_epoch": 37,
+      "epochs_completed": 60,
+      "checkpoint": "C:\\Users\\moeni\\Documents\\ATLAS_work\\current\\review\\DRSA_optimization_2026-11-04\\CR3\\fits\\B0_R4\\seed_42\\best.pt",
+      "stop": "budget"
+    },
+    {
+      "fit_id": "B0_R3",
+      "seed": 42,
+      "config": {
+        "hidden": 128,
+        "layers": 2,
+        "projection": 64,
+        "alpha": 0.5,
+        "lr": 0.0007,
+        "dropout": 0.1,
+        "l2": 1e-05,
+        "batch": 256
+      },
+      "best_validation_NLL": 1.5596398760143364,
+      "best_epoch": 31,
+      "epochs_completed": 60,
+      "checkpoint": "C:\\Users\\moeni\\Documents\\ATLAS_work\\current\\review\\DRSA_optimization_2026-11-04\\CR3\\fits\\B0_R3\\seed_42\\best.pt",
+      "stop": "budget"
+    }
+  ],
+  "selected": [
+    "B0_R0",
+    "B0_R5"
+  ],
+  "budget": 60
+}

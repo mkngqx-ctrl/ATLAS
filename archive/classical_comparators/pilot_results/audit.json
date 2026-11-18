@@ -1,0 +1,62 @@
+{
+  "Hard24": {
+    "source": "C:\\Users\\moeni\\Documents\\Codex\\2026-09-13\\thi\\work\\paper_benchmarks_20260919\\full_hard24_add_history_v4",
+    "cohort_sha256": "676d66bf67e67a52dba3be50cfe7925d3b49f8f5e9ec9876913ed45146e03c54",
+    "fit": [
+      {
+        "iterations": 6,
+        "gradient_max": 5.1386450650170445e-11,
+        "ridge": 0.01,
+        "converged": true
+      }
+    ],
+    "n_train": 40000,
+    "n_validation": 5000,
+    "n_test": 5000,
+    "landmarks": [
+      0,
+      20,
+      23,
+      24
+    ],
+    "test_not_used_for_training": true,
+    "oracle_not_used_for_training": true
+  },
+  "CR3": {
+    "source": "C:\\Users\\moeni\\Documents\\Codex\\2026-09-13\\thi\\work\\paper_benchmarks_20260919\\full_cr3cov_v2",
+    "cohort_sha256": "db08a45363fd873f7d62d5736e49fbb86df4f199109d56a5b7d683c38d8f2c15",
+    "fit": [
+      {
+        "iterations": 7,
+        "gradient_max": 1.6687095794054585e-07,
+        "ridge": 0.01,
+        "converged": true
+      },
+      {
+        "iterations": 7,
+        "gradient_max": 5.527290554141473e-07,
+        "ridge": 0.01,
+        "converged": true
+      }
+    ],
+    "n_train": 40000,
+    "n_validation": 5000,
+    "n_test": 5000,
+    "landmarks": [
+      0,
+      10,
+      20
+    ],
+    "test_not_used_for_training": true,
+    "oracle_not_used_for_training": true
+  },
+  "specification": {
+    "ties": "Breslow",
+    "time_scale": "absolute calendar step, separate baseline by landmark",
+    "features": "train-standardized baseline covariates and squares; current-state indicators; log1p(current run length); state by log1p(run length); all interacted with L/30",
+    "penalty": "fixed 0.01 L2 on coefficients for numerical stability; no outcome-based tuning",
+    "competing_risks": "cause-specific Cox; simultaneous hazard increments converted to coherent survival/CIF via exponential total hazard and proportional allocation",
+    "status": "exploratory pilot; model specification needs review before manuscript incorporation",
+    "limitations": "PH approximation; discrete tied event times; no validation tuning yet; no new-dataset uncertainty; not repeated neural training replicates"
+  }
+}

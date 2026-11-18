@@ -1,0 +1,129 @@
+{
+  "kind": "sm",
+  "scenario": "ReLU",
+  "n": 50000,
+  "cohort_seed": 21001,
+  "split_seed": 21002,
+  "split": "80/10/10 train/validation/test",
+  "target": "population event-first KM/AJ reference of observed generator; latent biological identification unresolved",
+  "numpy": "2.2.6",
+  "torch": "2.11.0+cu130",
+  "training": {
+    "CPH": {
+      "max_epochs": 200,
+      "patience": 15,
+      "seed": 42,
+      "device": "cuda",
+      "seconds": 0.02744689999963157
+    },
+    "DynamicDeepHit": {
+      "max_epochs": 200,
+      "patience": 15,
+      "seed": 42,
+      "device": "cuda",
+      "seconds": 32.08010769999237
+    },
+    "SurvTransformer": {
+      "max_epochs": 200,
+      "patience": 15,
+      "seed": 42,
+      "device": "cuda",
+      "seconds": 42.094116499996744
+    },
+    "Weibull": {
+      "max_epochs": 200,
+      "patience": 15,
+      "seed": 42,
+      "device": "cuda",
+      "seconds": 10.655360100005055
+    },
+    "DRSA": {
+      "max_epochs": 200,
+      "patience": 15,
+      "seed": 42,
+      "device": "cuda",
+      "seconds": 36.56956289999653
+    },
+    "Glazier-GRU": {
+      "max_epochs": 200,
+      "patience": 15,
+      "seed": 42,
+      "device": "cuda",
+      "seconds": 23.463786400010576
+    },
+    "Glazier-RNN": {
+      "max_epochs": 200,
+      "patience": 15,
+      "seed": 42,
+      "device": "cuda",
+      "seconds": 35.84854020000785
+    },
+    "Glazier-Transformer": {
+      "max_epochs": 200,
+      "patience": 15,
+      "seed": 42,
+      "device": "cuda",
+      "seconds": 32.680512899998575
+    }
+  },
+  "evaluations": [
+    {
+      "tag": "full",
+      "n_eval": 300,
+      "samples": 500,
+      "gt_samples": 2000,
+      "landmarks": [
+        10,
+        15,
+        20
+      ],
+      "sampling_seed": 4242,
+      "reference_seed": 21101
+    }
+  ],
+  "source_sha256": {
+    "cph_model.py": "68d1431a1244d914c32fd579ab018874a73b598d3b0c5e63ce68b039beddb636",
+    "cph_model_cr.py": "243cb2fce792093ef26182dbd3a719f45e659e2c268561e7f42e32d2e2d6ec20",
+    "cph_model_sm.py": "cc1163f71b7c9b38b3b405180c7137e45034902f3c03f0f04fd6e1a9eac72e30",
+    "drsa_model.py": "52430681fb1b02d5bbcfb9d99c4df63a26f0714444ed4eeb19b0b42c5482029c",
+    "drsa_model_cr.py": "c791b67709dd5e38c4ab110f3dd84af88f7b70812d75e3e7927180f7932c8ac4",
+    "drsa_model_sm.py": "0c964991de60c5128e22dc130a6c7663befed2acd85d3ead5f60f3d5e4d757b4",
+    "dynamic_deephit_model.py": "98e8713786ab36ef47770a73eb91c8ac071b4c7f5a85c71ac0a0035a81846551",
+    "dynamic_deephit_model_cr.py": "b87790bbb831063ba659cf95bcbe0c1d7cbc067d9e12d9333308ac8d528d6a7e",
+    "dynamic_deephit_model_sm.py": "1b27fce1938d9b891fe85f59fe31581678fd76469f77c6e9076187eb64583ec7",
+    "extension_workflow.py": "ad2a3f0caed7b5754bbe80b34a59ffd53398563d4e5a0a96d33ab1c57b4d7d24",
+    "generate_cohorts_cr.py": "62779d83e7efad7626ebe87c0254c81b58601cd0a1fd800b8b5248cbcef1bf63",
+    "generate_cohorts_sm.py": "f41aa8df38532a34f8eb73324405561a8c428913843647399ea6ebd87f102f67",
+    "glazier_model.py": "b2e380181b1b2cb9dc602243eb1d50b1697a7362b4d6a26147b06ea686220f27",
+    "glazier_model_cr.py": "2a1bcee83393d7bbfd926605c1dc269b5dcdd9e8ad0326abf2b2c43ef8494c90",
+    "glazier_model_sm.py": "a061110b514a035cdd4331d9dc842a4837a3c801782fe7f08641159a4b371965",
+    "glazier_rnn_model.py": "aeff52b1dda69893e4b1b697feb65581fa53eb3a171c918f605e93e6140e85e2",
+    "glazier_rnn_model_cr.py": "931b18b4698d6f47c289a2bd211c151546683face48634dc0776167c71132724",
+    "glazier_rnn_model_sm.py": "c00723a5ea6a3b8f85ffa67a6dc5bd10a1a68a17ea9cf3f6f2e926d456c65482",
+    "glazier_transformer_model.py": "f8c526e6700049691c42900d1b443d68d0f805f098df1d4a43ea6148daa0148c",
+    "glazier_transformer_model_cr.py": "6d117b960d1aab0b9bef495b58852cabf566792bb7516000ec48b634d4f6cbed",
+    "glazier_transformer_model_sm.py": "8ca5e90493f9760aa13ab42e884a4c4c473a36ac6990e5a5fccc153f3f9cf26b",
+    "model_comparison.py": "fc5a723cf9fd9645acee0db636b34f469e034047bbe78a9b7415ce472b404f7b",
+    "model_comparison_competing_risks.py": "ffe8300af2cff3354784f90d99e4a0dc746dc2a02d3dfa67326a1faba9cfabe0",
+    "model_comparison_semimarkov.py": "838e66fafc2cd6b02a4b1c7a37463a56b05b3ff3d5d43cfb7c7497d193d0b170",
+    "param_flop.py": "a274630766da427594ef27c9a2f5dc1bcbfeb09c74e0b4dbf319e65b60fe1379",
+    "reference_recursion.py": "cbe1979ac4012a19730058905d477019b19122142c79f15cf2b21393d9145864",
+    "sfsa_competing_risks.py": "9777e16d3b149ec6180fadc8827c3ce6a4f5a7f5d6d2ac9d3498b07242914663",
+    "sfsa_data_generation.py": "3ec9aaf988c0dc115c5aa287bbb9eeff210d65b3fd3cceb8f1e1974c41b96c7d",
+    "sfsa_semi_markov.py": "a0f0d286290fd722af5c2c9e403656dce1025c2c48c4ffe00d26d48f5818f3e7",
+    "sfsa_semi_markov_extras.py": "611150509b5f1bc194b61af36aa508e470ff2637f03c96b096e627e4991e127f",
+    "survtransformer_model.py": "36872dbb9d9043609484aac64cf113f3b990dbb156aa963048c7e42596d3449f",
+    "survtransformer_model_cr.py": "86629a2cf9c2be340c5d1ba0a3046cc36eca4a3943aac392b5cdfe0a7c9d27b4",
+    "survtransformer_model_sm.py": "cc17ce30f20d6676b9d0a7bee959b1585e27556b2b71738ef429eca6c4129bc2",
+    "test_extension_workflow.py": "4d47098ee78d6041acfa46a4283a3a971af2d9b12f2cf55cd68cb126733f4bcc",
+    "test_revision.py": "dc8374978499aec72973eeb017f1aefa7dc5fbb3f64b13bc13d89f9f7462d1ad",
+    "wtte_model.py": "5aa086ee869e8738cc5248142d11d707ca318c5388b3f6af7a089c6267eb096c",
+    "wtte_model_cr.py": "527d4e52c71b1c85b49a47fd380f76e694b22f1b745e5516a6b9d2548b1fd6a6",
+    "wtte_model_sm.py": "83ce072f829b968acaff24193128ab1bbd0fc1f53c56e056ab1e2f660d9f5099"
+  },
+  "run_mode": "full",
+  "gpu": "NVIDIA GeForce RTX 3060",
+  "MKL_THREADING_LAYER": "SEQUENTIAL",
+  "runtime_note": "gpu_env Python 3.10; workspace support packages; datetime.UTC=timezone.utc compatibility alias",
+  "cpu_threads": 4
+}

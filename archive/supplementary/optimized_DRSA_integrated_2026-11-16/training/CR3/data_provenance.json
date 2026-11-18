@@ -1,0 +1,26 @@
+{
+  "experiment": "CR3",
+  "cohort": "C:\\Users\\moeni\\Documents\\ATLAS_work\\history\\2026-09-13\\thi\\work\\paper_benchmarks_20260919\\full_cr3cov_v2\\checkpoints\\cohort.npz",
+  "cohort_sha256": "db08a45363fd873f7d62d5736e49fbb86df4f199109d56a5b7d683c38d8f2c15",
+  "evaluation_ids": "C:\\Users\\moeni\\Documents\\ATLAS_work\\history\\2026-09-13\\thi\\work\\paper_benchmarks_20260919\\full_cr3cov_v2\\evaluation\\L0\\reference.npz",
+  "train_n": 40000,
+  "validation_n": 5000,
+  "test_split_n": 5000,
+  "test_evaluation_n": 300,
+  "standardization_mean": [
+    10.505775550491798,
+    59.94993304645868,
+    0.5007885796804282
+  ],
+  "standardization_SD": [
+    1.447460223027328,
+    17.34803710762758,
+    0.2882781237391955
+  ],
+  "training_n": 40000,
+  "input_columns": [
+    "calcium",
+    "age",
+    "drug"
+  ]
+}

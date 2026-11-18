@@ -1,0 +1,79 @@
+{
+  "files": [
+    {
+      "path": "analysis_plan.json",
+      "bytes": 2326,
+      "sha256": "f909e7ee49d860d4c59d91010f9325f8073e1a7dd45a436a0e8a97283d8eb730"
+    },
+    {
+      "path": "figure_1_headline_bootstrap.pdf",
+      "bytes": 32719,
+      "sha256": "414ca219bb95157e7bcdd7b6abb6479a4f0a2e657f9bbe3f40052e17450d547c"
+    },
+    {
+      "path": "figure_1_headline_bootstrap.png",
+      "bytes": 474568,
+      "sha256": "c6d554ebfc474e5108cee5045030125fffb7b2c22bdad577949fdd3b9beac950"
+    },
+    {
+      "path": "figure_1_headline_bootstrap.svg",
+      "bytes": 40459,
+      "sha256": "0a92813c764ebac340cf0b4188f17ca6bbaf7c69112692724eeee6e7b18c9050"
+    },
+    {
+      "path": "figure_2_duration_comparator_matrix.pdf",
+      "bytes": 63888,
+      "sha256": "5c66ab204084b660f0fc7f2eab93d67d1d2c6c57b4862032fe7d6a466e0941d5"
+    },
+    {
+      "path": "figure_2_duration_comparator_matrix.png",
+      "bytes": 402459,
+      "sha256": "3afece51fbfe8da415376001e46e8fec6181de98bd02803cc300a2de135ff0c9"
+    },
+    {
+      "path": "figure_2_duration_comparator_matrix.svg",
+      "bytes": 62966,
+      "sha256": "e1ebfa3a8e847e8ce3a1c74c30694fedf078ab5a41cf0851d7b33c883de8e3e5"
+    },
+    {
+      "path": "figure_3_competing_risk_comparator_matrix.pdf",
+      "bytes": 73375,
+      "sha256": "c11e9188eb9063f10e22ca2315540986f272ec2d8054e25f30792d6a7efe107a"
+    },
+    {
+      "path": "figure_3_competing_risk_comparator_matrix.png",
+      "bytes": 517918,
+      "sha256": "489694c10f37defd615a92154a3e0e23987ef19877101a616443c254703d8133"
+    },
+    {
+      "path": "figure_3_competing_risk_comparator_matrix.svg",
+      "bytes": 97259,
+      "sha256": "ed0cbcf1654104dc02d771a1a1af0442998cc4d115d0bc6470e0a6b1998f755c"
+    },
+    {
+      "path": "FIGURE_CAPTIONS.txt",
+      "bytes": 2753,
+      "sha256": "b275bf0b79a9cdc35c5d85c720bffab76c3a14ea0c5162add252bc7e45947068"
+    },
+    {
+      "path": "headline_comparisons.csv",
+      "bytes": 3692,
+      "sha256": "86322ebb902e1a306d024904e83eb998004a17a3a4e8b3c3622a8402e44db976"
+    },
+    {
+      "path": "index.html",
+      "bytes": 6698,
+      "sha256": "9feb2d4b0b0042396e84e42f498b5711a133bbbae96dca5892fc5322c13c7ef1"
+    },
+    {
+      "path": "paired_comparisons.csv",
+      "bytes": 61536,
+      "sha256": "e2e498771519a73c87d56eb4407e7239366fd1c590481b3815a3590947619a32"
+    },
+    {
+      "path": "plot_s3_advantage.py",
+      "bytes": 12207,
+      "sha256": "9bb55b0d8a2452dd3e268abb6da8f679ee6c717e1003040d801b2fa9de6581e0"
+    }
+  ]
+}

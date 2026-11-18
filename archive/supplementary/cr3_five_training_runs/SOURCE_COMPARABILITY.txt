@@ -1,0 +1,7 @@
+CR3 SOURCE COMPARABILITY NOTE
+
+The supplied review.html and comparability_audit.json said the later source snapshots were unavailable. The manuscript revision audit subsequently found local copies matching all eight hashes recorded for the later runs. These copies are included under recorded_source/later_runs. The seed-42 versions are under recorded_source/seed42.
+
+The only byte-different recorded files are cr_workflow.py and source/history_training.py. The former allows reference reuse after checking patient IDs, times, covariates and prefixes. The latter makes validation_index_seed configurable; the saved settings use 145, matching seed 42 plus 103 in the original implementation. No architecture or loss change was found in these differences. This resolves the missing-source concern in the supplied review without changing any original archive.
+
+Seed 42 used NVIDIA L4; seeds 43,45,46,47 used NVIDIA RTX PRO 6000 Blackwell. Recorded Python, NumPy and PyTorch versions agree, but hardware and recorded determinism settings differ. Accuracy uses all five full runs; supplied pooled timings use the four later runs only.

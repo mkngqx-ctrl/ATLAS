@@ -1,0 +1,22 @@
+\begin{center}\begin{minipage}{\textwidth}\centering\small
+\begin{tabular}{lrrr}
+\toprule
+Model / method & $L=0$ & $L=10$ & $L=20$ \\\midrule
+\multicolumn{4}{l}{\textit{Direct models, covariates only}}\\
+CPH & 0.027520 & 0.056275 & 0.040708 \\
+Weibull-MLP & 0.006542 & 0.045594 & 0.033452 \\
+DRSA (optimized) & 0.032559 & 0.046644 & 0.032548 \\
+DynamicDeepHit-Lite & 0.008993 & 0.044257 & 0.032283 \\
+SurvTransformer-Lite & 0.008929 & 0.044021 & 0.032284 \\
+\multicolumn{4}{l}{\textit{Direct models, covariates and observed history}}\\
+Dynamic-DeepHit (optimized) & 0.009911 & 0.012385 & 0.010620 \\
+SurvTransformer & 0.012421 & 0.020794 & 0.021891 \\
+SurvTransformer-Discrete & 0.012653 & 0.020366 & 0.020970 \\
+\multicolumn{4}{l}{\textit{ATLAS, covariates and observed history, common Sobol sampler}}\\
+ATLAS-GRU / Sobol & \textbf{0.004940} & \textbf{0.004299} & \textbf{0.003265} \\
+ATLAS-Transformer / Sobol & 0.006211 & 0.006218 & 0.004700 \\
+\multicolumn{4}{l}{\textit{Control}}\\
+Oracle sampler / IID & 0.001713 & 0.001528 & 0.001024 \\
+\bottomrule\end{tabular}
+\captionof{table}{Death B cumulative incidence MAE in the multi-covariate competing-risks experiment. Neural-model entries are means across five training runs. ATLAS rows use Sobol at $M=10{,}000$, first averaging five sampling seeds within each training run. Training-run standard deviations, ranges and individual-run scores appear in Supplementary Tables~S4 and~S5. CPH predictions agree across runs to numerical precision; the oracle is a reused true-generator sampling control. The eligible counts are 300, 251 and 179. Each CIF is the probability of that cause occurring before the competing cause, after the prediction time.}\label{tab:cr_cause_b}
+\end{minipage}\end{center}

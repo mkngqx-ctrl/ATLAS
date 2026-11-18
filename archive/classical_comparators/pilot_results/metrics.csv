@@ -1,0 +1,14 @@
+experiment,model,target,landmark,n_patients,MAE
+Hard24,Landmark-CPH-supermodel,Survival,0,300,0.013659210165774259
+Hard24,Landmark-CPH-supermodel,Survival,20,102,0.06623497098332098
+Hard24,Landmark-CPH-supermodel,Survival,23,78,0.0717082817248014
+Hard24,Landmark-CPH-supermodel,Survival,24,57,0.06323750149821405
+CR3,Landmark-CPH-supermodel,Survival,0,300,0.0214271059583949
+CR3,Landmark-CPH-supermodel,CIF_Death_A,0,300,0.015186453810025948
+CR3,Landmark-CPH-supermodel,CIF_Death_B,0,300,0.0077430661271951735
+CR3,Landmark-CPH-supermodel,Survival,10,251,0.039024391515716954
+CR3,Landmark-CPH-supermodel,CIF_Death_A,10,251,0.03196994792247706
+CR3,Landmark-CPH-supermodel,CIF_Death_B,10,251,0.016450641557973534
+CR3,Landmark-CPH-supermodel,Survival,20,179,0.029456677405184876
+CR3,Landmark-CPH-supermodel,CIF_Death_A,20,179,0.02159863212000451
+CR3,Landmark-CPH-supermodel,CIF_Death_B,20,179,0.013106696979713532

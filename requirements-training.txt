@@ -1,0 +1,5 @@
+-r requirements.txt
+pandas==2.3.3
+lifelines==0.30.3
+scikit-learn
+torch==2.11.0

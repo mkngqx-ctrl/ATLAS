@@ -1,0 +1,31 @@
+model,metric,n_valid_seeds,mean,sd,seed_42,seed_43,seed_45,seed_46,seed_47,status
+CPH,seconds,4,0.45051431875,0.0864546449333,0.991473173,0.480556577,0.52334958,0.325170849001,0.472980269,"Timing pooled only for seeds 43,45,46,47; seed 42 L4 timing excluded"
+CPH,best_epoch,5,0,0,0,0,0,0,0,available
+CPH,training_prefixes,5,40000,0,40000,40000,40000,40000,40000,available
+DRSA,seconds,4,16.0230752575,2.47530198533,,13.451204062,18.164779287,14.35568437,18.120633311,"Timing pooled only for seeds 43,45,46,47; seed 42 L4 timing excluded"
+DRSA,best_epoch,4,51,10.0332779622,,40,60,45,59,not applicable / unavailable
+DRSA,training_prefixes,4,40000,0,,40000,40000,40000,40000,not applicable / unavailable
+DynamicDeepHIt-Lite,seconds,4,15.737857165,2.73478488282,,14.519564915,12.522963274,17.325643171,18.5832573,"Timing pooled only for seeds 43,45,46,47; seed 42 L4 timing excluded"
+DynamicDeepHIt-Lite,best_epoch,4,17.25,10.5948100502,,11,6,29,23,not applicable / unavailable
+DynamicDeepHIt-Lite,training_prefixes,4,40000,0,,40000,40000,40000,40000,not applicable / unavailable
+DynamicDeepHit,seconds,4,690.98690719,45.7444739922,1871.01889809,755.212665599,692.127080746,655.55893367,661.048948746,"Timing pooled only for seeds 43,45,46,47; seed 42 L4 timing excluded"
+DynamicDeepHit,best_epoch,5,8.2,1.30384048104,9,10,8,7,7,available
+DynamicDeepHit,training_prefixes,5,864247,0,864247,864247,864247,864247,864247,available
+Glazier-GRU,seconds,4,15.5263115433,3.66779515168,,18.279909776,14.79123348,10.631288406,18.402814511,"Timing pooled only for seeds 43,45,46,47; seed 42 L4 timing excluded"
+Glazier-GRU,best_epoch,4,57.25,16.6408132814,,70,54,35,70,not applicable / unavailable
+Glazier-GRU,training_prefixes,4,40000,0,,40000,40000,40000,40000,not applicable / unavailable
+Glazier-Transformer,seconds,4,19.6789369585,4.54066806174,,14.558251096,20.595630649,18.178539866,25.383326223,"Timing pooled only for seeds 43,45,46,47; seed 42 L4 timing excluded"
+Glazier-Transformer,best_epoch,4,46,13.7840487521,,30,49,42,63,not applicable / unavailable
+Glazier-Transformer,training_prefixes,4,40000,0,,40000,40000,40000,40000,not applicable / unavailable
+SurvTransformer,seconds,4,534.430354291,15.0454159596,1559.4221183,544.967498672,512.289381402,537.939332222,542.52520487,"Timing pooled only for seeds 43,45,46,47; seed 42 L4 timing excluded"
+SurvTransformer,best_epoch,5,2.6,0.547722557505,2,3,2,3,3,available
+SurvTransformer,training_prefixes,5,864247,0,864247,864247,864247,864247,864247,available
+SurvTransformer-Discrete,seconds,4,529.705077798,26.8603346088,1586.33437979,494.71067024,522.659666008,548.92039156,552.529583385,"Timing pooled only for seeds 43,45,46,47; seed 42 L4 timing excluded"
+SurvTransformer-Discrete,best_epoch,5,2.2,0.836660026534,2,1,2,3,3,available
+SurvTransformer-Discrete,training_prefixes,5,864247,0,864247,864247,864247,864247,864247,available
+SurvTransformer-Lite,seconds,4,12.136817625,1.16289660134,,12.331339676,10.657315853,12.070563966,13.488051005,"Timing pooled only for seeds 43,45,46,47; seed 42 L4 timing excluded"
+SurvTransformer-Lite,best_epoch,4,7.75,2.06155281281,,8,5,8,10,not applicable / unavailable
+SurvTransformer-Lite,training_prefixes,4,40000,0,,40000,40000,40000,40000,not applicable / unavailable
+Weibull,seconds,4,26.3843698555,3.61347542579,,23.880421538,22.779474441,30.228601813,28.64898163,"Timing pooled only for seeds 43,45,46,47; seed 42 L4 timing excluded"
+Weibull,best_epoch,4,116,18.3121089264,,103,99,138,124,not applicable / unavailable
+Weibull,training_prefixes,4,40000,0,,40000,40000,40000,40000,not applicable / unavailable

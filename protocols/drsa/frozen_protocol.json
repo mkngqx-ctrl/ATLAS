@@ -1,0 +1,194 @@
+{
+  "created_UTC": "2026-11-04T13:50:21.724212+00:00",
+  "study": "Approved DRSA composite-objective optimization",
+  "date": "2026-11-04",
+  "inputs": "Fixed standardized covariates and normalized time only; no health-state history",
+  "horizon": 30,
+  "objective": "alpha*uncensored event-time NLL +(1-alpha)*event-status/censoring loss; mean over minibatch",
+  "alpha_values": [
+    0.05,
+    0.1,
+    0.25,
+    0.5,
+    0.75,
+    0.9
+  ],
+  "screen_architectures": [
+    {
+      "hidden": 32,
+      "layers": 1,
+      "projection": 0
+    },
+    {
+      "hidden": 128,
+      "layers": 1,
+      "projection": 0
+    },
+    {
+      "hidden": 128,
+      "layers": 1,
+      "projection": 64
+    },
+    {
+      "hidden": 256,
+      "layers": 2,
+      "projection": 128
+    }
+  ],
+  "screen": {
+    "seed": 42,
+    "cumulative_epochs": [
+      5,
+      15,
+      30
+    ],
+    "keep_per_alpha": [
+      2,
+      1
+    ],
+    "ranking": "minimum validation score seen through current rung; ties candidate ID"
+  },
+  "refinement": {
+    "top_alphas": 2,
+    "recipes": [
+      {
+        "rule": "reuse winning screen configuration for this alpha"
+      },
+      {
+        "hidden": 64,
+        "layers": 1,
+        "projection": 64,
+        "alpha": 0,
+        "lr": 0.0003,
+        "dropout": 0,
+        "l2": 0,
+        "batch": 256
+      },
+      {
+        "hidden": 128,
+        "layers": 1,
+        "projection": 128,
+        "alpha": 0,
+        "lr": 0.0001,
+        "dropout": 0.1,
+        "l2": 1e-06,
+        "batch": 128
+      },
+      {
+        "hidden": 128,
+        "layers": 2,
+        "projection": 64,
+        "alpha": 0,
+        "lr": 0.0007,
+        "dropout": 0.1,
+        "l2": 1e-05,
+        "batch": 256
+      },
+      {
+        "hidden": 256,
+        "layers": 1,
+        "projection": 128,
+        "alpha": 0,
+        "lr": 0.003,
+        "dropout": 0.2,
+        "l2": 0.0001,
+        "batch": 128
+      },
+      {
+        "hidden": 256,
+        "layers": 2,
+        "projection": 128,
+        "alpha": 0,
+        "lr": 0.0015,
+        "dropout": 0.1,
+        "l2": 1e-05,
+        "batch": 256
+      }
+    ],
+    "recipe_alpha_zero_is_placeholder": true,
+    "cumulative_epochs": [
+      10,
+      30,
+      60
+    ],
+    "keep": [
+      6,
+      4
+    ],
+    "seed": 42,
+    "clarification": "Two alpha candidates are crossed with the same five new recipes plus each alpha screen winner; fixed balanced design, not exhaustive factorial"
+  },
+  "confirmation": {
+    "finalists": 2,
+    "seeds": [
+      42,
+      43,
+      45
+    ],
+    "maximum_epochs": 200,
+    "patience": 15,
+    "minimum_improvement": 1e-06,
+    "decision": "lowest mean best validation score over three seeds"
+  },
+  "selection_metric": "Mean observed-outcome conditional NLL over landmarks with equal landmark weights; all eligible validation patients; no analytical curves/test MAE",
+  "validation_eligibility": "recorded duration > landmark; event/censor at landmark excluded",
+  "optimizer": {
+    "name": "Adam",
+    "betas": [
+      0.9,
+      0.99
+    ],
+    "gradient_clip": 5
+  },
+  "l2_definition": "explicit0.5*sum(all learned parameters squared)*coefficient/128; no Adam weight decay",
+  "final_seeds": {
+    "Hard24": [
+      42,
+      43,
+      44,
+      45,
+      50,
+      51,
+      52,
+      62,
+      63
+    ],
+    "CR3": [
+      42,
+      43,
+      45,
+      46,
+      47
+    ]
+  },
+  "final_epochs": 200,
+  "final_patience": 15,
+  "confirmation_fits_reused": "Selected configuration seeds42/43/45 reused unchanged for final evaluation",
+  "final_test": "Original300baseline test patients and original eligible subsets from archived reference files; survival both experiments, both CIFs CR3",
+  "resampling": "Use saved5000paired patient-bootstrap multiplicities for updated ATLAS-versus-DRSA comparisons",
+  "transparency": "Motivated by original test findings. No original results/manuscript/export ZIPs overwritten. Tiny original saved-inference discrepancies remain separately documented; do not condition new search on test outputs.",
+  "precision": "float32; no AMP, TF32 disabled; float64 curve propagation",
+  "resume": "Last state/model/optimizer/RNG at every epoch; best state saved separately; immutable rung decision JSONs",
+  "data_inventory": [
+    {
+      "experiment": "Hard24",
+      "cohort": "C:\\Users\\moeni\\Documents\\ATLAS_work\\history\\2026-09-13\\thi\\work\\paper_benchmarks_20260919\\full_hard24_add_history_v4\\checkpoints\\cohort.npz",
+      "cohort_sha256": "676d66bf67e67a52dba3be50cfe7925d3b49f8f5e9ec9876913ed45146e03c54",
+      "evaluation_ids": "C:\\Users\\moeni\\Documents\\ATLAS_work\\history\\2026-09-13\\thi\\work\\paper_benchmarks_20260919\\full_hard24_add_history_v4\\evaluation\\L0\\reference.npz",
+      "train_n": 40000,
+      "validation_n": 5000,
+      "test_split_n": 5000,
+      "test_evaluation_n": 300
+    },
+    {
+      "experiment": "CR3",
+      "cohort": "C:\\Users\\moeni\\Documents\\ATLAS_work\\history\\2026-09-13\\thi\\work\\paper_benchmarks_20260919\\full_cr3cov_v2\\checkpoints\\cohort.npz",
+      "cohort_sha256": "db08a45363fd873f7d62d5736e49fbb86df4f199109d56a5b7d683c38d8f2c15",
+      "evaluation_ids": "C:\\Users\\moeni\\Documents\\ATLAS_work\\history\\2026-09-13\\thi\\work\\paper_benchmarks_20260919\\full_cr3cov_v2\\evaluation\\L0\\reference.npz",
+      "train_n": 40000,
+      "validation_n": 5000,
+      "test_split_n": 5000,
+      "test_evaluation_n": 300
+    }
+  ]
+}

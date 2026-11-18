@@ -1,0 +1,171 @@
+{
+  "chosen": 0,
+  "selection": [
+    {
+      "interactions": false,
+      "validation_logloss": 0.6341531226850772,
+      "fit": [
+        {
+          "n_observations": 363174,
+          "n_features": 73,
+          "n_classes": 5,
+          "iterations": 302,
+          "gradient_max_average": 6.756583647324522e-08,
+          "converged": true,
+          "seconds": 31.14432954788208,
+          "ridge": 1.0
+        },
+        {
+          "n_observations": 113632,
+          "n_features": 73,
+          "n_classes": 5,
+          "iterations": 341,
+          "gradient_max_average": 7.494878368913108e-08,
+          "converged": true,
+          "seconds": 10.225794315338135,
+          "ridge": 1.0
+        },
+        {
+          "n_observations": 124532,
+          "n_features": 73,
+          "n_classes": 5,
+          "iterations": 360,
+          "gradient_max_average": 7.192428238783821e-08,
+          "converged": true,
+          "seconds": 11.802753210067749,
+          "ridge": 1.0
+        },
+        {
+          "n_observations": 88407,
+          "n_features": 73,
+          "n_classes": 5,
+          "iterations": 332,
+          "gradient_max_average": 9.288495549928808e-08,
+          "converged": true,
+          "seconds": 7.730276584625244,
+          "ridge": 1.0
+        },
+        {
+          "n_observations": 51648,
+          "n_features": 73,
+          "n_classes": 5,
+          "iterations": 417,
+          "gradient_max_average": 9.227050203488154e-08,
+          "converged": true,
+          "seconds": 5.643066644668579,
+          "ridge": 1.0
+        },
+        {
+          "n_observations": 42661,
+          "n_features": 73,
+          "n_classes": 5,
+          "iterations": 410,
+          "gradient_max_average": 9.389969464378377e-08,
+          "converged": true,
+          "seconds": 4.689966678619385,
+          "ridge": 1.0
+        },
+        {
+          "n_observations": 40193,
+          "n_features": 73,
+          "n_classes": 5,
+          "iterations": 332,
+          "gradient_max_average": 8.553284072234776e-08,
+          "converged": true,
+          "seconds": 3.5836520195007324,
+          "ridge": 1.0
+        }
+      ]
+    },
+    {
+      "interactions": true,
+      "validation_logloss": 0.6343829617416176,
+      "fit": [
+        {
+          "n_observations": 363174,
+          "n_features": 113,
+          "n_classes": 5,
+          "iterations": 763,
+          "gradient_max_average": 9.584039338507288e-08,
+          "converged": true,
+          "seconds": 90.11598372459412,
+          "ridge": 1.0
+        },
+        {
+          "n_observations": 113632,
+          "n_features": 113,
+          "n_classes": 5,
+          "iterations": 571,
+          "gradient_max_average": 8.66164276762458e-08,
+          "converged": true,
+          "seconds": 19.682183504104614,
+          "ridge": 1.0
+        },
+        {
+          "n_observations": 124532,
+          "n_features": 113,
+          "n_classes": 5,
+          "iterations": 564,
+          "gradient_max_average": 8.525600810691939e-08,
+          "converged": true,
+          "seconds": 21.87164330482483,
+          "ridge": 1.0
+        },
+        {
+          "n_observations": 88407,
+          "n_features": 113,
+          "n_classes": 5,
+          "iterations": 552,
+          "gradient_max_average": 8.710436798365873e-08,
+          "converged": true,
+          "seconds": 14.806756258010864,
+          "ridge": 1.0
+        },
+        {
+          "n_observations": 51648,
+          "n_features": 113,
+          "n_classes": 5,
+          "iterations": 632,
+          "gradient_max_average": 9.562431056379927e-08,
+          "converged": true,
+          "seconds": 9.943640232086182,
+          "ridge": 1.0
+        },
+        {
+          "n_observations": 42661,
+          "n_features": 113,
+          "n_classes": 5,
+          "iterations": 641,
+          "gradient_max_average": 8.92428065573781e-08,
+          "converged": true,
+          "seconds": 8.327331304550171,
+          "ridge": 1.0
+        },
+        {
+          "n_observations": 40193,
+          "n_features": 113,
+          "n_classes": 5,
+          "iterations": 540,
+          "gradient_max_average": 8.873613101124576e-08,
+          "converged": true,
+          "seconds": 6.598709583282471,
+          "ridge": 1.0
+        }
+      ]
+    }
+  ],
+  "initial_fit": {
+    "n_observations": 40000,
+    "n_features": 16,
+    "n_classes": 8,
+    "iterations": 326,
+    "gradient_max_average": 9.849103213295935e-08,
+    "converged": true,
+    "seconds": 4.665868282318115,
+    "ridge": 1.0
+  },
+  "cohort_sha256": "db08a45363fd873f7d62d5736e49fbb86df4f199109d56a5b7d683c38d8f2c15",
+  "n_train": 40000,
+  "n_val": 5000,
+  "status": "new three-covariate counterpart of earlier Hard24 semi-Markov model; validation selected before test scoring"
+}

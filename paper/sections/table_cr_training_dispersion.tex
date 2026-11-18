@@ -1,0 +1,115 @@
+% Approved S46: five-run CR3 dispersion for common-Sobol main-table configurations.
+\begingroup\small
+\setlength{\tabcolsep}{4pt}
+\begin{longtable}{lrrrr}
+\caption{Variation across five competing-risks training runs for the neural configurations in Tables~2 to 4 of the main text. ATLAS uses Sobol; each training run contributes its mean MAE over five sampling seeds at $M=10{,}000$. Between SD is the sample standard deviation across the five training-run means. Minimum and maximum refer to these means. Sampling SD is the square root of the average within-run sampling variance and is undefined for direct predictions. CPH and the reused true-generator oracle are omitted. These are descriptive standard deviations, not confidence intervals.}\label{tab:crdispersion}\\
+\toprule
+Model / method & Between SD & Minimum & Maximum & Sampling SD \\\midrule
+\endfirsthead
+\multicolumn{5}{l}{\tablename\ \thetable\ (continued)}\\
+\toprule
+Model / method & Between SD & Minimum & Maximum & Sampling SD \\\midrule
+\endhead
+\midrule\multicolumn{5}{r}{Continued on next page}\\\endfoot
+\bottomrule\endlastfoot
+\multicolumn{5}{l}{\textit{Overall survival, landmark $L=0$}}\\*
+Weibull-MLP & 0.000941 & 0.014796 & 0.017149 & --- \\*
+DRSA (optimized) & 0.008051 & 0.073429 & 0.095392 & --- \\*
+DynamicDeepHit-Lite & 0.002235 & 0.019689 & 0.024970 & --- \\*
+SurvTransformer-Lite & 0.004247 & 0.020683 & 0.029893 & --- \\*
+Dynamic-DeepHit (optimized) & 0.001566 & 0.014159 & 0.018062 & --- \\*
+SurvTransformer & 0.006237 & 0.015549 & 0.030736 & --- \\*
+SurvTransformer-Discrete & 0.005740 & 0.016079 & 0.030699 & --- \\*
+ATLAS-GRU / Sobol & 0.000969 & 0.006763 & 0.009192 & 0.000062 \\*
+ATLAS-Transformer / Sobol & 0.004211 & 0.005860 & 0.016214 & 0.000080 \\
+\addlinespace
+\multicolumn{5}{l}{\textit{Overall survival, landmark $L=10$}}\\*
+Weibull-MLP & 0.000419 & 0.089528 & 0.090527 & --- \\*
+DRSA (optimized) & 0.001908 & 0.093233 & 0.098538 & --- \\*
+DynamicDeepHit-Lite & 0.000970 & 0.090057 & 0.092382 & --- \\*
+SurvTransformer-Lite & 0.000527 & 0.090191 & 0.091504 & --- \\*
+Dynamic-DeepHit (optimized) & 0.001064 & 0.021463 & 0.024414 & --- \\*
+SurvTransformer & 0.003960 & 0.034238 & 0.044783 & --- \\*
+SurvTransformer-Discrete & 0.006668 & 0.032131 & 0.048810 & --- \\*
+ATLAS-GRU / Sobol & 0.000603 & 0.008022 & 0.009545 & 0.000061 \\*
+ATLAS-Transformer / Sobol & 0.003193 & 0.009096 & 0.016585 & 0.000088 \\
+\addlinespace
+\multicolumn{5}{l}{\textit{Overall survival, landmark $L=20$}}\\*
+Weibull-MLP & 0.000819 & 0.084534 & 0.086462 & --- \\*
+DRSA (optimized) & 0.001269 & 0.075799 & 0.079182 & --- \\*
+DynamicDeepHit-Lite & 0.001231 & 0.076062 & 0.078888 & --- \\*
+SurvTransformer-Lite & 0.000742 & 0.075834 & 0.077457 & --- \\*
+Dynamic-DeepHit (optimized) & 0.002024 & 0.020137 & 0.025122 & --- \\*
+SurvTransformer & 0.006152 & 0.043631 & 0.059791 & --- \\*
+SurvTransformer-Discrete & 0.006717 & 0.040613 & 0.057940 & --- \\*
+ATLAS-GRU / Sobol & 0.000962 & 0.005345 & 0.007767 & 0.000049 \\*
+ATLAS-Transformer / Sobol & 0.002568 & 0.006094 & 0.012472 & 0.000047 \\
+\addlinespace
+\multicolumn{5}{l}{\textit{Death A cumulative incidence, landmark $L=0$}}\\*
+Weibull-MLP & 0.000326 & 0.011411 & 0.012281 & --- \\*
+DRSA (optimized) & 0.008298 & 0.044096 & 0.064585 & --- \\*
+DynamicDeepHit-Lite & 0.001934 & 0.015571 & 0.020233 & --- \\*
+SurvTransformer-Lite & 0.005961 & 0.014263 & 0.026971 & --- \\*
+Dynamic-DeepHit (optimized) & 0.001721 & 0.009296 & 0.013874 & --- \\*
+SurvTransformer & 0.006619 & 0.013729 & 0.028147 & --- \\*
+SurvTransformer-Discrete & 0.005366 & 0.015126 & 0.027732 & --- \\*
+ATLAS-GRU / Sobol & 0.000316 & 0.005458 & 0.006254 & 0.000085 \\*
+ATLAS-Transformer / Sobol & 0.002202 & 0.004788 & 0.010554 & 0.000097 \\
+\addlinespace
+\multicolumn{5}{l}{\textit{Death A cumulative incidence, landmark $L=10$}}\\*
+Weibull-MLP & 0.000295 & 0.091250 & 0.092017 & --- \\*
+DRSA (optimized) & 0.001538 & 0.094405 & 0.097997 & --- \\*
+DynamicDeepHit-Lite & 0.000848 & 0.091948 & 0.093940 & --- \\*
+SurvTransformer-Lite & 0.001127 & 0.091304 & 0.094065 & --- \\*
+Dynamic-DeepHit (optimized) & 0.002066 & 0.015511 & 0.021124 & --- \\*
+SurvTransformer & 0.005751 & 0.027236 & 0.041741 & --- \\*
+SurvTransformer-Discrete & 0.004956 & 0.025591 & 0.038542 & --- \\*
+ATLAS-GRU / Sobol & 0.000816 & 0.006142 & 0.008229 & 0.000072 \\*
+ATLAS-Transformer / Sobol & 0.002119 & 0.006648 & 0.012090 & 0.000061 \\
+\addlinespace
+\multicolumn{5}{l}{\textit{Death A cumulative incidence, landmark $L=20$}}\\*
+Weibull-MLP & 0.000749 & 0.073952 & 0.076010 & --- \\*
+DRSA (optimized) & 0.001191 & 0.067890 & 0.070812 & --- \\*
+DynamicDeepHit-Lite & 0.001343 & 0.068056 & 0.071293 & --- \\*
+SurvTransformer-Lite & 0.000892 & 0.068454 & 0.070783 & --- \\*
+Dynamic-DeepHit (optimized) & 0.001854 & 0.014048 & 0.018435 & --- \\*
+SurvTransformer & 0.006075 & 0.030907 & 0.046494 & --- \\*
+SurvTransformer-Discrete & 0.004897 & 0.030069 & 0.041021 & --- \\*
+ATLAS-GRU / Sobol & 0.000581 & 0.003901 & 0.005467 & 0.000045 \\*
+ATLAS-Transformer / Sobol & 0.001945 & 0.004011 & 0.008758 & 0.000040 \\
+\addlinespace
+\multicolumn{5}{l}{\textit{Death B cumulative incidence, landmark $L=0$}}\\*
+Weibull-MLP & 0.000737 & 0.005582 & 0.007418 & --- \\*
+DRSA (optimized) & 0.004795 & 0.029774 & 0.041060 & --- \\*
+DynamicDeepHit-Lite & 0.000678 & 0.008407 & 0.010114 & --- \\*
+SurvTransformer-Lite & 0.001600 & 0.007171 & 0.011227 & --- \\*
+Dynamic-DeepHit (optimized) & 0.003015 & 0.007918 & 0.014989 & --- \\*
+SurvTransformer & 0.001977 & 0.009643 & 0.015115 & --- \\*
+SurvTransformer-Discrete & 0.001696 & 0.010788 & 0.014838 & --- \\*
+ATLAS-GRU / Sobol & 0.000898 & 0.004206 & 0.006248 & 0.000063 \\*
+ATLAS-Transformer / Sobol & 0.003685 & 0.003800 & 0.012715 & 0.000074 \\
+\addlinespace
+\multicolumn{5}{l}{\textit{Death B cumulative incidence, landmark $L=10$}}\\*
+Weibull-MLP & 0.000204 & 0.045392 & 0.045891 & --- \\*
+DRSA (optimized) & 0.001435 & 0.045525 & 0.049102 & --- \\*
+DynamicDeepHit-Lite & 0.000454 & 0.043682 & 0.044718 & --- \\*
+SurvTransformer-Lite & 0.000566 & 0.043382 & 0.044782 & --- \\*
+Dynamic-DeepHit (optimized) & 0.001836 & 0.011190 & 0.015593 & --- \\*
+SurvTransformer & 0.002759 & 0.018397 & 0.024082 & --- \\*
+SurvTransformer-Discrete & 0.001679 & 0.018373 & 0.022484 & --- \\*
+ATLAS-GRU / Sobol & 0.000551 & 0.003839 & 0.005024 & 0.000057 \\*
+ATLAS-Transformer / Sobol & 0.001359 & 0.004914 & 0.008365 & 0.000061 \\
+\addlinespace
+\multicolumn{5}{l}{\textit{Death B cumulative incidence, landmark $L=20$}}\\*
+Weibull-MLP & 0.000153 & 0.033250 & 0.033638 & --- \\*
+DRSA (optimized) & 0.000454 & 0.031955 & 0.033077 & --- \\*
+DynamicDeepHit-Lite & 0.000126 & 0.032086 & 0.032402 & --- \\*
+SurvTransformer-Lite & 0.000299 & 0.031806 & 0.032552 & --- \\*
+Dynamic-DeepHit (optimized) & 0.001152 & 0.008779 & 0.011758 & --- \\*
+SurvTransformer & 0.002111 & 0.018771 & 0.024704 & --- \\*
+SurvTransformer-Discrete & 0.001577 & 0.019173 & 0.022617 & --- \\*
+ATLAS-GRU / Sobol & 0.000408 & 0.002855 & 0.003898 & 0.000037 \\*
+ATLAS-Transformer / Sobol & 0.000999 & 0.003938 & 0.006411 & 0.000034 \\
+\addlinespace
+\end{longtable}
+\endgroup

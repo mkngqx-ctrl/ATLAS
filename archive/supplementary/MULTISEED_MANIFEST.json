@@ -1,0 +1,143 @@
+{
+  "created_at": "2026-10-01T21:04:03.440355+00:00",
+  "scope": "New multi-seed supplement; historical FILE_MANIFEST.json and original results preserved.",
+  "training_seeds": {
+    "Hard24": [
+      42,
+      43,
+      44,
+      45,
+      50,
+      51,
+      52,
+      62,
+      63
+    ],
+    "CR3": [
+      42,
+      43,
+      45,
+      46,
+      47
+    ]
+  },
+  "rollout_seeds": [
+    41001,
+    52001,
+    63001,
+    74001,
+    85001
+  ],
+  "metric": "MAE against individual exact reference curves; average errors within checkpoint, then across checkpoints",
+  "table_and_figure_sources": {
+    "tab:hardmain": [
+      "hard24_nine_training_runs/hard24_verified_summary.csv"
+    ],
+    "tab:harddispersion": [
+      "hard24_nine_training_runs/hard24_verified_summary.csv"
+    ],
+    "tab:hard24_checkpoint_scores": [
+      "hard24_nine_training_runs/hard24_verified_per_checkpoint.csv",
+      "hard24_nine_training_runs/hard24_per_seed_rankings.csv"
+    ],
+    "tab:cr_survival": [
+      "cr3_five_training_runs/verified_summary.csv"
+    ],
+    "tab:cr_cause_a": [
+      "cr3_five_training_runs/verified_summary.csv"
+    ],
+    "tab:cr_cause_b": [
+      "cr3_five_training_runs/verified_summary.csv"
+    ],
+    "tab:crdispersion": [
+      "cr3_five_training_runs/verified_summary.csv"
+    ],
+    "tab:cr_checkpoint_scores": [
+      "cr3_five_training_runs/verified_per_training_run.csv",
+      "cr3_five_training_runs/per_training_run_rankings.csv"
+    ],
+    "fig:overview": [
+      "overview_plot_values.csv"
+    ],
+    "fig:cr3_five_L0": [
+      "cr3_five_training_runs/verified_summary.csv",
+      "cr3_five_training_runs/verified_per_training_run.csv"
+    ],
+    "fig:cr3_five_L20": [
+      "cr3_five_training_runs/verified_summary.csv",
+      "cr3_five_training_runs/verified_per_training_run.csv"
+    ],
+    "sections/table_single_cov_samplers.tex": [
+      "hard24_nine_training_runs/hard24_verified_summary.csv"
+    ],
+    "sections/table_cr_samplers.tex": [
+      "cr3_five_training_runs/verified_summary.csv"
+    ],
+    "selected_epoch_ranges": [
+      "hard24_selected_epochs.csv",
+      "cr3_selected_epochs.csv"
+    ]
+  },
+  "file_sha256": {
+    "hard24_selected_epochs.csv": "ccdcc1cf1ba7c1dffd29ca8ce01fc932304ac6e3d9c05936e9997a755b839a9d",
+    "cr3_selected_epochs.csv": "63d918bad2049eb71b6910c612c6226cb150ab90cbe9f2a44c3659d69c2a2862",
+    "hard24_nine_training_runs/hard24_verified_summary.csv": "a8a05d4ff22262355ad04820ca10cb6ca16561a19a26e5d3a92fc76551dc2d32",
+    "hard24_nine_training_runs/hard24_verified_per_checkpoint.csv": "18bd04252320ba4ba24a8fb28141c7050a082dc7ca6ca3826a335c93fcd6c7d7",
+    "hard24_nine_training_runs/hard24_per_seed_rankings.csv": "95dfc7fd57584b32b8e78521dc9d78189cdcd3b624893b82968351e966069b8a",
+    "hard24_nine_training_runs/hard24_sampler_rankings.csv": "32a08ce1e10f622f9639096be23bd42ea6345345d5f2e66b6a3344585fa3987f",
+    "hard24_nine_training_runs/hard24_training_records.csv": "2ff7731155966ddb02d9f9824c5a3c5b506424c9993a6225e414f62426518366",
+    "hard24_nine_training_runs/checkpoint_tensor_audit.json": "b8f7a1e0d3d530f982f4cb6438ce0eeb2e855fb6b56db9648f4fa69234bf304a",
+    "hard24_nine_training_runs/source_settings.json": "8b497cf69211fedaba0e39aa8eba487e9a2e3ba03bff3cae6d5a45f47c85750a",
+    "hard24_nine_training_runs/runtime_provenance.csv": "68cb5477c8107db112b9032f396faad6e9af1724aaabd71a2a183999459db9a4",
+    "cr3_five_training_runs/verified_summary.csv": "f586447b20c38784bf04c977557cf198c723856cc261ae734765bdfc70404bd1",
+    "cr3_five_training_runs/verified_per_training_run.csv": "667f7ebd7672f2deeec3eb2b2e14e14ad6abe0d4ca0cb53c5b81b63e239647d6",
+    "cr3_five_training_runs/verified_rollout_metrics.csv": "32ca325e76216c69410ea858d4e3dc833c5c6efb56f78dccfd89c17f38d34c32",
+    "cr3_five_training_runs/per_training_run_rankings.csv": "65f2d9ed51c30a439840044a6c42af08f87dc77dc5bcc1cb91267670f8725175",
+    "cr3_five_training_runs/aggregate_rankings.csv": "4956711667f91420b83d839f24d91fb1c6e3eb369d5d8d5d582b53e6b4b1e306",
+    "cr3_five_training_runs/sampler_rankings.csv": "5f3f9ef6ee1864be3dad0e2a02dd04f387447f2e4d7dbfaa5f22605331499e10",
+    "cr3_five_training_runs/checkpoint_tensor_verification.json": "a19f9bd147a4610e380215db98da252b08b9cf91d3c7d9747ef1c335dde6ff23",
+    "cr3_five_training_runs/checkpoint_file_hashes.csv": "ca18e45a3a5f4fe7a3ddd9c8f72a78e296b36196a96c8d8183f5e7c7ab76b989",
+    "cr3_five_training_runs/raw_training_and_evaluation_settings.json": "dfd3281d91ebdbc8072b3ab59862a114d5e7bc55eecdd4adc7305a6e058e1cd7",
+    "cr3_five_training_runs/raw_environment.json": "7ddb00639132432346541c1fb71b000bf050f07e6649d9d4abf5415e81718c18",
+    "cr3_five_training_runs/verification.json": "6f54854fe4495b565713a8bb49d20529c4eba5267e7bfd93fc676343a495f2b1",
+    "cr3_five_training_runs/supplied_scalar_metrics_aggregated.csv": "d3223894a8a1a96af44295a7ee9d8d82e428ffbf7a514dbe1e5e7b4501d95403",
+    "cr3_five_training_runs/supplied_individual_training_summary.csv": "ccd9f082d72a2f6bd5ee4efa4d8300a7e16fc4babc6a4bb7cbf0818f38038488",
+    "cr3_five_training_runs/supplied_training_summary_aggregated.csv": "e30dfd2a1f003e8149054868b9e61fdbe33929787e897408aefa7b3b42f082b3",
+    "cr3_five_training_runs/source_archives.json": "ab202baef5922ce03eaaa7a436e606eab378dd51225bcf8d358bfd5a1734d52b",
+    "cr3_five_training_runs/recorded_source/seed42/cr_workflow.py": "ce636e36363d661e60e3a369daf713b39470d2810387b11eac5ebfd0e925e37f",
+    "cr3_five_training_runs/recorded_source/seed42/source/history_models.py": "89eb7210876afc7420a3ec27e86658c20dcd2ecd72c9985f7dc37d9c6ea3355d",
+    "cr3_five_training_runs/recorded_source/seed42/source/history_training.py": "a18d049e3e91ad1e1eb0a1ea40dc108887ba0b732623534195523b824db7afd9",
+    "cr3_five_training_runs/recorded_source/seed42/source/legacy_models.py": "a6358b3a22c58763964001da2a88380f48e5b947840df2d6943e356b03488e14",
+    "cr3_five_training_runs/recorded_source/seed42/source/model_training.py": "6dd5b7b7d39f4707579a1e9611e9e57a5b4c11f5aa5c9077370c42b4e535f6ae",
+    "cr3_five_training_runs/recorded_source/seed42/source/samplers_cr.py": "005c0cb8bc9eb8565fddf5ee4cd61494921a0d6135fc79b742dea0af2a369490",
+    "cr3_five_training_runs/recorded_source/seed42/source/sfsa_cr.py": "3b4be0c8ef9ee49f0206ec2b165b346a60c8afe7df9a57a9a55993a3bd893e0f",
+    "cr3_five_training_runs/recorded_source/seed42/test_competing_risks.py": "978266a7008229e566b4747d41110e99a401e7655d7433054b3158da8d09f646",
+    "cr3_five_training_runs/recorded_source/later_runs/cr_workflow.py": "80b4dbecf67051d0b2401844760a7f91eb63ab95b71a11429c82cd26485dc51d",
+    "cr3_five_training_runs/recorded_source/later_runs/source/history_models.py": "89eb7210876afc7420a3ec27e86658c20dcd2ecd72c9985f7dc37d9c6ea3355d",
+    "cr3_five_training_runs/recorded_source/later_runs/source/history_training.py": "32c15355afea765b2529972f5cfde0c0e3ba8e2a4312258a6b10db962fafb6a7",
+    "cr3_five_training_runs/recorded_source/later_runs/source/legacy_models.py": "a6358b3a22c58763964001da2a88380f48e5b947840df2d6943e356b03488e14",
+    "cr3_five_training_runs/recorded_source/later_runs/source/model_training.py": "6dd5b7b7d39f4707579a1e9611e9e57a5b4c11f5aa5c9077370c42b4e535f6ae",
+    "cr3_five_training_runs/recorded_source/later_runs/source/samplers_cr.py": "005c0cb8bc9eb8565fddf5ee4cd61494921a0d6135fc79b742dea0af2a369490",
+    "cr3_five_training_runs/recorded_source/later_runs/source/sfsa_cr.py": "3b4be0c8ef9ee49f0206ec2b165b346a60c8afe7df9a57a9a55993a3bd893e0f",
+    "cr3_five_training_runs/recorded_source/later_runs/test_competing_risks.py": "978266a7008229e566b4747d41110e99a401e7655d7433054b3158da8d09f646",
+    "cr3_five_training_runs/SOURCE_COMPARABILITY.txt": "0a8f00d6c14947969e15e8e9d77d3915999fe1d9d9803ca9db0a04225d502202",
+    "overview_plot_values.csv": "be03aba11da19a369ad23e116ea2e62a4a16f8cde535b279b69950d4a3078c68",
+    "cr3_five_training_runs/four_seed_sensitivity_rankings.csv": "e99f24b04ed9b09bfc3497489189b5f5c3e75fbf70066226f143f20a0a5ede6b",
+    "cr3_five_training_runs/five_vs_four_seed_sensitivity.csv": "801e0e899a2db68221b6d4c4e602109f2dcd6433d32f081bc995faf8942b4e32",
+    "README.txt": "a96953324f2a6e538eff651df9c474a4b5e2bbec4abbfff453a7e8e05723a1b7"
+  },
+  "figure_sha256": {
+    "figures/atlas_budget_baseline.pdf": "1957415e44a4f125520250351202e7e7bf4e6a123f7eb37d1940bd45d9a3757e",
+    "figures/atlas_competing_risks_intuition.pdf": "1c071dcabde1e437c6696cd5cf99f63fc5cf5578778c5cb68e4d9dfc21227fe6",
+    "figures/atlas_single_covariate_intuition.pdf": "b8bb2b8d131057ad40df661c4ae3ef6c80c37a168993f87c75243c820ee3ba32",
+    "figures/atlas_survival_comparison.pdf": "5775d87b54540cdc5718ee85044efcc8a920e94c53838be546b32e2bf18e46de",
+    "figures/atlas_walks_illustration.pdf": "7dc1610856fff613f58dadbecf8f78ab070584dee952af85b4d73f852e380705",
+    "figures/hard24_nine_seed_comparison_L0.png": "9f2735d63c033a9024ba817f80d8007c303e1c2d146b79c67eccfc9222e4f909",
+    "figures/hard24_nine_seed_comparison_L20.png": "d5234d34db05a3b96bb2891c8035a2c9174a8b2eb31eff3dc98c3bdbadfaae21",
+    "figures/updated_individual_baseline.pdf": "abf25edbee9677c0619f353d1998a6547983b5325c68944065ecd17c7b6b9658",
+    "figures/atlas_survival_comparison_multiseed.pdf": "07961af2a3b341d124765e23a73a02d4a2cc9069da753c2fe0221b12df1707d1",
+    "figures/cr3_five_seed_comparison_L0.pdf": "562bef621fdd059c19d20c5c301fea52f5cec754414499a96685c46301836d2e",
+    "figures/cr3_five_seed_comparison_L20.pdf": "4a36553d0ab54ea07b748979249d23676bf6d2ac84095f377be1df9c262dfdba"
+  },
+  "cr3_complete_archive_sha256": "664f86e47e7ea57930db162bb21971cb4f822ace89a3e80c36d5dc8eb4f4c506"
+}

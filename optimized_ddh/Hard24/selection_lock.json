@@ -1,0 +1,52 @@
+{
+  "protocol_hash": "5cc4e5e50fdd40bb5696b3d518083ab3282f4f0c23d555da299be079bcfc832f",
+  "experiment": "Hard24",
+  "candidate": 6,
+  "config": {
+    "model": {
+      "horizon": 30,
+      "hidden": 64,
+      "layers": 4,
+      "attention_hidden": 64,
+      "head_hidden": 32,
+      "head_layers": 2,
+      "dropout": 0.1,
+      "causes": 1,
+      "n_live": 3,
+      "n_covariates": 1,
+      "readout": "all",
+      "output_wiring": "shared"
+    },
+    "loss": {
+      "rank_weight": 0.001,
+      "rank_sigma": 0.2,
+      "auxiliary_weight": 0.01,
+      "l1_weight": 1e-05,
+      "rank_reduction": "per_patient",
+      "l1_scope": "heads"
+    },
+    "lr": 0.0009625862930815451,
+    "batch_size": 256
+  },
+  "selection": "mean balanced validation NLL across fixed search/confirmation seeds",
+  "confirmation": [
+    {
+      "candidate": 6,
+      "mean_validation_NLL": 2.0108091235160828,
+      "seed_scores": [
+        2.0127354860305786,
+        2.008688509464264,
+        2.0110033750534058
+      ]
+    },
+    {
+      "candidate": 9,
+      "mean_validation_NLL": 2.0397645036379495,
+      "seed_scores": [
+        2.049613431096077,
+        2.036364331841469,
+        2.033315747976303
+      ]
+    }
+  ]
+}

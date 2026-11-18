@@ -1,0 +1,19 @@
+{
+  "fit_id": "confirm_B0_R0",
+  "seed": 45,
+  "config": {
+    "hidden": 128,
+    "layers": 1,
+    "projection": 64,
+    "alpha": 0.5,
+    "lr": 0.001,
+    "dropout": 0,
+    "l2": 0,
+    "batch": 256
+  },
+  "best_validation_NLL": 1.5635753268023447,
+  "best_epoch": 25,
+  "epochs_completed": 40,
+  "checkpoint": "C:\\Users\\moeni\\Documents\\ATLAS_work\\current\\review\\DRSA_optimization_2026-11-04\\CR3\\fits\\confirm_B0_R0\\seed_45\\best.pt",
+  "stop": "patience"
+}

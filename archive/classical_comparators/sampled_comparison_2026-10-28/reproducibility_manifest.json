@@ -1,0 +1,93 @@
+{
+  "M": 10000,
+  "seeds": [
+    41001,
+    52001,
+    63001,
+    74001,
+    85001
+  ],
+  "python": "3.14.0 (tags/v3.14.0:ebf955d, Oct  7 2025, 10:15:03) [MSC v.1944 64 bit (AMD64)]",
+  "numpy": "2.4.2",
+  "scipy": "1.18.1",
+  "torch": "2.10.0+cpu",
+  "new_CR3_semimarkov_fit": "15 fitted regressions including one common initial fit and two sets of seven state regressions; additive candidate chosen by observed validation transition log loss",
+  "n_sampled_prediction_files": 140,
+  "n_exact_prediction_files": 14,
+  "n_seed_level_metric_rows": 260,
+  "n_summary_rows": 52,
+  "total_trajectories": 253400000,
+  "exact_regression_checks": [
+    {
+      "experiment": "Hard24",
+      "landmark": 0,
+      "model": "Markov",
+      "prior_exact_curves_reproduced": true
+    },
+    {
+      "experiment": "Hard24",
+      "landmark": 0,
+      "model": "SemiMarkov",
+      "prior_exact_curves_reproduced": true
+    },
+    {
+      "experiment": "Hard24",
+      "landmark": 20,
+      "model": "Markov",
+      "prior_exact_curves_reproduced": true
+    },
+    {
+      "experiment": "Hard24",
+      "landmark": 20,
+      "model": "SemiMarkov",
+      "prior_exact_curves_reproduced": true
+    },
+    {
+      "experiment": "Hard24",
+      "landmark": 23,
+      "model": "Markov",
+      "prior_exact_curves_reproduced": true
+    },
+    {
+      "experiment": "Hard24",
+      "landmark": 23,
+      "model": "SemiMarkov",
+      "prior_exact_curves_reproduced": true
+    },
+    {
+      "experiment": "Hard24",
+      "landmark": 24,
+      "model": "Markov",
+      "prior_exact_curves_reproduced": true
+    },
+    {
+      "experiment": "Hard24",
+      "landmark": 24,
+      "model": "SemiMarkov",
+      "prior_exact_curves_reproduced": true
+    },
+    {
+      "experiment": "CR3",
+      "landmark": 0,
+      "model": "Markov",
+      "prior_exact_curves_reproduced": true
+    },
+    {
+      "experiment": "CR3",
+      "landmark": 10,
+      "model": "Markov",
+      "prior_exact_curves_reproduced": true
+    },
+    {
+      "experiment": "CR3",
+      "landmark": 20,
+      "model": "Markov",
+      "prior_exact_curves_reproduced": true
+    }
+  ],
+  "source_code_hashes": {
+    "run_classical_sampling.py": "5b5df85c2542877c809f49a7ee4b58673d31280d41edddffc721d04dfc01a9b8",
+    "test_classical_sampling.py": "7562e442570b5b3caa114e2b332cd728637f2e47b9adaec7b961532123545c75",
+    "finalize_classical_sampling.py": "e47aca58b4943cf643952600861b8557887fada66d227ba8be52a7838bc2b145"
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "fit_id": "confirm_B0_R4",
+  "seed": 45,
+  "config": {
+    "hidden": 256,
+    "layers": 1,
+    "projection": 128,
+    "alpha": 0.5,
+    "lr": 0.003,
+    "dropout": 0.2,
+    "l2": 0.0001,
+    "batch": 128
+  },
+  "best_validation_NLL": 2.2188646791650313,
+  "best_epoch": 12,
+  "epochs_completed": 27,
+  "checkpoint": "C:\\Users\\moeni\\Documents\\ATLAS_work\\current\\review\\DRSA_optimization_2026-11-04\\Hard24\\fits\\confirm_B0_R4\\seed_45\\best.pt",
+  "stop": "patience"
+}

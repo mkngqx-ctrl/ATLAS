@@ -1,0 +1,180 @@
+{
+  "full_hard24_add_history_v4": {
+    "archive_sha256": "6556bf98ac4704fcb82591de3ff77a400bd588a3c0c66d9ef8e4d10f62df6075",
+    "prediction_files": 472,
+    "metric_rows": 472,
+    "summary_rows": 120,
+    "max_metric_difference": 1.0061396160665481e-16,
+    "max_reference_difference": 4.440892098500626e-16,
+    "cohort_sha256": "676d66bf67e67a52dba3be50cfe7925d3b49f8f5e9ec9876913ed45146e03c54",
+    "comparisons": [
+      {
+        "L": 0,
+        "target": "Survival",
+        "n": 300,
+        "best_direct": "DynamicDeepHIt-Lite",
+        "best_direct_MAE": 0.0106984483157042,
+        "best_glazier": "Glazier-Transformer",
+        "best_method": "sobol",
+        "best_glazier_MAE": 0.0033155945347934,
+        "reduction": 0.6900864090798611,
+        "all_glazier_better": true
+      },
+      {
+        "L": 20,
+        "target": "Survival",
+        "n": 102,
+        "best_direct": "SurvTransformer-Discrete",
+        "best_direct_MAE": 0.0426736619767924,
+        "best_glazier": "Glazier-GRU",
+        "best_method": "sobol",
+        "best_glazier_MAE": 0.0054683944354086,
+        "reduction": 0.8718555150391704,
+        "all_glazier_better": true
+      },
+      {
+        "L": 23,
+        "target": "Survival",
+        "n": 78,
+        "best_direct": "SurvTransformer-Discrete",
+        "best_direct_MAE": 0.0540361505132811,
+        "best_glazier": "Glazier-GRU",
+        "best_method": "sobol",
+        "best_glazier_MAE": 0.0087764155651267,
+        "reduction": 0.8375825168565696,
+        "all_glazier_better": true
+      },
+      {
+        "L": 24,
+        "target": "Survival",
+        "n": 57,
+        "best_direct": "SurvTransformer-Discrete",
+        "best_direct_MAE": 0.0600713834432702,
+        "best_glazier": "Glazier-GRU",
+        "best_method": "sobol",
+        "best_glazier_MAE": 0.0080642470277987,
+        "reduction": 0.8657555966658508,
+        "all_glazier_better": true
+      }
+    ]
+  },
+  "full_cr3cov_v2": {
+    "archive_sha256": "7dbc5abeec4524fe538d7e7f9b8d086cac7e5750758531d1e1b1aa37f58afbc1",
+    "prediction_files": 249,
+    "metric_rows": 747,
+    "summary_rows": 207,
+    "max_metric_difference": 1.0061396160665481e-16,
+    "max_reference_difference": 5.551115123125783e-16,
+    "cohort_sha256": "db08a45363fd873f7d62d5736e49fbb86df4f199109d56a5b7d683c38d8f2c15",
+    "comparisons": [
+      {
+        "L": 0,
+        "target": "Survival",
+        "n": 300,
+        "best_direct": "Weibull",
+        "best_direct_MAE": 0.0147958075002867,
+        "best_glazier": "Glazier-Transformer",
+        "best_method": "sobol",
+        "best_glazier_MAE": 0.0058597354502103,
+        "reduction": 0.6039597399400638,
+        "all_glazier_better": true
+      },
+      {
+        "L": 0,
+        "target": "CIF_Death_A",
+        "n": 300,
+        "best_direct": "Weibull",
+        "best_direct_MAE": 0.0114113570102056,
+        "best_glazier": "Glazier-Transformer",
+        "best_method": "conditional_mc",
+        "best_glazier_MAE": 0.004747233547588,
+        "reduction": 0.5839904453657552,
+        "all_glazier_better": true
+      },
+      {
+        "L": 0,
+        "target": "CIF_Death_B",
+        "n": 300,
+        "best_direct": "Weibull",
+        "best_direct_MAE": 0.0055816880523652,
+        "best_glazier": "Glazier-Transformer",
+        "best_method": "conditional_mc",
+        "best_glazier_MAE": 0.003611855946173,
+        "reduction": 0.3529097448141155,
+        "all_glazier_better": true
+      },
+      {
+        "L": 10,
+        "target": "Survival",
+        "n": 251,
+        "best_direct": "SurvTransformer",
+        "best_direct_MAE": 0.0447827673429019,
+        "best_glazier": "Glazier-GRU",
+        "best_method": "conditional_mc",
+        "best_glazier_MAE": 0.0085136606993545,
+        "reduction": 0.8098898035004101,
+        "all_glazier_better": true
+      },
+      {
+        "L": 10,
+        "target": "CIF_Death_A",
+        "n": 251,
+        "best_direct": "SurvTransformer-Discrete",
+        "best_direct_MAE": 0.0343487716429869,
+        "best_glazier": "Glazier-Transformer",
+        "best_method": "conditional_mc",
+        "best_glazier_MAE": 0.0074034958805895,
+        "reduction": 0.7844611167601653,
+        "all_glazier_better": true
+      },
+      {
+        "L": 10,
+        "target": "CIF_Death_B",
+        "n": 251,
+        "best_direct": "SurvTransformer",
+        "best_direct_MAE": 0.0192784194116207,
+        "best_glazier": "Glazier-GRU",
+        "best_method": "conditional_mc",
+        "best_glazier_MAE": 0.0037187537833313,
+        "reduction": 0.8071027658476141,
+        "all_glazier_better": true
+      },
+      {
+        "L": 20,
+        "target": "Survival",
+        "n": 179,
+        "best_direct": "SurvTransformer-Discrete",
+        "best_direct_MAE": 0.0579403191985294,
+        "best_glazier": "Glazier-Transformer",
+        "best_method": "conditional_mc",
+        "best_glazier_MAE": 0.006023764654663,
+        "reduction": 0.8960350108872737,
+        "all_glazier_better": true
+      },
+      {
+        "L": 20,
+        "target": "CIF_Death_A",
+        "n": 179,
+        "best_direct": "SurvTransformer-Discrete",
+        "best_direct_MAE": 0.0410206891057541,
+        "best_glazier": "Glazier-Transformer",
+        "best_method": "weighted_branching",
+        "best_glazier_MAE": 0.0039537353592451,
+        "reduction": 0.9036160667839561,
+        "all_glazier_better": true
+      },
+      {
+        "L": 20,
+        "target": "CIF_Death_B",
+        "n": 179,
+        "best_direct": "SurvTransformer",
+        "best_direct_MAE": 0.0222757749415953,
+        "best_glazier": "Glazier-GRU",
+        "best_method": "conditional_mc",
+        "best_glazier_MAE": 0.0027662132073758,
+        "reduction": 0.8758196644279036,
+        "all_glazier_better": true
+      }
+    ]
+  }
+}

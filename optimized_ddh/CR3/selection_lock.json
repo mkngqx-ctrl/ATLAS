@@ -1,0 +1,52 @@
+{
+  "protocol_hash": "5cc4e5e50fdd40bb5696b3d518083ab3282f4f0c23d555da299be079bcfc832f",
+  "experiment": "CR3",
+  "candidate": 8,
+  "config": {
+    "model": {
+      "horizon": 30,
+      "hidden": 64,
+      "layers": 4,
+      "attention_hidden": 64,
+      "head_hidden": 100,
+      "head_layers": 1,
+      "dropout": 0.1,
+      "causes": 2,
+      "n_live": 7,
+      "n_covariates": 3,
+      "readout": "all",
+      "output_wiring": "shared"
+    },
+    "loss": {
+      "rank_weight": 0.0,
+      "rank_sigma": 0.2,
+      "auxiliary_weight": 1.0,
+      "l1_weight": 1e-05,
+      "rank_reduction": "pairs",
+      "l1_scope": "heads"
+    },
+    "lr": 0.0006038374240780599,
+    "batch_size": 256
+  },
+  "selection": "mean balanced validation NLL across fixed search/confirmation seeds",
+  "confirmation": [
+    {
+      "candidate": 8,
+      "mean_validation_NLL": 1.4636120829317303,
+      "seed_scores": [
+        1.4642504652341206,
+        1.4633947511514027,
+        1.463191032409668
+      ]
+    },
+    {
+      "candidate": 7,
+      "mean_validation_NLL": 1.4717814061376782,
+      "seed_scores": [
+        1.4703786571820576,
+        1.4709931313991547,
+        1.4739724298318226
+      ]
+    }
+  ]
+}

@@ -1,0 +1,42 @@
+% Supplementary material. Input either from supplement.tex (standalone) or
+% from main.tex when \includesupplement is defined (combined arXiv build).
+% Numbering restarts with an S prefix in both builds, so the hardcoded
+% references in the main text (Section S1, Table S2, Figure S1, ...) stay valid.
+\ifdefined\includesupplement\clearpage\fi
+\setcounter{section}{0}
+\setcounter{subsection}{0}
+\setcounter{table}{0}
+\setcounter{figure}{0}
+\setcounter{equation}{0}
+\renewcommand{\thesection}{S\arabic{section}}
+\renewcommand{\thetable}{S\arabic{table}}
+\renewcommand{\thefigure}{S\arabic{figure}}
+\renewcommand{\theequation}{S\arabic{equation}}
+\ifdefined\includesupplement
+\begin{center}
+{\Large\bfseries Supplementary Material}\\[4pt]
+{\large ATLAS: Autoregressive Trajectories for Longitudinal Analysis of Survival}
+\end{center}
+\fi
+\noindent This supplement contains the model specifications and training settings, the competing-risk estimator in detail, the training-run dispersion and per-run tables, the full model--sampler comparison figures, the sampling estimator details, the earlier sampling-resource study, the sampler ablation tables, the paired patient-bootstrap analysis, the exploratory MMLR and HAMMLR transition-model comparisons, and the original history-aware Dynamic-DeepHit results. Section, table, figure and equation numbers carry the prefix S. References to Sections, Tables, Figures and Equations without that prefix point to the main text.
+
+\input{sections/supp_model_settings}
+\input{sections/supp_competing_risk_estimation}
+\input{sections/appendix_metrics}
+\input{sections/supp_comparison_figures}
+\input{sections/supp_sampler_details}
+\input{sections/appendix_budget}
+\input{sections/supp_sampler_tables}
+
+\clearpage
+\input{sections/supp_patient_bootstrap}
+
+
+% S9 retains its layout; embedded local page numbers were removed so the outer footer is used.
+\clearpage
+\setcounter{section}{8}
+\includepdf[pages=-,pagecommand={},addtotoc={1,section,1,Exploratory MMLR and HAMMLR comparators,app:mlr}]{figures/ATLAS_MLR_S9.pdf}
+\setcounter{table}{13}
+
+\clearpage
+\input{sections/supp_original_ddh}

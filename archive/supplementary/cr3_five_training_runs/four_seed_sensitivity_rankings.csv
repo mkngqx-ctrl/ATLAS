@@ -1,0 +1,10 @@
+landmark,target,best_ATLAS,best_sampler,best_MAE,best_direct,direct_MAE,configs_below_best_direct
+0,CIF_Death_A,ATLAS-GRU,conditional_mc,0.005819766495636106,Weibull,0.012072377621708492,14
+0,CIF_Death_B,ATLAS-GRU,conditional_mc,0.005019465362019719,Weibull,0.006782050700186167,8
+0,Survival,ATLAS-GRU,conditional_mc,0.008044244494282206,Weibull,0.015688781367953677,14
+10,CIF_Death_A,ATLAS-GRU,conditional_mc,0.00669177456788242,SurvTransformer-Discrete,0.030958616661088522,14
+10,CIF_Death_B,ATLAS-GRU,conditional_mc,0.004348395341898913,SurvTransformer-Discrete,0.019837161744209277,14
+10,Survival,ATLAS-GRU,sobol,0.008895155386289318,SurvTransformer-Discrete,0.03931686728532354,14
+20,CIF_Death_A,ATLAS-GRU,conditional_mc,0.00472355423189859,SurvTransformer,0.033590061847802374,14
+20,CIF_Death_B,ATLAS-GRU,conditional_mc,0.003292404925195669,SurvTransformer-Discrete,0.020583780441334625,14
+20,Survival,ATLAS-GRU,conditional_mc,0.0068139759964740265,SurvTransformer-Discrete,0.046691191334054014,14

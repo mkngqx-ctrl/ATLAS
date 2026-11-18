@@ -1,0 +1,7 @@
+{
+  "seed": 20261028,
+  "resamples": 5000,
+  "estimand": "semi-Markov patient MAE minus comparator patient MAE averaged over saved sampling seeds then training runs",
+  "intervals": "pointwise paired percentile bootstrap, 95%; no multiplicity adjustment",
+  "limitations": "conditional on fitted models, selected specification and fixed cohort; no training-sample or new-dataset uncertainty"
+}

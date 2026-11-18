@@ -1,0 +1,10 @@
+{
+  "comparisons": 240,
+  "updated_DDH_comparisons": 30,
+  "unchanged_other_comparisons": 210,
+  "headline_settings": 13,
+  "postbaseline_ATLAS_favorable_intervals": 168,
+  "baseline_zero_including_intervals": 2,
+  "resamples": 5000,
+  "original_resampling_multiplicities_reused": true
+}

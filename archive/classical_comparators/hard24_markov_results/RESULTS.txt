@@ -1,0 +1,10 @@
+HARD24 CURRENT-STATE MARKOV COMPARATOR - 2026-10-28
+
+Refitted on original Hard24 training patients; current state and covariate only.
+Quadratic covariate model selected by held-out validation transition log loss.
+No run length or calendar time: structurally misspecified for this experiment.
+All 21 ATLAS architecture-sampler configurations have lower nine-run mean MAE at all four landmarks.
+Every individual ATLAS training run also has lower MAE in all 84 configuration-landmark comparisons.
+These are descriptive fixed-test-set comparisons, not significance tests.
+Manuscript unchanged. See all_atlas_comparisons.csv, audit.json and saved patient predictions.
+Checks: cohort hash, split disjointness, test IDs, eligibility, curve constraints, recomputed MAE, and event-first toy propagation passed.

@@ -1,0 +1,26 @@
+\section{Competing-risk estimation and probability conservation}\label{app:cr}
+Let $T$ be the biological first-death time and $J\in\{A,B\}$ its cause. The cause-$k$ cumulative incidence at a landmark is
+\[
+F_{k,L}(t\mid x,h)=\PP(L<T\le t,J=k\mid X=x,H_L=h,A_L).
+\]
+It counts cause $k$ only when that cause occurs first. Together with the corresponding survival probability, $S_L(t)+F_{A,L}(t)+F_{B,L}(t)=1$. This is an observable competing-event target rather than the hypothetical probability of cause $k$ after eliminating the other cause~\citep{putter2007}.
+
+For a generated path $m$, let $D_m$ be its observed endpoint, $J_m$ its cause (zero for censoring), and $w_m\ge0$ its weight. Define
+\[
+R_t=\sum_mw_m\ind\{D_m\ge t\},\qquad
+E_{k,t}=\sum_mw_m\ind\{D_m=t,J_m=k\}.
+\]
+Initialize $\widehat S_L(L)=1$ and $\widehat F_{k,L}(L)=0$. At each future integer step with $R_t>0$, update
+\begin{align}
+\widehat F_{k,L}(t)&=\widehat F_{k,L}(t-1)+\widehat S_L(t-1)E_{k,t}/R_t,\\
+\widehat S_L(t)&=\widehat S_L(t-1)\{1-(E_{A,t}+E_{B,t})/R_t\}.
+\end{align}
+The same pre-update survival is used in both cause increments. Empty risk sets carry all previous values forward. These updates preserve total probability and reduce to ordinary Kaplan--Meier for all-cause survival~\citep{aalen1978}. Every $w_m=1$ for unweighted complete walks. Importance sampling uses likelihood-ratio weights, and the particle methods use evolving weighted transition counts instead of complete-path endpoints.
+
+For cause-specific hazard predictions, the separate quantities $1-S_A$ and $1-S_B$ must not be read as the competing-risk CIFs. The implemented conversion combines both hazards through a shared probability of surviving each interval. If $a_{k,t}\ge0$ is the cumulative cause-$k$ hazard within the unit interval and $a_t=a_{A,t}+a_{B,t}$, then
+\begin{equation}\label{eq:crconversion}
+p_{0,t}=e^{-a_t},\qquad
+p_{k,t}=(1-e^{-a_t})\frac{a_{k,t}}{a_t}.
+\end{equation}
+The zero-total-hazard limit is $p_{0,t}=1,p_{k,t}=0$. Accumulating $S_L(t-1)p_{k,t}$ gives coherent CIFs. CPH and the SurvTransformer variants use this constant-rate interval conversion; the Weibull-MLP comparator integrates its continuous cause-specific density over each interval. Neither conversion assumes that the SFSA's induced event times are Weibull.
+

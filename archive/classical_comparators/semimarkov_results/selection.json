@@ -1,0 +1,100 @@
+{
+  "plan": {
+    "candidates": [
+      "additive: quartic covariate + categorical duration + categorical source time",
+      "interaction: additive + covariate-duration terms + time-by-log-duration"
+    ],
+    "penalty": 1.0,
+    "selection": "minimum observed validation transition log loss over all transitions and first states",
+    "no_generator_breakpoints": true,
+    "no_oracle_selection": true,
+    "no_test_selection": true
+  },
+  "selection": [
+    {
+      "interactions": false,
+      "validation_logloss": 0.8598526712970815,
+      "fit": [
+        {
+          "n_observations": 276599,
+          "n_features": 62,
+          "n_classes": 5,
+          "iterations": 458,
+          "gradient_max_average": 5.511685495013182e-08,
+          "converged": true,
+          "seconds": 32.08987212181091,
+          "ridge": 1.0
+        },
+        {
+          "n_observations": 138918,
+          "n_features": 62,
+          "n_classes": 5,
+          "iterations": 363,
+          "gradient_max_average": 8.807805387988034e-08,
+          "converged": true,
+          "seconds": 12.639876365661621,
+          "ridge": 1.0
+        },
+        {
+          "n_observations": 217369,
+          "n_features": 62,
+          "n_classes": 4,
+          "iterations": 352,
+          "gradient_max_average": 9.707011839015046e-08,
+          "converged": true,
+          "seconds": 17.37867569923401,
+          "ridge": 1.0
+        }
+      ]
+    },
+    {
+      "interactions": true,
+      "validation_logloss": 0.8588272625514054,
+      "fit": [
+        {
+          "n_observations": 276599,
+          "n_features": 94,
+          "n_classes": 5,
+          "iterations": 757,
+          "gradient_max_average": 9.047982609056302e-08,
+          "converged": true,
+          "seconds": 56.61271643638611,
+          "ridge": 1.0
+        },
+        {
+          "n_observations": 138918,
+          "n_features": 94,
+          "n_classes": 5,
+          "iterations": 766,
+          "gradient_max_average": 9.483737238394961e-08,
+          "converged": true,
+          "seconds": 28.224630117416382,
+          "ridge": 1.0
+        },
+        {
+          "n_observations": 217369,
+          "n_features": 94,
+          "n_classes": 4,
+          "iterations": 789,
+          "gradient_max_average": 9.947373304881042e-08,
+          "converged": true,
+          "seconds": 42.78319478034973,
+          "ridge": 1.0
+        }
+      ]
+    }
+  ],
+  "chosen": 1,
+  "initial_fit": {
+    "n_observations": 40000,
+    "n_features": 5,
+    "n_classes": 3,
+    "iterations": 35,
+    "gradient_max_average": 2.0692600221919198e-08,
+    "converged": true,
+    "seconds": 0.2640824317932129,
+    "ridge": 1.0
+  },
+  "cohort": "C:\\Users\\moeni\\Documents\\Codex\\2026-09-13\\thi\\work\\paper_benchmarks_20260919\\full_hard24_add_history_v4\\checkpoints\\cohort.npz",
+  "cohort_sha256": "676d66bf67e67a52dba3be50cfe7925d3b49f8f5e9ec9876913ed45146e03c54"
+}

@@ -1,0 +1,34 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage{amsmath,amssymb,amsthm,booktabs,array,longtable,graphicx,caption}
+\usepackage[numbers,sort&compress]{natbib}
+\usepackage[hidelinks]{hyperref}
+\usepackage{microtype}
+\usepackage{pdfpages}
+% Slightly larger second-level math scripts improve readability.
+\DeclareMathSizes{10.95}{10.95}{8}{8}
+\DeclareMathSizes{10}{10}{8}{8}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta,positioning}
+\usepackage{enumitem}
+\setlist{nosep,leftmargin=*}
+\setlength{\parskip}{3pt}
+\setlength{\parindent}{1em}
+\setlength{\emergencystretch}{2em}
+\graphicspath{{figures/}}
+\newtheorem{proposition}{Proposition}
+\newtheorem{corollary}[proposition]{Corollary}
+\newcommand{\PP}{\mathbb P}
+\newcommand{\E}{\mathbb E}
+\newcommand{\ind}{\mathbf 1}
+\newcommand{\Tk}{T_K}
+\newcommand{\Healthy}{\mathsf H}
+\newcommand{\Sick}{\mathsf S}
+\newcommand{\Sicker}{\mathsf V}
+\newcommand{\Dead}{\mathsf D}
+\newcommand{\Cens}{\mathsf C}
+\usepackage{authblk}
+%

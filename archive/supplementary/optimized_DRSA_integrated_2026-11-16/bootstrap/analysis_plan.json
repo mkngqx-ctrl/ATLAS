@@ -1,0 +1,18 @@
+{
+  "date": "2026-10-30",
+  "resamples": 5000,
+  "random_seed": 20261030,
+  "RNG": "NumPy default_rng; separate SeedSequence children for Hard24 and CR3, in that order",
+  "population": "Original 300 held-out test patients in each experiment; later landmarks restrict the resampled patient IDs by the archived live/observed eligibility mask",
+  "comparison_set": "Every original ATLAS architecture with common Sobol, versus all eight original direct comparators; MMLR/HAMMLR and oracle controls excluded from this S3 analysis",
+  "patient_error": "Mean absolute prediction-reference difference over scored times; average these patient errors over sampling seeds within fit, then equally over training fits; never average curves before scoring",
+  "bootstrap": "5000 draws of 300 patient IDs with replacement, represented by multinomial multiplicity weights; reuse one weight matrix across all models, targets and landmarks within each experiment",
+  "intervals": "Pointwise 95% percentile intervals; numpy.quantile method=linear; no multiple-comparison adjustment",
+  "contrast": "ATLAS MAE minus direct comparator MAE; negative favors ATLAS",
+  "headline": "Fixed headline ATLAS-Transformer for Hard24, ATLAS-GRU for CR3; strongest direct comparator fixed at each setting by original mean MAE, not reselected inside bootstrap",
+  "secondary": "Every original pair and per-model MAE interval; strongest-direct contrast for every ATLAS architecture; optional reselected-best-direct sensitivity is not included",
+  "interpretation": "Conditional on saved fits, selected model specifications, realized sampling outputs and the fixed synthetic cohort; does not include training-sample variation, new-cohort variation, model-selection uncertainty or clinical transport",
+  "analysis_status": "Frozen before calculation in this execution; no manuscript edits",
+  "optimized_DDH_update": "Replaced only the original history-aware DDH errors with verified optimized-DDH errors. Original 5000 resampling multiplicities retained. Strongest headline comparators selected by unresampled updated mean MAEs, fixed across resamples.",
+  "optimized_DRSA_update": "Only DRSA patient errors replaced using verified optimized fits; original5000multiplicity weights reused;30contrasts updated; strongest comparators unchanged."
+}

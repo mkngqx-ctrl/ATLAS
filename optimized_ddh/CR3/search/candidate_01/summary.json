@@ -1,0 +1,59 @@
+{
+  "key": "26a331de28d25de6a1faabf7047b8b3d4f6ea7675325a679d70136806a0cd318",
+  "config": {
+    "model": {
+      "horizon": 30,
+      "hidden": 64,
+      "layers": 2,
+      "attention_hidden": 64,
+      "head_hidden": 64,
+      "head_layers": 4,
+      "dropout": 0.1,
+      "causes": 2,
+      "n_live": 7,
+      "n_covariates": 3,
+      "readout": "top",
+      "output_wiring": "independent"
+    },
+    "loss": {
+      "rank_weight": 0.1,
+      "rank_sigma": 0.1,
+      "auxiliary_weight": 0.1,
+      "l1_weight": 1e-05,
+      "rank_reduction": "per_patient",
+      "l1_scope": "heads"
+    },
+    "lr": 0.001,
+    "batch_size": 256
+  },
+  "seed": 42,
+  "epochs_completed": 10,
+  "requested_joint_epochs": 5,
+  "burnin": 5,
+  "selection": "balanced_nll",
+  "best": {
+    "total_loss": {
+      "score": -5.286481201648712,
+      "epoch": 7,
+      "value": 5.286481201648712
+    },
+    "prefix_nll": {
+      "score": -1.4004522413015366,
+      "epoch": 6,
+      "value": 1.4004522413015366
+    },
+    "concordance": {
+      "score": 0.8436811729931504,
+      "epoch": 7,
+      "value": 0.8436811729931504
+    },
+    "balanced_nll": {
+      "score": -1.574263075987498,
+      "epoch": 6,
+      "value": 1.574263075987498
+    }
+  },
+  "stopped": false,
+  "training_prefixes": 864247,
+  "epoch_batch_cap": null
+}

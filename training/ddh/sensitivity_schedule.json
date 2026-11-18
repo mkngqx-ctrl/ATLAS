@@ -1,0 +1,100 @@
+[
+  {
+    "experiment": "Hard24",
+    "seed": 42,
+    "epochs_logged": 44,
+    "original_epoch": 29,
+    "original_minimum_total_loss_epoch": 29
+  },
+  {
+    "experiment": "Hard24",
+    "seed": 43,
+    "epochs_logged": 43,
+    "original_epoch": 28,
+    "original_minimum_total_loss_epoch": 39
+  },
+  {
+    "experiment": "Hard24",
+    "seed": 44,
+    "epochs_logged": 31,
+    "original_epoch": 16,
+    "original_minimum_total_loss_epoch": 18
+  },
+  {
+    "experiment": "Hard24",
+    "seed": 45,
+    "epochs_logged": 46,
+    "original_epoch": 31,
+    "original_minimum_total_loss_epoch": 31
+  },
+  {
+    "experiment": "Hard24",
+    "seed": 50,
+    "epochs_logged": 41,
+    "original_epoch": 26,
+    "original_minimum_total_loss_epoch": 40
+  },
+  {
+    "experiment": "Hard24",
+    "seed": 51,
+    "epochs_logged": 26,
+    "original_epoch": 11,
+    "original_minimum_total_loss_epoch": 24
+  },
+  {
+    "experiment": "Hard24",
+    "seed": 52,
+    "epochs_logged": 27,
+    "original_epoch": 12,
+    "original_minimum_total_loss_epoch": 24
+  },
+  {
+    "experiment": "Hard24",
+    "seed": 62,
+    "epochs_logged": 36,
+    "original_epoch": 21,
+    "original_minimum_total_loss_epoch": 21
+  },
+  {
+    "experiment": "Hard24",
+    "seed": 63,
+    "epochs_logged": 50,
+    "original_epoch": 35,
+    "original_minimum_total_loss_epoch": 35
+  },
+  {
+    "experiment": "CR3",
+    "seed": 42,
+    "epochs_logged": 24,
+    "original_epoch": 9,
+    "original_minimum_total_loss_epoch": 9
+  },
+  {
+    "experiment": "CR3",
+    "seed": 43,
+    "epochs_logged": 25,
+    "original_epoch": 10,
+    "original_minimum_total_loss_epoch": 10
+  },
+  {
+    "experiment": "CR3",
+    "seed": 45,
+    "epochs_logged": 23,
+    "original_epoch": 8,
+    "original_minimum_total_loss_epoch": 10
+  },
+  {
+    "experiment": "CR3",
+    "seed": 46,
+    "epochs_logged": 22,
+    "original_epoch": 7,
+    "original_minimum_total_loss_epoch": 10
+  },
+  {
+    "experiment": "CR3",
+    "seed": 47,
+    "epochs_logged": 22,
+    "original_epoch": 7,
+    "original_minimum_total_loss_epoch": 9
+  }
+]

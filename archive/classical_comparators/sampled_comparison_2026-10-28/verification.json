@@ -1,0 +1,9 @@
+{
+  "sampled_files_checked": 140,
+  "risk_event_censor_accounting": true,
+  "KM_AJ_reconstruction": true,
+  "patient_MAE_recomputed": true,
+  "sampling_MAE_vs_exact_recomputed": true,
+  "archived_child_seed_mapping_checked": true,
+  "curve_constraints": true
+}

@@ -1,0 +1,419 @@
+﻿experiment,model,method,landmark,target,mean_MAE,SD,replicate_type,n_replicates
+Hard24,DRSA,direct,0,Survival,0.14626327143828957,0.0024646866259960543,training runs,9
+Hard24,DynamicDeepHit-Lite,direct,0,Survival,0.008556100998026634,0.0020109900464494908,training runs,9
+Hard24,DynamicDeepHit,direct,0,Survival,0.16264729953124762,0.0014017856238360644,training runs,9
+Hard24,ATLAS-GRU,antithetic,0,Survival,0.007582034074600665,0.0022399900801005307,training runs,9
+Hard24,ATLAS-GRU,conditional_mc,0,Survival,0.007429640762332533,0.002336058943743279,training runs,9
+Hard24,ATLAS-GRU,iid,0,Survival,0.0076867519705145,0.002177107641501586,training runs,9
+Hard24,ATLAS-GRU,importance,0,Survival,0.00783998418456558,0.002087409275492524,training runs,9
+Hard24,ATLAS-GRU,sobol,0,Survival,0.007370578407836103,0.0023788723717759488,training runs,9
+Hard24,ATLAS-GRU,stratified,0,Survival,0.007485485480704054,0.002280581170140742,training runs,9
+Hard24,ATLAS-GRU,weighted_branching,0,Survival,0.007555860447737058,0.0022086042898917554,training runs,9
+Hard24,ATLAS-RNN,antithetic,0,Survival,0.007464838214610007,0.0025355075052544878,training runs,9
+Hard24,ATLAS-RNN,conditional_mc,0,Survival,0.00726223082578244,0.002635095970087399,training runs,9
+Hard24,ATLAS-RNN,iid,0,Survival,0.007590215038532161,0.0024883808625140486,training runs,9
+Hard24,ATLAS-RNN,importance,0,Survival,0.007788827732721738,0.0024005625600533476,training runs,9
+Hard24,ATLAS-RNN,sobol,0,Survival,0.007196088885545227,0.0026587360867367424,training runs,9
+Hard24,ATLAS-RNN,stratified,0,Survival,0.0073502590266290085,0.002554922446054162,training runs,9
+Hard24,ATLAS-RNN,weighted_branching,0,Survival,0.007408630626443141,0.002494479943938498,training runs,9
+Hard24,ATLAS-Transformer,antithetic,0,Survival,0.009013529265481863,0.004833296782936855,training runs,9
+Hard24,ATLAS-Transformer,conditional_mc,0,Survival,0.008863849431436678,0.004947662164386463,training runs,9
+Hard24,ATLAS-Transformer,iid,0,Survival,0.009144547153204256,0.0047883093292585294,training runs,9
+Hard24,ATLAS-Transformer,importance,0,Survival,0.009328035062602507,0.0046759739988933725,training runs,9
+Hard24,ATLAS-Transformer,sobol,0,Survival,0.008818125361181546,0.004954493881224615,training runs,9
+Hard24,ATLAS-Transformer,stratified,0,Survival,0.008942317956884122,0.0048397001968608164,training runs,9
+Hard24,ATLAS-Transformer,weighted_branching,0,Survival,0.009008023031467775,0.004816717125142422,training runs,9
+Hard24,SurvTransformer,direct,0,Survival,0.0186027146579752,0.004858980801965775,training runs,9
+Hard24,SurvTransformer-Discrete,direct,0,Survival,0.013295760006808134,0.002160706118643234,training runs,9
+Hard24,SurvTransformer-Lite,direct,0,Survival,0.009876908982504666,0.002998374137316404,training runs,9
+Hard24,Weibull,direct,0,Survival,0.024252639224831878,0.0002390923016390641,training runs,9
+Hard24,DRSA,direct,20,Survival,0.15268782284291788,0.0020056421474968773,training runs,9
+Hard24,DynamicDeepHit-Lite,direct,20,Survival,0.14259051399316156,0.001935611478945881,training runs,9
+Hard24,DynamicDeepHit,direct,20,Survival,0.15708109197089126,0.004023216473153323,training runs,9
+Hard24,ATLAS-GRU,antithetic,20,Survival,0.010035012484922026,0.0034668564280390165,training runs,9
+Hard24,ATLAS-GRU,conditional_mc,20,Survival,0.00987883308321599,0.0034417579442269914,training runs,9
+Hard24,ATLAS-GRU,iid,20,Survival,0.010125454935210882,0.003381111706172602,training runs,9
+Hard24,ATLAS-GRU,importance,20,Survival,0.010221361281225572,0.0032994820316342693,training runs,9
+Hard24,ATLAS-GRU,sobol,20,Survival,0.009762697848586388,0.003519626154745975,training runs,9
+Hard24,ATLAS-GRU,stratified,20,Survival,0.009886253403079966,0.0034098037380814435,training runs,9
+Hard24,ATLAS-GRU,weighted_branching,20,Survival,0.009950788144511388,0.0033681609059718846,training runs,9
+Hard24,ATLAS-RNN,antithetic,20,Survival,0.013331921850464234,0.004644069290645233,training runs,9
+Hard24,ATLAS-RNN,conditional_mc,20,Survival,0.013192155931420745,0.004632046284623398,training runs,9
+Hard24,ATLAS-RNN,iid,20,Survival,0.013356924780009417,0.0045776114428284905,training runs,9
+Hard24,ATLAS-RNN,importance,20,Survival,0.013399461631193698,0.004566001499229813,training runs,9
+Hard24,ATLAS-RNN,sobol,20,Survival,0.013112994651458234,0.004690607306846591,training runs,9
+Hard24,ATLAS-RNN,stratified,20,Survival,0.013159473314608974,0.00457849976489676,training runs,9
+Hard24,ATLAS-RNN,weighted_branching,20,Survival,0.013232275415850972,0.0046780221800074885,training runs,9
+Hard24,ATLAS-Transformer,antithetic,20,Survival,0.009306026597436857,0.0012749637265876282,training runs,9
+Hard24,ATLAS-Transformer,conditional_mc,20,Survival,0.009154572747692871,0.001322908839646486,training runs,9
+Hard24,ATLAS-Transformer,iid,20,Survival,0.00939233791372101,0.001276702920604851,training runs,9
+Hard24,ATLAS-Transformer,importance,20,Survival,0.009496902062620717,0.0012755313220810644,training runs,9
+Hard24,ATLAS-Transformer,sobol,20,Survival,0.009040236971971656,0.0013282868064921798,training runs,9
+Hard24,ATLAS-Transformer,stratified,20,Survival,0.009178230669190393,0.0012518852016706963,training runs,9
+Hard24,ATLAS-Transformer,weighted_branching,20,Survival,0.009236049693520418,0.0012888211158314862,training runs,9
+Hard24,SurvTransformer,direct,20,Survival,0.05089924176130018,0.009822165885430249,training runs,9
+Hard24,SurvTransformer-Discrete,direct,20,Survival,0.046541184007476144,0.0049711686782879325,training runs,9
+Hard24,SurvTransformer-Lite,direct,20,Survival,0.14225975420496187,0.002338488446625645,training runs,9
+Hard24,Weibull,direct,20,Survival,0.13702385813415732,0.0004489374570330475,training runs,9
+Hard24,DRSA,direct,23,Survival,0.21380385740079164,0.001989423239406554,training runs,9
+Hard24,DynamicDeepHit-Lite,direct,23,Survival,0.2047509429079599,0.002553055729000091,training runs,9
+Hard24,DynamicDeepHit,direct,23,Survival,0.18438668254159352,0.004170182688896666,training runs,9
+Hard24,ATLAS-GRU,antithetic,23,Survival,0.013957959860325386,0.0034202382793104514,training runs,9
+Hard24,ATLAS-GRU,conditional_mc,23,Survival,0.013757301840712274,0.0033890548951653545,training runs,9
+Hard24,ATLAS-GRU,iid,23,Survival,0.013912332630842779,0.0033646550309921106,training runs,9
+Hard24,ATLAS-GRU,importance,23,Survival,0.014055836502287786,0.003336176270239389,training runs,9
+Hard24,ATLAS-GRU,sobol,23,Survival,0.013646745381009068,0.0034346427344945554,training runs,9
+Hard24,ATLAS-GRU,stratified,23,Survival,0.013760290060248358,0.0034041800552177147,training runs,9
+Hard24,ATLAS-GRU,weighted_branching,23,Survival,0.013734394563811396,0.003397553294665581,training runs,9
+Hard24,ATLAS-RNN,antithetic,23,Survival,0.01619178935515514,0.0030410735526499306,training runs,9
+Hard24,ATLAS-RNN,conditional_mc,23,Survival,0.016006107157340372,0.0029945763650374613,training runs,9
+Hard24,ATLAS-RNN,iid,23,Survival,0.016144201084789027,0.0029338618915047934,training runs,9
+Hard24,ATLAS-RNN,importance,23,Survival,0.016214570447923668,0.0029249153167277,training runs,9
+Hard24,ATLAS-RNN,sobol,23,Survival,0.015888493106860333,0.0030541424860197047,training runs,9
+Hard24,ATLAS-RNN,stratified,23,Survival,0.01596408826285842,0.00304290841089122,training runs,9
+Hard24,ATLAS-RNN,weighted_branching,23,Survival,0.015922928527225193,0.00306776565655392,training runs,9
+Hard24,ATLAS-Transformer,antithetic,23,Survival,0.012865692574595224,0.002414397317881699,training runs,9
+Hard24,ATLAS-Transformer,conditional_mc,23,Survival,0.012621230484859615,0.0024454410616497925,training runs,9
+Hard24,ATLAS-Transformer,iid,23,Survival,0.012812324656940967,0.0024437213746392756,training runs,9
+Hard24,ATLAS-Transformer,importance,23,Survival,0.012875121801667626,0.002410578676939679,training runs,9
+Hard24,ATLAS-Transformer,sobol,23,Survival,0.012524913184236233,0.0024521362723891943,training runs,9
+Hard24,ATLAS-Transformer,stratified,23,Survival,0.012648142672099343,0.002429912256057452,training runs,9
+Hard24,ATLAS-Transformer,weighted_branching,23,Survival,0.012666632438878027,0.002409422495101866,training runs,9
+Hard24,SurvTransformer,direct,23,Survival,0.08528833481463488,0.01337948763646549,training runs,9
+Hard24,SurvTransformer-Discrete,direct,23,Survival,0.05749494270934393,0.0068433279985033344,training runs,9
+Hard24,SurvTransformer-Lite,direct,23,Survival,0.20424212937539804,0.004553118264394031,training runs,9
+Hard24,Weibull,direct,23,Survival,0.18576590380706154,0.0003813004867029831,training runs,9
+Hard24,DRSA,direct,24,Survival,0.1597516844920519,0.001378379688721383,training runs,9
+Hard24,DynamicDeepHit-Lite,direct,24,Survival,0.1552507763618753,0.0018837964663609944,training runs,9
+Hard24,DynamicDeepHit,direct,24,Survival,0.14741679204897787,0.004957209517948805,training runs,9
+Hard24,ATLAS-GRU,antithetic,24,Survival,0.013885531153940069,0.004231647786977125,training runs,9
+Hard24,ATLAS-GRU,conditional_mc,24,Survival,0.013596926293477616,0.00421976009243314,training runs,9
+Hard24,ATLAS-GRU,iid,24,Survival,0.013946982163099234,0.004077130018724281,training runs,9
+Hard24,ATLAS-GRU,importance,24,Survival,0.013932908466064502,0.004021017777538444,training runs,9
+Hard24,ATLAS-GRU,sobol,24,Survival,0.013616551556888267,0.004328250926732753,training runs,9
+Hard24,ATLAS-GRU,stratified,24,Survival,0.013627670191488583,0.004156012751013027,training runs,9
+Hard24,ATLAS-GRU,weighted_branching,24,Survival,0.013663604479126555,0.004193020557998967,training runs,9
+Hard24,ATLAS-RNN,antithetic,24,Survival,0.011834773858180384,0.004175926987979497,training runs,9
+Hard24,ATLAS-RNN,conditional_mc,24,Survival,0.011578052627730437,0.004154689563804236,training runs,9
+Hard24,ATLAS-RNN,iid,24,Survival,0.01200848932620972,0.003957110975645271,training runs,9
+Hard24,ATLAS-RNN,importance,24,Survival,0.011985894538990722,0.00398323928032673,training runs,9
+Hard24,ATLAS-RNN,sobol,24,Survival,0.011491576920014282,0.004282344025944231,training runs,9
+Hard24,ATLAS-RNN,stratified,24,Survival,0.011597391519661736,0.004037653342084547,training runs,9
+Hard24,ATLAS-RNN,weighted_branching,24,Survival,0.011623293137748852,0.004187458575541054,training runs,9
+Hard24,ATLAS-Transformer,antithetic,24,Survival,0.010861986401959962,0.0028678532278324583,training runs,9
+Hard24,ATLAS-Transformer,conditional_mc,24,Survival,0.01056643553826115,0.002913843384059137,training runs,9
+Hard24,ATLAS-Transformer,iid,24,Survival,0.010919563975712414,0.0028273627617511903,training runs,9
+Hard24,ATLAS-Transformer,importance,24,Survival,0.010936843285429177,0.0027788997415393074,training runs,9
+Hard24,ATLAS-Transformer,sobol,24,Survival,0.010493674349295455,0.002932924239493131,training runs,9
+Hard24,ATLAS-Transformer,stratified,24,Survival,0.010648812514428056,0.0028234824332679202,training runs,9
+Hard24,ATLAS-Transformer,weighted_branching,24,Survival,0.010524381423006912,0.0028925238500453923,training runs,9
+Hard24,SurvTransformer,direct,24,Survival,0.07150630248797243,0.008679942323506187,training runs,9
+Hard24,SurvTransformer-Discrete,direct,24,Survival,0.06695885000783514,0.01084234883323572,training runs,9
+Hard24,SurvTransformer-Lite,direct,24,Survival,0.15619922474889608,0.003834723973743913,training runs,9
+Hard24,Weibull,direct,24,Survival,0.15069810018694269,0.0008326779602360267,training runs,9
+Hard24,CPH,direct,0,Survival,0.0388456151647703,,deterministic fit,1
+Hard24,Oracle sampler,iid,0,Survival,0.0029714834092131,6.203794515671104e-05,oracle sampling seeds,5
+Hard24,CPH,direct,20,Survival,0.1579165951079386,,deterministic fit,1
+Hard24,Oracle sampler,iid,20,Survival,0.002955302011874,0.0001669906192237,oracle sampling seeds,5
+Hard24,CPH,direct,23,Survival,0.2118996963930734,,deterministic fit,1
+Hard24,Oracle sampler,iid,23,Survival,0.0031997869334602,0.0001731672046724,oracle sampling seeds,5
+Hard24,CPH,direct,24,Survival,0.1717410736243826,,deterministic fit,1
+Hard24,Oracle sampler,iid,24,Survival,0.0029733002639216,0.0002245050498385,oracle sampling seeds,5
+CR3,ATLAS-GRU,antithetic,0,CIF_Death_A,0.006140971100641235,0.00034197969968074304,training runs,5
+CR3,ATLAS-GRU,conditional_mc,0,CIF_Death_A,0.005813626143043018,0.00035560996100857876,training runs,5
+CR3,ATLAS-GRU,iid,0,CIF_Death_A,0.006135320024389864,0.0003290287898369287,training runs,5
+CR3,ATLAS-GRU,importance,0,CIF_Death_A,0.006153164043086964,0.0003604762450274555,training runs,5
+CR3,ATLAS-GRU,sobol,0,CIF_Death_A,0.005877613186121703,0.00031613740575191403,training runs,5
+CR3,ATLAS-GRU,stratified,0,CIF_Death_A,0.005988239128496171,0.00035270166799572674,training runs,5
+CR3,ATLAS-GRU,weighted_branching,0,CIF_Death_A,0.006241004355623323,0.00029294197771196305,training runs,5
+CR3,ATLAS-Transformer,antithetic,0,CIF_Death_A,0.0072386123255888234,0.0021061986928385566,training runs,5
+CR3,ATLAS-Transformer,conditional_mc,0,CIF_Death_A,0.007038391841593538,0.0021962085302508795,training runs,5
+CR3,ATLAS-Transformer,iid,0,CIF_Death_A,0.0073270286898665365,0.0020986221758152943,training runs,5
+CR3,ATLAS-Transformer,importance,0,CIF_Death_A,0.0073160175976778015,0.002098772799624761,training runs,5
+CR3,ATLAS-Transformer,sobol,0,CIF_Death_A,0.0070897852328836025,0.0022019718715336318,training runs,5
+CR3,ATLAS-Transformer,stratified,0,CIF_Death_A,0.007215754866453536,0.0021639152539750938,training runs,5
+CR3,ATLAS-Transformer,weighted_branching,0,CIF_Death_A,0.0073288151317347115,0.002022393111894662,training runs,5
+CR3,DRSA,direct,0,CIF_Death_A,0.08306144740370167,0.001964610466015694,training runs,5
+CR3,DynamicDeepHit,direct,0,CIF_Death_A,0.07707430239926236,0.007876795646436641,training runs,5
+CR3,DynamicDeepHit-Lite,direct,0,CIF_Death_A,0.0186372099073897,0.0019335170141128633,training runs,5
+CR3,SurvTransformer,direct,0,CIF_Death_A,0.021575065956331622,0.006618507352766249,training runs,5
+CR3,SurvTransformer-Discrete,direct,0,CIF_Death_A,0.021150632100900502,0.005366227344732106,training runs,5
+CR3,SurvTransformer-Lite,direct,0,CIF_Death_A,0.019176492770549895,0.005961167118615371,training runs,5
+CR3,Weibull,direct,0,CIF_Death_A,0.011940173499407928,0.0003255384748501687,training runs,5
+CR3,ATLAS-GRU,antithetic,0,CIF_Death_B,0.005071626921389616,0.0009086911208198659,training runs,5
+CR3,ATLAS-GRU,conditional_mc,0,CIF_Death_B,0.004828390139136795,0.0009478577090965778,training runs,5
+CR3,ATLAS-GRU,iid,0,CIF_Death_B,0.0050693345636280964,0.0009017873208716971,training runs,5
+CR3,ATLAS-GRU,importance,0,CIF_Death_B,0.005055903154361033,0.0008804261330580924,training runs,5
+CR3,ATLAS-GRU,sobol,0,CIF_Death_B,0.004939997351930887,0.0008977765033607505,training runs,5
+CR3,ATLAS-GRU,stratified,0,CIF_Death_B,0.005036293265984296,0.0008772134936906624,training runs,5
+CR3,ATLAS-GRU,weighted_branching,0,CIF_Death_B,0.0049530966933316965,0.0008695710483711504,training runs,5
+CR3,ATLAS-Transformer,antithetic,0,CIF_Death_B,0.006311574963448609,0.00359654519771295,training runs,5
+CR3,ATLAS-Transformer,conditional_mc,0,CIF_Death_B,0.0060642563163385895,0.003706105388460766,training runs,5
+CR3,ATLAS-Transformer,iid,0,CIF_Death_B,0.006324077147604449,0.0035760132824770165,training runs,5
+CR3,ATLAS-Transformer,importance,0,CIF_Death_B,0.006313830057335887,0.003593377617219585,training runs,5
+CR3,ATLAS-Transformer,sobol,0,CIF_Death_B,0.006210751399755698,0.0036852106389258757,training runs,5
+CR3,ATLAS-Transformer,stratified,0,CIF_Death_B,0.006232840553138217,0.0035722379204060563,training runs,5
+CR3,ATLAS-Transformer,weighted_branching,0,CIF_Death_B,0.006213668192434125,0.003601847673386037,training runs,5
+CR3,DRSA,direct,0,CIF_Death_B,0.0482243113250137,0.002647975933095286,training runs,5
+CR3,DynamicDeepHit,direct,0,CIF_Death_B,0.0491789509361812,0.002732992177704848,training runs,5
+CR3,DynamicDeepHit-Lite,direct,0,CIF_Death_B,0.008993096011986976,0.000677526233751479,training runs,5
+CR3,SurvTransformer,direct,0,CIF_Death_B,0.01242109782951369,0.0019769500454415805,training runs,5
+CR3,SurvTransformer-Discrete,direct,0,CIF_Death_B,0.012652547492535766,0.0016959725264656257,training runs,5
+CR3,SurvTransformer-Lite,direct,0,CIF_Death_B,0.008929191371073337,0.0015998981286223868,training runs,5
+CR3,Weibull,direct,0,CIF_Death_B,0.006541978170621974,0.0007371264136258444,training runs,5
+CR3,ATLAS-GRU,antithetic,0,Survival,0.008130939522442048,0.0009367198183609253,training runs,5
+CR3,ATLAS-GRU,conditional_mc,0,Survival,0.007893545878573039,0.0009594569103560801,training runs,5
+CR3,ATLAS-GRU,iid,0,Survival,0.008187233063185907,0.0009172624175697031,training runs,5
+CR3,ATLAS-GRU,importance,0,Survival,0.008286145613607946,0.0009072070515140675,training runs,5
+CR3,ATLAS-GRU,sobol,0,Survival,0.007901898407583477,0.000969425006144167,training runs,5
+CR3,ATLAS-GRU,stratified,0,Survival,0.008032192558088066,0.0009847559931091636,training runs,5
+CR3,ATLAS-GRU,weighted_branching,0,Survival,0.008208419367865469,0.0009712831181923915,training runs,5
+CR3,ATLAS-Transformer,antithetic,0,Survival,0.01051789765377755,0.004085202024232551,training runs,5
+CR3,ATLAS-Transformer,conditional_mc,0,Survival,0.010384803272340563,0.004191507165443724,training runs,5
+CR3,ATLAS-Transformer,iid,0,Survival,0.010625278917254607,0.004040226402614936,training runs,5
+CR3,ATLAS-Transformer,importance,0,Survival,0.01071070439461608,0.004030104651247835,training runs,5
+CR3,ATLAS-Transformer,sobol,0,Survival,0.010378323963908195,0.004210925181816298,training runs,5
+CR3,ATLAS-Transformer,stratified,0,Survival,0.01042458981294025,0.004137411928488177,training runs,5
+CR3,ATLAS-Transformer,weighted_branching,0,Survival,0.010583772476821036,0.0040235426289185255,training runs,5
+CR3,DRSA,direct,0,Survival,0.131280455068404,0.0026078875022280536,training runs,5
+CR3,DynamicDeepHit,direct,0,Survival,0.10389776994436148,0.005358074311552284,training runs,5
+CR3,DynamicDeepHit-Lite,direct,0,Survival,0.022705762077709555,0.002235013309289472,training runs,5
+CR3,SurvTransformer,direct,0,Survival,0.025685865723690214,0.006237088588963464,training runs,5
+CR3,SurvTransformer-Discrete,direct,0,Survival,0.02577753845195187,0.0057398827500774515,training runs,5
+CR3,SurvTransformer-Lite,direct,0,Survival,0.023853449853902704,0.004246767344385258,training runs,5
+CR3,Weibull,direct,0,Survival,0.015510186594420291,0.000941238102627574,training runs,5
+CR3,ATLAS-GRU,antithetic,10,CIF_Death_A,0.007219672790565873,0.0007676227031255634,training runs,5
+CR3,ATLAS-GRU,conditional_mc,10,CIF_Death_A,0.006981033986191061,0.0008002574773563231,training runs,5
+CR3,ATLAS-GRU,iid,10,CIF_Death_A,0.007230724036539052,0.0008001537113469737,training runs,5
+CR3,ATLAS-GRU,importance,10,CIF_Death_A,0.007285807848157413,0.0007917750681308494,training runs,5
+CR3,ATLAS-GRU,sobol,10,CIF_Death_A,0.0070505401191252245,0.0008161124226671284,training runs,5
+CR3,ATLAS-GRU,stratified,10,CIF_Death_A,0.007144118310990179,0.0007997933397421493,training runs,5
+CR3,ATLAS-GRU,weighted_branching,10,CIF_Death_A,0.007086637941074657,0.0008083851164618144,training runs,5
+CR3,ATLAS-Transformer,antithetic,10,CIF_Death_A,0.008579797298226288,0.0020732983464291253,training runs,5
+CR3,ATLAS-Transformer,conditional_mc,10,CIF_Death_A,0.008327682499718657,0.0021169258564089502,training runs,5
+CR3,ATLAS-Transformer,iid,10,CIF_Death_A,0.008559674535725901,0.0020125209038886448,training runs,5
+CR3,ATLAS-Transformer,importance,10,CIF_Death_A,0.008630277257926037,0.0020633004719156907,training runs,5
+CR3,ATLAS-Transformer,sobol,10,CIF_Death_A,0.008417626695571976,0.00211869474280989,training runs,5
+CR3,ATLAS-Transformer,stratified,10,CIF_Death_A,0.008478061540743787,0.0021077531584296942,training runs,5
+CR3,ATLAS-Transformer,weighted_branching,10,CIF_Death_A,0.00844346407545354,0.0020884066179875857,training runs,5
+CR3,DRSA,direct,10,CIF_Death_A,0.10224257176649512,0.0007335679809935973,training runs,5
+CR3,DynamicDeepHit,direct,10,CIF_Death_A,0.09112697269877161,0.004700567598612404,training runs,5
+CR3,DynamicDeepHit-Lite,direct,10,CIF_Death_A,0.09297263453808256,0.0008475812385394795,training runs,5
+CR3,SurvTransformer,direct,10,CIF_Death_A,0.032788766591525936,0.005750858264095471,training runs,5
+CR3,SurvTransformer-Discrete,direct,10,CIF_Death_A,0.03163664765746821,0.004955667791100234,training runs,5
+CR3,SurvTransformer-Lite,direct,10,CIF_Death_A,0.09229080399457176,0.0011265980419634621,training runs,5
+CR3,Weibull,direct,10,CIF_Death_A,0.09169824301784144,0.00029498607067647223,training runs,5
+CR3,ATLAS-GRU,antithetic,10,CIF_Death_B,0.004422381588454186,0.0005428518599277072,training runs,5
+CR3,ATLAS-GRU,conditional_mc,10,CIF_Death_B,0.004222467030185402,0.0005760907862376705,training runs,5
+CR3,ATLAS-GRU,iid,10,CIF_Death_B,0.004451061537802113,0.0004980318809934108,training runs,5
+CR3,ATLAS-GRU,importance,10,CIF_Death_B,0.004463490926763878,0.000521290761381311,training runs,5
+CR3,ATLAS-GRU,sobol,10,CIF_Death_B,0.004298684229327526,0.000550836895797111,training runs,5
+CR3,ATLAS-GRU,stratified,10,CIF_Death_B,0.004395217084114529,0.0005467158680517859,training runs,5
+CR3,ATLAS-GRU,weighted_branching,10,CIF_Death_B,0.004235571549792302,0.0005574681407812968,training runs,5
+CR3,ATLAS-Transformer,antithetic,10,CIF_Death_B,0.006280366402148704,0.0013851053658952815,training runs,5
+CR3,ATLAS-Transformer,conditional_mc,10,CIF_Death_B,0.006155224552970756,0.0013820690660890165,training runs,5
+CR3,ATLAS-Transformer,iid,10,CIF_Death_B,0.006311301637186538,0.001401885007404886,training runs,5
+CR3,ATLAS-Transformer,importance,10,CIF_Death_B,0.006309005024000877,0.0013934889173558148,training runs,5
+CR3,ATLAS-Transformer,sobol,10,CIF_Death_B,0.006217892907124614,0.0013587005119051303,training runs,5
+CR3,ATLAS-Transformer,stratified,10,CIF_Death_B,0.006285710823001149,0.0013543119379950165,training runs,5
+CR3,ATLAS-Transformer,weighted_branching,10,CIF_Death_B,0.006161224637658608,0.001363829537443626,training runs,5
+CR3,DRSA,direct,10,CIF_Death_B,0.04934185678433497,0.00048075574817352154,training runs,5
+CR3,DynamicDeepHit,direct,10,CIF_Death_B,0.04987619042267599,0.004455349672087655,training runs,5
+CR3,DynamicDeepHit-Lite,direct,10,CIF_Death_B,0.044257167424966305,0.00045361365813516416,training runs,5
+CR3,SurvTransformer,direct,10,CIF_Death_B,0.020793701469674315,0.0027587122621644832,training runs,5
+CR3,SurvTransformer-Discrete,direct,10,CIF_Death_B,0.020366448750028188,0.0016792088581005105,training runs,5
+CR3,SurvTransformer-Lite,direct,10,CIF_Death_B,0.04402107962890831,0.0005663929482833695,training runs,5
+CR3,Weibull,direct,10,CIF_Death_B,0.04559410517666004,0.00020425659274515137,training runs,5
+CR3,ATLAS-GRU,antithetic,10,Survival,0.009001016960832674,0.0005521090688585202,training runs,5
+CR3,ATLAS-GRU,conditional_mc,10,Survival,0.008819526622023982,0.0006053502615727633,training runs,5
+CR3,ATLAS-GRU,iid,10,Survival,0.00909877255617079,0.0005780181059588305,training runs,5
+CR3,ATLAS-GRU,importance,10,Survival,0.009169612066971106,0.0006018467342229005,training runs,5
+CR3,ATLAS-GRU,sobol,10,Survival,0.008824718849792508,0.0006026233662079914,training runs,5
+CR3,ATLAS-GRU,stratified,10,Survival,0.008932348915366137,0.0006064667644304612,training runs,5
+CR3,ATLAS-GRU,weighted_branching,10,Survival,0.008851043478795145,0.0005832566842652541,training runs,5
+CR3,ATLAS-Transformer,antithetic,10,Survival,0.011878801424691986,0.003202167782787465,training runs,5
+CR3,ATLAS-Transformer,conditional_mc,10,Survival,0.011676163370581081,0.0032056743972863283,training runs,5
+CR3,ATLAS-Transformer,iid,10,Survival,0.011943465587268757,0.003105686774195135,training runs,5
+CR3,ATLAS-Transformer,importance,10,Survival,0.012003305341607755,0.0031274987372193397,training runs,5
+CR3,ATLAS-Transformer,sobol,10,Survival,0.011727004231985392,0.003192832631290666,training runs,5
+CR3,ATLAS-Transformer,stratified,10,Survival,0.011799388446099738,0.003192372303165133,training runs,5
+CR3,ATLAS-Transformer,weighted_branching,10,Survival,0.01178451753026997,0.0031782364766026637,training runs,5
+CR3,DRSA,direct,10,Survival,0.10872311301971482,0.0010811314509942304,training runs,5
+CR3,DynamicDeepHit,direct,10,Survival,0.09575448465582412,0.0057092218844660425,training runs,5
+CR3,DynamicDeepHit-Lite,direct,10,Survival,0.09141540730341682,0.0009703158940443447,training runs,5
+CR3,SurvTransformer,direct,10,Survival,0.04060442268746113,0.003960123709843144,training runs,5
+CR3,SurvTransformer-Discrete,direct,10,Survival,0.040464007359350386,0.006668010819758341,training runs,5
+CR3,SurvTransformer-Lite,direct,10,Survival,0.0905842579985924,0.0005266907850038294,training runs,5
+CR3,Weibull,direct,10,Survival,0.08997647104652545,0.00041871064218759366,training runs,5
+CR3,ATLAS-GRU,antithetic,20,CIF_Death_A,0.005012535590271615,0.0005559283087533263,training runs,5
+CR3,ATLAS-GRU,conditional_mc,20,CIF_Death_A,0.004783670810605411,0.0005918296552733911,training runs,5
+CR3,ATLAS-GRU,iid,20,CIF_Death_A,0.00499118087540667,0.0005737218880811919,training runs,5
+CR3,ATLAS-GRU,importance,20,CIF_Death_A,0.004929829527942266,0.0005895244763648251,training runs,5
+CR3,ATLAS-GRU,sobol,20,CIF_Death_A,0.0048304494289926935,0.0005812480572898862,training runs,5
+CR3,ATLAS-GRU,stratified,20,CIF_Death_A,0.004925837558929375,0.0006118913105199016,training runs,5
+CR3,ATLAS-GRU,weighted_branching,20,CIF_Death_A,0.004816528804892218,0.0005802660298141419,training runs,5
+CR3,ATLAS-Transformer,antithetic,20,CIF_Death_A,0.005585336040575667,0.0019050999641778217,training runs,5
+CR3,ATLAS-Transformer,conditional_mc,20,CIF_Death_A,0.0054247761139408395,0.0019705943120147734,training runs,5
+CR3,ATLAS-Transformer,iid,20,CIF_Death_A,0.005606313644091322,0.0019154949172234747,training runs,5
+CR3,ATLAS-Transformer,importance,20,CIF_Death_A,0.0055711138490777,0.0019344353010725226,training runs,5
+CR3,ATLAS-Transformer,sobol,20,CIF_Death_A,0.005454276279497432,0.0019451920855851493,training runs,5
+CR3,ATLAS-Transformer,stratified,20,CIF_Death_A,0.005539573010669522,0.0018748255818267514,training runs,5
+CR3,ATLAS-Transformer,weighted_branching,20,CIF_Death_A,0.00542904990709692,0.0019447314776372836,training runs,5
+CR3,DRSA,direct,20,CIF_Death_A,0.07379715003682945,0.0008005621777243381,training runs,5
+CR3,DynamicDeepHit,direct,20,CIF_Death_A,0.050538756547785876,0.0030073346546186483,training runs,5
+CR3,DynamicDeepHit-Lite,direct,20,CIF_Death_A,0.06968565882092817,0.0013432157973136962,training runs,5
+CR3,SurvTransformer,direct,20,CIF_Death_A,0.036170898319439884,0.006075083118062061,training runs,5
+CR3,SurvTransformer-Discrete,direct,20,CIF_Death_A,0.03610304800776577,0.004896708363880592,training runs,5
+CR3,SurvTransformer-Lite,direct,20,CIF_Death_A,0.06939808034044943,0.000892068282356102,training runs,5
+CR3,Weibull,direct,20,CIF_Death_A,0.07502930345997456,0.0007488161730657477,training runs,5
+CR3,ATLAS-GRU,antithetic,20,CIF_Death_B,0.0034053250637469173,0.00036478338582118775,training runs,5
+CR3,ATLAS-GRU,conditional_mc,20,CIF_Death_B,0.003187166581631711,0.0004200836780455987,training runs,5
+CR3,ATLAS-GRU,iid,20,CIF_Death_B,0.0033723060870785746,0.00035762540723552956,training runs,5
+CR3,ATLAS-GRU,importance,20,CIF_Death_B,0.0033123962487227833,0.00034849904150668123,training runs,5
+CR3,ATLAS-GRU,sobol,20,CIF_Death_B,0.003264568418097598,0.00040750363729307154,training runs,5
+CR3,ATLAS-GRU,stratified,20,CIF_Death_B,0.003363963683095011,0.00041389984398201114,training runs,5
+CR3,ATLAS-GRU,weighted_branching,20,CIF_Death_B,0.0032050774702078134,0.00041585563486273033,training runs,5
+CR3,ATLAS-Transformer,antithetic,20,CIF_Death_B,0.00479460202968811,0.0009824402056714519,training runs,5
+CR3,ATLAS-Transformer,conditional_mc,20,CIF_Death_B,0.004647449691417909,0.0010142245331596401,training runs,5
+CR3,ATLAS-Transformer,iid,20,CIF_Death_B,0.004829058341714675,0.0009740755117245166,training runs,5
+CR3,ATLAS-Transformer,importance,20,CIF_Death_B,0.004767904896484894,0.000992815802881716,training runs,5
+CR3,ATLAS-Transformer,sobol,20,CIF_Death_B,0.0046996845516014294,0.000998958619167607,training runs,5
+CR3,ATLAS-Transformer,stratified,20,CIF_Death_B,0.004760400188551761,0.0010253586612562128,training runs,5
+CR3,ATLAS-Transformer,weighted_branching,20,CIF_Death_B,0.004652607889018394,0.0010138041729475353,training runs,5
+CR3,DRSA,direct,20,CIF_Death_B,0.0328728943486526,0.0001494981652635049,training runs,5
+CR3,DynamicDeepHit,direct,20,CIF_Death_B,0.03687426948751772,0.004719479234554255,training runs,5
+CR3,DynamicDeepHit-Lite,direct,20,CIF_Death_B,0.03228349351580169,0.00012568408616454488,training runs,5
+CR3,SurvTransformer,direct,20,CIF_Death_B,0.021890781785654245,0.00211102728009925,training runs,5
+CR3,SurvTransformer-Discrete,direct,20,CIF_Death_B,0.020969714909048955,0.0015766831292695113,training runs,5
+CR3,SurvTransformer-Lite,direct,20,CIF_Death_B,0.03228369797772983,0.00029862234264608735,training runs,5
+CR3,Weibull,direct,20,CIF_Death_B,0.033452285249299524,0.0001525387658314658,training runs,5
+CR3,ATLAS-GRU,antithetic,20,Survival,0.006932629815185809,0.00094497381780539,training runs,5
+CR3,ATLAS-GRU,conditional_mc,20,Survival,0.006674041251667229,0.0009860447383252659,training runs,5
+CR3,ATLAS-GRU,iid,20,Survival,0.006902795551484789,0.0009489888660435643,training runs,5
+CR3,ATLAS-GRU,importance,20,Survival,0.006852713146115924,0.0009493759478958308,training runs,5
+CR3,ATLAS-GRU,sobol,20,Survival,0.0067041609095284255,0.0009624453541042744,training runs,5
+CR3,ATLAS-GRU,stratified,20,Survival,0.0068438215691492745,0.0010021558781861013,training runs,5
+CR3,ATLAS-GRU,weighted_branching,20,Survival,0.006727652747156883,0.0009802795176019495,training runs,5
+CR3,ATLAS-Transformer,antithetic,20,Survival,0.008267614913972859,0.0025100813064267576,training runs,5
+CR3,ATLAS-Transformer,conditional_mc,20,Survival,0.008058187446221814,0.002610620607850324,training runs,5
+CR3,ATLAS-Transformer,iid,20,Survival,0.008315899666015966,0.0025425140792285504,training runs,5
+CR3,ATLAS-Transformer,importance,20,Survival,0.008274255631942645,0.0025669885214356677,training runs,5
+CR3,ATLAS-Transformer,sobol,20,Survival,0.008094386779705889,0.0025677762454800234,training runs,5
+CR3,ATLAS-Transformer,stratified,20,Survival,0.008198373571471322,0.002541033901017625,training runs,5
+CR3,ATLAS-Transformer,weighted_branching,20,Survival,0.008071100586453443,0.002562638578446397,training runs,5
+CR3,DRSA,direct,20,Survival,0.08241203555756511,0.0005712846264494558,training runs,5
+CR3,DynamicDeepHit,direct,20,Survival,0.06878795625299525,0.004170582040388846,training runs,5
+CR3,DynamicDeepHit-Lite,direct,20,Survival,0.07736960826662688,0.0012309103689958658,training runs,5
+CR3,SurvTransformer,direct,20,Survival,0.050469668349951716,0.006152096567637413,training runs,5
+CR3,SurvTransformer-Discrete,direct,20,Survival,0.04894101690694909,0.006716859432385272,training runs,5
+CR3,SurvTransformer-Lite,direct,20,Survival,0.07666113961753539,0.000742388752956528,training runs,5
+CR3,Weibull,direct,20,Survival,0.08536879755334943,0.0008193037611238528,training runs,5
+CR3,CPH,direct,0,Survival,0.0541833735671415,,deterministic fit,1
+CR3,CPH,direct,0,CIF_Death_A,0.0323163627262038,,deterministic fit,1
+CR3,CPH,direct,0,CIF_Death_B,0.0275196306485982,,deterministic fit,1
+CR3,Oracle sampler,iid,0,Survival,0.0025556672428675,2.7107135516207217e-05,oracle sampling seeds,5
+CR3,Oracle sampler,iid,0,CIF_Death_A,0.0022252853649984,6.801984251474256e-05,oracle sampling seeds,5
+CR3,Oracle sampler,iid,0,CIF_Death_B,0.0017133995931044,9.004789906627556e-05,oracle sampling seeds,5
+CR3,CPH,direct,10,Survival,0.1157989718368201,,deterministic fit,1
+CR3,CPH,direct,10,CIF_Death_A,0.1017538393878739,,deterministic fit,1
+CR3,CPH,direct,10,CIF_Death_B,0.0562749633169923,,deterministic fit,1
+CR3,Oracle sampler,iid,10,Survival,0.0024072307421525,1.338965701461831e-05,oracle sampling seeds,5
+CR3,Oracle sampler,iid,10,CIF_Death_A,0.0020710278311148,6.655506434538754e-05,oracle sampling seeds,5
+CR3,Oracle sampler,iid,10,CIF_Death_B,0.0015278408432129,7.854420981237129e-05,oracle sampling seeds,5
+CR3,CPH,direct,20,Survival,0.0930794904145024,,deterministic fit,1
+CR3,CPH,direct,20,CIF_Death_A,0.0742825529103541,,deterministic fit,1
+CR3,CPH,direct,20,CIF_Death_B,0.0407081527048045,,deterministic fit,1
+CR3,Oracle sampler,iid,20,Survival,0.0016809276091017,7.079810313781943e-05,oracle sampling seeds,5
+CR3,Oracle sampler,iid,20,CIF_Death_A,0.0013661204987766,2.461303893113768e-05,oracle sampling seeds,5
+CR3,Oracle sampler,iid,20,CIF_Death_B,0.0010238558516729,5.515329748295862e-05,oracle sampling seeds,5
+Hard24,Landmark-CPH-supermodel,exact,0,Survival,0.013659210165774259,,deterministic fit,1
+Hard24,Landmark-CPH-supermodel,exact,20,Survival,0.06623497098332098,,deterministic fit,1
+Hard24,Landmark-CPH-supermodel,exact,23,Survival,0.0717082817248014,,deterministic fit,1
+Hard24,Landmark-CPH-supermodel,exact,24,Survival,0.06323750149821405,,deterministic fit,1
+CR3,Landmark-CPH-supermodel,exact,0,Survival,0.0214271059583949,,deterministic fit,1
+CR3,Landmark-CPH-supermodel,exact,0,CIF_Death_A,0.015186453810025948,,deterministic fit,1
+CR3,Landmark-CPH-supermodel,exact,0,CIF_Death_B,0.0077430661271951735,,deterministic fit,1
+CR3,Landmark-CPH-supermodel,exact,10,Survival,0.039024391515716954,,deterministic fit,1
+CR3,Landmark-CPH-supermodel,exact,10,CIF_Death_A,0.03196994792247706,,deterministic fit,1
+CR3,Landmark-CPH-supermodel,exact,10,CIF_Death_B,0.016450641557973534,,deterministic fit,1
+CR3,Landmark-CPH-supermodel,exact,20,Survival,0.029456677405184876,,deterministic fit,1
+CR3,Landmark-CPH-supermodel,exact,20,CIF_Death_A,0.02159863212000451,,deterministic fit,1
+CR3,Landmark-CPH-supermodel,exact,20,CIF_Death_B,0.013106696979713532,,deterministic fit,1
+CR3,Markov,exact,0,CIF_Death_A,0.005601839869438554,,deterministic fit,1
+CR3,Markov,iid,0,CIF_Death_A,0.006057460875553906,7.486749787712001e-05,sampling seeds on one fit,5
+CR3,Markov,exact,0,CIF_Death_B,0.00730020216749776,,deterministic fit,1
+CR3,Markov,iid,0,CIF_Death_B,0.0075307843770140576,0.00012747966280388952,sampling seeds on one fit,5
+CR3,Markov,exact,0,Survival,0.01136807881590107,,deterministic fit,1
+CR3,Markov,iid,0,Survival,0.011634655530138555,0.0001734879926603595,sampling seeds on one fit,5
+CR3,Markov,exact,10,CIF_Death_A,0.0051505623441433085,,deterministic fit,1
+CR3,Markov,iid,10,CIF_Death_A,0.005508440929978887,9.496361185055775e-05,sampling seeds on one fit,5
+CR3,Markov,exact,10,CIF_Death_B,0.0055275953868284535,,deterministic fit,1
+CR3,Markov,iid,10,CIF_Death_B,0.005779428920765753,0.00021758523288654155,sampling seeds on one fit,5
+CR3,Markov,exact,10,Survival,0.009047786969766177,,deterministic fit,1
+CR3,Markov,iid,10,Survival,0.009480252787230563,0.0001984220793185768,sampling seeds on one fit,5
+CR3,Markov,exact,20,CIF_Death_A,0.002841937670963119,,deterministic fit,1
+CR3,Markov,iid,20,CIF_Death_A,0.0031811889267173545,0.0001567451754890808,sampling seeds on one fit,5
+CR3,Markov,exact,20,CIF_Death_B,0.003467903936601651,,deterministic fit,1
+CR3,Markov,iid,20,CIF_Death_B,0.0036000305141446662,3.825653499863672e-05,sampling seeds on one fit,5
+CR3,Markov,exact,20,Survival,0.0050777082270028135,,deterministic fit,1
+CR3,Markov,iid,20,Survival,0.005352808082396548,0.00011477102735834327,sampling seeds on one fit,5
+CR3,Markov,sobol,0,CIF_Death_A,0.005796802923659484,0.00011704767618568403,sampling seeds on one fit,5
+CR3,Markov,sobol,0,CIF_Death_B,0.007439536465527079,6.834856199622316e-05,sampling seeds on one fit,5
+CR3,Markov,sobol,0,Survival,0.011445645062408569,6.826004209602571e-05,sampling seeds on one fit,5
+CR3,Markov,sobol,10,CIF_Death_A,0.005320155215315015,8.979849361446717e-05,sampling seeds on one fit,5
+CR3,Markov,sobol,10,CIF_Death_B,0.005607450671340674,9.036927828533248e-05,sampling seeds on one fit,5
+CR3,Markov,sobol,10,Survival,0.009164708660194879,5.7567383534732835e-05,sampling seeds on one fit,5
+CR3,Markov,sobol,20,CIF_Death_A,0.0029721869881323974,2.8642363540869237e-05,sampling seeds on one fit,5
+CR3,Markov,sobol,20,CIF_Death_B,0.003522943871870575,3.830079720946115e-05,sampling seeds on one fit,5
+CR3,Markov,sobol,20,Survival,0.00518197446817782,3.92573924600135e-05,sampling seeds on one fit,5
+CR3,SemiMarkov,exact,0,CIF_Death_A,0.005622071164684855,,deterministic fit,1
+CR3,SemiMarkov,iid,0,CIF_Death_A,0.00615445103896793,0.00014348550824957863,sampling seeds on one fit,5
+CR3,SemiMarkov,exact,0,CIF_Death_B,0.0037984728796320692,,deterministic fit,1
+CR3,SemiMarkov,iid,0,CIF_Death_B,0.004196508731345387,2.567588800994031e-05,sampling seeds on one fit,5
+CR3,SemiMarkov,exact,0,Survival,0.00670228578425755,,deterministic fit,1
+CR3,SemiMarkov,iid,0,Survival,0.007240996593370902,9.867964978213522e-05,sampling seeds on one fit,5
+CR3,SemiMarkov,exact,10,CIF_Death_A,0.006019038023615711,,deterministic fit,1
+CR3,SemiMarkov,iid,10,CIF_Death_A,0.006461763540499326,8.023762278603281e-05,sampling seeds on one fit,5
+CR3,SemiMarkov,exact,10,CIF_Death_B,0.0041498250208044235,,deterministic fit,1
+CR3,SemiMarkov,iid,10,CIF_Death_B,0.004452890585677927,6.338006465365804e-05,sampling seeds on one fit,5
+CR3,SemiMarkov,exact,10,Survival,0.007024603623067393,,deterministic fit,1
+CR3,SemiMarkov,iid,10,Survival,0.00749306808058023,0.00011241661109469636,sampling seeds on one fit,5
+CR3,SemiMarkov,exact,20,CIF_Death_A,0.004029838446535726,,deterministic fit,1
+CR3,SemiMarkov,iid,20,CIF_Death_A,0.004295298111941384,8.011837110944322e-05,sampling seeds on one fit,5
+CR3,SemiMarkov,exact,20,CIF_Death_B,0.003111810676588477,,deterministic fit,1
+CR3,SemiMarkov,iid,20,CIF_Death_B,0.0032965857487379296,0.00010355363684443892,sampling seeds on one fit,5
+CR3,SemiMarkov,exact,20,Survival,0.0050492062768434515,,deterministic fit,1
+CR3,SemiMarkov,iid,20,Survival,0.005409628748689653,0.00011444175510490303,sampling seeds on one fit,5
+CR3,SemiMarkov,sobol,0,CIF_Death_A,0.005930687186623624,4.950362381303331e-05,sampling seeds on one fit,5
+CR3,SemiMarkov,sobol,0,CIF_Death_B,0.00407221121886267,4.853364544974688e-05,sampling seeds on one fit,5
+CR3,SemiMarkov,sobol,0,Survival,0.006906524968853502,9.065784012000373e-05,sampling seeds on one fit,5
+CR3,SemiMarkov,sobol,10,CIF_Death_A,0.00620350180221229,7.225811620175401e-05,sampling seeds on one fit,5
+CR3,SemiMarkov,sobol,10,CIF_Death_B,0.0042745370313327586,4.751789603146209e-05,sampling seeds on one fit,5
+CR3,SemiMarkov,sobol,10,Survival,0.007142440539055814,7.207672057296411e-05,sampling seeds on one fit,5
+CR3,SemiMarkov,sobol,20,CIF_Death_A,0.004115249932093096,3.7573791858793645e-05,sampling seeds on one fit,5
+CR3,SemiMarkov,sobol,20,CIF_Death_B,0.0031725404112417145,4.8195604065579474e-05,sampling seeds on one fit,5
+CR3,SemiMarkov,sobol,20,Survival,0.005099558723703576,4.904657886205057e-05,sampling seeds on one fit,5
+Hard24,Markov,exact,0,Survival,0.07779468967250086,,deterministic fit,1
+Hard24,Markov,iid,0,Survival,0.07779925601861717,8.720239642938628e-05,sampling seeds on one fit,5
+Hard24,Markov,exact,20,Survival,0.2249419156415372,,deterministic fit,1
+Hard24,Markov,iid,20,Survival,0.22487827919482814,0.00017785884135226678,sampling seeds on one fit,5
+Hard24,Markov,exact,23,Survival,0.2720344802815692,,deterministic fit,1
+Hard24,Markov,iid,23,Survival,0.2719076019442507,0.0004624461387929546,sampling seeds on one fit,5
+Hard24,Markov,exact,24,Survival,0.2182705625563359,,deterministic fit,1
+Hard24,Markov,iid,24,Survival,0.2181344295645422,0.0003306865859306982,sampling seeds on one fit,5
+Hard24,Markov,sobol,0,Survival,0.07780795165730789,5.166120489479226e-05,sampling seeds on one fit,5
+Hard24,Markov,sobol,20,Survival,0.22495715589315704,6.33625811177896e-05,sampling seeds on one fit,5
+Hard24,Markov,sobol,23,Survival,0.2719893362287295,4.608957529889862e-05,sampling seeds on one fit,5
+Hard24,Markov,sobol,24,Survival,0.21828547278387528,5.294750530207643e-05,sampling seeds on one fit,5
+Hard24,SemiMarkov,exact,0,Survival,0.0018082050977745732,,deterministic fit,1
+Hard24,SemiMarkov,iid,0,Survival,0.0035280477414582857,7.670773992492775e-05,sampling seeds on one fit,5
+Hard24,SemiMarkov,exact,20,Survival,0.006902259942978318,,deterministic fit,1
+Hard24,SemiMarkov,iid,20,Survival,0.007746090724460452,0.00017443154700794898,sampling seeds on one fit,5
+Hard24,SemiMarkov,exact,23,Survival,0.011957441033872833,,deterministic fit,1
+Hard24,SemiMarkov,iid,23,Survival,0.012527337648243358,0.00019447375514790018,sampling seeds on one fit,5
+Hard24,SemiMarkov,exact,24,Survival,0.00466098706638877,,deterministic fit,1
+Hard24,SemiMarkov,iid,24,Survival,0.005533586904699119,0.0003071366979388116,sampling seeds on one fit,5
+Hard24,SemiMarkov,sobol,0,Survival,0.002612922931329308,5.4421867203574304e-05,sampling seeds on one fit,5
+Hard24,SemiMarkov,sobol,20,Survival,0.006982449548879524,7.731818934417465e-05,sampling seeds on one fit,5
+Hard24,SemiMarkov,sobol,23,Survival,0.01198676414289892,1.885185083088358e-05,sampling seeds on one fit,5
+Hard24,SemiMarkov,sobol,24,Survival,0.004723676480146916,1.654988581376724e-05,sampling seeds on one fit,5

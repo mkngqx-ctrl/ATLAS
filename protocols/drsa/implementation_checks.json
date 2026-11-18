@@ -1,0 +1,126 @@
+{
+  "passed": 30,
+  "total": 30,
+  "tests": [
+    {
+      "name": "1causes alpha0.05 independent loss",
+      "passed": true
+    },
+    {
+      "name": "1causes alpha0.1 independent loss",
+      "passed": true
+    },
+    {
+      "name": "1causes alpha0.25 independent loss",
+      "passed": true
+    },
+    {
+      "name": "1causes alpha0.5 independent loss",
+      "passed": true
+    },
+    {
+      "name": "1causes alpha0.75 independent loss",
+      "passed": true
+    },
+    {
+      "name": "1causes alpha0.9 independent loss",
+      "passed": true
+    },
+    {
+      "name": "1 finite gradients",
+      "passed": true
+    },
+    {
+      "name": "1 L0 mass conserved",
+      "passed": true
+    },
+    {
+      "name": "1 L0 initialized",
+      "passed": true
+    },
+    {
+      "name": "1 L20 mass conserved",
+      "passed": true
+    },
+    {
+      "name": "1 L20 initialized",
+      "passed": true
+    },
+    {
+      "name": "1 L29 mass conserved",
+      "passed": true
+    },
+    {
+      "name": "1 L29 initialized",
+      "passed": true
+    },
+    {
+      "name": "1 projected shape",
+      "passed": true
+    },
+    {
+      "name": "1 interval normalized",
+      "passed": true
+    },
+    {
+      "name": "2causes alpha0.05 independent loss",
+      "passed": true
+    },
+    {
+      "name": "2causes alpha0.1 independent loss",
+      "passed": true
+    },
+    {
+      "name": "2causes alpha0.25 independent loss",
+      "passed": true
+    },
+    {
+      "name": "2causes alpha0.5 independent loss",
+      "passed": true
+    },
+    {
+      "name": "2causes alpha0.75 independent loss",
+      "passed": true
+    },
+    {
+      "name": "2causes alpha0.9 independent loss",
+      "passed": true
+    },
+    {
+      "name": "2 finite gradients",
+      "passed": true
+    },
+    {
+      "name": "2 L0 mass conserved",
+      "passed": true
+    },
+    {
+      "name": "2 L0 initialized",
+      "passed": true
+    },
+    {
+      "name": "2 L20 mass conserved",
+      "passed": true
+    },
+    {
+      "name": "2 L20 initialized",
+      "passed": true
+    },
+    {
+      "name": "2 L29 mass conserved",
+      "passed": true
+    },
+    {
+      "name": "2 L29 initialized",
+      "passed": true
+    },
+    {
+      "name": "2 projected shape",
+      "passed": true
+    },
+    {
+      "name": "2 interval normalized",
+      "passed": true
+    }
+  ]
+}

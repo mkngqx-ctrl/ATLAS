@@ -1,0 +1,8 @@
+{
+  "candidates": [
+    "quartic baseline covariates plus pairwise terms, categorical duration and calendar time",
+    "add covariate-duration and calendar-time-duration interactions"
+  ],
+  "penalty": 1.0,
+  "selection": "minimum observed validation transition log loss including initial observations; train split only for fitting; no test or oracle selection"
+}

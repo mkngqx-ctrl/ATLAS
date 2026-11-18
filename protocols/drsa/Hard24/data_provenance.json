@@ -1,0 +1,20 @@
+{
+  "experiment": "Hard24",
+  "cohort": "C:\\Users\\moeni\\Documents\\ATLAS_work\\history\\2026-09-13\\thi\\work\\paper_benchmarks_20260919\\full_hard24_add_history_v4\\checkpoints\\cohort.npz",
+  "cohort_sha256": "676d66bf67e67a52dba3be50cfe7925d3b49f8f5e9ec9876913ed45146e03c54",
+  "evaluation_ids": "C:\\Users\\moeni\\Documents\\ATLAS_work\\history\\2026-09-13\\thi\\work\\paper_benchmarks_20260919\\full_hard24_add_history_v4\\evaluation\\L0\\reference.npz",
+  "train_n": 40000,
+  "validation_n": 5000,
+  "test_split_n": 5000,
+  "test_evaluation_n": 300,
+  "standardization_mean": [
+    9.981668175547098
+  ],
+  "standardization_SD": [
+    1.3229578395629036
+  ],
+  "training_n": 40000,
+  "input_columns": [
+    "calcium"
+  ]
+}

@@ -1,0 +1,32 @@
+[
+  {
+    "training_seed": 42,
+    "file": "full_cr3cov_v2-20260919T002710Z-1-001.zip",
+    "sha256": "7dbc5abeec4524fe538d7e7f9b8d086cac7e5750758531d1e1b1aa37f58afbc1",
+    "bytes": 35348950
+  },
+  {
+    "training_seed": 43,
+    "file": "cr3_training_seed_43-20261001T200955Z-1-001.zip",
+    "sha256": "0c20139b30dd66511e6fc11439b7c8246e47d33ab020438f215301315171ee39",
+    "bytes": 37056440
+  },
+  {
+    "training_seed": 45,
+    "file": "cr3_training_seed_45-20261001T195131Z-1-001.zip",
+    "sha256": "b7fe1b4388c5029c60496f6b1cc7c7ebc416ed115bb476dc51984f63e34c0d5f",
+    "bytes": 37063276
+  },
+  {
+    "training_seed": 46,
+    "file": "cr3_training_seed_46-20261001T195121Z-1-001.zip",
+    "sha256": "5daedf3a4c2ece1f327bf2d86e45c2430d48d4bebdd63543b398a0e511cd6952",
+    "bytes": 37031262
+  },
+  {
+    "training_seed": 47,
+    "file": "cr3_training_seed_47-20261001T195055Z-1-001.zip",
+    "sha256": "50421323acd64b55c1a8c422b5684fbe05c628887c79960f0bc7cda46ac98991",
+    "bytes": 36936984
+  }
+]

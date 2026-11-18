@@ -1,0 +1,8 @@
+{
+  "reason": "Single-event probability propagation includes an event-CDF channel, but evaluation target is survival alone. Slice that channel before scoring.",
+  "training_and_model_code_changed": false,
+  "selection_changed": false,
+  "protocol_changed": false,
+  "old_sha256": "8e90b3009d75bdcfdf035a2967b30aefdfc24cdeab16c128214fc66ee4b7949c",
+  "new_sha256": "8a88312ed6cee8551962a2fff6df8c283d3b4aa9d639ea1cb97acc70de555f64"
+}

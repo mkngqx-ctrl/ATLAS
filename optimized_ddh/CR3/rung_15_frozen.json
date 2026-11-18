@@ -1,0 +1,40 @@
+{
+  "protocol_hash": "5cc4e5e50fdd40bb5696b3d518083ab3282f4f0c23d555da299be079bcfc832f",
+  "survivors": [
+    8,
+    7,
+    6
+  ],
+  "rows": [
+    {
+      "candidate": 8,
+      "rung": 15,
+      "best_validation_NLL": 1.4642504652341206
+    },
+    {
+      "candidate": 7,
+      "rung": 15,
+      "best_validation_NLL": 1.4703786571820576
+    },
+    {
+      "candidate": 6,
+      "rung": 15,
+      "best_validation_NLL": 1.5049381057421367
+    },
+    {
+      "candidate": 3,
+      "rung": 15,
+      "best_validation_NLL": 1.5074747999509175
+    },
+    {
+      "candidate": 4,
+      "rung": 15,
+      "best_validation_NLL": 1.528811514377594
+    },
+    {
+      "candidate": 9,
+      "rung": 15,
+      "best_validation_NLL": 1.5492408573627472
+    }
+  ]
+}

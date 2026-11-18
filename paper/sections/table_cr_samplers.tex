@@ -1,0 +1,23 @@
+\begin{center}\begin{minipage}{\textwidth}\centering\small
+\begin{tabular}{llrrr}
+\toprule
+Architecture & Sampler & $L=0$ & $L=10$ & $L=20$ \\\midrule
+ATLAS-GRU & IID & 0.008187 & 0.009099 & 0.006903 \\
+ATLAS-GRU & Stratified & 0.008032 & 0.008932 & 0.006844 \\
+ATLAS-GRU & Sobol & 0.007902 & 0.008825 & 0.006704 \\
+ATLAS-GRU & Antithetic & 0.008131 & 0.009001 & 0.006933 \\
+ATLAS-GRU & Importance & 0.008286 & 0.009170 & 0.006853 \\
+ATLAS-GRU & Branching & 0.008208 & 0.008851 & 0.006728 \\
+ATLAS-GRU & Conditional MC & 0.007894 & 0.008820 & 0.006674 \\
+\addlinespace
+ATLAS-Transformer & IID & 0.010625 & 0.011943 & 0.008316 \\
+ATLAS-Transformer & Stratified & 0.010425 & 0.011799 & 0.008198 \\
+ATLAS-Transformer & Sobol & 0.010378 & 0.011727 & 0.008094 \\
+ATLAS-Transformer & Antithetic & 0.010518 & 0.011879 & 0.008268 \\
+ATLAS-Transformer & Importance & 0.010711 & 0.012003 & 0.008274 \\
+ATLAS-Transformer & Branching & 0.010584 & 0.011785 & 0.008071 \\
+ATLAS-Transformer & Conditional MC & 0.010385 & 0.011676 & 0.008058 \\
+\addlinespace
+\bottomrule\end{tabular}
+\captionof{table}{All seven sampling methods: mean survival-curve MAE at $M=10{,}000$ for the competing-risks experiment, averaged equally across five training runs after averaging five sampling seeds within each checkpoint. All methods within an architecture and training run share its checkpoint. Cause-specific sampler scores and both levels of variability are supplied in the multi-seed supplement.}
+\end{minipage}\end{center}

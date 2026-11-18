@@ -1,0 +1,6 @@
+{
+  "sample": "first64validation patients, not test",
+  "max_CPU_GPU_curve_difference": 6.728509593934007e-08,
+  "tolerance": 2e-05,
+  "passed": true
+}

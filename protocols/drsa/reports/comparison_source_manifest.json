@@ -1,0 +1,26 @@
+[
+  {
+    "path": "C:\\Users\\moeni\\Documents\\ATLAS_work\\current\\working\\ATLAS_SiM_data_and_code\\supplementary\\optimized_DDH_integrated_2026-11-02\\updated_all_models_summary.csv",
+    "sha256": "82566488776cda3c3fb318426990174a1b4f754b0d6d1153187f7c90ad3f1e93"
+  },
+  {
+    "path": "C:\\Users\\moeni\\Documents\\ATLAS_work\\current\\working\\ATLAS_SiM_data_and_code\\supplementary\\optimized_DDH_integrated_2026-11-02\\updated_all_models_per_training_run.csv",
+    "sha256": "4e2554be993a124b13a71c5ff53c8f810bd7fb335b84097ece7960cae76c78ec"
+  },
+  {
+    "path": "C:\\Users\\moeni\\Documents\\ATLAS_work\\current\\review\\S3_optimized_DDH_bootstrap_2026-11-02\\CR3_patient_errors.npz",
+    "sha256": "e1e7923cb57b45baa63c35c4d9418786e903b28243081067f2eaa48579a3879e"
+  },
+  {
+    "path": "C:\\Users\\moeni\\Documents\\ATLAS_work\\current\\review\\S3_optimized_DDH_bootstrap_2026-11-02\\CR3_patient_resamples.npz",
+    "sha256": "823d97fc6450a238c6e0198172d8cd299466d29fd70b819e0f5f6ec1ef0d3b77"
+  },
+  {
+    "path": "C:\\Users\\moeni\\Documents\\ATLAS_work\\current\\review\\S3_optimized_DDH_bootstrap_2026-11-02\\Hard24_patient_errors.npz",
+    "sha256": "6f91b761b4061c75178bad97dcfecc82286f313a4e9ee3098936a21cdcab393b"
+  },
+  {
+    "path": "C:\\Users\\moeni\\Documents\\ATLAS_work\\current\\review\\S3_optimized_DDH_bootstrap_2026-11-02\\Hard24_patient_resamples.npz",
+    "sha256": "f7ddca41a5cc51ea36013fdfd533a3e45731332e7659ce950850c20bf4b1d995"
+  }
+]

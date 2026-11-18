@@ -1,0 +1,138 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{booktabs}
+\usepackage[hidelinks]{hyperref}
+\usepackage{microtype}
+
+\newtheorem{proposition}{Proposition}
+\renewcommand{\theproposition}{S\arabic{proposition}}
+\renewcommand{\thetable}{S\arabic{table}}
+\renewcommand{\theequation}{S9.\arabic{equation}}
+\newcommand{\Law}{\mathcal{L}}
+\newcommand{\E}{\mathbb{E}}
+
+\begin{document}
+\setcounter{proposition}{2}
+\setcounter{table}{11}
+\pagestyle{empty}
+
+\section*{S9\quad Exploratory MMLR and HAMMLR comparators}
+
+During review of Experiment~1 (duration-dependent) and Experiment~2 (competing risks), we fitted two explicit transition models as exploratory comparators. \emph{Markov multinomial logistic regression} (MMLR) predicts the next health state from the current state and baseline covariates. \emph{History-aware MMLR} (HAMMLR) additionally conditions on the current run length (the number of consecutive observations in the current state) and on calendar time. Both models were developed after the generator structures and earlier ATLAS results were known.
+
+This section explains why such models are favoured on these two benchmarks, reports their results, and sets out why we do not regard them as appropriate comparators for the task ATLAS addresses. In short, their strong performance comes from being given, by the analyst, the history summary that each synthetic generator is known to use. When that summary is wrong, performance degrades sharply, and the approach does not extend naturally to the large, partially observed state spaces of clinical sequence data. For these reasons the models are excluded from the main experimental comparisons and reported here instead.
+
+\subsection*{S9.1\quad Specification and evaluation}
+
+For each live origin state $s$ with retained destination set $J_s$, both models fit a multinomial logistic (softmax) transition regression,
+\begin{equation}
+q_\theta(j \mid s, z_t, x) \;=\; \frac{\exp\{\beta_{sj}^{\top}\phi(x, z_t)\}}{\sum_{k\in J_s}\exp\{\beta_{sk}^{\top}\phi(x, z_t)\}},
+\label{eq:softmax}
+\end{equation}
+where $x$ denotes the baseline covariates and $z_t$ any history summary. MMLR sets $z_t=\varnothing$ and uses quadratic covariate features, giving 39 and 350 coefficients in Experiments~1 and~2. HAMMLR sets $z_t=(u_t,t)$, using indicators for run lengths 2--30 and source times 2--29 together with covariate powers through degree four; it has 1{,}044 and 2{,}156 coefficients. Validation selected duration--covariate and duration--time interactions for HAMMLR in Experiment~1 and an additive form in Experiment~2.
+
+Ridge penalties were 0.01 (MMLR) and 1 (HAMMLR) on the summed negative log likelihood, and a separate multinomial model supplied the initial-state distribution at baseline. Fitting used the 40{,}000 training patients, candidate selection used validation log loss on 5{,}000 patients, and MAE was evaluated on the same 300-patient test subset, and its landmark survivors, used in the main paper. Destinations never observed from an origin in training were assigned probability zero.
+
+Survival and cumulative incidence curves were obtained by \emph{direct propagation} of the fitted transition law through the same event-first Kaplan--Meier/Aalen--Johansen functional used for the reference curves, so they contain no Monte Carlo error. For a matched comparison we also generated 10{,}000 IID and scrambled-Sobol trajectories per patient over five sampling seeds. There is one fitted model per experiment, and no neural models were retrained.
+
+\subsection*{S9.2\quad Why these models are favoured on Experiments 1 and 2}
+
+Let $\mathcal H_t$ denote the covariates and the observed state history through time $t$. A summary $Z_t$ of that history is \emph{predictively sufficient} if
+\begin{equation}
+\Law(S_{t+1},\dots,S_{t+h}\mid \mathcal H_t) \;=\; \Law(S_{t+1},\dots,S_{t+h}\mid Z_t, x)\qquad\text{for all } h\ge 1 .
+\end{equation}
+If the one-step kernel reads only $(Z_t,x)$ and $Z_{t+1}$ is a deterministic function of $Z_t$ and $S_{t+1}$, then repeated conditioning gives sufficiency for every future path. Sufficiency therefore covers every survival and cumulative-incidence functional of the observed process.
+
+\begin{proposition}[Experiment 2]
+Conditional on fixed covariates, the competing-risks generator's transition and dropout probabilities depend only on the current recorded state, so $Z_t=S_t$ is sufficient. MMLR's input is therefore sufficient, and HAMMLR's input is a sufficient superset.
+\end{proposition}
+
+\begin{proposition}[Experiment 1]
+Conditional on calcium $x$, $Z_t=(S_t,u_t,t)$ is sufficient. Moreover, the finite summary $(S_t,\min(u_t,8),\min(t,23))$ is also sufficient, giving at most $3\times 8\times 23+2=554$ augmented states.
+\end{proposition}
+
+\noindent\emph{Proof sketch.} The generator's kernel reads only the current state, the run length and the time, and the run length either increments or resets to one. Because the duration scale never exceeds 5, every run length $u\ge 8$ reaches the generator's caps, since $0.35(8/5)^{2.5}\approx 1.13>0.90$ and $0.97(8/5)^{3}\approx 3.97>0.99$. Time matters only through the regime change at $t=19$ and the late death override from $t=23$. The count of 554 is a conservative existence bound, not a minimal model. $\square$
+
+\medskip
+The same construction shows that MMLR is \emph{insufficient} for Experiment~1. Take calcium $x=10$, source time 19 and current state Sicker. A patient who has just entered Sicker ($u=1$) has next-step death probability $0.004+0.97/27\approx 0.0399$, whereas one who has been Sicker for three steps ($u=3$) has $0.9474$. Both histories are possible, so no function of $(S_t,x)$ can predict both.
+
+The cost of such an omission is exact. Let $G\subseteq\mathcal H_t$ be the information a model uses and $Y$ a future target. Under log loss, the best achievable risk using only $G$ exceeds the full-history optimum by
+\begin{equation}
+R^{*}_{\log}(G)-R^{*}_{\log}(\mathcal H_t)\;=\;\E\, D_{\mathrm{KL}}\!\big(p_{\mathcal H_t}\,\|\,p_G\big)\;=\;I(Y;\mathcal H_t\mid G)\;\ge 0 ,
+\label{eq:info}
+\end{equation}
+and an analogous orthogonal decomposition holds for squared error. The gap is a property of the information set, not of the sample size or optimizer, so no amount of data can remove it. Conversely, when $G$ is sufficient the gap is zero, and a correctly estimated transition model on $G$ attains the oracle risk under any proper scoring rule.
+
+Three advantages follow, none of which reflects an ability to learn predictive structure from history.
+\begin{enumerate}
+\item \emph{Supplied representation.} The summaries $S_t$ and $(u_t,t)$ are functions of the observed prefix, so they add no new raw information. However, the analyst, knowing the generator, has already performed the compression that ATLAS and the other history-aware neural models must learn from the prefix. HAMMLR's indicators sit exactly on the variables at which the Experiment~1 generator changes behaviour.
+\item \emph{Structural match.} Both generators are discrete-time, first-order Markov chains on a small (augmented) state space with fixed baseline covariates and regular observation times, which is precisely the model class in \eqref{eq:softmax}. The match lies in memory structure and transition form rather than in every functional form. For example, in Experiment~2 the drug enters a log-ratio as $\log(0.06+0.35d)$, which a polynomial basis only approximates.
+\item \emph{Exact integration.} Direct propagation removes the trajectory-sampling error that ATLAS incurs with a finite rollout budget.
+\end{enumerate}
+
+\subsection*{S9.3\quad Results}
+
+\begin{table}[h]
+\centering
+\caption{Experiment 1 (duration-dependent): mean full-curve survival MAE $\times 10^{3}$; lower is better. ``Best ATLAS'' is the lowest common-Sobol ATLAS configuration mean at each landmark $L$; the oracle is the archived IID-sampled oracle.}
+\label{tab:exp1}
+\begin{tabular}{rrrrrr}
+\toprule
+$L$ & $n$ & MMLR (direct) & HAMMLR (direct) & Best ATLAS & Sampled oracle \\
+\midrule
+0  & 300 & 77.80  & 1.81  & 7.20  & 2.97 \\
+20 & 102 & 224.94 & 6.90  & 9.04  & 2.96 \\
+23 & 78  & 272.03 & 11.96 & 12.53 & 3.20 \\
+24 & 57  & 218.27 & 4.66  & 10.49 & 2.97 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{table}[h]
+\centering
+\caption{Experiment 2 (competing risks): mean MAE $\times 10^{3}$ for total survival (S) and the cumulative incidence of Death\_A (A) and Death\_B (B). The best common-Sobol ATLAS configuration is ATLAS-GRU in every row.}
+\label{tab:exp2}
+\begin{tabular}{rcrrrrr}
+\toprule
+$L$ & Target & $n$ & MMLR (direct) & HAMMLR (direct) & Best ATLAS & Sampled oracle \\
+\midrule
+0  & S & 300 & 11.37 & 6.70 & 7.90 & 2.56 \\
+0  & A & 300 & 5.60  & 5.62 & 5.88 & 2.23 \\
+0  & B & 300 & 7.30  & 3.80 & 4.94 & 1.71 \\
+10 & S & 251 & 9.05  & 7.03 & 8.83 & 2.41 \\
+10 & A & 251 & 5.15  & 6.02 & 7.05 & 2.07 \\
+10 & B & 251 & 5.53  & 4.15 & 4.30 & 1.53 \\
+20 & S & 179 & 5.08  & 5.05 & 6.70 & 1.68 \\
+20 & A & 179 & 2.84  & 4.03 & 4.83 & 1.37 \\
+20 & B & 179 & 3.47  & 3.11 & 3.27 & 1.02 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+When given a sufficient summary, the transition models perform well. HAMMLR had a lower MAE than every ATLAS configuration mean at all four landmarks of Experiment~1 and in all nine target--landmark settings of Experiment~2. The advantage largely persists when HAMMLR is also evaluated by trajectory sampling: relative to the best Sobol ATLAS mean, HAMMLR won in 4/4 (Sobol) and 3/4 (IID) settings in Experiment~1, and in 8/9 (Sobol) and 6/9 (IID) settings in Experiment~2.
+
+HAMMLR beat the sampled oracle only at the Experiment~1 baseline (1.81 versus 2.97). This is consistent with the oracle's own Monte Carlo error, since the exact known-law reference has zero error by construction. On Experiment~2, where its input is sufficient, MMLR beat the best ATLAS mean in four of nine settings (Death\_A at all landmarks and survival at $L=20$) and was worse in the remaining five.
+
+When the summary is wrong, performance collapses. On Experiment~1, MMLR's error was about 11 times that of the best ATLAS mean at baseline and 21--25 times after baseline, and it was worse than every ATLAS configuration in all four settings. Because MMLR and HAMMLR also differ in covariate basis and penalty, the full gap cannot be attributed solely to the omitted run length and time. Proposition~S4 and \eqref{eq:info} nonetheless guarantee that this omission alone imposes an error floor that more data cannot remove.
+
+\subsection*{S9.4\quad Limitations as general clinical survival models}
+
+\paragraph{Dependence on a correctly pre-specified history summary.} The Experiment~1 contrast shows that the success of this model family depends on the analyst supplying the right summary in advance. In clinical sequences the relevant memory is generally unknown. It may involve time since diagnosis, lines of treatment, cumulative exposure, prior events or latent severity, and it need not be any finite function of the recorded labels at all. When part of the state is unobserved, exact prediction requires a posterior belief over the hidden state, and even a two-state hidden process can generate unboundedly many distinct predictive beliefs. In that case no fixed run-length or finite-order augmentation is exact. Searching over candidate summaries by validation is a combinatorial model-selection problem that grows with history length and state count. ATLAS instead conditions on the full observed prefix and learns which aspects of it matter.
+
+\paragraph{Parameters and data per transition.} With $K$ live origins, $J$ destinations and $p$ features per destination logit, origin-specific regressions require roughly $K(J-1)p$ coefficients. For $K\approx J\approx 10^{4}$ and $p=20$, this is about $2\times10^{9}$ coefficients, or 16\,GB in double precision before any fitting workspace. History augmentation multiplies the number of distinct origin configurations, or features, by the number of duration and time levels, and interactions multiply it further. Most origin--destination--history cells would then contain few or no observations, leading to separation, unstable estimates, heavy regularization and poorly calibrated rare transitions. The empirical-support rule used here would assign probability zero, and hence infinite log loss, to any genuine transition absent from training.
+
+\paragraph{Propagation and estimation costs.} Direct propagation tracks probability mass over the reachable augmented configurations. Given a transition kernel with $C$ such configurations and $E$ nonzero transitions, each propagation step requires $O(E)$ operations, or $O(C^2)$ for a dense transition matrix, excluding the cost of evaluating the kernel. Although calendar time enlarges a time-homogeneous augmented state representation, it can instead index successive transition kernels, so only configurations at the current time need to be propagated. This representation does not remove the learning and data requirements: independently estimated time-specific kernels require sufficient observations at each time, whereas a shared regression model can pool information across times but introduces assumptions about how transition probabilities vary with time. Sequences of different lengths can contribute their observed transitions, although later times may have limited support, and prediction beyond the observed time range requires extrapolation. Duration and other historical variables can further enlarge the configuration space and increase estimation requirements. Sparse transitions or state aggregation can reduce propagation costs, while trajectory sampling avoids full probability-mass propagation at the expense of Monte Carlo error; sampling itself does not resolve limitations in estimating the underlying transition probabilities.
+
+\paragraph{Data structures absent from the benchmarks.} Irregular visit times, time-varying laboratory values and treatments, overlapping or multi-label codes, missing measurements and site-specific coding are all absent from Experiments~1 and~2. Each would require further bespoke modelling. Time-varying covariates in particular need a joint evolution model, because conditioning on a patient's observed future covariates leaks information into the prediction.
+
+\paragraph{Evaluation caveats.} The comparisons were developed retrospectively by an analyst who knew the generators. They rest on a single fitted model per experiment, compared with nine (Experiment~1) or five (Experiment~2) neural fits, and the direct-propagation results benefit from exact integration.
+
+\medskip
+The scalability arguments above follow from model structure rather than from results demonstrated in these simulations, and large neural sequence models face some of the same difficulties, notably rare events, calibration and transport across sites. Taken together, however, they indicate that the strong results in Tables~\ref{tab:exp1} and~\ref{tab:exp2} reflect analyst-supplied knowledge of each generator rather than a capability that transfers to general, individualized survival prediction from clinical histories.
+
+\subsection*{S9.5\quad Placement}
+
+The comparators in the main paper receive either the same observed prefix as ATLAS or baseline covariates only, without generator-specific feature engineering. Including MMLR and HAMMLR alongside them would conflate two different questions: how well a method learns predictive structure from history, and how well a correctly pre-specified model of known structure can be estimated. We therefore report these models here as structurally informed reference points. We retain them so that readers can see that, when its assumptions hold, an explicit transition model can match or exceed ATLAS on these benchmarks.
+
+\end{document}

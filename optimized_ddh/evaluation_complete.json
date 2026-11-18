@@ -1,0 +1,7 @@
+{
+  "protocol_hash": "5cc4e5e50fdd40bb5696b3d518083ab3282f4f0c23d555da299be079bcfc832f",
+  "comparison_rows": 134,
+  "test_evaluation_n": 300,
+  "bootstrap_resamples": 5000,
+  "intervals": "pointwise paired patient; fixed fits and configurations"
+}

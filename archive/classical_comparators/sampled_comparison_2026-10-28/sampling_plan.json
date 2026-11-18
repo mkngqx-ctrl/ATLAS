@@ -1,0 +1,21 @@
+{
+  "M": 10000,
+  "seeds": [
+    41001,
+    52001,
+    63001,
+    74001,
+    85001
+  ],
+  "methods": [
+    "iid",
+    "scrambled Sobol"
+  ],
+  "uniform_implementation": "NumPy default_rng; torch.quasirandom.SobolEngine(scramble=True).draw(10000).double()",
+  "child_seed_Hard24": "SeedSequence([sampling_seed, eligible_patient_position]).generate_state(1)[0] mod 2^31",
+  "child_seed_CR3": "SeedSequence([sampling_seed, patient_id, landmark]).generate_state(1)[0] mod 2^31",
+  "non_power_of_two": "10000 matches archived ATLAS; power-of-two Sobol balance guarantee does not apply",
+  "output_semantics": "average patient/time MAE within each seed then average five sampling seeds; no averaging curves before scoring",
+  "training_replicates": "classical one fit per experiment; ATLAS nine Hard24/five CR3 fits",
+  "scope": "both fitted Markov and semi-Markov models in both experiments; Hard24 survival only, CR3 survival and two CIFs"
+}

@@ -1,0 +1,94 @@
+DURATION- AND CALENDAR-TIME-AWARE SEMI-MARKOV COMPARATOR
+2026-10-28
+
+STATUS
+Exploratory analysis completed; original archives and manuscript unchanged.
+
+FORMULATION
+Separate multinomial logistic models by current live state s:
+q_j(s,u,t,x) = softmax_j(beta_sj' phi(u,t,z)), with z=(x-mu_train)/sd_train.
+Source time t is the time of S_t; predicted destination is S_(t+1).
+Initial state has a separate fitted multinomial regression using covariates only.
+Responses include three live states, death and censoring. Destination support is
+learned from training observations, not supplied from the generator.
+
+Candidate 1 features: intercept; standardized covariate powers 1 through 4;
+run-length indicators for u=2,...,30; source-time indicators for t=2,...,29.
+Candidate 2 adds z*v,z^2*v,z*v^2,z^2*v^2 and time-indicator*v interactions,
+where v=log(1+u)/log(31). Each source state has its own coefficients.
+Penalty: one half times sum of squared coefficients (ridge=1 on summed NLL).
+No true coefficients, change points, or oracle probabilities were supplied.
+The model is time-inhomogeneous and semi-Markov in the discrete-time augmented
+state sense; self-transitions increment u and state changes reset u to 1.
+
+TRAINING AND SELECTION
+Original hash-matched Hard24 cohort, 40,000 training and 5,000 validation
+patients; original 5,000 held-out test patients. Training has 632,886 transitions
+plus 40,000 first states. Absorbing-state repetitions excluded.
+Both candidates fitted on training only. Interaction model selected using
+validation observed transition log loss: 0.858827 versus additive 0.859853.
+No oracle curve scores or test data used in specification selection.
+One initial-state fit and six candidate state-specific fits; four selected fits.
+All final fits converged with average objective gradient below 1e-7.
+An initial unscaled optimizer attempt reached its iteration limit; column
+reparameterization improved conditioning without changing model or penalty.
+No statistical specification was altered in response to test scores.
+
+PREDICTION
+Exact forward propagation over (s,u), separately for every covariate and source
+time. At each step, death mass is divided by total remaining observed risk mass
+before same-step censor removal, then KM survival is updated. Live mass alone
+continues; this matches the archived event-first estimand. No Monte Carlo error.
+
+RESULTS
+Landmark    n     Survival MAE
+0           300   0.0018082050977745734
+20          102   0.006902259942978317
+23          78    0.01195744103387283
+24          57    0.00466098706638877
+Lower mean error than all 31 fitted comparison configurations at every landmark:
+21 ATLAS, eight original direct, prior current-state Markov, and Cox supermodel.
+Oracle sampler is a separate known-generator control, not a fitted comparator.
+At baseline, the fitted model is more accurate than the finite-IID oracle sampler;
+this does not beat the exact reference, whose error is zero.
+
+UNCERTAINTY
+5,000 patient-paired bootstrap resamples, seed 20261028. Differences compare
+semi-Markov patient errors with comparator errors averaged over sampling seeds
+within training run and then over training runs. Archived patient-error means
+recomputed and matched published summaries within 1e-12.
+Pointwise 95% percentile intervals, no multiplicity adjustment. Conditional on
+fixed fitted models, selected specification, cohort and eligible test population;
+not uncertainty over training samples or independent generated datasets.
+Intervals favor semi-Markov over all 21 ATLAS configurations at L=0,20,24;
+at L=23 only seven (the RNN configurations) have intervals wholly below zero.
+Mean differences favor semi-Markov for all 21 at L=23, but GRU and Transformer
+comparisons at this landmark remain uncertain by these intervals.
+
+VALIDATION CHECKS
+Sparse scaled L-BFGS probabilities agree with independent dense Newton fitting
+on a toy problem within 1e-6. Explicit source-time/run-length/terminal indexing
+test passed. Augmented propagation matched independent archived reference
+recursion at all four landmarks within 1e-13 (known probabilities used only for
+unit testing). Conservation, probability range, survival monotonicity, cohort
+hash, split disjointness, patient IDs and recomputed MAEs checked.
+
+FILES
+analysis_plan.json: candidate specifications and selection rule.
+selection.json: validation scores, optimizer records, original cohort path/hash.
+selected_model.npz: fitted coefficients, standardization and selected features.
+L*.npz: patient IDs, times, predictions, reference curves and patient errors.
+metrics.csv: aggregate MAEs.
+all_model_comparisons.csv: all 128 configuration-landmark comparisons including
+oracle controls, published SDs, and run-level comparisons where available.
+paired_bootstrap.csv and bootstrap_settings.json: conditional paired intervals.
+fit_semimarkov.py, test_semimarkov.py and bootstrap_semimarkov.py: reproducible
+fitting, computational verification and uncertainty analyses. Run with the local
+Python 3.14 installation and the recorded extension_deps NumPy/SciPy directory.
+
+INTERPRETATION
+Duration and calendar time substantially improve this classical comparator.
+The current manuscript cannot claim uniform superiority over fitted classical
+comparators if this model is included. This is an exploratory specification
+comparison on a previously studied benchmark and needs scientific review and
+independent implementation verification before submission.

@@ -1,0 +1,19 @@
+{
+  "fit_id": "A03_M0",
+  "seed": 42,
+  "config": {
+    "hidden": 32,
+    "layers": 1,
+    "projection": 0,
+    "alpha": 0.5,
+    "lr": 0.001,
+    "dropout": 0,
+    "l2": 0,
+    "batch": 256
+  },
+  "best_validation_NLL": 2.2830537138704066,
+  "best_epoch": 5,
+  "epochs_completed": 5,
+  "checkpoint": "C:\\Users\\moeni\\Documents\\ATLAS_work\\current\\review\\DRSA_optimization_2026-11-04\\Hard24\\fits\\A03_M0\\seed_42\\best.pt",
+  "stop": "budget"
+}

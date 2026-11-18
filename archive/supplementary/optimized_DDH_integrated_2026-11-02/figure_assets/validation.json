@@ -1,0 +1,17 @@
+{
+  "figures": 6,
+  "original_other_model_values_unchanged": true,
+  "patient_ids": [
+    28021,
+    15036,
+    12853
+  ],
+  "patient_covariates": [
+    8.162050997409818,
+    9.930173491240348,
+    11.770396775448404
+  ],
+  "axis_adjustments": [],
+  "source": "verified optimized_DDH_integrated_2026-11-02 metrics and original seed-42 patient curves",
+  "S8_figures_changed": false
+}

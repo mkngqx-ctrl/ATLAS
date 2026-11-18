@@ -1,0 +1,14 @@
+\section{Sampler ablation tables}\label{supp:ablation}
+The tables below compare all seven sampling methods for each ATLAS architecture.
+
+\input{sections/table_single_cov_samplers}
+
+For the single-covariate experiment, Sobol has the lowest MAE averaged across the nine training runs in eleven of the twelve architecture--landmark comparisons. The exception is ATLAS-GRU at $L=24$, where conditional Monte Carlo has mean MAE 0.013597 and Sobol has 0.013617. The difference is approximately $2.0\times10^{-5}$. These are comparisons of the recorded mean errors at this sampling budget.
+
+Sobol improves on IID in all twelve comparisons of nine-training-run mean MAE. For Transformer at baseline, Sobol reduces mean MAE from 0.009145 to 0.008818 (3.57\%); for GRU at landmark 24, the reduction is from 0.013947 to 0.013617 (2.37\%).
+
+\input{sections/table_cr_samplers}
+
+For the competing-risks experiment, Sobol improves on IID in all eighteen comparisons of five-training-run mean MAE. Conditional Monte Carlo has the lowest mean error in seventeen comparisons; Sobol leads only for Transformer baseline survival. These rankings describe the tested models, targets and sampling budget, rather than a universal sampler ordering. Complete cause-specific sampler scores, along with training-run and within-run sampling standard deviations, are supplied in the multi-seed results accompanying the source.
+
+The archive supports Sobol as a useful alternative to IID, especially where complete walks are wanted. It does not support calling it uniformly best. The particle methods also estimate different quantities internally and incur different work at the same nominal $M$, so their small MAE differences should be interpreted alongside their construction and cost.

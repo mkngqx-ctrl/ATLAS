@@ -1,0 +1,1282 @@
+[
+  {
+    "training_seed": 42,
+    "label": "Glazier-GRU",
+    "tensor_hash": "7cc1169ce7900149796072698f8142c922906a7ff0abf4adf58a80a49425f29e",
+    "recorded_seed": 42,
+    "best_epoch": 60,
+    "monitor": null,
+    "training_log_rows": 75,
+    "last_log_row": {
+      "epoch": 75,
+      "train_loss": 0.6388359890937805,
+      "validation_loss": 0.6343240445137024
+    },
+    "validation_index_seed": null,
+    "model_config": {
+      "n_states": 10
+    },
+    "loss_config": {},
+    "burn_in_epochs": null,
+    "max_epochs": null,
+    "patience": null
+  },
+  {
+    "training_seed": 42,
+    "label": "Weibull",
+    "tensor_hash": "bdd947ac8086ca8b860050240136b328c2b4878a0d8bcaf4e4b78a277235ab16",
+    "recorded_seed": 42,
+    "best_epoch": 95,
+    "monitor": null,
+    "training_log_rows": 110,
+    "last_log_row": {
+      "epoch": 110,
+      "train_loss": 2.0014398155212403,
+      "validation_loss": 1.9646979499816895
+    },
+    "validation_index_seed": null,
+    "model_config": {
+      "init_alpha": 26.0
+    },
+    "loss_config": {},
+    "burn_in_epochs": null,
+    "max_epochs": null,
+    "patience": null
+  },
+  {
+    "training_seed": 42,
+    "label": "DynamicDeepHit",
+    "tensor_hash": "4a96b3ace12df127ac9419ac9958883cdbd17893042e4efcd4e91fd5a85d92da",
+    "recorded_seed": 42,
+    "best_epoch": 9,
+    "monitor": "concordance",
+    "training_log_rows": 24,
+    "last_log_row": {
+      "epoch": 24,
+      "burn_in": false,
+      "train_loss": 5.031440014667566,
+      "validation_loss": 5.989454388618469,
+      "validation_concordance": 0.8158409026114933,
+      "val_nll": 1.5187388211488724,
+      "val_ranking": 32.04576802253723,
+      "val_next_measurement": 11.484432458877563,
+      "val_l1": 11769.5546875
+    },
+    "validation_index_seed": 145,
+    "model_config": {
+      "horizon": 30,
+      "hidden": 64,
+      "layers": 2,
+      "attention_hidden": 64,
+      "head_hidden": 64,
+      "head_layers": 4,
+      "dropout": 0.1,
+      "causes": 2,
+      "n_live": 7,
+      "n_covariates": 3
+    },
+    "loss_config": {
+      "rank_weight": 0.1,
+      "rank_sigma": 0.1,
+      "auxiliary_weight": 0.1,
+      "l1_weight": 1e-05,
+      "rank_reduction": "per_patient"
+    },
+    "burn_in_epochs": 5,
+    "max_epochs": 200,
+    "patience": 15
+  },
+  {
+    "training_seed": 42,
+    "label": "DynamicDeepHIt-Lite",
+    "tensor_hash": "7e499b20014013d9712b1e60b38ee6eddf07086302aea33749f6d07133e5df68",
+    "recorded_seed": 42,
+    "best_epoch": 28,
+    "monitor": null,
+    "training_log_rows": 43,
+    "last_log_row": {
+      "epoch": 43,
+      "train_loss": 2.928188941192627,
+      "validation_loss": 2.897492214202881
+    },
+    "validation_index_seed": null,
+    "model_config": {
+      "L": 30
+    },
+    "loss_config": {},
+    "burn_in_epochs": null,
+    "max_epochs": null,
+    "patience": null
+  },
+  {
+    "training_seed": 42,
+    "label": "DRSA",
+    "tensor_hash": "ba4ccde51689fc9d491a8e6db97a39667c9bbdf56f75b9d7ad2aca2fb9aef03a",
+    "recorded_seed": 42,
+    "best_epoch": 54,
+    "monitor": null,
+    "training_log_rows": 69,
+    "last_log_row": {
+      "epoch": 69,
+      "train_loss": 1.230852594566345,
+      "validation_loss": 1.208691471862793
+    },
+    "validation_index_seed": null,
+    "model_config": {
+      "L": 30
+    },
+    "loss_config": {},
+    "burn_in_epochs": null,
+    "max_epochs": null,
+    "patience": null
+  },
+  {
+    "training_seed": 42,
+    "label": "SurvTransformer-Discrete",
+    "tensor_hash": "80520dff24141722231bcde1d09201509e763eba2a432e523420ee498b27fb82",
+    "recorded_seed": 42,
+    "best_epoch": 2,
+    "monitor": "loss",
+    "training_log_rows": 17,
+    "last_log_row": {
+      "epoch": 17,
+      "burn_in": false,
+      "train_loss": 1.7429430538953694,
+      "validation_loss": 1.9040501117706299,
+      "validation_concordance": 0.8085023095592265,
+      "val_nll": 1.3926490396261215,
+      "val_mortality": 0.4778427854180336,
+      "val_observed_duration": 0.03355824132449925
+    },
+    "validation_index_seed": 145,
+    "model_config": {
+      "horizon": 30,
+      "width": 16,
+      "heads": 2,
+      "layers": 6,
+      "intermediate": 64,
+      "head_layers": 4,
+      "dropout": 0.1,
+      "likelihood": "discrete",
+      "causes": 2,
+      "n_live": 7,
+      "n_covariates": 3
+    },
+    "loss_config": {
+      "mortality_weight": 1.0,
+      "duration_weight": 1.0
+    },
+    "burn_in_epochs": 0,
+    "max_epochs": 200,
+    "patience": 15
+  },
+  {
+    "training_seed": 42,
+    "label": "Glazier-Transformer",
+    "tensor_hash": "0c024d0dcff6825108a11a066e4cb7dd33d88b22024e84deb7cc849a1040a72b",
+    "recorded_seed": 42,
+    "best_epoch": 45,
+    "monitor": null,
+    "training_log_rows": 60,
+    "last_log_row": {
+      "epoch": 60,
+      "train_loss": 0.6398404063224793,
+      "validation_loss": 0.6347198245048523
+    },
+    "validation_index_seed": null,
+    "model_config": {
+      "n_states": 10,
+      "max_len": 31
+    },
+    "loss_config": {},
+    "burn_in_epochs": null,
+    "max_epochs": null,
+    "patience": null
+  },
+  {
+    "training_seed": 42,
+    "label": "SurvTransformer-Lite",
+    "tensor_hash": "6abb1ab293393bd823d713a080bac0b8f2098a0a50bf922e30b7c7bd2b44cf95",
+    "recorded_seed": 42,
+    "best_epoch": 6,
+    "monitor": null,
+    "training_log_rows": 21,
+    "last_log_row": {
+      "epoch": 21,
+      "train_loss": 2.930400567626953,
+      "validation_loss": 2.8997903491973878
+    },
+    "validation_index_seed": null,
+    "model_config": {
+      "L": 30
+    },
+    "loss_config": {},
+    "burn_in_epochs": null,
+    "max_epochs": null,
+    "patience": null
+  },
+  {
+    "training_seed": 42,
+    "label": "SurvTransformer",
+    "tensor_hash": "5cddd06e7a633a9da9d32c481f8e254e1ae302d4a6e6ddd71e37611bc5128532",
+    "recorded_seed": 42,
+    "best_epoch": 2,
+    "monitor": "loss",
+    "training_log_rows": 17,
+    "last_log_row": {
+      "epoch": 17,
+      "burn_in": false,
+      "train_loss": 1.7486551031542974,
+      "validation_loss": 1.8845979124307632,
+      "validation_concordance": 0.8132026725005134,
+      "val_nll": 1.3820116519927979,
+      "val_mortality": 0.46874573826789856,
+      "val_observed_duration": 0.03384050284512341
+    },
+    "validation_index_seed": 145,
+    "model_config": {
+      "horizon": 30,
+      "width": 16,
+      "heads": 2,
+      "layers": 6,
+      "intermediate": 64,
+      "head_layers": 4,
+      "dropout": 0.1,
+      "likelihood": "pch",
+      "causes": 2,
+      "n_live": 7,
+      "n_covariates": 3
+    },
+    "loss_config": {
+      "mortality_weight": 1.0,
+      "duration_weight": 1.0
+    },
+    "burn_in_epochs": 0,
+    "max_epochs": 200,
+    "patience": 15
+  },
+  {
+    "training_seed": 43,
+    "label": "Glazier-GRU",
+    "tensor_hash": "cd9d5b4f5eb5e0f54c533ed635242f2f82c736d8cf0a48e310b59669aca6f49f",
+    "recorded_seed": 43,
+    "best_epoch": 70,
+    "monitor": null,
+    "training_log_rows": 85,
+    "last_log_row": {
+      "epoch": 85,
+      "train_loss": 0.6387220329284667,
+      "validation_loss": 0.6342883799552917
+    },
+    "validation_index_seed": null,
+    "model_config": {
+      "n_states": 10
+    },
+    "loss_config": {},
+    "burn_in_epochs": null,
+    "max_epochs": null,
+    "patience": null
+  },
+  {
+    "training_seed": 43,
+    "label": "DRSA",
+    "tensor_hash": "df79ac15878d407765e305775efb0908928db2099bf59163341f599ec6cc4515",
+    "recorded_seed": 43,
+    "best_epoch": 40,
+    "monitor": null,
+    "training_log_rows": 55,
+    "last_log_row": {
+      "epoch": 55,
+      "train_loss": 1.2309276584625244,
+      "validation_loss": 1.2098100120544433
+    },
+    "validation_index_seed": null,
+    "model_config": {
+      "L": 30
+    },
+    "loss_config": {},
+    "burn_in_epochs": null,
+    "max_epochs": null,
+    "patience": null
+  },
+  {
+    "training_seed": 43,
+    "label": "Weibull",
+    "tensor_hash": "6c6e45c10090a37fc55c91601b030d92e1a27b5cb61aaadc61c18176b8b1830a",
+    "recorded_seed": 43,
+    "best_epoch": 103,
+    "monitor": null,
+    "training_log_rows": 118,
+    "last_log_row": {
+      "epoch": 118,
+      "train_loss": 2.001434620285034,
+      "validation_loss": 1.9644249139785768
+    },
+    "validation_index_seed": null,
+    "model_config": {
+      "init_alpha": 26.0
+    },
+    "loss_config": {},
+    "burn_in_epochs": null,
+    "max_epochs": null,
+    "patience": null
+  },
+  {
+    "training_seed": 43,
+    "label": "DynamicDeepHIt-Lite",
+    "tensor_hash": "c06a45658176f68fd8eefda09fb2b952ac43ece209270b77445f81af7a9970d4",
+    "recorded_seed": 43,
+    "best_epoch": 11,
+    "monitor": null,
+    "training_log_rows": 26,
+    "last_log_row": {
+      "epoch": 26,
+      "train_loss": 2.9303246726989745,
+      "validation_loss": 2.8956183437347414
+    },
+    "validation_index_seed": null,
+    "model_config": {
+      "L": 30
+    },
+    "loss_config": {},
+    "burn_in_epochs": null,
+    "max_epochs": null,
+    "patience": null
+  },
+  {
+    "training_seed": 43,
+    "label": "SurvTransformer-Lite",
+    "tensor_hash": "a2d11097ca659fb572b683661eb732adc540915f894954666a890f60084d3a50",
+    "recorded_seed": 43,
+    "best_epoch": 8,
+    "monitor": null,
+    "training_log_rows": 23,
+    "last_log_row": {
+      "epoch": 23,
+      "train_loss": 2.9311507205963134,
+      "validation_loss": 2.8986836700439453
+    },
+    "validation_index_seed": null,
+    "model_config": {
+      "L": 30
+    },
+    "loss_config": {},
+    "burn_in_epochs": null,
+    "max_epochs": null,
+    "patience": null
+  },
+  {
+    "training_seed": 43,
+    "label": "Glazier-Transformer",
+    "tensor_hash": "08739a06d2dd2bcba7215d40f5adca0a292c075c1cd4917af8ce32459c7f67ad",
+    "recorded_seed": 43,
+    "best_epoch": 30,
+    "monitor": null,
+    "training_log_rows": 45,
+    "last_log_row": {
+      "epoch": 45,
+      "train_loss": 0.6402937735557556,
+      "validation_loss": 0.6349196690559388
+    },
+    "validation_index_seed": null,
+    "model_config": {
+      "n_states": 10,
+      "max_len": 31
+    },
+    "loss_config": {},
+    "burn_in_epochs": null,
+    "max_epochs": null,
+    "patience": null
+  },
+  {
+    "training_seed": 43,
+    "label": "DynamicDeepHit",
+    "tensor_hash": "e3b7cc107bf2d63ba70ed5a3125c085402c1989360322d85c9a7a4afde45ba65",
+    "recorded_seed": 43,
+    "best_epoch": 10,
+    "monitor": "concordance",
+    "training_log_rows": 25,
+    "last_log_row": {
+      "epoch": 25,
+      "burn_in": false,
+      "train_loss": 4.914710994793275,
+      "validation_loss": 6.233985126018524,
+      "validation_concordance": 0.8060088423546721,
+      "val_nll": 1.541519120335579,
+      "val_ranking": 34.20185327529907,
+      "val_next_measurement": 11.484183311462402,
+      "val_l1": 12386.2373046875
+    },
+    "validation_index_seed": 145,
+    "model_config": {
+      "horizon": 30,
+      "hidden": 64,
+      "layers": 2,
+      "attention_hidden": 64,
+      "head_hidden": 64,
+      "head_layers": 4,
+      "dropout": 0.1,
+      "causes": 2,
+      "n_live": 7,
+      "n_covariates": 3
+    },
+    "loss_config": {
+      "rank_weight": 0.1,
+      "rank_sigma": 0.1,
+      "auxiliary_weight": 0.1,
+      "l1_weight": 1e-05,
+      "rank_reduction": "per_patient"
+    },
+    "burn_in_epochs": 5,
+    "max_epochs": 200,
+    "patience": 15
+  },
+  {
+    "training_seed": 43,
+    "label": "SurvTransformer-Discrete",
+    "tensor_hash": "01d2821b46e44fb15b95639c93eaf3c9d1c5b8548f2b8890008f2cb692caf6e2",
+    "recorded_seed": 43,
+    "best_epoch": 1,
+    "monitor": "loss",
+    "training_log_rows": 16,
+    "last_log_row": {
+      "epoch": 16,
+      "burn_in": false,
+      "train_loss": 1.7359832889619116,
+      "validation_loss": 1.9149360954761505,
+      "validation_concordance": 0.8114507458982613,
+      "val_nll": 1.4031048864126205,
+      "val_mortality": 0.4785265326499939,
+      "val_observed_duration": 0.03330467804335058
+    },
+    "validation_index_seed": 145,
+    "model_config": {
+      "horizon": 30,
+      "width": 16,
+      "heads": 2,
+      "layers": 6,
+      "intermediate": 64,
+      "head_layers": 4,
+      "dropout": 0.1,
+      "likelihood": "discrete",
+      "causes": 2,
+      "n_live": 7,
+      "n_covariates": 3
+    },
+    "loss_config": {
+      "mortality_weight": 1.0,
+      "duration_weight": 1.0
+    },
+    "burn_in_epochs": 0,
+    "max_epochs": 200,
+    "patience": 15
+  },
+  {
+    "training_seed": 43,
+    "label": "SurvTransformer",
+    "tensor_hash": "10548e0178223f464e50466a8437f9dd0e83e791ff84ba88c4ca880be33d79a8",
+    "recorded_seed": 43,
+    "best_epoch": 3,
+    "monitor": "loss",
+    "training_log_rows": 18,
+    "last_log_row": {
+      "epoch": 18,
+      "burn_in": false,
+      "train_loss": 1.7438160577125204,
+      "validation_loss": 1.866028517484665,
+      "validation_concordance": 0.8092556675416452,
+      "val_nll": 1.377699762582779,
+      "val_mortality": 0.45474106445908546,
+      "val_observed_duration": 0.03358766948804259
+    },
+    "validation_index_seed": 145,
+    "model_config": {
+      "horizon": 30,
+      "width": 16,
+      "heads": 2,
+      "layers": 6,
+      "intermediate": 64,
+      "head_layers": 4,
+      "dropout": 0.1,
+      "likelihood": "pch",
+      "causes": 2,
+      "n_live": 7,
+      "n_covariates": 3
+    },
+    "loss_config": {
+      "mortality_weight": 1.0,
+      "duration_weight": 1.0
+    },
+    "burn_in_epochs": 0,
+    "max_epochs": 200,
+    "patience": 15
+  },
+  {
+    "training_seed": 45,
+    "label": "DRSA",
+    "tensor_hash": "2edff8ed7d11b942bb2039cc1527b717e38dac3e15d02c7afea176f9ce3eaa24",
+    "recorded_seed": 45,
+    "best_epoch": 60,
+    "monitor": null,
+    "training_log_rows": 75,
+    "last_log_row": {
+      "epoch": 75,
+      "train_loss": 1.2303311416625977,
+      "validation_loss": 1.2085088361740113
+    },
+    "validation_index_seed": null,
+    "model_config": {
+      "L": 30
+    },
+    "loss_config": {},
+    "burn_in_epochs": null,
+    "max_epochs": null,
+    "patience": null
+  },
+  {
+    "training_seed": 45,
+    "label": "DynamicDeepHIt-Lite",
+    "tensor_hash": "7576621dd58f54a4ee642a737a6fb2f3667a60446a65114f4d725b7d83b75944",
+    "recorded_seed": 45,
+    "best_epoch": 6,
+    "monitor": null,
+    "training_log_rows": 21,
+    "last_log_row": {
+      "epoch": 21,
+      "train_loss": 2.931478692626953,
+      "validation_loss": 2.896540146636963
+    },
+    "validation_index_seed": null,
+    "model_config": {
+      "L": 30
+    },
+    "loss_config": {},
+    "burn_in_epochs": null,
+    "max_epochs": null,
+    "patience": null
+  },
+  {
+    "training_seed": 45,
+    "label": "Weibull",
+    "tensor_hash": "3788fe7d375164f2aa53c59f53754025c33c66b55a9e678770288a9d701305a3",
+    "recorded_seed": 45,
+    "best_epoch": 99,
+    "monitor": null,
+    "training_log_rows": 114,
+    "last_log_row": {
+      "epoch": 114,
+      "train_loss": 2.0013565280914305,
+      "validation_loss": 1.9650150564193725
+    },
+    "validation_index_seed": null,
+    "model_config": {
+      "init_alpha": 26.0
+    },
+    "loss_config": {},
+    "burn_in_epochs": null,
+    "max_epochs": null,
+    "patience": null
+  },
+  {
+    "training_seed": 45,
+    "label": "SurvTransformer-Lite",
+    "tensor_hash": "00712373f98c4bc913803a6a9cc90ff3a4d404430f0a330d5ba0182da5701712",
+    "recorded_seed": 45,
+    "best_epoch": 5,
+    "monitor": null,
+    "training_log_rows": 20,
+    "last_log_row": {
+      "epoch": 20,
+      "train_loss": 2.930639342880249,
+      "validation_loss": 2.9002435775756834
+    },
+    "validation_index_seed": null,
+    "model_config": {
+      "L": 30
+    },
+    "loss_config": {},
+    "burn_in_epochs": null,
+    "max_epochs": null,
+    "patience": null
+  },
+  {
+    "training_seed": 45,
+    "label": "Glazier-GRU",
+    "tensor_hash": "30881371978b6d0b01e5dfdcb2369414b51d5c034f611f6320fac0985b095523",
+    "recorded_seed": 45,
+    "best_epoch": 54,
+    "monitor": null,
+    "training_log_rows": 69,
+    "last_log_row": {
+      "epoch": 69,
+      "train_loss": 0.638781349658966,
+      "validation_loss": 0.6343923350334167
+    },
+    "validation_index_seed": null,
+    "model_config": {
+      "n_states": 10
+    },
+    "loss_config": {},
+    "burn_in_epochs": null,
+    "max_epochs": null,
+    "patience": null
+  },
+  {
+    "training_seed": 45,
+    "label": "Glazier-Transformer",
+    "tensor_hash": "644d0fdf618c540c80d65ffc7d57540a4dc6c20a8b178d00ebf7c53e77258539",
+    "recorded_seed": 45,
+    "best_epoch": 49,
+    "monitor": null,
+    "training_log_rows": 64,
+    "last_log_row": {
+      "epoch": 64,
+      "train_loss": 0.6396523962020874,
+      "validation_loss": 0.6351245411872863
+    },
+    "validation_index_seed": null,
+    "model_config": {
+      "n_states": 10,
+      "max_len": 31
+    },
+    "loss_config": {},
+    "burn_in_epochs": null,
+    "max_epochs": null,
+    "patience": null
+  },
+  {
+    "training_seed": 45,
+    "label": "DynamicDeepHit",
+    "tensor_hash": "dc14eab435f415480848be7dc2ac8c1ba8af2062b45206d58137ac33755a4925",
+    "recorded_seed": 45,
+    "best_epoch": 8,
+    "monitor": "concordance",
+    "training_log_rows": 23,
+    "last_log_row": {
+      "epoch": 23,
+      "burn_in": false,
+      "train_loss": 4.985268972411961,
+      "validation_loss": 6.122053027153015,
+      "validation_concordance": 0.8045700763255038,
+      "val_nll": 1.5128807574510574,
+      "val_ranking": 33.4770073890686,
+      "val_next_measurement": 11.486398339271545,
+      "val_l1": 11283.13671875
+    },
+    "validation_index_seed": 145,
+    "model_config": {
+      "horizon": 30,
+      "hidden": 64,
+      "layers": 2,
+      "attention_hidden": 64,
+      "head_hidden": 64,
+      "head_layers": 4,
+      "dropout": 0.1,
+      "causes": 2,
+      "n_live": 7,
+      "n_covariates": 3
+    },
+    "loss_config": {
+      "rank_weight": 0.1,
+      "rank_sigma": 0.1,
+      "auxiliary_weight": 0.1,
+      "l1_weight": 1e-05,
+      "rank_reduction": "per_patient"
+    },
+    "burn_in_epochs": 5,
+    "max_epochs": 200,
+    "patience": 15
+  },
+  {
+    "training_seed": 45,
+    "label": "SurvTransformer-Discrete",
+    "tensor_hash": "6b8f460c767654b6735e23bc82fb0828f42cdac45756a59e2d27e8bf61ed9000",
+    "recorded_seed": 45,
+    "best_epoch": 2,
+    "monitor": "loss",
+    "training_log_rows": 17,
+    "last_log_row": {
+      "epoch": 17,
+      "burn_in": false,
+      "train_loss": 1.7313280929094348,
+      "validation_loss": 1.8491044789552689,
+      "validation_concordance": 0.8159649851027152,
+      "val_nll": 1.3615506440401077,
+      "val_mortality": 0.4537944234907627,
+      "val_observed_duration": 0.03375942539423704
+    },
+    "validation_index_seed": 145,
+    "model_config": {
+      "horizon": 30,
+      "width": 16,
+      "heads": 2,
+      "layers": 6,
+      "intermediate": 64,
+      "head_layers": 4,
+      "dropout": 0.1,
+      "likelihood": "discrete",
+      "causes": 2,
+      "n_live": 7,
+      "n_covariates": 3
+    },
+    "loss_config": {
+      "mortality_weight": 1.0,
+      "duration_weight": 1.0
+    },
+    "burn_in_epochs": 0,
+    "max_epochs": 200,
+    "patience": 15
+  },
+  {
+    "training_seed": 45,
+    "label": "SurvTransformer",
+    "tensor_hash": "4d13804f9362be630ebc7c6c777e45a73407ec0852d68f06f173cd1ddccf90ae",
+    "recorded_seed": 45,
+    "best_epoch": 2,
+    "monitor": "loss",
+    "training_log_rows": 17,
+    "last_log_row": {
+      "epoch": 17,
+      "burn_in": false,
+      "train_loss": 1.7446882485763233,
+      "validation_loss": 1.870854377746582,
+      "validation_concordance": 0.8136975252928864,
+      "val_nll": 1.377729371190071,
+      "val_mortality": 0.4594564884901047,
+      "val_observed_duration": 0.03366853669285774
+    },
+    "validation_index_seed": 145,
+    "model_config": {
+      "horizon": 30,
+      "width": 16,
+      "heads": 2,
+      "layers": 6,
+      "intermediate": 64,
+      "head_layers": 4,
+      "dropout": 0.1,
+      "likelihood": "pch",
+      "causes": 2,
+      "n_live": 7,
+      "n_covariates": 3
+    },
+    "loss_config": {
+      "mortality_weight": 1.0,
+      "duration_weight": 1.0
+    },
+    "burn_in_epochs": 0,
+    "max_epochs": 200,
+    "patience": 15
+  },
+  {
+    "training_seed": 46,
+    "label": "DRSA",
+    "tensor_hash": "f35a62ec54c21f2a7980a68bc3c09b67552c4e30c2519cc9b75b8e510faf181a",
+    "recorded_seed": 46,
+    "best_epoch": 45,
+    "monitor": null,
+    "training_log_rows": 60,
+    "last_log_row": {
+      "epoch": 60,
+      "train_loss": 1.2306867080688477,
+      "validation_loss": 1.208639540863037
+    },
+    "validation_index_seed": null,
+    "model_config": {
+      "L": 30
+    },
+    "loss_config": {},
+    "burn_in_epochs": null,
+    "max_epochs": null,
+    "patience": null
+  },
+  {
+    "training_seed": 46,
+    "label": "Glazier-GRU",
+    "tensor_hash": "40d9428373c5b91cac83831ada727ad8013a5ec39d4d35f0a265646469f9107e",
+    "recorded_seed": 46,
+    "best_epoch": 35,
+    "monitor": null,
+    "training_log_rows": 50,
+    "last_log_row": {
+      "epoch": 50,
+      "train_loss": 0.6391345929145813,
+      "validation_loss": 0.6346379500389099
+    },
+    "validation_index_seed": null,
+    "model_config": {
+      "n_states": 10
+    },
+    "loss_config": {},
+    "burn_in_epochs": null,
+    "max_epochs": null,
+    "patience": null
+  },
+  {
+    "training_seed": 46,
+    "label": "DynamicDeepHIt-Lite",
+    "tensor_hash": "0cafb2c6a99f60a1871b1056632c37d1a46210e84d6928da4773a5ca12e185ad",
+    "recorded_seed": 46,
+    "best_epoch": 29,
+    "monitor": null,
+    "training_log_rows": 44,
+    "last_log_row": {
+      "epoch": 44,
+      "train_loss": 2.928075828170776,
+      "validation_loss": 2.898002286911011
+    },
+    "validation_index_seed": null,
+    "model_config": {
+      "L": 30
+    },
+    "loss_config": {},
+    "burn_in_epochs": null,
+    "max_epochs": null,
+    "patience": null
+  },
+  {
+    "training_seed": 46,
+    "label": "Weibull",
+    "tensor_hash": "cbe370415b0c88aec3d750dfa2771a33398f9796ad9fd37584e9fd8c0921b9bf",
+    "recorded_seed": 46,
+    "best_epoch": 138,
+    "monitor": null,
+    "training_log_rows": 153,
+    "last_log_row": {
+      "epoch": 153,
+      "train_loss": 2.0003603332519533,
+      "validation_loss": 1.964819531059265
+    },
+    "validation_index_seed": null,
+    "model_config": {
+      "init_alpha": 26.0
+    },
+    "loss_config": {},
+    "burn_in_epochs": null,
+    "max_epochs": null,
+    "patience": null
+  },
+  {
+    "training_seed": 46,
+    "label": "DynamicDeepHit",
+    "tensor_hash": "010f42bd0c129e84fa9486eeba075282c9fcb6372d51d234e4a97326eaac62ad",
+    "recorded_seed": 46,
+    "best_epoch": 7,
+    "monitor": "concordance",
+    "training_log_rows": 22,
+    "last_log_row": {
+      "epoch": 22,
+      "burn_in": false,
+      "train_loss": 5.110505044685336,
+      "validation_loss": 5.856740772724152,
+      "validation_concordance": 0.8196918913569159,
+      "val_nll": 1.508925899863243,
+      "val_ranking": 30.94147229194641,
+      "val_next_measurement": 11.473868250846863,
+      "val_l1": 10628.095703125
+    },
+    "validation_index_seed": 145,
+    "model_config": {
+      "horizon": 30,
+      "hidden": 64,
+      "layers": 2,
+      "attention_hidden": 64,
+      "head_hidden": 64,
+      "head_layers": 4,
+      "dropout": 0.1,
+      "causes": 2,
+      "n_live": 7,
+      "n_covariates": 3
+    },
+    "loss_config": {
+      "rank_weight": 0.1,
+      "rank_sigma": 0.1,
+      "auxiliary_weight": 0.1,
+      "l1_weight": 1e-05,
+      "rank_reduction": "per_patient"
+    },
+    "burn_in_epochs": 5,
+    "max_epochs": 200,
+    "patience": 15
+  },
+  {
+    "training_seed": 46,
+    "label": "SurvTransformer",
+    "tensor_hash": "cfa16cac68d7aa94142e7e2e8462502723b7b40ee75dee416570111504c1ff06",
+    "recorded_seed": 46,
+    "best_epoch": 3,
+    "monitor": "loss",
+    "training_log_rows": 18,
+    "last_log_row": {
+      "epoch": 18,
+      "burn_in": false,
+      "train_loss": 1.7470127659754073,
+      "validation_loss": 1.9029515236616135,
+      "validation_concordance": 0.8055568275652208,
+      "val_nll": 1.392449215054512,
+      "val_mortality": 0.4769166447222233,
+      "val_observed_duration": 0.033585692290216684
+    },
+    "validation_index_seed": 145,
+    "model_config": {
+      "horizon": 30,
+      "width": 16,
+      "heads": 2,
+      "layers": 6,
+      "intermediate": 64,
+      "head_layers": 4,
+      "dropout": 0.1,
+      "likelihood": "pch",
+      "causes": 2,
+      "n_live": 7,
+      "n_covariates": 3
+    },
+    "loss_config": {
+      "mortality_weight": 1.0,
+      "duration_weight": 1.0
+    },
+    "burn_in_epochs": 0,
+    "max_epochs": 200,
+    "patience": 15
+  },
+  {
+    "training_seed": 46,
+    "label": "SurvTransformer-Lite",
+    "tensor_hash": "773ceeeb0d3965645ce7f97df97ae3e0af296d0c43338d814d7a250daa546f47",
+    "recorded_seed": 46,
+    "best_epoch": 8,
+    "monitor": null,
+    "training_log_rows": 23,
+    "last_log_row": {
+      "epoch": 23,
+      "train_loss": 2.930515229797363,
+      "validation_loss": 2.9004885215759275
+    },
+    "validation_index_seed": null,
+    "model_config": {
+      "L": 30
+    },
+    "loss_config": {},
+    "burn_in_epochs": null,
+    "max_epochs": null,
+    "patience": null
+  },
+  {
+    "training_seed": 46,
+    "label": "SurvTransformer-Discrete",
+    "tensor_hash": "b6b016909e3fddb400efa89f9f0add908b8adc7beecf66fd0668b140392ef014",
+    "recorded_seed": 46,
+    "best_epoch": 3,
+    "monitor": "loss",
+    "training_log_rows": 18,
+    "last_log_row": {
+      "epoch": 18,
+      "burn_in": false,
+      "train_loss": 1.7284420170335153,
+      "validation_loss": 1.9236555099487305,
+      "validation_concordance": 0.8067444742669162,
+      "val_nll": 1.3998566567897797,
+      "val_mortality": 0.48992130532860756,
+      "val_observed_duration": 0.03387754317373037
+    },
+    "validation_index_seed": 145,
+    "model_config": {
+      "horizon": 30,
+      "width": 16,
+      "heads": 2,
+      "layers": 6,
+      "intermediate": 64,
+      "head_layers": 4,
+      "dropout": 0.1,
+      "likelihood": "discrete",
+      "causes": 2,
+      "n_live": 7,
+      "n_covariates": 3
+    },
+    "loss_config": {
+      "mortality_weight": 1.0,
+      "duration_weight": 1.0
+    },
+    "burn_in_epochs": 0,
+    "max_epochs": 200,
+    "patience": 15
+  },
+  {
+    "training_seed": 46,
+    "label": "Glazier-Transformer",
+    "tensor_hash": "6b4e26d2fc1a60d4981b5fde19123a586cc9bed79c7e892f47eeb082176d9e9e",
+    "recorded_seed": 46,
+    "best_epoch": 42,
+    "monitor": null,
+    "training_log_rows": 57,
+    "last_log_row": {
+      "epoch": 57,
+      "train_loss": 0.6395732605934143,
+      "validation_loss": 0.6349390707969665
+    },
+    "validation_index_seed": null,
+    "model_config": {
+      "n_states": 10,
+      "max_len": 31
+    },
+    "loss_config": {},
+    "burn_in_epochs": null,
+    "max_epochs": null,
+    "patience": null
+  },
+  {
+    "training_seed": 47,
+    "label": "SurvTransformer-Lite",
+    "tensor_hash": "7f1fc8c0591f4b00ff8cee8cf5349d4ff71b24853ddc6697132efb47e316c302",
+    "recorded_seed": 47,
+    "best_epoch": 10,
+    "monitor": null,
+    "training_log_rows": 25,
+    "last_log_row": {
+      "epoch": 25,
+      "train_loss": 2.9294111602783204,
+      "validation_loss": 2.900772621917725
+    },
+    "validation_index_seed": null,
+    "model_config": {
+      "L": 30
+    },
+    "loss_config": {},
+    "burn_in_epochs": null,
+    "max_epochs": null,
+    "patience": null
+  },
+  {
+    "training_seed": 47,
+    "label": "DRSA",
+    "tensor_hash": "4202b0d3a07b3f1d785964710c6d59ce9d709aec36b816f1931d00e79bb2f9f8",
+    "recorded_seed": 47,
+    "best_epoch": 59,
+    "monitor": null,
+    "training_log_rows": 74,
+    "last_log_row": {
+      "epoch": 74,
+      "train_loss": 1.2302645694732666,
+      "validation_loss": 1.2087079570770263
+    },
+    "validation_index_seed": null,
+    "model_config": {
+      "L": 30
+    },
+    "loss_config": {},
+    "burn_in_epochs": null,
+    "max_epochs": null,
+    "patience": null
+  },
+  {
+    "training_seed": 47,
+    "label": "DynamicDeepHIt-Lite",
+    "tensor_hash": "3bcfe57804193fa5d3d971754f208d728aabf7158d940cfb3f12810011c686d1",
+    "recorded_seed": 47,
+    "best_epoch": 23,
+    "monitor": null,
+    "training_log_rows": 38,
+    "last_log_row": {
+      "epoch": 38,
+      "train_loss": 2.928834657287598,
+      "validation_loss": 2.896695799636841
+    },
+    "validation_index_seed": null,
+    "model_config": {
+      "L": 30
+    },
+    "loss_config": {},
+    "burn_in_epochs": null,
+    "max_epochs": null,
+    "patience": null
+  },
+  {
+    "training_seed": 47,
+    "label": "Weibull",
+    "tensor_hash": "5eb379ff62b467b87645a99ac9eb54242c20b41328278ca1e28bd6dab34dfcb9",
+    "recorded_seed": 47,
+    "best_epoch": 124,
+    "monitor": null,
+    "training_log_rows": 139,
+    "last_log_row": {
+      "epoch": 139,
+      "train_loss": 2.0007006340026856,
+      "validation_loss": 1.9655041143417358
+    },
+    "validation_index_seed": null,
+    "model_config": {
+      "init_alpha": 26.0
+    },
+    "loss_config": {},
+    "burn_in_epochs": null,
+    "max_epochs": null,
+    "patience": null
+  },
+  {
+    "training_seed": 47,
+    "label": "Glazier-Transformer",
+    "tensor_hash": "41bb01cd2b21c416b955baee88d9bc1abb36a628331564bc06142814a2e95ccc",
+    "recorded_seed": 47,
+    "best_epoch": 63,
+    "monitor": null,
+    "training_log_rows": 78,
+    "last_log_row": {
+      "epoch": 78,
+      "train_loss": 0.6395018370628357,
+      "validation_loss": 0.6350596077919006
+    },
+    "validation_index_seed": null,
+    "model_config": {
+      "n_states": 10,
+      "max_len": 31
+    },
+    "loss_config": {},
+    "burn_in_epochs": null,
+    "max_epochs": null,
+    "patience": null
+  },
+  {
+    "training_seed": 47,
+    "label": "DynamicDeepHit",
+    "tensor_hash": "fc30653707bf447d218169b0a17ce8adefe569dc724c7c0283a11dd9021365b3",
+    "recorded_seed": 47,
+    "best_epoch": 7,
+    "monitor": "concordance",
+    "training_log_rows": 22,
+    "last_log_row": {
+      "epoch": 22,
+      "burn_in": false,
+      "train_loss": 4.951687336083882,
+      "validation_loss": 6.134260594844818,
+      "validation_concordance": 0.8059689586967793,
+      "val_nll": 1.5425881147384644,
+      "val_ranking": 33.26356506347656,
+      "val_next_measurement": 11.465065836906433,
+      "val_l1": 11880.9365234375
+    },
+    "validation_index_seed": 145,
+    "model_config": {
+      "horizon": 30,
+      "hidden": 64,
+      "layers": 2,
+      "attention_hidden": 64,
+      "head_hidden": 64,
+      "head_layers": 4,
+      "dropout": 0.1,
+      "causes": 2,
+      "n_live": 7,
+      "n_covariates": 3
+    },
+    "loss_config": {
+      "rank_weight": 0.1,
+      "rank_sigma": 0.1,
+      "auxiliary_weight": 0.1,
+      "l1_weight": 1e-05,
+      "rank_reduction": "per_patient"
+    },
+    "burn_in_epochs": 5,
+    "max_epochs": 200,
+    "patience": 15
+  },
+  {
+    "training_seed": 47,
+    "label": "SurvTransformer",
+    "tensor_hash": "5303282cd2577c2166e75147e27e327baf23254c6f48e4ec5bdc240ba608ce9b",
+    "recorded_seed": 47,
+    "best_epoch": 3,
+    "monitor": "loss",
+    "training_log_rows": 18,
+    "last_log_row": {
+      "epoch": 18,
+      "burn_in": false,
+      "train_loss": 1.74237768827386,
+      "validation_loss": 1.9314313381910324,
+      "validation_concordance": 0.8017383366151183,
+      "val_nll": 1.4118683487176895,
+      "val_mortality": 0.4859139882028103,
+      "val_observed_duration": 0.03364897333085537
+    },
+    "validation_index_seed": 145,
+    "model_config": {
+      "horizon": 30,
+      "width": 16,
+      "heads": 2,
+      "layers": 6,
+      "intermediate": 64,
+      "head_layers": 4,
+      "dropout": 0.1,
+      "likelihood": "pch",
+      "causes": 2,
+      "n_live": 7,
+      "n_covariates": 3
+    },
+    "loss_config": {
+      "mortality_weight": 1.0,
+      "duration_weight": 1.0
+    },
+    "burn_in_epochs": 0,
+    "max_epochs": 200,
+    "patience": 15
+  },
+  {
+    "training_seed": 47,
+    "label": "Glazier-GRU",
+    "tensor_hash": "fbafcc920ad40e251f48502d7ec35c1aaacfdc2fad48385e82446514d602721d",
+    "recorded_seed": 47,
+    "best_epoch": 70,
+    "monitor": null,
+    "training_log_rows": 85,
+    "last_log_row": {
+      "epoch": 85,
+      "train_loss": 0.6387101117134094,
+      "validation_loss": 0.6348348196029663
+    },
+    "validation_index_seed": null,
+    "model_config": {
+      "n_states": 10
+    },
+    "loss_config": {},
+    "burn_in_epochs": null,
+    "max_epochs": null,
+    "patience": null
+  },
+  {
+    "training_seed": 47,
+    "label": "SurvTransformer-Discrete",
+    "tensor_hash": "ad26f0a05b012a67636bf7e56f9bf059e3ee270c4a74c619e281160382e10b8a",
+    "recorded_seed": 47,
+    "best_epoch": 3,
+    "monitor": "loss",
+    "training_log_rows": 18,
+    "last_log_row": {
+      "epoch": 18,
+      "burn_in": false,
+      "train_loss": 1.730506911604587,
+      "validation_loss": 1.939290076494217,
+      "validation_concordance": 0.8022494383051514,
+      "val_nll": 1.4137480854988098,
+      "val_mortality": 0.4917157031595707,
+      "val_observed_duration": 0.03382630879059434
+    },
+    "validation_index_seed": 145,
+    "model_config": {
+      "horizon": 30,
+      "width": 16,
+      "heads": 2,
+      "layers": 6,
+      "intermediate": 64,
+      "head_layers": 4,
+      "dropout": 0.1,
+      "likelihood": "discrete",
+      "causes": 2,
+      "n_live": 7,
+      "n_covariates": 3
+    },
+    "loss_config": {
+      "mortality_weight": 1.0,
+      "duration_weight": 1.0
+    },
+    "burn_in_epochs": 0,
+    "max_epochs": 200,
+    "patience": 15
+  }
+]

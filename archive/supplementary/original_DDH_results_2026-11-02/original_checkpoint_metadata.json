@@ -1,0 +1,362 @@
+[
+  {
+    "experiment": "Hard24",
+    "seed": "42",
+    "model_config": {
+      "horizon": 30,
+      "hidden": 64,
+      "layers": 4,
+      "attention_hidden": 64,
+      "head_hidden": 64,
+      "head_layers": 4,
+      "dropout": 0.1,
+      "causes": 1
+    },
+    "loss_config": {
+      "rank_weight": 0.1,
+      "rank_sigma": 0.1,
+      "auxiliary_weight": 0.1,
+      "l1_weight": 1e-05,
+      "rank_reduction": "per_patient"
+    },
+    "lr": 0.001,
+    "batch_size": 256,
+    "monitor": "concordance",
+    "training_prefixes": 672886
+  },
+  {
+    "experiment": "Hard24",
+    "seed": "43",
+    "model_config": {
+      "horizon": 30,
+      "hidden": 64,
+      "layers": 4,
+      "attention_hidden": 64,
+      "head_hidden": 64,
+      "head_layers": 4,
+      "dropout": 0.1,
+      "causes": 1
+    },
+    "loss_config": {
+      "rank_weight": 0.1,
+      "rank_sigma": 0.1,
+      "auxiliary_weight": 0.1,
+      "l1_weight": 1e-05,
+      "rank_reduction": "per_patient"
+    },
+    "lr": 0.001,
+    "batch_size": 256,
+    "monitor": "concordance",
+    "training_prefixes": 672886
+  },
+  {
+    "experiment": "Hard24",
+    "seed": "44",
+    "model_config": {
+      "horizon": 30,
+      "hidden": 64,
+      "layers": 4,
+      "attention_hidden": 64,
+      "head_hidden": 64,
+      "head_layers": 4,
+      "dropout": 0.1,
+      "causes": 1
+    },
+    "loss_config": {
+      "rank_weight": 0.1,
+      "rank_sigma": 0.1,
+      "auxiliary_weight": 0.1,
+      "l1_weight": 1e-05,
+      "rank_reduction": "per_patient"
+    },
+    "lr": 0.001,
+    "batch_size": 256,
+    "monitor": "concordance",
+    "training_prefixes": 672886
+  },
+  {
+    "experiment": "Hard24",
+    "seed": "45",
+    "model_config": {
+      "horizon": 30,
+      "hidden": 64,
+      "layers": 4,
+      "attention_hidden": 64,
+      "head_hidden": 64,
+      "head_layers": 4,
+      "dropout": 0.1,
+      "causes": 1
+    },
+    "loss_config": {
+      "rank_weight": 0.1,
+      "rank_sigma": 0.1,
+      "auxiliary_weight": 0.1,
+      "l1_weight": 1e-05,
+      "rank_reduction": "per_patient"
+    },
+    "lr": 0.001,
+    "batch_size": 256,
+    "monitor": "concordance",
+    "training_prefixes": 672886
+  },
+  {
+    "experiment": "Hard24",
+    "seed": "50",
+    "model_config": {
+      "horizon": 30,
+      "hidden": 64,
+      "layers": 4,
+      "attention_hidden": 64,
+      "head_hidden": 64,
+      "head_layers": 4,
+      "dropout": 0.1,
+      "causes": 1
+    },
+    "loss_config": {
+      "rank_weight": 0.1,
+      "rank_sigma": 0.1,
+      "auxiliary_weight": 0.1,
+      "l1_weight": 1e-05,
+      "rank_reduction": "per_patient"
+    },
+    "lr": 0.001,
+    "batch_size": 256,
+    "monitor": "concordance",
+    "training_prefixes": 672886
+  },
+  {
+    "experiment": "Hard24",
+    "seed": "51",
+    "model_config": {
+      "horizon": 30,
+      "hidden": 64,
+      "layers": 4,
+      "attention_hidden": 64,
+      "head_hidden": 64,
+      "head_layers": 4,
+      "dropout": 0.1,
+      "causes": 1
+    },
+    "loss_config": {
+      "rank_weight": 0.1,
+      "rank_sigma": 0.1,
+      "auxiliary_weight": 0.1,
+      "l1_weight": 1e-05,
+      "rank_reduction": "per_patient"
+    },
+    "lr": 0.001,
+    "batch_size": 256,
+    "monitor": "concordance",
+    "training_prefixes": 672886
+  },
+  {
+    "experiment": "Hard24",
+    "seed": "52",
+    "model_config": {
+      "horizon": 30,
+      "hidden": 64,
+      "layers": 4,
+      "attention_hidden": 64,
+      "head_hidden": 64,
+      "head_layers": 4,
+      "dropout": 0.1,
+      "causes": 1
+    },
+    "loss_config": {
+      "rank_weight": 0.1,
+      "rank_sigma": 0.1,
+      "auxiliary_weight": 0.1,
+      "l1_weight": 1e-05,
+      "rank_reduction": "per_patient"
+    },
+    "lr": 0.001,
+    "batch_size": 256,
+    "monitor": "concordance",
+    "training_prefixes": 672886
+  },
+  {
+    "experiment": "Hard24",
+    "seed": "62",
+    "model_config": {
+      "horizon": 30,
+      "hidden": 64,
+      "layers": 4,
+      "attention_hidden": 64,
+      "head_hidden": 64,
+      "head_layers": 4,
+      "dropout": 0.1,
+      "causes": 1
+    },
+    "loss_config": {
+      "rank_weight": 0.1,
+      "rank_sigma": 0.1,
+      "auxiliary_weight": 0.1,
+      "l1_weight": 1e-05,
+      "rank_reduction": "per_patient"
+    },
+    "lr": 0.001,
+    "batch_size": 256,
+    "monitor": "concordance",
+    "training_prefixes": 672886
+  },
+  {
+    "experiment": "Hard24",
+    "seed": "63",
+    "model_config": {
+      "horizon": 30,
+      "hidden": 64,
+      "layers": 4,
+      "attention_hidden": 64,
+      "head_hidden": 64,
+      "head_layers": 4,
+      "dropout": 0.1,
+      "causes": 1
+    },
+    "loss_config": {
+      "rank_weight": 0.1,
+      "rank_sigma": 0.1,
+      "auxiliary_weight": 0.1,
+      "l1_weight": 1e-05,
+      "rank_reduction": "per_patient"
+    },
+    "lr": 0.001,
+    "batch_size": 256,
+    "monitor": "concordance",
+    "training_prefixes": 672886
+  },
+  {
+    "experiment": "CR3",
+    "seed": "42",
+    "model_config": {
+      "horizon": 30,
+      "hidden": 64,
+      "layers": 2,
+      "attention_hidden": 64,
+      "head_hidden": 64,
+      "head_layers": 4,
+      "dropout": 0.1,
+      "causes": 2,
+      "n_live": 7,
+      "n_covariates": 3
+    },
+    "loss_config": {
+      "rank_weight": 0.1,
+      "rank_sigma": 0.1,
+      "auxiliary_weight": 0.1,
+      "l1_weight": 1e-05,
+      "rank_reduction": "per_patient"
+    },
+    "lr": 0.001,
+    "batch_size": 256,
+    "monitor": "concordance",
+    "training_prefixes": 864247
+  },
+  {
+    "experiment": "CR3",
+    "seed": "43",
+    "model_config": {
+      "horizon": 30,
+      "hidden": 64,
+      "layers": 2,
+      "attention_hidden": 64,
+      "head_hidden": 64,
+      "head_layers": 4,
+      "dropout": 0.1,
+      "causes": 2,
+      "n_live": 7,
+      "n_covariates": 3
+    },
+    "loss_config": {
+      "rank_weight": 0.1,
+      "rank_sigma": 0.1,
+      "auxiliary_weight": 0.1,
+      "l1_weight": 1e-05,
+      "rank_reduction": "per_patient"
+    },
+    "lr": 0.001,
+    "batch_size": 256,
+    "monitor": "concordance",
+    "training_prefixes": 864247
+  },
+  {
+    "experiment": "CR3",
+    "seed": "45",
+    "model_config": {
+      "horizon": 30,
+      "hidden": 64,
+      "layers": 2,
+      "attention_hidden": 64,
+      "head_hidden": 64,
+      "head_layers": 4,
+      "dropout": 0.1,
+      "causes": 2,
+      "n_live": 7,
+      "n_covariates": 3
+    },
+    "loss_config": {
+      "rank_weight": 0.1,
+      "rank_sigma": 0.1,
+      "auxiliary_weight": 0.1,
+      "l1_weight": 1e-05,
+      "rank_reduction": "per_patient"
+    },
+    "lr": 0.001,
+    "batch_size": 256,
+    "monitor": "concordance",
+    "training_prefixes": 864247
+  },
+  {
+    "experiment": "CR3",
+    "seed": "46",
+    "model_config": {
+      "horizon": 30,
+      "hidden": 64,
+      "layers": 2,
+      "attention_hidden": 64,
+      "head_hidden": 64,
+      "head_layers": 4,
+      "dropout": 0.1,
+      "causes": 2,
+      "n_live": 7,
+      "n_covariates": 3
+    },
+    "loss_config": {
+      "rank_weight": 0.1,
+      "rank_sigma": 0.1,
+      "auxiliary_weight": 0.1,
+      "l1_weight": 1e-05,
+      "rank_reduction": "per_patient"
+    },
+    "lr": 0.001,
+    "batch_size": 256,
+    "monitor": "concordance",
+    "training_prefixes": 864247
+  },
+  {
+    "experiment": "CR3",
+    "seed": "47",
+    "model_config": {
+      "horizon": 30,
+      "hidden": 64,
+      "layers": 2,
+      "attention_hidden": 64,
+      "head_hidden": 64,
+      "head_layers": 4,
+      "dropout": 0.1,
+      "causes": 2,
+      "n_live": 7,
+      "n_covariates": 3
+    },
+    "loss_config": {
+      "rank_weight": 0.1,
+      "rank_sigma": 0.1,
+      "auxiliary_weight": 0.1,
+      "l1_weight": 1e-05,
+      "rank_reduction": "per_patient"
+    },
+    "lr": 0.001,
+    "batch_size": 256,
+    "monitor": "concordance",
+    "training_prefixes": 864247
+  }
+]

@@ -1,0 +1,356 @@
+% ATLAS main manuscript. Compile this file for the journal main text with
+% its printed appendices. Compile supplement.tex for the standalone
+% supplement, or atlas_arxiv.tex for one combined PDF (arXiv).
+\input{preamble}
+\title{\bfseries ATLAS: Autoregressive Trajectories for\\Longitudinal Analysis of Survival}
+\author[1]{Morgan Nissen\textsuperscript{*}}
+\author[2,3]{Chunyang Li}
+\author[4]{Seth Glazier}
+\author[2,3]{Julia Bohman}
+\author[2,3]{Ahmad Halwani}
+\author[1]{Jeffrey Humpherys\textsuperscript{\textdagger}}
+\affil[1]{Department of Mathematics and Statistics, Missouri S\&T, Rolla, MO, USA}
+\affil[2]{George E. Wahlen Department of Veterans Affairs Medical Center, Salt Lake City, UT, USA}
+\affil[3]{Division of Hematology and Hematologic Malignancies, University of Utah School of Medicine, Salt Lake City, UT, USA}
+\affil[4]{Independent researcher}
+\date{}
+% Author-approved running title.
+\newcommand{\runningtitle}{Autoregressive Trajectories for Longitudinal Analysis of Survival}
+\usepackage{fancyhdr}
+\setlength{\headheight}{14.5pt}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[C]{\small\runningtitle}
+\fancyfoot[C]{\thepage}
+\renewcommand{\headrulewidth}{0pt}
+\begin{document}
+\maketitle
+\begin{center}\small
+\textsuperscript{*}First corresponding author: Morgan Nissen, \href{mailto:mkngqx@umsystem.edu}{mkngqx@umsystem.edu}.\\
+\textsuperscript{\textdagger}Second corresponding author: Jeffrey Humpherys, \href{mailto:jhumpherys@gmail.com}{jhumpherys@gmail.com}.\\
+Correspondence address for both authors: 400 W 12th St, Rolla, MO 65409, USA.\\
+Morgan Nissen (submitting author), ORCID: \href{https://orcid.org/0009-0000-1914-6972}{0009-0000-1914-6972}.
+\end{center}
+\begin{abstract}
+Dynamic survival prediction requires estimates that reflect a patient's observed clinical history. We introduce ATLAS (Autoregressive Trajectories for Longitudinal Analysis of Survival), a framework that trains a sequence model on longitudinal data and autoregressively samples possible futures conditional on an individual's covariates and observed history. These trajectories form a patient-specific synthetic cohort from which Kaplan--Meier survival curves and Aalen--Johansen cumulative incidence curves are estimated. We evaluate ATLAS using two stochastic finite-state automaton benchmarks with exact conditional reference curves: a single-covariate process with duration dependence and a late rule change, and a three-covariate Markov process with recovery and competing causes of death. Comparisons include eight direct survival models, including validation-optimized DRSA and Dynamic-DeepHit and history-aware SurvTRACE adaptations, with each neural model trained nine times in the first experiment and five times in the second. After baseline, every ATLAS configuration had lower mean survival-curve error than every fitted direct comparator in both experiments. With a common Sobol sampler and 10,000 trajectories per patient, the best ATLAS model did so in every individual training run, and its mean error was 62\% to 84\% lower than that of the strongest direct comparator. Baseline advantages were smaller and less consistent in the duration-dependent experiment. ATLAS provides a generative framework for history-conditioned survival estimation, while the accompanying benchmarks enable direct assessment of individual survival and competing-risk predictions against known reference curves.
+\end{abstract}
+
+\noindent\textbf{Keywords:} dynamic prediction; survival analysis; competing risks; autoregressive sequence models; personalized medicine; simulation benchmark.
+
+\section{Introduction}
+A prognosis is not a single number. When a clinician tells a patient how things are likely to go, the honest answer is a distribution over several possible futures, and that distribution should shift as new information arrives. A patient who has been stable for a year is not the same patient, prognostically, as one with the same baseline covariates who has spent the last three months getting worse. Classical survival models capture the covariates well, and dynamic methods such as Dynamic-DeepHit can fold in longitudinal observations~\citep{lee2019dynamic}. These methods predict event probabilities directly from the information supplied to them.
+
+In this paper, we take a different route. If a model can predict what happens to a patient next, given everything that has happened so far, then we can run that model forward autoregressively and generate multiple random walks of different clinical journeys. Starting from the patient's own record, we sample a next state, append it, sample again, and keep going until the walk ends in death, dropout, or the end of follow-up. That is one possible future. Ten thousand such autoregressive random walks give ten thousand possible futures for the same person, and we can treat them as a cohort. The Kaplan--Meier estimator applied to that cohort is a survival curve for this one patient~\citep{kaplan1958}. When there are competing causes of death, the Aalen--Johansen estimator gives cause-specific cumulative incidence in the same way~\citep{aalen1978}. We call the framework ATLAS, for Autoregressive Trajectories for Longitudinal Analysis of Survival, and the generated futures a patient-specific synthetic cohort. The sequence model is trained on a full cohort; the synthetic trajectories are generated conditional on an individual patient's supplied covariates and observed history. These trajectories represent possible futures under the fitted model, rather than additional clinical observations. Increasing their number reduces Monte Carlo variability but does not remove uncertainty or error in the fitted model. The idea of estimating survival by sampling futures from a trained sequence model was developed in Glazier's thesis~\citep{glazier2019}, and this paper builds on it.
+
+The appeal of this approach is that the survival curve can reflect what the model has learned about duration dependence, recovery, or abrupt changes in the disease process. It does not require proportional hazards or a fixed parametric survival distribution. There are still two sources of error: the model may learn the transition probabilities imperfectly, and a finite set of sampled futures may not fully represent the learned distribution. More samples can reduce the second source of error, but cannot correct the first. Part of what we want to understand is how much each contributes to the accuracy of the resulting curve.
+
+Sampling futures from a learned model of health trajectories is an established technique, and it is worth saying where ATLAS sits. ETHOS trains a Transformer on tokenized patient timelines and estimates inpatient mortality and readmission by generating many future timelines for each patient~\citep{renc2024}. Delphi-2M, a GPT-style model trained on UK Biobank records, samples synthetic future disease trajectories and uses them to project disease burden over decades~\citep{shmatko2025}. Both show that the generative route works at scale on real records. Our contribution sits on the other side of the problem. We say exactly how a cohort of sampled futures, with censoring and competing causes, becomes a proper survival or cumulative-incidence curve, and we build benchmarks on which the right curve is known, so that the whole pipeline can be scored rather than only its downstream proxies. The approach also has older relatives. Multi-state and landmark models update a prognosis from the current state and the current time~\citep{vanhouwelingen2007,putter2007}, joint models tie a longitudinal process to the event time~\citep{rizopoulos2012}, and individual-level state-transition microsimulation in health economics draws patient trajectories from a known transition law and reads outcomes off the simulated cohort~\citep{siebert2012}. ATLAS keeps the simulation step and replaces the known transition law with a learned one, which is what lets it condition on an arbitrary history.
+
+Related work on optimal dynamic treatment regimes provides a complementary perspective on history-dependent survival outcomes. Goldberg and Kosorok (2012) developed a censoring-adjusted Q-learning algorithm for multistage treatment decisions~\citep{goldberg2012}, while Cho et al. (2023) proposed a reinforcement-learning approach using generalized random survival forests to optimize mean survival or survival probability at a specified time~\citep{cho2023survival}. These approaches share ATLAS's emphasis on information contained in evolving histories, but address a different objective: identifying treatment policies that improve outcomes rather than predicting survival under the process represented by the training data. ATLAS instead estimates survival distributions from generated trajectories, conditional on baseline covariates or observed partial histories; its current formulation neither identifies causal treatment effects nor optimizes treatment decisions. The two research directions are therefore complementary rather than directly competing. Extending ATLAS to treatment-policy evaluation would require an explicit causal framework, with assumptions governing treatment assignment and censoring, and could not be justified by predictive accuracy alone.
+
+There is a second problem that shows up as soon as we try to evaluate any of this. With real data we never see the true survival curve for an individual. We see one outcome per patient, and measures such as concordance and the Brier score assess predictions using those observed outcomes. They are useful, but do not give us a known individual reference curve against which to compare each prediction. Here we do our testing where the truth is computable. We build synthetic patients from stochastic finite-state automata (SFSA). A patient has fixed covariates and moves among a handful of named health states according to known transition rules. Because the rules are known, we can compute the exact conditional survival curve for any patient at any landmark by a short recursion, with no Monte Carlo error at all. That reference curve is what we score against, and it lets us separate learned-model error from the numerical error introduced by finite sampling.
+
+This paper makes three contributions. We formalize ATLAS, in which autoregressive walks from a trained sequence model form a patient-specific synthetic cohort and the Kaplan--Meier or Aalen--Johansen estimator turns that cohort into an individualized curve. We introduce stochastic finite-state benchmarks whose exact conditional reference curves make curve-level error measurable. And we compare ATLAS with eight direct survival models, three of which read the same observed history, with ablations over seven samplers and the sampling budget.
+
+The clinical motivation is to update prognosis as a patient's health changes, accounting for how long they have remained in a condition, their recovery, and competing causes of death. The synthetic benchmarks isolate these features in settings where the correct conditional survival and cumulative incidence curves are known, allowing prediction errors to be measured directly.
+
+We report two experiments. The first is a single-covariate process in which the chance of getting worse grows with the time already spent in a state, the clock governing that growth changes at step 20, and at step 24 a new rule turns a second consecutive visit to the sickest state into death. It is hostile to any model that only looks at the current state. The second is a Markov process with three covariates, seven live states, drug-dependent recovery, and two mutually exclusive causes of death. It tests whether a good all-cause survival curve also gets the allocation between causes right. In both experiments we compare ATLAS, run with small recurrent and Transformer models and seven different sampling schemes, against eight direct survival models. Five of the direct models see only covariates. Three are adaptations of Dynamic-DeepHit and SurvTRACE that read the same observed history as ATLAS. These comparisons match the available patient information, although the models differ in architecture, training objective, and checkpoint selection.
+
+Section~\ref{sec:benchmark} describes the two benchmarks, Section~\ref{sec:targets} describes ATLAS and the direct comparators, and Section~\ref{sec:truth} explains how we compute exact reference curves and score predictions. Section~\ref{sec:sampling} covers the sampling designs and the numerical error they introduce. Sections~\ref{sec:hardresults} and~\ref{sec:crresults} give the results, and Section~\ref{sec:discussion} discusses what they do and do not show. The models are small and the data synthetic. Our goal is to apply ATLAS to longitudinal healthcare records, possibly with a large language model as the sequence model, and Section~\ref{sec:discussion} says what that would require. The printed appendices give the generator specifications, the reference recursions, and the oracle argument. A separate supplement holds the model settings, per-run tables, full comparison figures, and the sampler and budget studies.
+
+\section{Two benchmarks where the truth is known}\label{sec:benchmark}
+Both experiments follow synthetic patients for 30 integer steps. Each patient has fixed covariates and moves among named health states until death, dropout, or the end of follow-up. The coefficients below are design choices for a benchmark, not clinical estimates. We named the covariates calcium, age, and drug level to make the processes easier to talk about; the numbers do not come from any clinical dose--response relationship. Appendix~\ref{app:generator} gives the complete transition matrices, initial distributions, and observation rules.
+
+\subsection{A single-covariate process with duration dependence}
+This benchmark is built so that the current state alone does not determine what happens next. The health states are Healthy ($\Healthy$), Sick ($\Sick$), and Sicker ($\Sicker$), with absorbing outcomes Death ($\Dead$) and dropout ($\Cens$). A calcium-like scalar covariate $X$ controls the base transition probabilities through
+\[
+F(x)=0.2+1.5(x/10)^4\exp[-(x/10)^5],\qquad
+X\sim\operatorname{TruncNormal}(10,1.5^2;[7,13]),
+\]
+where TruncNormal denotes a normal distribution truncated to $[7,13]$. The map is hump-shaped in $x$; its functional form is a design choice and nothing else in the paper depends on it. At step 1 the probabilities of Healthy, Sick, and Sicker are $(2/3,1/4,1/12)$, with no death or dropout during initialization.
+
+What takes the process beyond a Markov chain is that the next transition depends on how many consecutive steps the patient has already spent in the current state. We call this number the run length $u$, and in the usual terminology the process is semi-Markov. Staying in the same live state increases $u$ by one, and entering a different live state resets it to one. Here $u$ is the length of the current visit, not the total time ever spent in that state.
+
+Longer Sick runs make progression to Sicker more likely, and longer Sicker runs make death more likely. For a transition ending at step $t$, the added probability is
+\begin{equation}\label{eq:ramp}
+\Delta_s(u,t)=\min\{\lambda_s(u/\rho(t))^{\nu_s},\kappa_s,0.95\Omega_s\},
+\qquad \rho(t)=\begin{cases}5,&t<20,\\3,&t\ge20,\end{cases}
+\end{equation}
+where $s$ is the source state, $\lambda_s$ sets the size of the increase, $\nu_s$ its dependence on duration, and $\kappa_s$ its cap. The triples $(\lambda_s,\nu_s,\kappa_s)$ are $(0.35,2.5,0.90)$ for Sick-to-Sicker and $(0.97,3,0.99)$ for Sicker-to-Death. The quantity $\Omega_s$ is the probability available on the donor live destinations. We remove $\Delta_s$ proportionally from those destinations and add it to the designated worsening transition, which keeps every probability nonnegative and every row summing to one. The construction is a capped discrete power law rather than an exact continuous hazard.
+
+The change in $\rho(t)$ from five to three means that from step 20 onward a given duration effect is reached after a shorter stay. A second rule begins at step 24. After drawing the proposed next state $\widetilde s_t$, we set
+\begin{equation}\label{eq:hard24}
+s_t=\begin{cases}
+\Dead,&t\ge24,\ s_{t-1}=\Sicker,\ \widetilde s_t=\Sicker,\\
+\widetilde s_t,&\text{otherwise}.
+\end{cases}
+\end{equation}
+In words, a proposed second consecutive Sicker state becomes death. A first arrival in Sicker is still allowed, and a proposed recovery or dropout is not overridden. The rule applies to transitions ending at steps 24 through 30, so a Sicker state first reached at step 23 is exposed to it immediately. These rules are part of data generation and of the reference calculation. They are not imposed on any fitted model's predictions.
+
+Figure~\ref{fig:sc_intuition} puts the pieces together. The covariate map is hump-shaped, so patients near the center of the covariate distribution stay healthy longest and risk rises toward either tail. The worsening probabilities climb steeply with run length and then saturate at their caps, and the clock change at step 20 pulls the climb forward by a couple of steps. The resulting exact baseline survival curves separate cleanly across the covariate range, and every one of them has a visible kink at step 24 where the hard rule begins.
+
+\begin{figure}[htbp]
+\centering\includegraphics[width=\textwidth]{atlas_single_covariate_intuition.pdf}
+\caption{The single-covariate process at a glance. (a) The covariate map $F(x)$, with the truncated-normal density of $X$ shaded for reference. (b) One-step probabilities of Sick-to-Sicker and Sicker-to-Death at $x=10$ as a function of run length, before and after the step-20 clock change, from Eq.~\eqref{eq:ramp} and the base matrix in Appendix~\ref{app:generator}. (c) Exact baseline reference survival for patients at the 10th, 50th, and 90th percentiles of $X$, computed by the recursion of Section~\ref{sec:truth}. Vertical lines mark steps 20 and 24.}\label{fig:sc_intuition}
+\end{figure}
+
+\subsection{A multi-covariate process with competing risks}
+The second experiment has seven live states, namely Healthy, Sick\_A, Sick\_B, Sick\_AB, Sicker\_A, Sicker\_B, and Sicker\_AB, where the suffix AB means both conditions are present. Death\_A and Death\_B are mutually exclusive absorbing outcomes, and dropout is a separate absorbing observation label.
+
+Calcium, age, and drug level are sampled independently from uniform distributions on $[8,13]$, $[30,90]$, and $[0,1]$. Calcium acts through a bounded power response, age through a threshold response above 50, and drug level increases recovery from Sicker\_B to Sick\_B and from Sicker\_AB to Sick\_AB. From Sicker\_AB, the one-step probability of Death\_A is strictly greater than that of Death\_B throughout the supported covariate range.
+
+Unlike the first experiment, this process has no duration ramp, no step-20 change, and no step-24 rule. Given the covariates, its biological transition probabilities depend only on the current state, so it is a Markov competing-risks benchmark. Independent dropout is applied with probability 0.008 after a surviving biological transition, and a same-step death is recorded first. Figure~\ref{fig:crgraph} shows the state graph, and Figure~\ref{fig:cr_intuition} shows the covariate responses, the drug effect, and the exact curves for a representative patient with and without the drug. Appendix~\ref{app:generator} gives every probability.
+
+\begin{figure}[htbp]
+\centering\resizebox{\textwidth}{!}{\input{sections/figure_cr_state_graph}}
+\caption{State graph for the multi-covariate competing-risks experiment. The two heavy arrows are the recovery transitions that drug level increases, and dashed arrows are death exits. Each live state also has a self-transition, and dropout is omitted for readability. Death A is reachable only from Sicker A or Sicker AB, and Death B only from Sicker B or Sicker AB.}\label{fig:crgraph}
+\end{figure}
+
+\begin{figure}[htbp]
+\centering\includegraphics[width=\textwidth]{atlas_competing_risks_intuition.pdf}
+\caption{The competing-risks process at a glance. (a) The calcium effect $z$ and (b) the age effect $a$ from Appendix~\ref{app:generator}. (c) The two recovery probabilities as functions of drug level. (d) Exact baseline survival and the two cumulative incidence functions for a patient with calcium 10.5 and age 60, at drug level 0 (solid) and 1 (dashed). At every step the three curves sum to one.}\label{fig:cr_intuition}
+\end{figure}
+
+\section{From next-state predictions to a survival curve}\label{sec:targets}
+ATLAS answers one question for one patient at one point in time. Given everything we know now, what could happen next? This section shows how a trained next-state model becomes a survival curve.
+
+A \emph{landmark} $L$ is a time at which we update a prediction using the observations available so far~\citep{vanhouwelingen2007}. Let $A_L$ denote being alive and observed at that time, $X$ the covariates, and $H_L=(s_1,\ldots,s_L)$ the observed state history. Baseline prediction has $L=0$ and no observed history.
+
+For a biological death time $T$, the conditional survival target is
+\begin{equation}\label{eq:landmark}
+S_L(t\mid x,h)=\PP(T>t\mid X=x,H_L=h,A_L),\qquad t>L.
+\end{equation}
+The two experiments treat this target slightly differently. The single-covariate experiment scores against a precisely defined observed-generator Kaplan--Meier functional, without assuming that it equals latent biological survival. The competing-risks experiment specifies independent censoring of a biological process, so its population Kaplan--Meier and Aalen--Johansen references coincide with the biological survival and incidence curves under the stated event-first convention. Section~\ref{sec:truth} defines both.
+
+\subsection{Generating a patient-specific synthetic cohort}\label{sec:walks}
+The sequence model is deliberately small. ATLAS-GRU and ATLAS-RNN are recurrent networks with two layers of width 32, and ATLAS-Transformer is a causal Transformer with two layers, four attention heads, and width 32; the second experiment uses the GRU and the Transformer only. At each step the model takes the patient's covariates and the states so far and returns a probability for each possible next state. Supplementary Section~S1 gives the full specification and training settings.
+
+For model parameters $\theta$ and horizon $\Tk=30$, the learned trajectory distribution factorizes as
+\begin{equation}\label{eq:factor}
+p_\theta(s_{1:\Tk}\mid x)=\prod_{j=1}^{\Tk}p_\theta(s_j\mid s_{<j},x),
+\end{equation}
+so each next-state prediction uses the covariates and the preceding states of that particular walk. At baseline, every walk begins with a start token and draws its own initial health state. At a landmark, every walk begins with the same patient's actual observed prefix and only the future is sampled. Training uses next-state cross-entropy on observed transitions, including the first terminal outcome and excluding later repetitions of an absorbing label.
+
+Let $D_m$ be the observed endpoint time of walk $m$, and let $J_m$ identify its endpoint, zero for censoring and a positive value for a death cause. At future step $t$ the risk count is $R_t=\sum_{m=1}^M\ind\{D_m\ge t\}$ and the death count is $E_t=\sum_{m=1}^M\ind\{D_m=t,J_m>0\}$. The Kaplan--Meier curve is
+\begin{equation}\label{eq:synthetickm}
+\widehat S_{\theta,M,L}(t)=\prod_{\substack{L<j\le t\\R_j>0}}\left(1-\frac{E_j}{R_j}\right).
+\end{equation}
+The product begins at one at the landmark. Walks censored at a time remain in that time's denominator, and deaths are counted before censoring removals. If the risk set becomes empty, the curve keeps its last value.
+
+With competing causes, the cumulative incidence function (CIF) for cause $k$ is the probability that death from cause $k$ occurs by step $t$, with the other cause acting as a competing risk, so that a patient who dies of the other cause first can no longer die of cause $k$. We use the Aalen--Johansen update, with $E_{k,t}$ the count of cause-$k$ deaths at step $t$,
+\begin{equation}\label{eq:aj}
+\widehat F_{k,L}(t)=\widehat F_{k,L}(t-1)+\widehat S_L(t-1)\frac{E_{k,t}}{R_t}.
+\end{equation}
+Each CIF starts at zero at $L$, and the update applies when $R_t>0$. If no walks remain at risk, survival and both CIFs keep their last values. Survival uses the sum of the death counts across causes, which guarantees $\widehat S_L+\widehat F_{A,L}+\widehat F_{B,L}=1$. Estimating each cause as a separate one-minus-Kaplan--Meier curve would not produce these competing-risk probabilities. Supplementary Section~S2 gives the weighted form used by the importance and particle samplers.
+
+Figure~\ref{fig:walks} shows the whole construction for one patient. Every walk shares the observed prefix up to the landmark and then goes its own way, and the Kaplan--Meier curve built from the full cohort of walks sits on top of the exact reference. To keep the illustration honest we drew these walks from the true generator rather than from a trained model, so the picture shows what the sampling step does with a correct transition law. The experiments replace the generator with a learned one.
+
+\begin{figure}[htbp]
+\centering\includegraphics[width=\textwidth]{atlas_walks_illustration.pdf}
+\caption{Autoregressive random walks for one patient in the single-covariate experiment, with $x=10$ and landmark $L=20$. (a) The observed prefix (heavy line) and twelve of the 10,000 sampled futures (light lines, vertically jittered), with crosses marking deaths. (b) The Kaplan--Meier curve from 200 walks, the curve from all 10,000 walks (circles), and the exact reference from the landmark. The walks here are drawn from the true generator to illustrate the construction; the vertical line marks step 24.}\label{fig:walks}
+\end{figure}
+
+\subsection{Direct models and what they are told}
+The comparison includes five covariate-only direct models, namely Cox proportional hazards (CPH), a Weibull multilayer perceptron (Weibull-MLP), deep recurrent survival analysis (DRSA; optimized)~\citep{ren2019}, DynamicDeepHit-Lite, and SurvTransformer-Lite. The two Lite models are DeepHit-style joint event-time classifiers~\citep{lee2018deephit} that read only the baseline covariates through a recurrent or Transformer time grid. At a nonzero landmark all five condition their baseline predictions on survival to $L$ but never read the patient's state sequence. The Lite label distinguishes these restricted implementations from the published methods. We write Dynamic-DeepHit and SurvTRACE for the published methods, Dynamic-DeepHit (optimized) for the selected history-aware Dynamic-DeepHit adaptations, and SurvTransformer for our history-aware SurvTRACE adaptations.
+
+Three further direct models receive the full observed prefix along with the covariates. Dynamic-DeepHit (optimized) uses recurrent history encoding, attention conditioned on the latest observation, a joint event-time output, and an auxiliary next-measurement objective; its selected competing-risks configuration disables ranking loss. The two SurvTransformer variants adapt the feature attention of SurvTRACE to state and time tokens. They share the architecture and auxiliary tasks but differ in likelihood, one piecewise-constant hazard and one discrete-step~\citep{lee2019dynamic,wang2022survtrace}.
+
+These are documented adaptations to SFSA sequences, not reproductions of every setting in the original papers. The SurvTRACE history representation in particular extends what is, in the original, a baseline-feature model, and its competing-risk implementation uses the cause-specific likelihood from the released code rather than the article's inverse-propensity objective. Supplementary Section~S1 records the actual architectures, losses, and training settings. Every model sees only information available at the prediction time, and no true transition probabilities are supplied during fitting.
+
+For the history-aware Dynamic-DeepHit comparator, we selected a benchmark-specific configuration through a staged validation-based search over architecture, optimization, regularization, and loss settings. Selection minimized conditional event/censoring negative log-likelihood, averaged equally across the evaluated landmarks. The selected configuration was then fitted using the original nine training seeds for the duration-dependent experiment and five for the competing-risks experiment. We refer to these configurations as Dynamic-DeepHit (optimized). Their specifications and selection procedure are detailed in Supplementary Section~S1, and the original adaptation's results are retained in Supplementary Section~S10.
+
+DRSA was also optimized separately for each benchmark using a staged validation-based search over recurrent width and depth, learned covariate projection, composite-loss weight, learning rate, regularization and batch size. The search used 24 screening candidates and 12 refinement entries per experiment, followed by three-seed confirmation of two finalists. Configurations and checkpoints were selected using observed-outcome conditional validation negative log-likelihood averaged equally across the evaluated landmarks, without using analytical reference curves or test-set MAE. The selected configurations were fitted using the same nine and five training seeds and are labelled DRSA (optimized). This follow-up was motivated by the initial comparison results; Supplementary Section~S1.2 gives the search and selected settings.
+
+The two SurvTransformer variants select their checkpoints using their combined validation losses. These selection criteria differ from the reference-curve MAE used to compare predictions in this study. Supplementary Section~S1 gives the training objectives and checkpoint-selection settings.
+
+\section{Reference curves, information, and scoring}\label{sec:truth}
+\subsection{The reference curve}
+Reference curves are calculated from the known generator probabilities without drawing any reference trajectories. In the duration-dependent experiment the calculation has to track the health state and its current run length together. For example, $(\Sicker,3)$ means three consecutive Sicker observations including the current step. Three live states and run lengths 1 through 30 give $m=90$ bookkeeping combinations, and combinations that are not yet reachable simply carry zero mass.
+
+For a fixed patient's covariates, let $b_j\in\mathbb R_{\ge0}^{1\times m}$ hold the probability of remaining alive and observed in each augmented state at step $j$. Let $Q_j\in[0,1]^{m\times m}$ be the observed live-to-live matrix, and let $d_j,c_j\in[0,1]^{m\times1}$ hold observed-death and dropout probabilities for the transition to $j+1$. With $\ind$ a column vector of ones,
+\begin{equation}\label{eq:massbalance}
+Q_j\ind+d_j+c_j=\ind.
+\end{equation}
+The matrix $Q_j$ is sub-stochastic, since its rows can sum to less than one once death and dropout remove mass. The reference updates are
+\begin{equation}\label{eq:kmreference}
+b_{j+1}=b_jQ_j,\qquad S^*_{\rm KM}(j+1)=S^*_{\rm KM}(j)\left(1-\frac{b_jd_j}{b_j\ind}\right).
+\end{equation}
+The denominator is the probability still at risk before the transition and the numerator is the probability of an observed death on that transition. Death and dropout are mutually exclusive outcomes of the generator's categorical draw, so $d_j$ must not receive an additional dropout adjustment. Same-time dropouts remain in the denominator, matching Eq.~\eqref{eq:synthetickm}.
+
+At baseline, the three initial-state probabilities initialize $b_1$, with $b_1\ind=1$ and $S^*_{\rm KM}(0)=S^*_{\rm KM}(1)=1$. At a landmark $L\ge1$ we put probability one on the patient's observed augmented state, keep the covariates fixed, and set $S^*_{\rm KM}(L)=1$. The updated curve describes future outcomes from a known live starting point. This patient-specific reference is a different object from a pooled Kaplan--Meier curve across patients with different covariates and histories.
+
+The kernels include both clock changes. The hard rule redirects Sicker-to-Sicker mass to death for $j\in\{23,\ldots,29\}$, corresponding to transitions ending at 24 through 30, while conserving each row's total. Empty risk sets keep the last curve value. The recursion has no Monte Carlo error, though floating-point rounding remains.
+
+Observed live mass $b_j\ind$ decreases through both death and dropout, whereas the Kaplan--Meier curve decreases only through the observed death fraction. That is why we call the single-covariate reference the observed-generator Kaplan--Meier functional. In the competing-risks generator, the explicitly independent, event-first observation mechanism makes censoring cancel from the population hazard, so the exact reference can be computed by propagating biological live mass and accumulating each death cause. Appendix~\ref{app:truth} gives both recursions.
+
+\subsection{An oracle with restricted information}\label{sec:oracle}
+Before the formal statement, here is the intuition. Suppose an oracle knows the true process exactly but is handed only a patient's covariates. At a later landmark, two patients with the same covariates can have different histories and therefore different true curves, yet the oracle must give them the same prediction, so it will be wrong for at least one of them. Handing it the history removes that error. We now make this precise. Fix $L$ and a future time $t>L$, and let $Y_t=S^*_{\rm KM,L}(t\mid X,H_L)$ among eligible patients $A_L$, where $\PP(A_L)>0$. Then $Y_t$ is a personalized reference curve value that varies across patients through their covariates and histories. It is not an indicator of an observed death.
+
+Let $\mathcal I$ denote the information generated by the allowed inputs, so that $\mathcal I=\sigma(X)$ permits covariates only, while $\sigma(X,s_L,u_L)$ also permits the current state and run length. A prediction $g$ is measurable in $\mathcal I$ if it can be computed from that information alone. The smallest achievable expected absolute error is
+\begin{equation}\label{eq:floor}
+\inf_{\substack{g\text{ measurable in }\mathcal I\\0\le g\le1}}\E[|Y_t-g|\mid A_L]
+=\E\!\left[|Y_t-\operatorname{med}(Y_t\mid\mathcal I,A_L)|\mid A_L\right],
+\end{equation}
+where $\E[\cdot\mid A_L]$ averages over eligible patients. A conditional median has at least half the conditional probability on each side, equality included, and any measurable median choice minimizes absolute error. Covariate-only predictions can have positive error even for an oracle, simply because patients with the same covariates can have different histories and hence different reference values.
+
+\begin{proposition}\label{prop:floor}
+The minimum in Eq.~\eqref{eq:floor} is zero exactly when the allowed information determines $Y_t$ with probability one among eligible patients. Allowing additional inputs cannot increase this minimum.
+\end{proposition}
+This is a statement about information, not about any particular estimator. At a fixed landmark, covariates and augmented state determine the duration-dependent reference, and covariates and current state suffice for the Markov competing-risks reference. So in both experiments the informed direct predictors and ATLAS share the same ideal floor of zero. At baseline, no patient history has yet been observed, and covariates alone determine the reference curve in both benchmarks. Covariate-only predictors therefore also have an ideal information floor of zero at baseline. Fitted models still make errors from learning and from numerical approximation. Appendix~\ref{app:oracle} gives the median argument and the population weighting. The finite-sample true-generator sampler that appears in our tables is a different kind of oracle, a sampling control, and it does not by itself provide an information-theoretic lower bound.
+
+\subsection{Evaluation protocol}\label{sec:evaluation}
+Each experiment has 50,000 patients, split into 40,000 training, 5,000 validation, and 5,000 test patients before histories are expanded into training prefixes. Each neural model is fitted nine times in the single-covariate experiment and five times in the competing-risks experiment, each time from a different random initialization and data order. We call each fit a training run; the seeds are listed in Supplementary Section~S1. The training limit is 200 epochs with validation patience 15. For Dynamic-DeepHit (optimized), this limit applies to joint training following five auxiliary-only burn-in epochs.
+
+Each evaluation begins with 300 saved test patients, and nonzero landmarks keep only those still alive and observed. The single-covariate eligible counts are 300, 102, 78, and 57 at $L=0,20,23,24$. The competing-risks counts are 300, 251, and 179 at $L=0,10,20$. The 5,000-patient competing-risks test split contains 1,206 observed Death A outcomes and 693 Death B outcomes, along with 847 dropouts and 2,254 administrative survivors, so both causes are well represented. Curve errors use the 300-patient evaluation subset and its landmark survivors, not the full split. The 300-patient evaluation subset was used to keep the computational cost of trajectory generation manageable while evaluating all methods on the same patients. At each landmark, evaluation was restricted to eligible patients within this subset. The smaller eligible samples at later landmarks limit the precision of the landmark-specific error estimates.
+
+For a target $Z$ (survival or one of the two CIFs) the primary metric is
+\begin{equation}\label{eq:mae}
+\mathrm{MAE}_{L,Z}=\frac{1}{n_L(30-L)}\sum_{i:A_L}\sum_{t=L+1}^{30}
+|\widehat Z_{i,L}(t)-Z^*_{i,L}(t)|,
+\end{equation}
+where $n_L$ is the number of eligible scored patients, $Z^*$ the exact reference, and $\widehat Z$ the fitted prediction. An MAE of 0.01 means an average absolute difference of one percentage point across patients and scored times. Errors are computed for individual curves before averaging, so errors of opposite signs do not cancel. Post-rule MAE in the single-covariate experiment restricts the time sum to $t\ge24$.
+
+Later landmarks involve different eligible patients and shorter prediction windows. Changes in MAE across landmarks therefore do not, by themselves, measure the benefit of providing a model with more history.
+
+For each training run, stochastic configurations (the sampling designs of Section~\ref{sec:sampling}) are scored separately at five independent sampling seeds, and their MAEs are averaged. The per-run means are then averaged with equal weight, nine in the single-covariate analysis and five in the competing-risks analysis.
+
+Their sample standard deviation describes between-run variation. Separately, pooled within-run sampling variation is the square root of the mean within-run variance, calculated over the nine or five training runs, respectively. Each within-run variance uses five sampling repetitions. The between-run statistic retains finite-sampling error; neither standard deviation is a confidence interval.
+
+Direct predictions are deterministic for a fixed training run and need no rollout budget; each fitted neural direct model contributes one error per training run. The CPH and true-generator oracle controls are reported separately from the independently trained neural models. CPH predictions are unchanged to numerical precision, and the oracle predictions are reused across runs.
+
+For consistency, every main table and headline comparison uses one common sampler, scrambled Sobol, for every ATLAS model, landmark, and target. The other six samplers appear only in the ablation. For comparisons across training runs, the same ATLAS architecture and sampler are used in every run. Exact sign tests summarize these paired comparisons descriptively.
+
+To assess patient-level uncertainty, we used 5,000 paired bootstrap resamples. In each resample, 300 patient IDs were drawn with replacement from the original test evaluation subset. The same draw was used for all models, landmarks, and targets within an experiment, retaining only patients eligible at each landmark. Before resampling, patient-specific full-curve MAE was averaged over sampling repetitions, where applicable, within each training run, and then equally across training runs. We then calculated pointwise 95\% percentile confidence intervals for the difference in mean MAE (ATLAS minus comparator), with negative values favoring ATLAS. Relative error reductions were also recalculated within each resample. Throughout this procedure, models and comparison pairs were held fixed, including the strongest direct comparator identified from the unresampled mean errors. This approach quantified patient-sampling uncertainty for the saved fitted models while preserving comparisons on the same patients. Further details and results are provided in Supplementary Section~S8.
+
+\paragraph{Use of generative AI.}\label{sec:aiuse}
+The original manuscript was drafted by the authors. During subsequent research and manuscript development, ChatGPT (OpenAI) and Claude (Anthropic) assisted with code development and review, developing and refining evaluation and hyperparameter-search procedures, consistency checks between reported values and saved results, figure preparation, and manuscript revision. AI-drafted passages were produced under specific author instructions and independently reviewed and revised by the authors before inclusion in subsequent drafts. Code-related assistance included comparator implementations, hyperparameter-search workflows, and the patient-bootstrap analysis. The authors reviewed and checked the code used in the current experiments and analyzed the resulting outputs. The authors retained responsibility for methodological decisions, interpretation of results, and the final manuscript.
+
+\section{Sampling design and computational error}\label{sec:sampling}
+Once a model is trained, we are free to vary how the cohort of walks is constructed. We compare IID sampling, stratification, scrambled Sobol sequences, antithetic pairing, importance sampling, weighted branching, and conditional Monte Carlo. Appendix~\ref{app:samplers} summarizes the constructions and Supplementary Section~S5 spells them out.
+
+The first four use different designs for the uniform random numbers that drive each walk, but all draw complete walks from the same learned conditional probabilities. Importance sampling changes the proposal to sample deaths more often and then weights each path to undo the change. Weighted branching and conditional Monte Carlo integrate the death and dropout probabilities analytically at each step and track only live particles, so for them the budget $M$ counts particles rather than complete observed walks.
+
+All of these methods are trying to estimate the same thing, the infinite-sample learned-model functional $S_\theta$. With finitely many walks or particles, they can differ in systematic error, in variation between repetitions, and in cost. Writing $S^*$ for the true-generator reference, the triangle inequality gives
+\begin{equation}\label{eq:triangle}
+|\widehat S_{\theta,M}-S^*|\le |S_\theta-S^*|+|\widehat S_{\theta,M}-S_\theta|.
+\end{equation}
+The first term on the right is learned-model error and the second is numerical estimation error. They bound the total but do not decompose it exactly. Increasing $M$ can reduce numerical estimation error, but it does not reduce the error introduced by an inaccurately learned transition law.
+
+The experiments reported here fix $M=10{,}000$ and repeat each stochastic prediction with five sampling seeds. Several limitations apply to the sampling designs. The standard Sobol balance guarantee applies at powers of two, so any advantage at 10,000 points is empirical~\citep{owen1998,owen2013}. Stratification and antithetic pairing need not reduce variance for every history-dependent outcome~\citep{glasserman2004}. Branching may duplicate ancestors, and equal particle weights after resampling do not make the resulting paths independent. Ordinary Kaplan--Meier confidence formulas assume independent observations and are therefore not justified for the correlated or particle designs.
+
+Model forward passes use batches of 512. The alternative samplers recompute growing sequence contexts rather than fully reusing recurrent or Transformer caches, so measured runtimes describe these implementations and equal $M$ does not mean equal work. An earlier experiment that varied the IID budget from 500 to 10,000 is kept separately in Supplementary Section~S6.
+
+\section{Experiment one, the single-covariate duration-dependent process}\label{sec:hardresults}
+With the common Sobol sampler, ATLAS-Transformer has the lowest training-run mean error among the learned models at each post-baseline landmark. Its mean curve error is 78\% to 84\% lower than that of the strongest direct comparator. It also outperforms every fitted direct comparator at those landmarks in each of the nine training runs. The comparison has eleven learned models, eight direct models and three ATLAS architectures (GRU, RNN, and Transformer), each paired with each of the seven samplers for 21 architecture--sampler configurations. Table~\ref{tab:hardmain} reports every direct model, the three ATLAS architectures under the common Sobol sampler, and the true-generator oracle sampler. The full sampler ablation is in Supplementary Table~S7.
+
+\input{sections/table_single_cov_main}
+
+The gain is largest once the patient has history. At each of the three landmarks after baseline, all 21 ATLAS configurations have lower mean survival MAE than every fitted direct comparator in each of the nine training runs. The Transformer with Sobol has MAEs of 0.009040, 0.012525, and 0.010494 at $L=20,23,24$. The strongest direct comparator is SurvTransformer-Discrete at landmarks 20 and 23, with MAEs of 0.046541 and 0.057495, and Dynamic-DeepHit (optimized) at landmark 24, with MAE 0.064791. The corresponding reductions are 80.6\%, 78.2\%, and 83.8\%. ATLAS-Transformer with Sobol had lower MAE than the strongest mean-error direct comparator in all nine training runs at each post-baseline landmark. The corresponding one-sided exact sign test gives $p=0.002$ at each landmark, reported descriptively across training runs. The covariate-only direct models do much worse at these landmarks, as one would expect for a process whose late behavior is driven by run length and by the step-24 rule.
+
+At baseline the gap is smaller and less uniform. ATLAS-RNN with Sobol has the lowest mean MAE, 0.007196, against 0.008556 for DynamicDeepHit-Lite, the strongest fitted direct comparator there, a 15.9\% reduction, with ATLAS-GRU close behind at 0.007371. Averaged across training runs, 14 of the 21 configurations have lower MAE than every direct comparator, namely all seven samplers for each of ATLAS-GRU and ATLAS-RNN. The baseline ranking is not stable run by run, though. With the sampler fixed at Sobol, ATLAS-RNN and ATLAS-Transformer each have lower error than the strongest direct comparator of that run in six of the nine runs, and ATLAS-GRU in five. We read this as a modest baseline advantage on average and no reliable per-run advantage. SurvTransformer-Discrete has mean MAE 0.013296 and SurvTransformer 0.018603 at baseline. Neither history-aware family receives an observed state prefix there, though their training objectives use longitudinal supervision in different ways.
+
+Following validation-based optimization, Dynamic-DeepHit has mean MAEs of 0.028605, 0.053743, 0.059841, and 0.064791 at $L=0,20,23,24$, respectively. Its baseline error is lower than that of CPH (0.038846), while its post-baseline errors remain above those of the ATLAS configurations in Table~\ref{tab:hardmain}. DRSA (optimized), which uses covariates only, has baseline MAE 0.118561. The original history-aware Dynamic-DeepHit results are retained in Supplementary Section~S10.
+
+SurvTransformer-Discrete has lower mean MAE than its continuous-likelihood sibling at all four landmarks and lower MAE in 28 of the 36 matched training-run--landmark comparisons. This is consistent with the integer-time setting, but repeated training alone does not isolate the effect of the likelihood.
+
+The oracle IID sampler has mean MAEs of approximately 0.0030 to 0.0032, below the mean errors of all fitted configurations. It samples from the true generator and still has finite-sampling error at $M=10{,}000$. It is therefore a sampling control, showing the accuracy ATLAS would reach at this budget if it had learned the transition law exactly.
+
+Per-run scores, error distributions and comparisons of between-run and sampling variation are reported in Supplementary Section~S3, Tables~S2 and~S3. Supplementary Figures~S1 and~S2 show the complete model--sampler comparisons at baseline and landmark 20, including the individual training-run scores.
+
+\section{Experiment two, multi-covariate competing risks}\label{sec:crresults}
+The pattern repeats here (Table~\ref{tab:cr_survival}). ATLAS-GRU with the common Sobol sampler had lower MAE than every fitted direct comparator for survival and both cause-specific incidence curves at all three landmarks in each of the five training runs. In the five-run means, its survival error was 62\% and 71\% lower than that of the strongest direct comparator at landmarks 10 and 20, respectively. The experiment scores survival and the two CIFs separately. It has ten learned models, the same eight direct models and two ATLAS architectures (GRU and Transformer), each paired with all seven samplers for 14 configurations. The generator has no hard rule and no duration dependence, so this experiment tests a different capability rather than a controlled modification of the first.
+
+\input{sections/table_cr_survival}
+
+Averaged across five training runs, all 14 ATLAS configurations have lower survival MAE than every fitted direct comparator at $L=0,10,20$. ATLAS-GRU with Sobol has mean survival MAE 0.007902, 0.008825 and 0.006704 at the three landmarks. The strongest fitted direct comparator is Weibull-MLP at baseline (0.015510) and Dynamic-DeepHit (optimized) at landmarks 10 and 20 (0.023061 and 0.022753). The corresponding reductions are 49.1\%, 61.7\% and 70.5\%.
+
+\input{sections/table_cr_cause_a}
+\input{sections/table_cr_cause_b}
+
+The same ordering holds for each cause-specific target (Tables~\ref{tab:cr_cause_a} and~\ref{tab:cr_cause_b}). Averaged across five training runs, every ATLAS configuration has lower CIF MAE than every fitted direct comparator at every tested landmark. At baseline, ATLAS-GRU with Sobol has mean MAE 0.005878 for Death A and 0.004940 for Death B. The strongest direct comparators are Dynamic-DeepHit (optimized) for Death A (0.011544) and Weibull-MLP for Death B (0.006542), giving reductions of 49.1\% and 24.5\%, respectively. At landmarks 10 and 20, the Death A errors are 0.007051 and 0.004830 and the Death B errors are 0.004299 and 0.003265. Relative to Dynamic-DeepHit (optimized), the strongest direct comparator for all four settings, the reductions are 60.4\% and 70.2\% for Death A and 65.3\% and 69.3\% for Death B. A good all-cause survival curve does not by itself guarantee a correct split between causes, and the separate CIF scores check that split directly.
+
+At the individual-run level, ATLAS-GRU with Sobol has lower error than the strongest fitted direct comparator in all five runs for every landmark and target, 45 of 45 settings. The 45 settings comprise nine landmark--target comparisons, each evaluated across five training runs. For each landmark--target comparison, ATLAS-GRU with Sobol had lower MAE than the strongest fitted direct comparator in all five training runs, giving a one-sided exact sign-test $p=0.031$. Because the comparisons share patients and fitted models, the 45 settings are not independent replicates; these comparison counts and tests are descriptive summaries. All 14 configurations had lower MAE than every fitted direct comparator in 43 of the 45 run--landmark--target settings. The two exceptions are training seed 45 at baseline for survival and Death B, where Weibull-MLP outperforms the Transformer configurations while every GRU configuration retains the advantage.
+
+The true-generator sampler remains more accurate than the fitted models for all nine landmark--target combinations.
+
+Training-run standard deviations, ranges and individual-run comparisons are reported in Supplementary Section~S3, Tables~S4 and~S5.
+
+Across the 18 architecture--landmark--target comparisons, Sobol had lower five-run mean MAE than IID in every case. Conditional Monte Carlo has the lowest mean MAE in 17 of the 18 comparisons. For ATLAS-GRU, its largest improvement over Sobol is approximately 0.000112 MAE, for Death B at baseline. These GRU differences are much smaller than its gaps to the strongest direct comparators. Sobol remains the common sampler for the main comparisons, while rankings among all seven samplers are reported as exploratory. Full numerical scores are supplied with the source files, and the survival sampler tables are in Supplementary Table~S8.
+
+Supplementary Figures~S3 and~S4 show the full model--sampler comparisons at baseline and landmark 20, including individual training-run scores for all three targets.
+
+\begin{figure}[htbp]
+\centering\includegraphics[width=\textwidth]{atlas_survival_comparison_multiseed.pdf}
+\caption{Mean survival-curve MAE for ATLAS-GRU and ATLAS-Transformer with the common Sobol sampler and the three history-aware direct comparators. Dynamic-DeepHit (optimized) uses the validation-selected configurations described in Supplementary Section~S1. Neural-model values average nine single-covariate training runs in the left panel and five competing-risks training runs in the right panel; each ATLAS training run first averages five sampling seeds at $M=10{,}000$. The oracle curves are reused sampling controls, not independently fitted models. The vertical axes are logarithmic and landmarks are equally spaced for readability. The lines connect landmark-specific scores, not survival probabilities; both the eligible population and the prediction window change with the landmark.}\label{fig:overview}
+\end{figure}
+
+\subsection{Paired patient-bootstrap comparisons}\label{sec:bootstrapresults}
+The paired patient-bootstrap analysis supported the post-baseline comparisons. Specifically, at every evaluated post-baseline landmark and target, the pointwise 95\% intervals for the MAE difference favored each ATLAS architecture using the common Sobol sampler over all eight fitted direct comparators. At baseline, the intervals also favored ATLAS, with two exceptions that included zero: ATLAS-Transformer versus DynamicDeepHit-Lite in the duration-dependent experiment, and ATLAS-Transformer versus Weibull-MLP for Death B cumulative incidence in the competing-risks experiment. For the headline ATLAS-GRU comparisons in the competing-risks experiment, intervals favored ATLAS for survival and both cumulative incidence functions at all three landmarks (Supplementary Section~S8).
+
+\section{Discussion}
+\label{sec:discussion}
+The two experiments point the same way (Figure~\ref{fig:overview}). ATLAS had lower MAE than the fitted direct comparators at post-baseline landmarks in both benchmarks, including comparisons with direct models that received the same observed history. This supports autoregressive trajectory generation as a way to estimate individual survival and cause-specific incidence curves. The duration-dependent experiment tests how predictions account for time spent in a state and changes in transition rules. The competing-risks experiment tests whether the model can estimate both overall survival and the allocation of deaths between causes. The smaller and less consistent baseline advantage in the duration-dependent experiment shows that the benefit depends on the prediction setting.
+
+Matching the inputs does not match architecture, training objective, supervision, capacity, or optimization, so these experiments compare complete fitted procedures. All methods used the same cohort, patient-level split and eligible test patients, were scored against the same exact reference curves, and saw only information available at the prediction time. The three history-aware direct models received the same observed prefix as ATLAS, so the comparison holds patient information fixed, but it does not isolate the contribution of sampling itself.
+
+An astute reader may ask whether a restricted model, given only the information relevant to these data-generating processes, would outperform larger models that must learn their own representations of patient history. It can. A multinomial logistic regression (MLR) transition model is, in effect, an autoregressive next-state model like ATLAS whose learned history encoder has been replaced by a fixed feature map. When those features are exactly the ones the generator uses, the smaller model avoids the cost of learning them. Its training problem is also far simpler: with roughly a thousand coefficients and a convex, ridge-penalized objective that has a unique optimum, it can be fitted reliably in a single run and would be expected to need less data, whereas the neural models must solve a much larger non-convex optimization problem.
+
+In exploratory analyses (Supplementary Section~S9), a history-aware MLR model (HAMMLR) supplied with baseline covariates, current state, run length and calendar time outperformed ATLAS on both synthetic experiments. A Markov MLR model (MMLR) supplied with baseline covariates and current state did so in four of nine competing-risks settings, where those inputs are sufficient. These comparisons benefit from analyst-supplied history summaries and direct probability propagation. When duration and time were omitted on the duration-dependent experiment, MMLR's post-baseline error was roughly 21 to 25 times that of the best ATLAS configuration, although differences in feature bases and regularization prevent attributing the full gap to history omission alone. We report these structurally informed models separately because the relevant history summary is generally unknown in clinical sequences, and because the explicit origin-specific implementations examined here can become computationally and statistically demanding as the state space and historical representation expand.
+
+Sampling budget and learning capacity answer different questions. Increasing $M$ can reduce numerical estimation error, but it does not reduce the error introduced by an inaccurately learned transition law. The oracle sampler illustrates the potential accuracy of ATLAS if the transition distributions were learned perfectly. Sampler rankings vary with model, landmark, and target, so no single sampler is best in every setting. Because sampling is separate from sequence-model training, its design and budget can be changed without retraining. The fixed-checkpoint resource study in Supplementary Section~S6 examines this numerical component.
+
+There are limits to the evidence. The later-landmark advantage persisted across repeated training runs, while baseline rankings in the duration-dependent experiment varied. The one-sided sign tests describe paired training-run comparisons on the fixed datasets; they do not measure variation across new datasets. Within each experiment, the runs share one generated cohort, split, and evaluation set, and hardware and software versions differed across some runs (Supplementary Section~S1). Dynamic-DeepHit (optimized) and DRSA (optimized) select checkpoints using landmark-averaged validation negative log-likelihood, while the two SurvTransformer variants use their combined validation losses. Selection did not use the known-generator reference-curve MAE. Dynamic-DeepHit and DRSA received the additional validation-based searches described in Supplementary Section~S1; the other model configurations were retained. The comparisons therefore concern these complete fitted procedures.
+
+Validation-based optimization substantially reduced Dynamic-DeepHit's curve errors, providing a stronger history-aware comparator. Each ATLAS architecture using the common Sobol sampler retained lower mean MAE than Dynamic-DeepHit (optimized) at baseline and every evaluated landmark, for survival and both competing-risk CIFs. The search was motivated by the initial comparison results and used observed validation outcomes for selection; the original results are retained in Supplementary Section~S10. Because architecture, regularization, loss weights and checkpoint selection changed together, the improvement describes a revised fitted procedure rather than an isolated effect of checkpoint selection. Baseline prediction does not exercise Dynamic-DeepHit's principal longitudinal advantage, and these synthetic experiments do not establish a general limitation of the published method.
+
+For DRSA (optimized), baseline curve MAEs of 0.119 and 0.083 (Tables~\ref{tab:hardmain} and~\ref{tab:cr_survival}) may partly reflect its composite training objective: the event-status term, weighted by 0.5 in our implementation (Supplementary Section~S1.2), emphasizes status prediction at observed follow-up times, whereas curve MAE assesses probability accuracy across the full evaluation grid. Good concordance therefore need not imply low curve MAE.
+
+The paired patient bootstrap complements the repeated-training summaries by quantifying patient-sampling uncertainty around the mean performance differences. In particular, the pointwise 95\% intervals consistently favored ATLAS at post-baseline landmarks, supporting its average performance advantage under resampling of the evaluated patients. Together, these analyses describe both variation across training runs and the precision of the average performance comparisons across patients.
+
+The two experiments also carry different observation interpretations. The single-covariate study scores the observed-generator Kaplan--Meier functional (Section~\ref{sec:truth}), whereas the competing-risks study specifies independent censoring and so has biological reference curves under that synthetic construction. A Kaplan--Meier estimator applied to simulated paths does not, on its own, license conclusions about latent survival, and reference-curve MAE is not an outcome-based calibration, concordance, or Brier-score result.
+
+Each patient receives a separate generated cohort and curve. Patients with the same supplied information share the same modeled distribution, and increasing the sampling budget does not recover distinctions the model was never given. Simulated walks are not independent clinical observations, and a larger $M$ improves numerical resolution without reducing the training uncertainty of the underlying model or establishing clinical calibration.
+
+The healthcare application we have in mind is dynamic prognosis. Update the possible futures as observations arrive, then summarize event timing and competing outcomes. That would represent longitudinal records as time-indexed clinical states or tokens and train an autoregressive generator, possibly a large language model, on a patient's available record, as ETHOS and Delphi-2M already do at scale~\citep{renc2024,shmatko2025}. It would require explicit mappings from tokens to times and events, event definitions, visit and dropout mechanisms, and a way of handling incomplete records, before generated records can be reduced to valid event and censoring times. Assessing clinical usefulness would then take external and temporal validation, calibration under the intended observation process, evaluation across patient groups, and comparison with direct models given the same clinical history. The small models used here are not clinical language models, and a drug-associated recovery transition in a benchmark is not evidence of treatment efficacy. Changing a treatment token in an observationally trained model does not by itself identify an intervention effect, and a causal claim would require a separate estimand and supporting design.
+
+The practical promise of ATLAS is a prognosis rebuilt from each patient's own record. Every new observation changes the futures the model generates, and the curve follows. In these benchmarks the advantage was largest where the record was longest. Whether it holds on clinical records is the question for the next study.
+
+\section{Conclusion}
+We have presented ATLAS, a framework that trains a sequence model on a cohort, runs autoregressive random walks forward from one patient's covariates and observed history, and estimates survival or competing-event incidence from the resulting synthetic cohort of futures. The framework does not require a specified parametric form for the hazard, since survival is estimated directly from the generated walks. Its predictions still depend on the sequence model's assumptions and learned transition probabilities. We have also proposed stochastic finite-state automata as a flexible benchmark for survival models, with the useful property that the true conditional survival functional can be computed exactly for any patient at any landmark.
+
+On two such benchmarks, one duration-dependent with a late rule change and one Markov with competing risks and drug-dependent recovery, ATLAS-Transformer in the first experiment and ATLAS-GRU in the second, both using Sobol sampling, had lower full-curve MAE than every fitted direct comparator at every evaluated post-baseline landmark in every training run. At later landmarks, reductions in training-run mean survival-curve MAE relative to the strongest fitted direct comparator ranged from 62\% to 84\%. These comparisons included validation-optimized Dynamic-DeepHit and history-aware SurvTRACE adaptations given the same observed history as ATLAS. At baseline the advantage was smaller and, in the first experiment, not consistent across training runs. Nine training runs per neural model support the first comparison and five support the second, and all data remain synthetic. The gap to the true-generator oracle leaves room for better predictive models of the next-state distribution to lower the error further. Validation on clinical records remains necessary. Together, ATLAS and the SFSA benchmarks provide a way to generate possible futures from observed patient histories and evaluate the resulting survival and competing-risk curves against exact references in controlled experiments.
+
+\section*{Declarations}
+\paragraph{Human participants and patient data.}
+This study used only simulated data and did not involve human participants or identifiable patient records.
+
+\paragraph{Data and code availability.}
+All data in this paper are synthetic and are generated by the code in the accompanying package, which also contains the archived predictions, per-run metrics, checkpoint hashes, and the scripts that produce every table and figure. The package is deposited at [Zenodo DOI to be inserted before submission].
+
+\paragraph{Author contributions.}
+\textbf{Morgan Nissen:} Conceptualization, methodology, software, validation, formal analysis, investigation, data curation, writing---original draft, and writing---review and editing. Contributions included designing the current SFSA experiments to examine different model behaviours; evaluating ATLAS architectures and sampling methods; adapting contemporary comparators; developing and checking the current codebase with AI assistance; investigating Dynamic-DeepHit and DRSA performance and conducting their hyperparameter searches; and curating the training, validation, test and prediction outputs. \textbf{Chunyang Li:} Conceptualization, methodology, software, formal analysis, investigation, writing---original draft, and writing---review and editing, including development of the original ATLAS implementation and its initial experiments. \textbf{Seth Glazier:} Conceptualization, methodology, and writing---review and editing, including the foundational trajectory-sampling approach developed in his thesis. \textbf{Jeffrey Humpherys:} Conceptualization, methodology, supervision, writing---original draft, and writing---review and editing, including supervision of the foundational thesis, the initial ATLAS work and the current research and manuscript development. \textbf{Ahmad Halwani:} Supervision and writing---review and editing, including clinical consultation and oversight of the current iteration. \textbf{Julia Bohman:} Writing---review and editing. All authors contributed to manuscript revision.
+
+\paragraph{Funding.}
+No specific institutional funding was received for this research.
+
+\paragraph{Competing interests.}
+The authors declare that they have no competing interests.
+
+\paragraph{Disclaimer.}
+The views expressed in this article are those of the authors and do not necessarily reflect the position or policy of the Department of Veterans Affairs or the United States government.
+
+\paragraph{Use of generative AI.}
+AI-assisted research and manuscript-preparation activities are described in Section~\ref{sec:evaluation}. The authors take responsibility for the final manuscript.
+
+\clearpage
+\appendix
+\input{sections/appendix_generators}
+\input{sections/appendix_reference_algorithms}
+\input{sections/appendix_oracle}
+\input{sections/appendix_sampling_methods}
+\ifdefined\includesupplement
+\input{sections/supplement_body}
+\fi
+\clearpage
+\input{references}
+\end{document}

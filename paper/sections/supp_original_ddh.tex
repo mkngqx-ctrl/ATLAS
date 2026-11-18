@@ -1,0 +1,134 @@
+\section{Original history-aware Dynamic-DeepHit results}\label{app:originalddh}
+In the initial comparisons, the history-aware Dynamic-DeepHit adaptation had substantially larger curve errors than several other comparators. To determine whether its experimental specification contributed to this difference, we reviewed the implementation against the published formulation and conducted a staged search over architecture, optimization, regularization, and loss settings. Configurations were selected using observed validation outcomes, without using analytical reference curves or test-set MAE. The selected configurations were then evaluated using the original training seeds (nine and five, respectively) and the same test patients. These optimized configurations replace the initial adaptation in the main comparisons, and the original results are retained here for transparency. This follow-up was motivated by the initial test findings; it evaluates a revised fitted procedure rather than isolating the effect of checkpoint selection alone.
+
+The tables below retain the original history-aware adaptation, rather than DynamicDeepHit-Lite. MAE and RMSE are reported on the probability scale. Between-run standard deviations describe the nine duration-dependent or five competing-risks fits. The 95\% intervals for mean MAE use the paired patient-bootstrap procedure in Section~S8, applied to the original saved fits. Full-precision metrics, the original ATLAS--DDH bootstrap comparisons, checkpoints, training logs and all 51 saved prediction files are preserved in \texttt{supplementary/original\_DDH\_results\_2026-11-02/} in the accompanying data and code package.
+
+\begin{table}[htbp]\centering\small
+\caption{Original history-aware Dynamic-DeepHit mean curve errors. Targets S, A and B denote survival, Death A CIF and Death B CIF. SD is the sample standard deviation across training runs.}\label{tab:originalddh_summary}
+\begin{tabular}{llrrrrl}\toprule
+Experiment / L & Target & Fits & Mean MAE & SD & Mean RMSE & 95\% MAE interval\\\midrule
+Duration / 0 & S & 9 & 0.162647 & 0.001402 & 0.185249 & [0.157734, 0.167620]\\
+Duration / 20 & S & 9 & 0.157081 & 0.004023 & 0.206254 & [0.134957, 0.180032]\\
+Duration / 23 & S & 9 & 0.184387 & 0.004170 & 0.244296 & [0.152025, 0.217526]\\
+Duration / 24 & S & 9 & 0.147417 & 0.004957 & 0.191851 & [0.120341, 0.178009]\\
+Competing risks / 0 & A & 5 & 0.077074 & 0.007877 & 0.095116 & [0.074343, 0.079912]\\
+Competing risks / 0 & B & 5 & 0.049179 & 0.002733 & 0.060681 & [0.046603, 0.051829]\\
+Competing risks / 0 & S & 5 & 0.103898 & 0.005358 & 0.122215 & [0.100926, 0.106917]\\
+Competing risks / 10 & A & 5 & 0.091127 & 0.004701 & 0.127368 & [0.082608, 0.100372]\\
+Competing risks / 10 & B & 5 & 0.049876 & 0.004455 & 0.071509 & [0.044983, 0.055073]\\
+Competing risks / 10 & S & 5 & 0.095754 & 0.005709 & 0.119784 & [0.089541, 0.102349]\\
+Competing risks / 20 & A & 5 & 0.050539 & 0.003007 & 0.071648 & [0.044714, 0.056673]\\
+Competing risks / 20 & B & 5 & 0.036874 & 0.004719 & 0.055889 & [0.032114, 0.041926]\\
+Competing risks / 20 & S & 5 & 0.068788 & 0.004171 & 0.091942 & [0.062021, 0.075975]\\
+\bottomrule\end{tabular}
+\end{table}
+
+\begingroup\small
+\setlength{\tabcolsep}{5pt}
+\begin{longtable}{rrrrr}
+\caption{Original history-aware Dynamic-DeepHit individual-run errors: duration-dependent experiment. Post-rule MAE restricts scoring to $t\ge24$.}\label{tab:originalddh_duration}\\
+\toprule
+Seed & L & MAE & RMSE & Post-rule MAE\\\midrule
+\endfirsthead
+\multicolumn{5}{l}{\tablename~\thetable\ (continued)}\\\toprule
+Seed & L & MAE & RMSE & Post-rule MAE\\\midrule
+\endhead
+\bottomrule\endfoot
+42 & 0 & 0.164452 & 0.187311 & 0.078990\\
+43 & 0 & 0.162671 & 0.185291 & 0.078078\\
+44 & 0 & 0.163136 & 0.185768 & 0.077443\\
+45 & 0 & 0.159550 & 0.182313 & 0.078477\\
+50 & 0 & 0.163793 & 0.186773 & 0.079459\\
+51 & 0 & 0.162768 & 0.184808 & 0.082150\\
+52 & 0 & 0.161711 & 0.184331 & 0.078435\\
+62 & 0 & 0.162468 & 0.184747 & 0.078215\\
+63 & 0 & 0.163277 & 0.185899 & 0.079047\\
+42 & 20 & 0.158612 & 0.208085 & 0.168055\\
+43 & 20 & 0.159394 & 0.206690 & 0.165822\\
+44 & 20 & 0.153823 & 0.203778 & 0.167551\\
+45 & 20 & 0.152442 & 0.204100 & 0.163127\\
+50 & 20 & 0.156150 & 0.209314 & 0.167820\\
+51 & 20 & 0.164053 & 0.215745 & 0.174180\\
+52 & 20 & 0.156281 & 0.204805 & 0.165871\\
+62 & 20 & 0.152081 & 0.194163 & 0.157139\\
+63 & 20 & 0.160895 & 0.209607 & 0.169500\\
+42 & 23 & 0.184283 & 0.244225 & 0.184283\\
+43 & 23 & 0.186854 & 0.246912 & 0.186854\\
+44 & 23 & 0.186335 & 0.244295 & 0.186335\\
+45 & 23 & 0.184564 & 0.248986 & 0.184564\\
+50 & 23 & 0.179673 & 0.240884 & 0.179673\\
+51 & 23 & 0.189392 & 0.252234 & 0.189392\\
+52 & 23 & 0.184688 & 0.239239 & 0.184688\\
+62 & 23 & 0.175975 & 0.232665 & 0.175975\\
+63 & 23 & 0.187715 & 0.249223 & 0.187715\\
+42 & 24 & 0.151343 & 0.190655 & 0.151343\\
+43 & 24 & 0.151270 & 0.195729 & 0.151270\\
+44 & 24 & 0.149347 & 0.196119 & 0.149347\\
+45 & 24 & 0.144734 & 0.190137 & 0.144734\\
+50 & 24 & 0.139537 & 0.189122 & 0.139537\\
+51 & 24 & 0.154024 & 0.204463 & 0.154024\\
+52 & 24 & 0.142678 & 0.183337 & 0.142678\\
+62 & 24 & 0.150562 & 0.192880 & 0.150562\\
+63 & 24 & 0.143256 & 0.184220 & 0.143256\\
+\end{longtable}
+\endgroup
+
+\begingroup\small
+\setlength{\tabcolsep}{5pt}
+\begin{longtable}{rrlrr}
+\caption{Original history-aware Dynamic-DeepHit individual-run errors: competing-risks experiment. Targets S, A and B denote survival and the separate cause-specific CIFs.}\label{tab:originalddh_competing}\\
+\toprule
+Seed & L & Target & MAE & RMSE\\\midrule
+\endfirsthead
+\multicolumn{5}{l}{\tablename~\thetable\ (continued)}\\\toprule
+Seed & L & Target & MAE & RMSE\\\midrule
+\endhead
+\bottomrule\endfoot
+42 & 0 & A & 0.083774 & 0.100567\\
+43 & 0 & A & 0.076267 & 0.093468\\
+45 & 0 & A & 0.078567 & 0.098774\\
+46 & 0 & A & 0.082686 & 0.100146\\
+47 & 0 & A & 0.064078 & 0.082624\\
+42 & 0 & B & 0.049692 & 0.061803\\
+43 & 0 & B & 0.045496 & 0.057829\\
+45 & 0 & B & 0.051508 & 0.062899\\
+46 & 0 & B & 0.047333 & 0.059247\\
+47 & 0 & B & 0.051866 & 0.061627\\
+42 & 0 & S & 0.111043 & 0.129870\\
+43 & 0 & S & 0.099218 & 0.117340\\
+45 & 0 & S & 0.105044 & 0.123854\\
+46 & 0 & S & 0.106218 & 0.123336\\
+47 & 0 & S & 0.097966 & 0.116675\\
+42 & 10 & A & 0.097497 & 0.135453\\
+43 & 10 & A & 0.088757 & 0.124313\\
+45 & 10 & A & 0.094683 & 0.135999\\
+46 & 10 & A & 0.088053 & 0.123765\\
+47 & 10 & A & 0.086645 & 0.117311\\
+42 & 10 & B & 0.053182 & 0.075491\\
+43 & 10 & B & 0.055164 & 0.077268\\
+45 & 10 & B & 0.049974 & 0.073320\\
+46 & 10 & B & 0.046702 & 0.063442\\
+47 & 10 & B & 0.044360 & 0.068027\\
+42 & 10 & S & 0.103083 & 0.128884\\
+43 & 10 & S & 0.096846 & 0.120588\\
+45 & 10 & S & 0.098735 & 0.126244\\
+46 & 10 & S & 0.090949 & 0.112579\\
+47 & 10 & S & 0.089159 & 0.110625\\
+42 & 20 & A & 0.048831 & 0.068010\\
+43 & 20 & A & 0.047147 & 0.069628\\
+45 & 20 & A & 0.054703 & 0.076626\\
+46 & 20 & A & 0.052417 & 0.071330\\
+47 & 20 & A & 0.049597 & 0.072644\\
+42 & 20 & B & 0.033146 & 0.049366\\
+43 & 20 & B & 0.044727 & 0.070708\\
+45 & 20 & B & 0.035960 & 0.056325\\
+46 & 20 & B & 0.037210 & 0.052391\\
+47 & 20 & B & 0.033327 & 0.050658\\
+42 & 20 & S & 0.064170 & 0.086260\\
+43 & 20 & S & 0.073646 & 0.104626\\
+45 & 20 & S & 0.070822 & 0.091158\\
+46 & 20 & S & 0.070645 & 0.090653\\
+47 & 20 & S & 0.064657 & 0.087012\\
+\end{longtable}
+\endgroup
+

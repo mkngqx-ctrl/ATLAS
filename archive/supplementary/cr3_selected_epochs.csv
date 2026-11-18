@@ -1,0 +1,16 @@
+training_seed,model,selected_logged_epoch
+42,DynamicDeepHit,9
+42,SurvTransformer,2
+42,SurvTransformer-Discrete,2
+43,DynamicDeepHit,10
+43,SurvTransformer,3
+43,SurvTransformer-Discrete,1
+45,DynamicDeepHit,8
+45,SurvTransformer,2
+45,SurvTransformer-Discrete,2
+46,DynamicDeepHit,7
+46,SurvTransformer,3
+46,SurvTransformer-Discrete,3
+47,DynamicDeepHit,7
+47,SurvTransformer,3
+47,SurvTransformer-Discrete,3

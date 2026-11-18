@@ -1,0 +1,56 @@
+IID AND SCRAMBLED SOBOL COMPARISON OF CLASSICAL TRANSITION MODELS
+Saved October 28, 2026
+
+M=10,000 trajectories per eligible patient, each model, sampler and sampling seed.
+Sampling seeds: 41001, 52001, 63001, 74001, 85001.
+Original ATLAS per-patient child-seed mappings and PyTorch Sobol implementation matched.
+253,400,000 trajectories across both experiments; 140 sampled prediction files.
+No neural models retrained. Prior classical fits retained. A missing CR3 semi-Markov fit was added using original train/validation splits.
+Hard24 has survival only. CR3 has total survival and both cause-specific CIFs.
+All model probabilities were sampled in original state order, with original event-first KM/AJ conventions.
+Classical means average five sampling-seed MAEs on a single fitted model. ATLAS means average sampling seeds within fit, then nine Hard24 or five CR3 training fits.
+Sampling-seed SD is numerical variability, not training-run or patient uncertainty.
+All comparisons are descriptive; no new statistical superiority tests were performed.
+M=10,000 is not a power of two; power-of-two Sobol balance guarantees do not apply.
+A Hard24 exact-curve array-view storage bug in this new pipeline was corrected; sampled predictions and truth-based errors were unaffected. See diagnostic_correction.json.
+Rare float32 Sobol values rounded to 1.0 were handled as censored terminal outcomes to match archived CR3 code. Affected censor-count records were replayed; curves and MAEs did not change. See sobol_boundary_audit.json.
+Reconstruction of risk/death/censor accounting, KM/AJ curves, patient MAEs and all saved curve constraints passed.
+Controlled tests reproduce archived ATLAS sampler curves and uniforms, and exact propagation agrees with independent scalar recursion.
+Previously fitted exact curves reproduced at all available experiment/model/landmark combinations (tolerance 1e-13).
+
+FILES
+comparison_report.html: readable full model comparison tables.
+sampled_summary.csv: 52 model/sampler/landmark/target summaries with sampling SD and exact-reference diagnostics.
+Hard24_replicate_metrics.csv and CR3_replicate_metrics.csv: 260 seed-level metric rows.
+all_model_scores.csv: every original fitted comparator, ATLAS sampler, classical exact fit and new sampled fit; oracle controls identified separately.
+all_pairwise_comparisons.csv: every requested sampled classical result against all available model scores for the same target and landmark.
+atlas_comparison_counts.csv: counts of ATLAS means beaten, including matched samplers.
+Hard24/ and CR3/: patient IDs, truth, sampled curves, patient errors, risks, deaths, censor counts and effective seeds.
+CR3_semiMarkov_fit/: new model specification, training records, validation selection and coefficients.
+sampling_plan.json, verification.json and reproducibility_manifest.json: methods and reproducibility records.
+
+MEAN ERRORS
+
+Hard24 Survival: landmarks 0,20,23,24
+Markov iid 0.077799256, 0.224878279, 0.271907602, 0.218134430
+Markov sobol 0.077807952, 0.224957156, 0.271989336, 0.218285473
+SemiMarkov iid 0.003528048, 0.007746091, 0.012527338, 0.005533587
+SemiMarkov sobol 0.002612923, 0.006982450, 0.011986764, 0.004723676
+
+CR3 Survival: landmarks 0,10,20
+Markov iid 0.011634656, 0.009480253, 0.005352808
+Markov sobol 0.011445645, 0.009164709, 0.005181974
+SemiMarkov iid 0.007240997, 0.007493068, 0.005409629
+SemiMarkov sobol 0.006906525, 0.007142441, 0.005099559
+
+CR3 CIF_Death_A: landmarks 0,10,20
+Markov iid 0.006057461, 0.005508441, 0.003181189
+Markov sobol 0.005796803, 0.005320155, 0.002972187
+SemiMarkov iid 0.006154451, 0.006461764, 0.004295298
+SemiMarkov sobol 0.005930687, 0.006203502, 0.004115250
+
+CR3 CIF_Death_B: landmarks 0,10,20
+Markov iid 0.007530784, 0.005779429, 0.003600031
+Markov sobol 0.007439536, 0.005607451, 0.003522944
+SemiMarkov iid 0.004196509, 0.004452891, 0.003296586
+SemiMarkov sobol 0.004072211, 0.004274537, 0.003172540

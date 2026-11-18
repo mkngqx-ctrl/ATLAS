@@ -1,0 +1,60 @@
+% Approved Suggestion 14, option B: individual training-run scores.
+\begingroup\small
+\setlength{\tabcolsep}{4pt}
+\begin{longtable}{rrrrlr}
+\caption{Individual training-run survival MAEs for the single-covariate experiment. The GRU, RNN and Transformer columns refer to ATLAS with Sobol; each value averages the same five sampling seeds at $M=10{,}000$. The last two columns identify the lowest-error fitted direct comparator within that training run and landmark. The comparator may therefore differ between rows. All nine training runs are retained.}\label{tab:hard24_checkpoint_scores}\\
+\toprule
+Seed & GRU & RNN & Transformer & Best direct model & MAE \\\midrule
+\endfirsthead
+\multicolumn{6}{l}{\tablename\ \thetable\ (continued)}\\
+\toprule
+Seed & GRU & RNN & Transformer & Best direct model & MAE \\\midrule
+\endhead
+\midrule\multicolumn{6}{r}{Continued on next page}\\\endfoot
+\bottomrule\endlastfoot
+\multicolumn{6}{l}{\textit{Landmark $L=0$}}\\*
+42 & 0.010119 & 0.008393 & 0.003316 & DynamicDeepHit-Lite & 0.010698 \\*
+43 & 0.009730 & 0.005007 & 0.015513 & SurvTransformer-Lite & 0.006564 \\*
+44 & 0.010309 & 0.006546 & 0.006588 & DynamicDeepHit-Lite & 0.008745 \\*
+45 & 0.006742 & 0.005418 & 0.008925 & DynamicDeepHit-Lite & 0.010660 \\*
+50 & 0.005138 & 0.011482 & 0.005617 & DynamicDeepHit-Lite & 0.007758 \\*
+51 & 0.004393 & 0.007287 & 0.018088 & SurvTransformer-Lite & 0.007031 \\*
+52 & 0.004549 & 0.005528 & 0.007273 & SurvTransformer-Lite & 0.007881 \\*
+62 & 0.006930 & 0.003993 & 0.009394 & DynamicDeepHit-Lite & 0.004167 \\*
+63 & 0.008425 & 0.011111 & 0.004648 & DynamicDeepHit-Lite & 0.007353 \\
+\addlinespace
+\multicolumn{6}{l}{\textit{Landmark $L=20$}}\\*
+42 & 0.005468 & 0.013813 & 0.009060 & SurvTransformer-Discrete & 0.042674 \\*
+43 & 0.008250 & 0.008798 & 0.009060 & SurvTransformer & 0.041463 \\*
+44 & 0.007018 & 0.010462 & 0.008369 & SurvTransformer-Discrete & 0.044347 \\*
+45 & 0.010287 & 0.009300 & 0.009128 & SurvTransformer & 0.037009 \\*
+50 & 0.016233 & 0.013494 & 0.010128 & SurvTransformer-Discrete & 0.039368 \\*
+51 & 0.009268 & 0.013098 & 0.009674 & SurvTransformer-Discrete & 0.052113 \\*
+52 & 0.010414 & 0.015662 & 0.006616 & SurvTransformer-Discrete & 0.042726 \\*
+62 & 0.006785 & 0.009518 & 0.011309 & Dynamic-DeepHit (optimized) & 0.052988 \\*
+63 & 0.014140 & 0.023873 & 0.008017 & SurvTransformer-Discrete & 0.044037 \\
+\addlinespace
+\multicolumn{6}{l}{\textit{Landmark $L=23$}}\\*
+42 & 0.008776 & 0.022547 & 0.017807 & Dynamic-DeepHit (optimized) & 0.052758 \\*
+43 & 0.014619 & 0.013229 & 0.010707 & SurvTransformer-Discrete & 0.057438 \\*
+44 & 0.010653 & 0.015780 & 0.012856 & SurvTransformer-Discrete & 0.053347 \\*
+45 & 0.014978 & 0.013939 & 0.012150 & Dynamic-DeepHit (optimized) & 0.055410 \\*
+50 & 0.015540 & 0.014584 & 0.010352 & Dynamic-DeepHit (optimized) & 0.051255 \\*
+51 & 0.018402 & 0.014542 & 0.009737 & SurvTransformer-Discrete & 0.056618 \\*
+52 & 0.016420 & 0.016393 & 0.012481 & Dynamic-DeepHit (optimized) & 0.046243 \\*
+62 & 0.008747 & 0.013198 & 0.014520 & Dynamic-DeepHit (optimized) & 0.056692 \\*
+63 & 0.014685 & 0.018786 & 0.012113 & SurvTransformer-Discrete & 0.048906 \\
+\addlinespace
+\multicolumn{6}{l}{\textit{Landmark $L=24$}}\\*
+42 & 0.008064 & 0.019457 & 0.014011 & Dynamic-DeepHit (optimized) & 0.054247 \\*
+43 & 0.010115 & 0.006977 & 0.008518 & SurvTransformer-Discrete & 0.066654 \\*
+44 & 0.010159 & 0.008110 & 0.015835 & SurvTransformer-Discrete & 0.056364 \\*
+45 & 0.015913 & 0.007499 & 0.009553 & SurvTransformer & 0.059305 \\*
+50 & 0.020148 & 0.008532 & 0.010934 & Dynamic-DeepHit (optimized) & 0.069270 \\*
+51 & 0.017121 & 0.015504 & 0.007777 & SurvTransformer & 0.063273 \\*
+52 & 0.012868 & 0.012163 & 0.007748 & Dynamic-DeepHit (optimized) & 0.051325 \\*
+62 & 0.009980 & 0.010619 & 0.011982 & SurvTransformer-Discrete & 0.062187 \\*
+63 & 0.018180 & 0.014563 & 0.008086 & Dynamic-DeepHit (optimized) & 0.056427 \\
+\addlinespace
+\end{longtable}
+\endgroup

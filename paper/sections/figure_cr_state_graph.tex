@@ -1,0 +1,37 @@
+% State graph for the multi-covariate competing-risks experiment.
+% Drug-dependent recovery transitions are drawn with heavy lines; death exits are dashed.
+\begin{tikzpicture}[
+  >={Stealth[length=2mm]},
+  st/.style={draw,rounded corners=2pt,inner sep=3pt,font=\small,fill=white},
+  dead/.style={st,draw,thick},
+  x=1.05cm,y=1.05cm,
+  arr/.style={->,line width=0.5pt,color=black!70},
+  rec/.style={->,line width=2.2pt,color=black},
+  die/.style={->,line width=0.5pt,dashed,color=black!70}]
+\node[st] (H)  at (0,0)      {Healthy};
+\node[st] (A)  at (2.2,1.7)  {Sick A};
+\node[st] (B)  at (2.2,-1.7) {Sick B};
+\node[st] (AB) at (4.6,0)    {Sick AB};
+\node[st] (VA) at (7.0,1.7)  {Sicker A};
+\node[st] (VB) at (7.0,-1.7) {Sicker B};
+\node[st] (VAB) at (9.2,0)   {Sicker AB};
+\node[dead] (DA) at (11.8,1.7)  {Death A};
+\node[dead] (DB) at (11.8,-1.7) {Death B};
+% Healthy <-> Sick A / Sick B, Healthy -> Sick AB
+\draw[arr] (H) to[bend left=12] (A);   \draw[arr] (A) to[bend left=12] (H);
+\draw[arr] (H) to[bend right=12] (B);  \draw[arr] (B) to[bend right=12] (H);
+\draw[arr] (H) -- (AB);
+% Sick A / Sick B <-> Sick AB
+\draw[arr] (A) to[bend left=12] (AB);  \draw[arr] (AB) to[bend left=12] (A);
+\draw[arr] (B) to[bend right=12] (AB); \draw[arr] (AB) to[bend right=12] (B);
+% Sick A <-> Sicker A, Sick B <-> Sicker B
+\draw[arr] (A) to[bend left=10] (VA);  \draw[arr] (VA) to[bend left=10] (A);
+\draw[arr] (B) to[bend right=10] (VB); \draw[rec] (VB) to[bend right=10] (B);
+% Sick AB -> Sicker AB, and the drug-dependent return
+\draw[arr] (AB) to[bend left=10] (VAB); \draw[rec] (VAB) to[bend left=10] (AB);
+% Sicker A / Sicker B -> Sicker AB
+\draw[arr] (VA) -- (VAB); \draw[arr] (VB) -- (VAB);
+% death exits
+\draw[die] (VA) -- (DA); \draw[die] (VB) -- (DB);
+\draw[die] (VAB) -- (DA); \draw[die] (VAB) -- (DB);
+\end{tikzpicture}

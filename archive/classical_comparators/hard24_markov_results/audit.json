@@ -1,0 +1,32 @@
+{
+  "cohort": "C:\\Users\\moeni\\Documents\\Codex\\2026-09-13\\thi\\work\\paper_benchmarks_20260919\\full_hard24_add_history_v4\\checkpoints\\cohort.npz",
+  "cohort_sha256": "676d66bf67e67a52dba3be50cfe7925d3b49f8f5e9ec9876913ed45146e03c54",
+  "n_train": 40000,
+  "n_val": 5000,
+  "n_test": 5000,
+  "specification": "current-state-specific multinomial logistic; standardized covariate linear or quadratic; separate first-state regression; explicit censor outcome; exact event-first KM propagation",
+  "excludes": "run length, calendar time, regime indicators, true transition probabilities",
+  "selection": [
+    {
+      "degree": 1,
+      "validation_logloss": 0.9302558337079109
+    },
+    {
+      "degree": 2,
+      "validation_logloss": 0.9229566030674752
+    }
+  ],
+  "selected_degree": 2,
+  "penalty": 0.01,
+  "training_transition_counts_by_source": [
+    276599.0,
+    138918.0,
+    217369.0,
+    40000.0
+  ],
+  "fitting": "two candidate specifications, four regressions each; deterministic full-batch Newton optimization",
+  "evaluation": "original saved reference patients and exact curves; mean patient full-curve MAE",
+  "caveat": "time-homogeneous Markov model is structurally misspecified for this duration-dependent, time-changing experiment",
+  "all_84_mean_comparisons_lower": true,
+  "all_84_every_run_comparisons_lower": true
+}

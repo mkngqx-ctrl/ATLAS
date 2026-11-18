@@ -1,0 +1,73 @@
+{
+  "protocol_hash": "5cc4e5e50fdd40bb5696b3d518083ab3282f4f0c23d555da299be079bcfc832f",
+  "survivors": [
+    8,
+    7,
+    6,
+    3,
+    4,
+    9
+  ],
+  "rows": [
+    {
+      "candidate": 0,
+      "rung": 5,
+      "best_validation_NLL": 1.5742406845092773
+    },
+    {
+      "candidate": 1,
+      "rung": 5,
+      "best_validation_NLL": 1.574263075987498
+    },
+    {
+      "candidate": 2,
+      "rung": 5,
+      "best_validation_NLL": 1.5870940486590068
+    },
+    {
+      "candidate": 3,
+      "rung": 5,
+      "best_validation_NLL": 1.5074747999509175
+    },
+    {
+      "candidate": 4,
+      "rung": 5,
+      "best_validation_NLL": 1.5398385524749756
+    },
+    {
+      "candidate": 5,
+      "rung": 5,
+      "best_validation_NLL": 1.5652624766031902
+    },
+    {
+      "candidate": 6,
+      "rung": 5,
+      "best_validation_NLL": 1.5049381057421367
+    },
+    {
+      "candidate": 7,
+      "rung": 5,
+      "best_validation_NLL": 1.4708068072795868
+    },
+    {
+      "candidate": 8,
+      "rung": 5,
+      "best_validation_NLL": 1.4658498565355937
+    },
+    {
+      "candidate": 9,
+      "rung": 5,
+      "best_validation_NLL": 1.5492408573627472
+    },
+    {
+      "candidate": 10,
+      "rung": 5,
+      "best_validation_NLL": 1.6251710951328278
+    },
+    {
+      "candidate": 11,
+      "rung": 5,
+      "best_validation_NLL": 1.7520655393600464
+    }
+  ]
+}

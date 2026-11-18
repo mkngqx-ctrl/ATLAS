@@ -1,0 +1,10 @@
+{
+  "hidden": 256,
+  "layers": 2,
+  "projection": 128,
+  "alpha": 0.1,
+  "lr": 0.001,
+  "dropout": 0,
+  "l2": 0,
+  "batch": 256
+}

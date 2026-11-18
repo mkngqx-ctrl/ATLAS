@@ -1,0 +1,274 @@
+{
+  "patient_seed_draws_containing_rounded_one": 23,
+  "total_rounded_one_values": 23,
+  "changed_records": [
+    {
+      "landmark": 0,
+      "seed": 41001,
+      "patient_id": 18030,
+      "model": "Markov",
+      "extra_censor_count": 1
+    },
+    {
+      "landmark": 0,
+      "seed": 41001,
+      "patient_id": 18030,
+      "model": "SemiMarkov",
+      "extra_censor_count": 1
+    },
+    {
+      "landmark": 0,
+      "seed": 41001,
+      "patient_id": 4551,
+      "model": "Markov",
+      "extra_censor_count": 1
+    },
+    {
+      "landmark": 0,
+      "seed": 41001,
+      "patient_id": 4551,
+      "model": "SemiMarkov",
+      "extra_censor_count": 1
+    },
+    {
+      "landmark": 0,
+      "seed": 52001,
+      "patient_id": 5389,
+      "model": "Markov",
+      "extra_censor_count": 1
+    },
+    {
+      "landmark": 0,
+      "seed": 52001,
+      "patient_id": 5389,
+      "model": "SemiMarkov",
+      "extra_censor_count": 1
+    },
+    {
+      "landmark": 0,
+      "seed": 52001,
+      "patient_id": 4606,
+      "model": "Markov",
+      "extra_censor_count": 1
+    },
+    {
+      "landmark": 0,
+      "seed": 52001,
+      "patient_id": 4606,
+      "model": "SemiMarkov",
+      "extra_censor_count": 1
+    },
+    {
+      "landmark": 0,
+      "seed": 52001,
+      "patient_id": 2010,
+      "model": "Markov",
+      "extra_censor_count": 1
+    },
+    {
+      "landmark": 0,
+      "seed": 52001,
+      "patient_id": 2010,
+      "model": "SemiMarkov",
+      "extra_censor_count": 1
+    },
+    {
+      "landmark": 0,
+      "seed": 63001,
+      "patient_id": 16104,
+      "model": "Markov",
+      "extra_censor_count": 1
+    },
+    {
+      "landmark": 0,
+      "seed": 63001,
+      "patient_id": 16104,
+      "model": "SemiMarkov",
+      "extra_censor_count": 1
+    },
+    {
+      "landmark": 0,
+      "seed": 63001,
+      "patient_id": 44708,
+      "model": "Markov",
+      "extra_censor_count": 1
+    },
+    {
+      "landmark": 0,
+      "seed": 63001,
+      "patient_id": 44708,
+      "model": "SemiMarkov",
+      "extra_censor_count": 1
+    },
+    {
+      "landmark": 0,
+      "seed": 63001,
+      "patient_id": 45319,
+      "model": "Markov",
+      "extra_censor_count": 1
+    },
+    {
+      "landmark": 0,
+      "seed": 63001,
+      "patient_id": 45319,
+      "model": "SemiMarkov",
+      "extra_censor_count": 1
+    },
+    {
+      "landmark": 0,
+      "seed": 74001,
+      "patient_id": 6422,
+      "model": "Markov",
+      "extra_censor_count": 1
+    },
+    {
+      "landmark": 0,
+      "seed": 74001,
+      "patient_id": 6422,
+      "model": "SemiMarkov",
+      "extra_censor_count": 1
+    },
+    {
+      "landmark": 0,
+      "seed": 74001,
+      "patient_id": 20093,
+      "model": "Markov",
+      "extra_censor_count": 1
+    },
+    {
+      "landmark": 0,
+      "seed": 74001,
+      "patient_id": 20093,
+      "model": "SemiMarkov",
+      "extra_censor_count": 1
+    },
+    {
+      "landmark": 0,
+      "seed": 74001,
+      "patient_id": 4921,
+      "model": "Markov",
+      "extra_censor_count": 1
+    },
+    {
+      "landmark": 0,
+      "seed": 74001,
+      "patient_id": 4921,
+      "model": "SemiMarkov",
+      "extra_censor_count": 1
+    },
+    {
+      "landmark": 0,
+      "seed": 74001,
+      "patient_id": 42784,
+      "model": "Markov",
+      "extra_censor_count": 1
+    },
+    {
+      "landmark": 0,
+      "seed": 74001,
+      "patient_id": 42784,
+      "model": "SemiMarkov",
+      "extra_censor_count": 1
+    },
+    {
+      "landmark": 0,
+      "seed": 74001,
+      "patient_id": 791,
+      "model": "Markov",
+      "extra_censor_count": 1
+    },
+    {
+      "landmark": 0,
+      "seed": 74001,
+      "patient_id": 791,
+      "model": "SemiMarkov",
+      "extra_censor_count": 1
+    },
+    {
+      "landmark": 0,
+      "seed": 74001,
+      "patient_id": 12425,
+      "model": "Markov",
+      "extra_censor_count": 1
+    },
+    {
+      "landmark": 0,
+      "seed": 74001,
+      "patient_id": 12425,
+      "model": "SemiMarkov",
+      "extra_censor_count": 1
+    },
+    {
+      "landmark": 0,
+      "seed": 85001,
+      "patient_id": 42441,
+      "model": "Markov",
+      "extra_censor_count": 1
+    },
+    {
+      "landmark": 0,
+      "seed": 85001,
+      "patient_id": 42441,
+      "model": "SemiMarkov",
+      "extra_censor_count": 1
+    },
+    {
+      "landmark": 10,
+      "seed": 41001,
+      "patient_id": 43453,
+      "model": "Markov",
+      "extra_censor_count": 1
+    },
+    {
+      "landmark": 10,
+      "seed": 41001,
+      "patient_id": 43453,
+      "model": "SemiMarkov",
+      "extra_censor_count": 1
+    },
+    {
+      "landmark": 10,
+      "seed": 85001,
+      "patient_id": 36243,
+      "model": "Markov",
+      "extra_censor_count": 1
+    },
+    {
+      "landmark": 10,
+      "seed": 85001,
+      "patient_id": 36243,
+      "model": "SemiMarkov",
+      "extra_censor_count": 1
+    },
+    {
+      "landmark": 20,
+      "seed": 52001,
+      "patient_id": 46698,
+      "model": "Markov",
+      "extra_censor_count": 1
+    },
+    {
+      "landmark": 20,
+      "seed": 52001,
+      "patient_id": 46698,
+      "model": "SemiMarkov",
+      "extra_censor_count": 1
+    },
+    {
+      "landmark": 20,
+      "seed": 85001,
+      "patient_id": 10165,
+      "model": "Markov",
+      "extra_censor_count": 1
+    },
+    {
+      "landmark": 20,
+      "seed": 85001,
+      "patient_id": 10165,
+      "model": "SemiMarkov",
+      "extra_censor_count": 1
+    }
+  ],
+  "handling": "match archived CR3: terminal non-death inverse-CDF outcomes are censored",
+  "sampled_predictions_and_MAEs_unchanged": true
+}

@@ -1,0 +1,59 @@
+{
+  "key": "812893bd4515c550c0e9c608463f8654935d0167580e31684cd79aeb0a87f244",
+  "config": {
+    "model": {
+      "horizon": 30,
+      "hidden": 64,
+      "layers": 4,
+      "attention_hidden": 64,
+      "head_hidden": 32,
+      "head_layers": 2,
+      "dropout": 0.3,
+      "causes": 2,
+      "n_live": 7,
+      "n_covariates": 3,
+      "readout": "all",
+      "output_wiring": "independent"
+    },
+    "loss": {
+      "rank_weight": 10.0,
+      "rank_sigma": 0.2,
+      "auxiliary_weight": 0.0,
+      "l1_weight": 1e-06,
+      "rank_reduction": "pairs",
+      "l1_scope": "heads"
+    },
+    "lr": 0.0004524680061955311,
+    "batch_size": 256
+  },
+  "seed": 42,
+  "epochs_completed": 10,
+  "requested_joint_epochs": 5,
+  "burnin": 5,
+  "selection": "balanced_nll",
+  "best": {
+    "total_loss": {
+      "score": -8.097845554351807,
+      "epoch": 10,
+      "value": 8.097845554351807
+    },
+    "prefix_nll": {
+      "score": -1.4642250835895538,
+      "epoch": 6,
+      "value": 1.4642250835895538
+    },
+    "concordance": {
+      "score": 0.8395495214699639,
+      "epoch": 10,
+      "value": 0.8395495214699639
+    },
+    "balanced_nll": {
+      "score": -1.6251710951328278,
+      "epoch": 6,
+      "value": 1.6251710951328278
+    }
+  },
+  "stopped": false,
+  "training_prefixes": 864247,
+  "epoch_batch_cap": null
+}

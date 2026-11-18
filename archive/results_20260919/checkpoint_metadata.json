@@ -1,0 +1,337 @@
+{
+  "full_cr3cov_v2": {
+    "DRSA": {
+      "model_config": {
+        "L": 30
+      },
+      "horizon": 30,
+      "device": "cuda",
+      "best_epoch": 54,
+      "seed": 42,
+      "lr": 0.001,
+      "batch_size": 256,
+      "loss_config": {},
+      "epochs_logged": 69
+    },
+    "DynamicDeepHIt-Lite": {
+      "model_config": {
+        "L": 30
+      },
+      "horizon": 30,
+      "device": "cuda",
+      "best_epoch": 28,
+      "seed": 42,
+      "lr": 0.001,
+      "batch_size": 256,
+      "loss_config": {},
+      "epochs_logged": 43
+    },
+    "DynamicDeepHit": {
+      "history_version": 3,
+      "architecture": "deephit",
+      "model_config": {
+        "horizon": 30,
+        "hidden": 64,
+        "layers": 2,
+        "attention_hidden": 64,
+        "head_hidden": 64,
+        "head_layers": 4,
+        "dropout": 0.1,
+        "causes": 2,
+        "n_live": 7,
+        "n_covariates": 3
+      },
+      "loss_config": {
+        "rank_weight": 0.1,
+        "rank_sigma": 0.1,
+        "auxiliary_weight": 0.1,
+        "l1_weight": 1e-05,
+        "rank_reduction": "per_patient"
+      },
+      "L": 30,
+      "device": "cuda",
+      "training_prefixes": 864247,
+      "validation_prefixes": 2048,
+      "validation_index_seed": 145,
+      "validation_prefix_limit": 2048,
+      "monitor": "concordance",
+      "best_epoch": 9,
+      "best_score": 0.8476503355397367,
+      "seed": 42,
+      "lr": 0.001,
+      "weight_decay": 0.0,
+      "batch_size": 256,
+      "burn_in_epochs": 5,
+      "max_epochs": 200,
+      "patience": 15,
+      "epochs_logged": 24
+    },
+    "Glazier-GRU": {
+      "model_config": {
+        "n_states": 10
+      },
+      "horizon": 30,
+      "device": "cuda",
+      "best_epoch": 60,
+      "seed": 42,
+      "lr": 0.001,
+      "batch_size": 256,
+      "loss_config": {},
+      "epochs_logged": 75
+    },
+    "Glazier-Transformer": {
+      "model_config": {
+        "n_states": 10,
+        "max_len": 31
+      },
+      "horizon": 30,
+      "device": "cuda",
+      "best_epoch": 45,
+      "seed": 42,
+      "lr": 0.001,
+      "batch_size": 256,
+      "loss_config": {},
+      "epochs_logged": 60
+    },
+    "SurvTransformer-Discrete": {
+      "history_version": 3,
+      "architecture": "survtrace",
+      "model_config": {
+        "horizon": 30,
+        "width": 16,
+        "heads": 2,
+        "layers": 6,
+        "intermediate": 64,
+        "head_layers": 4,
+        "dropout": 0.1,
+        "likelihood": "discrete",
+        "causes": 2,
+        "n_live": 7,
+        "n_covariates": 3
+      },
+      "loss_config": {
+        "mortality_weight": 1.0,
+        "duration_weight": 1.0
+      },
+      "L": 30,
+      "device": "cuda",
+      "training_prefixes": 864247,
+      "validation_prefixes": 2048,
+      "validation_index_seed": 145,
+      "validation_prefix_limit": 2048,
+      "monitor": "loss",
+      "best_epoch": 2,
+      "best_score": -1.7771801501512527,
+      "seed": 42,
+      "lr": 0.001,
+      "weight_decay": 0.0001,
+      "batch_size": 256,
+      "burn_in_epochs": 0,
+      "max_epochs": 200,
+      "patience": 15,
+      "epochs_logged": 17
+    },
+    "SurvTransformer-Lite": {
+      "model_config": {
+        "L": 30
+      },
+      "horizon": 30,
+      "device": "cuda",
+      "best_epoch": 6,
+      "seed": 42,
+      "lr": 0.001,
+      "batch_size": 256,
+      "loss_config": {},
+      "epochs_logged": 21
+    },
+    "SurvTransformer": {
+      "history_version": 3,
+      "architecture": "survtrace",
+      "model_config": {
+        "horizon": 30,
+        "width": 16,
+        "heads": 2,
+        "layers": 6,
+        "intermediate": 64,
+        "head_layers": 4,
+        "dropout": 0.1,
+        "likelihood": "pch",
+        "causes": 2,
+        "n_live": 7,
+        "n_covariates": 3
+      },
+      "loss_config": {
+        "mortality_weight": 1.0,
+        "duration_weight": 1.0
+      },
+      "L": 30,
+      "device": "cuda",
+      "training_prefixes": 864247,
+      "validation_prefixes": 2048,
+      "validation_index_seed": 145,
+      "validation_prefix_limit": 2048,
+      "monitor": "loss",
+      "best_epoch": 2,
+      "best_score": -1.7897566109895706,
+      "seed": 42,
+      "lr": 0.001,
+      "weight_decay": 0.0001,
+      "batch_size": 256,
+      "burn_in_epochs": 0,
+      "max_epochs": 200,
+      "patience": 15,
+      "epochs_logged": 17
+    },
+    "Weibull": {
+      "model_config": {
+        "init_alpha": 26.0
+      },
+      "horizon": 30,
+      "device": "cuda",
+      "best_epoch": 95,
+      "seed": 42,
+      "lr": 0.001,
+      "batch_size": 256,
+      "loss_config": {},
+      "epochs_logged": 110
+    }
+  },
+  "full_hard24_add_history_v4": {
+    "DRSA": {
+      "device": "cuda",
+      "L": 30
+    },
+    "DynamicDeepHIt-Lite": {
+      "device": "cuda",
+      "L": 30
+    },
+    "DynamicDeepHit": {
+      "history_version": 2,
+      "architecture": "deephit",
+      "model_config": {
+        "horizon": 30,
+        "hidden": 64,
+        "layers": 4,
+        "attention_hidden": 64,
+        "head_hidden": 64,
+        "head_layers": 4,
+        "dropout": 0.1,
+        "causes": 1
+      },
+      "loss_config": {
+        "rank_weight": 0.1,
+        "rank_sigma": 0.1,
+        "auxiliary_weight": 0.1,
+        "l1_weight": 1e-05,
+        "rank_reduction": "per_patient"
+      },
+      "L": 30,
+      "device": "cuda",
+      "training_prefixes": 672886,
+      "validation_prefixes": 2048,
+      "validation_index_seed": 145,
+      "validation_prefix_limit": 2048,
+      "monitor": "concordance",
+      "best_epoch": 29,
+      "best_score": 0.7402648144625912,
+      "seed": 42,
+      "lr": 0.001,
+      "weight_decay": 0.0,
+      "batch_size": 256,
+      "burn_in_epochs": 5,
+      "max_epochs": 200,
+      "patience": 15,
+      "epochs_logged": 44
+    },
+    "Glazier-GRU": {
+      "device": "cuda",
+      "T_K": 30
+    },
+    "Glazier-RNN": {
+      "device": "cuda",
+      "T_K": 30
+    },
+    "Glazier-Transformer": {
+      "device": "cuda",
+      "T_K": 30
+    },
+    "SurvTransformer-Discrete": {
+      "history_version": 2,
+      "architecture": "survtrace",
+      "model_config": {
+        "horizon": 30,
+        "width": 16,
+        "heads": 2,
+        "layers": 6,
+        "intermediate": 64,
+        "head_layers": 4,
+        "dropout": 0.1,
+        "likelihood": "discrete"
+      },
+      "loss_config": {
+        "mortality_weight": 1.0,
+        "duration_weight": 1.0
+      },
+      "L": 30,
+      "device": "cuda",
+      "training_prefixes": 672886,
+      "validation_prefixes": 2048,
+      "validation_index_seed": 145,
+      "validation_prefix_limit": 2048,
+      "monitor": "loss",
+      "best_epoch": 3,
+      "best_score": -3.0370686054229736,
+      "seed": 42,
+      "lr": 0.001,
+      "weight_decay": 0.0001,
+      "batch_size": 256,
+      "burn_in_epochs": 0,
+      "max_epochs": 200,
+      "patience": 15,
+      "epochs_logged": 18
+    },
+    "SurvTransformer-Lite": {
+      "device": "cuda",
+      "L": 30
+    },
+    "SurvTransformer": {
+      "history_version": 2,
+      "architecture": "survtrace",
+      "model_config": {
+        "horizon": 30,
+        "width": 16,
+        "heads": 2,
+        "layers": 6,
+        "intermediate": 64,
+        "head_layers": 4,
+        "dropout": 0.1,
+        "likelihood": "pch"
+      },
+      "loss_config": {
+        "mortality_weight": 1.0,
+        "duration_weight": 1.0
+      },
+      "L": 30,
+      "device": "cuda",
+      "training_prefixes": 672886,
+      "validation_prefixes": 2048,
+      "validation_index_seed": 145,
+      "validation_prefix_limit": 2048,
+      "monitor": "loss",
+      "best_epoch": 3,
+      "best_score": -3.0986322164535522,
+      "seed": 42,
+      "lr": 0.001,
+      "weight_decay": 0.0001,
+      "batch_size": 256,
+      "burn_in_epochs": 0,
+      "max_epochs": 200,
+      "patience": 15,
+      "epochs_logged": 18
+    },
+    "Weibull": {
+      "device": "cuda",
+      "max_alpha": null
+    }
+  }
+}

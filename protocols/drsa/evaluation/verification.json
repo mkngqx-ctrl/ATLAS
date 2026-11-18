@@ -1,0 +1,461 @@
+[
+  {
+    "experiment": "Hard24",
+    "seed": 42,
+    "landmark": 0,
+    "patients": 300,
+    "test_membership": true,
+    "probability_mass_max_error": 5.2427531094245694e-08,
+    "checkpoint_sha256": "3254e6e6b4acb16fcd431cfdd71bde6cb5b0fb199db4300df0fff2033a6ac665"
+  },
+  {
+    "experiment": "Hard24",
+    "seed": 42,
+    "landmark": 20,
+    "patients": 102,
+    "test_membership": true,
+    "probability_mass_max_error": 6.146740205714707e-08,
+    "checkpoint_sha256": "3254e6e6b4acb16fcd431cfdd71bde6cb5b0fb199db4300df0fff2033a6ac665"
+  },
+  {
+    "experiment": "Hard24",
+    "seed": 42,
+    "landmark": 23,
+    "patients": 78,
+    "test_membership": true,
+    "probability_mass_max_error": 6.394372209506116e-08,
+    "checkpoint_sha256": "3254e6e6b4acb16fcd431cfdd71bde6cb5b0fb199db4300df0fff2033a6ac665"
+  },
+  {
+    "experiment": "Hard24",
+    "seed": 42,
+    "landmark": 24,
+    "patients": 57,
+    "test_membership": true,
+    "probability_mass_max_error": 4.0627520458969e-08,
+    "checkpoint_sha256": "3254e6e6b4acb16fcd431cfdd71bde6cb5b0fb199db4300df0fff2033a6ac665"
+  },
+  {
+    "experiment": "Hard24",
+    "seed": 43,
+    "landmark": 0,
+    "patients": 300,
+    "test_membership": true,
+    "probability_mass_max_error": 5.316412632350165e-08,
+    "checkpoint_sha256": "dd5b11851f7f366935baffa274c25f9d0c766aacfc5147e48105780307c6e1fc"
+  },
+  {
+    "experiment": "Hard24",
+    "seed": 43,
+    "landmark": 20,
+    "patients": 102,
+    "test_membership": true,
+    "probability_mass_max_error": 5.4775513236293705e-08,
+    "checkpoint_sha256": "dd5b11851f7f366935baffa274c25f9d0c766aacfc5147e48105780307c6e1fc"
+  },
+  {
+    "experiment": "Hard24",
+    "seed": 43,
+    "landmark": 23,
+    "patients": 78,
+    "test_membership": true,
+    "probability_mass_max_error": 5.433547700661734e-08,
+    "checkpoint_sha256": "dd5b11851f7f366935baffa274c25f9d0c766aacfc5147e48105780307c6e1fc"
+  },
+  {
+    "experiment": "Hard24",
+    "seed": 43,
+    "landmark": 24,
+    "patients": 57,
+    "test_membership": true,
+    "probability_mass_max_error": 5.2917021653442475e-08,
+    "checkpoint_sha256": "dd5b11851f7f366935baffa274c25f9d0c766aacfc5147e48105780307c6e1fc"
+  },
+  {
+    "experiment": "Hard24",
+    "seed": 44,
+    "landmark": 0,
+    "patients": 300,
+    "test_membership": true,
+    "probability_mass_max_error": 5.5770063900340006e-08,
+    "checkpoint_sha256": "accc91ea6c9b4bc4c0b3995f1088581adf192580edd624a616608f50d8dff193"
+  },
+  {
+    "experiment": "Hard24",
+    "seed": 44,
+    "landmark": 20,
+    "patients": 102,
+    "test_membership": true,
+    "probability_mass_max_error": 5.491977206339982e-08,
+    "checkpoint_sha256": "accc91ea6c9b4bc4c0b3995f1088581adf192580edd624a616608f50d8dff193"
+  },
+  {
+    "experiment": "Hard24",
+    "seed": 44,
+    "landmark": 23,
+    "patients": 78,
+    "test_membership": true,
+    "probability_mass_max_error": 5.2148516838101955e-08,
+    "checkpoint_sha256": "accc91ea6c9b4bc4c0b3995f1088581adf192580edd624a616608f50d8dff193"
+  },
+  {
+    "experiment": "Hard24",
+    "seed": 44,
+    "landmark": 24,
+    "patients": 57,
+    "test_membership": true,
+    "probability_mass_max_error": 4.726609870164822e-08,
+    "checkpoint_sha256": "accc91ea6c9b4bc4c0b3995f1088581adf192580edd624a616608f50d8dff193"
+  },
+  {
+    "experiment": "Hard24",
+    "seed": 45,
+    "landmark": 0,
+    "patients": 300,
+    "test_membership": true,
+    "probability_mass_max_error": 5.945596570633427e-08,
+    "checkpoint_sha256": "59f33d63ab63bf8fa28f126ddb54b639fad8aafc415d5fb0f024890a72c3504c"
+  },
+  {
+    "experiment": "Hard24",
+    "seed": 45,
+    "landmark": 20,
+    "patients": 102,
+    "test_membership": true,
+    "probability_mass_max_error": 5.0320181577134804e-08,
+    "checkpoint_sha256": "59f33d63ab63bf8fa28f126ddb54b639fad8aafc415d5fb0f024890a72c3504c"
+  },
+  {
+    "experiment": "Hard24",
+    "seed": 45,
+    "landmark": 23,
+    "patients": 78,
+    "test_membership": true,
+    "probability_mass_max_error": 6.193742407845093e-08,
+    "checkpoint_sha256": "59f33d63ab63bf8fa28f126ddb54b639fad8aafc415d5fb0f024890a72c3504c"
+  },
+  {
+    "experiment": "Hard24",
+    "seed": 45,
+    "landmark": 24,
+    "patients": 57,
+    "test_membership": true,
+    "probability_mass_max_error": 4.076220561088917e-08,
+    "checkpoint_sha256": "59f33d63ab63bf8fa28f126ddb54b639fad8aafc415d5fb0f024890a72c3504c"
+  },
+  {
+    "experiment": "Hard24",
+    "seed": 50,
+    "landmark": 0,
+    "patients": 300,
+    "test_membership": true,
+    "probability_mass_max_error": 4.754672155993234e-08,
+    "checkpoint_sha256": "48aed5914313299a04970d5b70319d6c916b9e8588a387bf0a49d55100cc6fb9"
+  },
+  {
+    "experiment": "Hard24",
+    "seed": 50,
+    "landmark": 20,
+    "patients": 102,
+    "test_membership": true,
+    "probability_mass_max_error": 8.608876589377701e-08,
+    "checkpoint_sha256": "48aed5914313299a04970d5b70319d6c916b9e8588a387bf0a49d55100cc6fb9"
+  },
+  {
+    "experiment": "Hard24",
+    "seed": 50,
+    "landmark": 23,
+    "patients": 78,
+    "test_membership": true,
+    "probability_mass_max_error": 6.756135673136043e-08,
+    "checkpoint_sha256": "48aed5914313299a04970d5b70319d6c916b9e8588a387bf0a49d55100cc6fb9"
+  },
+  {
+    "experiment": "Hard24",
+    "seed": 50,
+    "landmark": 24,
+    "patients": 57,
+    "test_membership": true,
+    "probability_mass_max_error": 5.067609576414611e-08,
+    "checkpoint_sha256": "48aed5914313299a04970d5b70319d6c916b9e8588a387bf0a49d55100cc6fb9"
+  },
+  {
+    "experiment": "Hard24",
+    "seed": 51,
+    "landmark": 0,
+    "patients": 300,
+    "test_membership": true,
+    "probability_mass_max_error": 6.354265491559374e-08,
+    "checkpoint_sha256": "28ffb0f22aec9ba5b892cc1cf0502c2f713e873acf717846e35e91e1dba940a0"
+  },
+  {
+    "experiment": "Hard24",
+    "seed": 51,
+    "landmark": 20,
+    "patients": 102,
+    "test_membership": true,
+    "probability_mass_max_error": 6.81199390228926e-08,
+    "checkpoint_sha256": "28ffb0f22aec9ba5b892cc1cf0502c2f713e873acf717846e35e91e1dba940a0"
+  },
+  {
+    "experiment": "Hard24",
+    "seed": 51,
+    "landmark": 23,
+    "patients": 78,
+    "test_membership": true,
+    "probability_mass_max_error": 7.908255050814716e-08,
+    "checkpoint_sha256": "28ffb0f22aec9ba5b892cc1cf0502c2f713e873acf717846e35e91e1dba940a0"
+  },
+  {
+    "experiment": "Hard24",
+    "seed": 51,
+    "landmark": 24,
+    "patients": 57,
+    "test_membership": true,
+    "probability_mass_max_error": 5.648831058469028e-08,
+    "checkpoint_sha256": "28ffb0f22aec9ba5b892cc1cf0502c2f713e873acf717846e35e91e1dba940a0"
+  },
+  {
+    "experiment": "Hard24",
+    "seed": 52,
+    "landmark": 0,
+    "patients": 300,
+    "test_membership": true,
+    "probability_mass_max_error": 5.8983311124194415e-08,
+    "checkpoint_sha256": "1775ca27889790b6253efb5a9b78d857a4664eeaa838a0bc58a974bcebcdcc67"
+  },
+  {
+    "experiment": "Hard24",
+    "seed": 52,
+    "landmark": 20,
+    "patients": 102,
+    "test_membership": true,
+    "probability_mass_max_error": 6.545257069667798e-08,
+    "checkpoint_sha256": "1775ca27889790b6253efb5a9b78d857a4664eeaa838a0bc58a974bcebcdcc67"
+  },
+  {
+    "experiment": "Hard24",
+    "seed": 52,
+    "landmark": 23,
+    "patients": 78,
+    "test_membership": true,
+    "probability_mass_max_error": 6.911804795173282e-08,
+    "checkpoint_sha256": "1775ca27889790b6253efb5a9b78d857a4664eeaa838a0bc58a974bcebcdcc67"
+  },
+  {
+    "experiment": "Hard24",
+    "seed": 52,
+    "landmark": 24,
+    "patients": 57,
+    "test_membership": true,
+    "probability_mass_max_error": 5.411775427788257e-08,
+    "checkpoint_sha256": "1775ca27889790b6253efb5a9b78d857a4664eeaa838a0bc58a974bcebcdcc67"
+  },
+  {
+    "experiment": "Hard24",
+    "seed": 62,
+    "landmark": 0,
+    "patients": 300,
+    "test_membership": true,
+    "probability_mass_max_error": 5.1126197941897544e-08,
+    "checkpoint_sha256": "a8003ba9c3c3cde01ea78a1aa4a495082c252fd0058a1d2bfaf7dfe1a86d1f15"
+  },
+  {
+    "experiment": "Hard24",
+    "seed": 62,
+    "landmark": 20,
+    "patients": 102,
+    "test_membership": true,
+    "probability_mass_max_error": 5.583463114078313e-08,
+    "checkpoint_sha256": "a8003ba9c3c3cde01ea78a1aa4a495082c252fd0058a1d2bfaf7dfe1a86d1f15"
+  },
+  {
+    "experiment": "Hard24",
+    "seed": 62,
+    "landmark": 23,
+    "patients": 78,
+    "test_membership": true,
+    "probability_mass_max_error": 6.542628627759228e-08,
+    "checkpoint_sha256": "a8003ba9c3c3cde01ea78a1aa4a495082c252fd0058a1d2bfaf7dfe1a86d1f15"
+  },
+  {
+    "experiment": "Hard24",
+    "seed": 62,
+    "landmark": 24,
+    "patients": 57,
+    "test_membership": true,
+    "probability_mass_max_error": 5.5485565475521526e-08,
+    "checkpoint_sha256": "a8003ba9c3c3cde01ea78a1aa4a495082c252fd0058a1d2bfaf7dfe1a86d1f15"
+  },
+  {
+    "experiment": "Hard24",
+    "seed": 63,
+    "landmark": 0,
+    "patients": 300,
+    "test_membership": true,
+    "probability_mass_max_error": 5.764859645207565e-08,
+    "checkpoint_sha256": "0e4b55abe065cd5e89857d1355d25f4b6b3208c1da33e5f3cb5f5fe68f7e3917"
+  },
+  {
+    "experiment": "Hard24",
+    "seed": 63,
+    "landmark": 20,
+    "patients": 102,
+    "test_membership": true,
+    "probability_mass_max_error": 5.0741691293154645e-08,
+    "checkpoint_sha256": "0e4b55abe065cd5e89857d1355d25f4b6b3208c1da33e5f3cb5f5fe68f7e3917"
+  },
+  {
+    "experiment": "Hard24",
+    "seed": 63,
+    "landmark": 23,
+    "patients": 78,
+    "test_membership": true,
+    "probability_mass_max_error": 5.736416075485806e-08,
+    "checkpoint_sha256": "0e4b55abe065cd5e89857d1355d25f4b6b3208c1da33e5f3cb5f5fe68f7e3917"
+  },
+  {
+    "experiment": "Hard24",
+    "seed": 63,
+    "landmark": 24,
+    "patients": 57,
+    "test_membership": true,
+    "probability_mass_max_error": 4.759854177471823e-08,
+    "checkpoint_sha256": "0e4b55abe065cd5e89857d1355d25f4b6b3208c1da33e5f3cb5f5fe68f7e3917"
+  },
+  {
+    "experiment": "CR3",
+    "seed": 42,
+    "landmark": 0,
+    "patients": 300,
+    "test_membership": true,
+    "probability_mass_max_error": 6.432217821705777e-07,
+    "checkpoint_sha256": "7d93d4d7ded86110659e607452066030cb55de7a4113aa29ec1574490872ce14"
+  },
+  {
+    "experiment": "CR3",
+    "seed": 42,
+    "landmark": 10,
+    "patients": 251,
+    "test_membership": true,
+    "probability_mass_max_error": 4.586479616097705e-07,
+    "checkpoint_sha256": "7d93d4d7ded86110659e607452066030cb55de7a4113aa29ec1574490872ce14"
+  },
+  {
+    "experiment": "CR3",
+    "seed": 42,
+    "landmark": 20,
+    "patients": 179,
+    "test_membership": true,
+    "probability_mass_max_error": 4.5496524248012093e-07,
+    "checkpoint_sha256": "7d93d4d7ded86110659e607452066030cb55de7a4113aa29ec1574490872ce14"
+  },
+  {
+    "experiment": "CR3",
+    "seed": 43,
+    "landmark": 0,
+    "patients": 300,
+    "test_membership": true,
+    "probability_mass_max_error": 6.3879798961608e-07,
+    "checkpoint_sha256": "e15e789ba00d21577a764e71c10f11c71c6ab99a0de636dde3ab961e68acc0d6"
+  },
+  {
+    "experiment": "CR3",
+    "seed": 43,
+    "landmark": 10,
+    "patients": 251,
+    "test_membership": true,
+    "probability_mass_max_error": 6.165431942761757e-07,
+    "checkpoint_sha256": "e15e789ba00d21577a764e71c10f11c71c6ab99a0de636dde3ab961e68acc0d6"
+  },
+  {
+    "experiment": "CR3",
+    "seed": 43,
+    "landmark": 20,
+    "patients": 179,
+    "test_membership": true,
+    "probability_mass_max_error": 4.151811769936842e-07,
+    "checkpoint_sha256": "e15e789ba00d21577a764e71c10f11c71c6ab99a0de636dde3ab961e68acc0d6"
+  },
+  {
+    "experiment": "CR3",
+    "seed": 45,
+    "landmark": 0,
+    "patients": 300,
+    "test_membership": true,
+    "probability_mass_max_error": 6.805447265723075e-07,
+    "checkpoint_sha256": "6351c19cabf54fc1e3ad732d3f48b741a7c4fdab67a741ba062dc6ff941da6d8"
+  },
+  {
+    "experiment": "CR3",
+    "seed": 45,
+    "landmark": 10,
+    "patients": 251,
+    "test_membership": true,
+    "probability_mass_max_error": 5.209549174267636e-07,
+    "checkpoint_sha256": "6351c19cabf54fc1e3ad732d3f48b741a7c4fdab67a741ba062dc6ff941da6d8"
+  },
+  {
+    "experiment": "CR3",
+    "seed": 45,
+    "landmark": 20,
+    "patients": 179,
+    "test_membership": true,
+    "probability_mass_max_error": 4.2158525781488265e-07,
+    "checkpoint_sha256": "6351c19cabf54fc1e3ad732d3f48b741a7c4fdab67a741ba062dc6ff941da6d8"
+  },
+  {
+    "experiment": "CR3",
+    "seed": 46,
+    "landmark": 0,
+    "patients": 300,
+    "test_membership": true,
+    "probability_mass_max_error": 6.7727435615339e-07,
+    "checkpoint_sha256": "04f8283f828199a66c9efe23db9603d61d6b52ce608d1437d93dad9dd17644da"
+  },
+  {
+    "experiment": "CR3",
+    "seed": 46,
+    "landmark": 10,
+    "patients": 251,
+    "test_membership": true,
+    "probability_mass_max_error": 5.135324309124556e-07,
+    "checkpoint_sha256": "04f8283f828199a66c9efe23db9603d61d6b52ce608d1437d93dad9dd17644da"
+  },
+  {
+    "experiment": "CR3",
+    "seed": 46,
+    "landmark": 20,
+    "patients": 179,
+    "test_membership": true,
+    "probability_mass_max_error": 3.8838992710843456e-07,
+    "checkpoint_sha256": "04f8283f828199a66c9efe23db9603d61d6b52ce608d1437d93dad9dd17644da"
+  },
+  {
+    "experiment": "CR3",
+    "seed": 47,
+    "landmark": 0,
+    "patients": 300,
+    "test_membership": true,
+    "probability_mass_max_error": 9.016097597402961e-07,
+    "checkpoint_sha256": "3f50a1e384beb9bc34ce83f3cf9d3e5692aaf429ac0fff9cceebcd6850f5a533"
+  },
+  {
+    "experiment": "CR3",
+    "seed": 47,
+    "landmark": 10,
+    "patients": 251,
+    "test_membership": true,
+    "probability_mass_max_error": 7.270111026524972e-07,
+    "checkpoint_sha256": "3f50a1e384beb9bc34ce83f3cf9d3e5692aaf429ac0fff9cceebcd6850f5a533"
+  },
+  {
+    "experiment": "CR3",
+    "seed": 47,
+    "landmark": 20,
+    "patients": 179,
+    "test_membership": true,
+    "probability_mass_max_error": 4.086833023109193e-07,
+    "checkpoint_sha256": "3f50a1e384beb9bc34ce83f3cf9d3e5692aaf429ac0fff9cceebcd6850f5a533"
+  }
+]

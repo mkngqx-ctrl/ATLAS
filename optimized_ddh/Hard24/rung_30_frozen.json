@@ -1,0 +1,24 @@
+{
+  "protocol_hash": "5cc4e5e50fdd40bb5696b3d518083ab3282f4f0c23d555da299be079bcfc832f",
+  "survivors": [
+    6,
+    9
+  ],
+  "rows": [
+    {
+      "candidate": 6,
+      "rung": 30,
+      "best_validation_NLL": 2.0127354860305786
+    },
+    {
+      "candidate": 9,
+      "rung": 30,
+      "best_validation_NLL": 2.049613431096077
+    },
+    {
+      "candidate": 3,
+      "rung": 30,
+      "best_validation_NLL": 2.1559922248125076
+    }
+  ]
+}

@@ -1,0 +1,54 @@
+{
+  "version": "ATLAS_DDH_COLAB_v1",
+  "mode": "FAST",
+  "experiments": [
+    "Hard24",
+    "CR3"
+  ],
+  "candidates": 12,
+  "rungs": [
+    5,
+    15,
+    30
+  ],
+  "keep_fraction": 0.5,
+  "confirmation_top": 2,
+  "confirmation_seeds": [
+    43,
+    45
+  ],
+  "search_seed": 42,
+  "burnin": 5,
+  "final_max_joint_epochs": 200,
+  "final_patience": 15,
+  "batch_size": 256,
+  "selection": "balanced_validation_conditional_NLL",
+  "validation_patients_per_landmark": 512,
+  "final_seeds": {
+    "Hard24": [
+      42,
+      43,
+      44,
+      45,
+      50,
+      51,
+      52,
+      62,
+      63
+    ],
+    "CR3": [
+      42,
+      43,
+      45,
+      46,
+      47
+    ]
+  },
+  "precision": "float32",
+  "test_during_search": false,
+  "synthetic_reference_during_search": false,
+  "epoch_batch_cap": null,
+  "bundle_digest": "d5436fa45bd3e1d6cba5bb800f12efb9b2c8976d12b76c8db26b97007a191902",
+  "source_sha256": "6849aa7641698230684625c7e9d6b487c8844c1ea1821970be23178c3e74f55b",
+  "smoke": false
+}

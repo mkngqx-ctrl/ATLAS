@@ -1,0 +1,43 @@
+experiment,landmark,model,method,mean_MAE,neural_training_runs,control
+Hard24,0,ATLAS-GRU,sobol,0.0073705784078361,9,False
+Hard24,20,ATLAS-GRU,sobol,0.0097626978485863,9,False
+Hard24,23,ATLAS-GRU,sobol,0.013646745381009,9,False
+Hard24,24,ATLAS-GRU,sobol,0.0136165515568882,9,False
+Hard24,0,ATLAS-Transformer,sobol,0.0088181253611815,9,False
+Hard24,20,ATLAS-Transformer,sobol,0.0090402369719716,9,False
+Hard24,23,ATLAS-Transformer,sobol,0.0125249131842362,9,False
+Hard24,24,ATLAS-Transformer,sobol,0.0104936743492954,9,False
+Hard24,0,SurvTransformer-Discrete,direct,0.0132957600068081,9,False
+Hard24,20,SurvTransformer-Discrete,direct,0.0465411840074761,9,False
+Hard24,23,SurvTransformer-Discrete,direct,0.0574949427093439,9,False
+Hard24,24,SurvTransformer-Discrete,direct,0.0669588500078351,9,False
+Hard24,0,SurvTransformer,direct,0.0186027146579752,9,False
+Hard24,20,SurvTransformer,direct,0.0508992417613001,9,False
+Hard24,23,SurvTransformer,direct,0.0852883348146348,9,False
+Hard24,24,SurvTransformer,direct,0.0715063024879724,9,False
+Hard24,0,DynamicDeepHit,direct,0.028605162840905394,9,False
+Hard24,20,DynamicDeepHit,direct,0.053742593332299346,9,False
+Hard24,23,DynamicDeepHit,direct,0.05984148440815259,9,False
+Hard24,24,DynamicDeepHit,direct,0.0647913015122018,9,False
+Hard24,0,Oracle sampler,iid,0.0029714834092131,0,True
+Hard24,20,Oracle sampler,iid,0.002955302011874,0,True
+Hard24,23,Oracle sampler,iid,0.0031997869334602,0,True
+Hard24,24,Oracle sampler,iid,0.0029733002639216,0,True
+CR3,0,ATLAS-GRU,sobol,0.0079018984075834,5,False
+CR3,10,ATLAS-GRU,sobol,0.0088247188497925,5,False
+CR3,20,ATLAS-GRU,sobol,0.0067041609095284,5,False
+CR3,0,ATLAS-Transformer,sobol,0.0103783239639081,5,False
+CR3,10,ATLAS-Transformer,sobol,0.0117270042319853,5,False
+CR3,20,ATLAS-Transformer,sobol,0.0080943867797058,5,False
+CR3,0,SurvTransformer-Discrete,direct,0.0257775384519518,5,False
+CR3,10,SurvTransformer-Discrete,direct,0.0404640073593503,5,False
+CR3,20,SurvTransformer-Discrete,direct,0.048941016906949,5,False
+CR3,0,SurvTransformer,direct,0.0256858657236902,5,False
+CR3,10,SurvTransformer,direct,0.0406044226874611,5,False
+CR3,20,SurvTransformer,direct,0.0504696683499517,5,False
+CR3,0,DynamicDeepHit,direct,0.01624184809228455,5,False
+CR3,10,DynamicDeepHit,direct,0.023061089327010627,5,False
+CR3,20,DynamicDeepHit,direct,0.02275283935741141,5,False
+CR3,0,Oracle sampler,iid,0.0025556672428675,0,True
+CR3,10,Oracle sampler,iid,0.0024072307421525,0,True
+CR3,20,Oracle sampler,iid,0.0016809276091017,0,True

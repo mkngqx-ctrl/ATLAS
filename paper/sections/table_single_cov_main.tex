@@ -1,0 +1,23 @@
+\begin{center}\begin{minipage}{\textwidth}\centering\small
+\begin{tabular}{lrrrr}
+\toprule
+Model / method & $L=0$ & $L=20$ & $L=23$ & $L=24$ \\\midrule
+\multicolumn{5}{l}{\textit{Direct models, covariates only}}\\
+CPH & 0.038846 & 0.157917 & 0.211900 & 0.171741 \\
+Weibull-MLP & 0.024253 & 0.137024 & 0.185766 & 0.150698 \\
+DRSA (optimized) & 0.118561 & 0.146562 & 0.208210 & 0.157879 \\
+DynamicDeepHit-Lite & 0.008556 & 0.142591 & 0.204751 & 0.155251 \\
+SurvTransformer-Lite & 0.009877 & 0.142260 & 0.204242 & 0.156199 \\
+\multicolumn{5}{l}{\textit{Direct models, covariates and observed history}}\\
+Dynamic-DeepHit (optimized) & 0.028605 & 0.053743 & 0.059841 & 0.064791 \\
+SurvTransformer & 0.018603 & 0.050899 & 0.085288 & 0.071506 \\
+SurvTransformer-Discrete & 0.013296 & 0.046541 & 0.057495 & 0.066959 \\
+\multicolumn{5}{l}{\textit{ATLAS, covariates and observed history, common Sobol sampler}}\\
+ATLAS-GRU / Sobol & 0.007371 & 0.009763 & 0.013647 & 0.013617 \\
+ATLAS-RNN / Sobol & \textbf{0.007196} & 0.013113 & 0.015888 & 0.011492 \\
+ATLAS-Transformer / Sobol & 0.008818 & \textbf{0.009040} & \textbf{0.012525} & \textbf{0.010494} \\
+\multicolumn{5}{l}{\textit{Control}}\\
+Oracle sampler / IID & 0.002971 & 0.002955 & 0.003200 & 0.002973 \\
+\bottomrule\end{tabular}
+\captionof{table}{Single-covariate survival-curve MAE (lower is better). Neural-model entries are means across nine training runs. ATLAS rows use Sobol at $M=10{,}000$, first averaging five sampling seeds within each training run. Neural direct models contribute one deterministic prediction per training run. Between-run standard deviations, ranges and pooled sampling standard deviations are given in Supplementary Table~S2. CPH and the true-generator oracle are unchanged controls; the oracle row averages its five sampling seeds. Eligible counts are 300, 102, 78 and 57. Sampler-specific scores appear in Supplementary Table~S7.}\label{tab:hardmain}
+\end{minipage}\end{center}

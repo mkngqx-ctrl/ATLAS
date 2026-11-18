@@ -1,0 +1,108 @@
+\section{Model formulations and actual run settings}\label{app:models}
+\subsection{Prediction inputs and common training protocol}
+The covariate-only models are CPH, Weibull-MLP, DRSA (optimized), DynamicDeepHit-Lite and SurvTransformer-Lite. The three newer direct models receive all live state observations through the landmark, the covariates and the prediction time. Future state fields are masked. ATLAS uses the same observed information as the starting point for its walks but optimizes a next-state objective. Scalar covariate inputs in the first experiment become three-dimensional inputs in the second. Patients are split into training, validation and test sets before their histories are expanded into prefixes. Numerical scaling parameters are fitted on training patients only and then applied unchanged to the validation and test sets.
+
+The single-covariate analysis uses training seeds 42, 43, 44, 45, 50, 51, 52, 62, and 63; the competing-risks analysis uses training seeds 42, 43, 45, 46 and 47. Stochastic predictions use sampling seeds 41001, 52001, 63001, 74001, and 85001 in both experiments. The maximum is 200 epochs with early-stopping patience 15. The original single-covariate seed-42 archive reused eight existing checkpoints and 460 existing predictions, and then added the three history-aware checkpoints and their 12 deterministic predictions. The new direct-model settings are taken from checkpoint metadata rather than the notebook's earlier defaults. In the competing-risks runs, the SurvTransformer models use validation-index seed 145 throughout, selecting the same 2,048 validation prefixes from the fixed cohort. The optimized Dynamic-DeepHit selection uses fixed eligible validation patients at each evaluated landmark, as described below.
+
+\begin{center}\begin{minipage}{\textwidth}\centering\small
+\begin{tabular}{p{0.42\textwidth}rr}\toprule
+Setting & Single covariate & Competing risks\\\midrule
+Optimized DDH GRU width / layers & 64 / 4 & 64 / 4\\
+Attention-network hidden width & 64 & 64\\
+Optimized DDH cause-head width / layers & 32 / 2 & 100 / 1\\
+SurvTransformer token width / layers & 16 / 6 & 16 / 6\\
+SurvTransformer attention heads & 2 & 2\\
+Feed-forward width / task-head layers & 64 / 4 & 64 / 4\\
+History-model dropout & 0.1 & 0.1\\
+SurvTransformer learning rate & 0.001 & 0.001\\
+History-model training batch size & 256 & 256\\
+Optimized DDH auxiliary burn-in epochs & 5 & 5\\
+Optimized DDH learning rate (rounded) & 0.000963 & 0.000604\\
+Optimized DDH ranking weight & 0.001 & 0\\
+Optimized DDH ranking scale & 0.2 & 0.2\\
+Optimized DDH auxiliary weight & 0.01 & 1\\
+Optimized DDH head/output L1 & 0.00001 & 0.00001\\
+Optimized DDH validation patients / landmark & up to 512 & up to 512\\
+Training prefixes per history model & 672,886 & 864,247\\
+SurvTransformer validation prefixes & 2,048 & 2,048\\
+Selected optimized DDH epoch & 8--12 & 11--14\\
+Selected SurvTransformer epoch & 3--7 & 2--3\\
+Selected SurvTransformer-Discrete epoch & 3--6 & 1--3\\\bottomrule
+\end{tabular}
+\captionof{table}{Actual history-comparator settings and selected checkpoint epochs. Epoch entries give the minimum and maximum across nine single-covariate training runs and five competing-risks training runs. These are the epochs of the retained checkpoints, not the epochs when training stopped. Optimized Dynamic-DeepHit epoch numbers include the five auxiliary-only burn-in epochs. The SurvTransformer variants have no burn-in phase. Per-seed SurvTransformer values are supplied in \texttt{supplementary/}, in \texttt{hard24\_selected\_epochs.csv} and \texttt{cr3\_selected\_epochs.csv}; optimized Dynamic-DeepHit values are in \texttt{optimized\_DDH\_selected\_epochs.csv}. The two SurvTransformer likelihood variants share architecture settings. Early selected epochs are reported as observed; their causes have not been isolated by additional training experiments.}
+\end{minipage}\end{center}
+
+Adam is used for these adapted neural models. Dynamic-DeepHit (optimized) selects its checkpoint by landmark-averaged conditional validation negative log-likelihood, with the selected losses and weights specified below. Its weight decay is zero. Both SurvTransformer variants select by their combined validation loss, with mortality and observed-duration auxiliary weights one and weight decay $10^{-4}$. Observed duration is scaled by the 30-step horizon. These are not the authors' original tuning results. The competing-risks archive contains only four rows in its top-level training summary, but all ten fitted models and the per-model training records are present in the checkpoints. The model inventory rests on that metadata rather than on the incomplete summary.
+
+\subsection{Covariate-only direct models}
+CPH uses proportional hazards with the supplied covariates. The competing-risks version fits one cause-specific Cox model per cause and combines hazard increments with Eq.~\eqref{eq:crconversion}; its penalizer is 0.1. Weibull-MLP predicts positive scales and shapes from a small covariate network. The single-cause model uses discrete event-bin likelihood, while the competing-risks model uses the continuous additive cause-specific Weibull likelihood and numerical integration for CIFs.
+
+The Lite models use recurrent or Transformer time-grid representations of the baseline covariates, not the observed state sequence. Their output is a joint softmax over event-time bins and one shared beyond-horizon probability. With $K$ causes and horizon $B=30$, this gives $KB+1$ entries. For one cause,
+\[
+\widehat S(l)=p_{>B}+\sum_{j=l+1}^{B}p_j.
+\]
+An uncensored event contributes its cause-time log probability, while a censored endpoint contributes the log probability of survival beyond that time. The shared tail permits administrative survivors. A pairwise ranking term compares patients at the same event time. It is an additional objective rather than a guarantee of probability accuracy.
+
+DRSA (optimized) represents interval probabilities using an LSTM over the 30-step prediction grid. A learned ReLU projection transforms the training-standardized baseline covariates before normalized prediction time is appended. The model does not receive the observed health-state sequence. The duration-dependent head predicts a sigmoid death hazard, while the competing-risks head uses a softmax over conditional survival and the two death causes. Survival and CIFs are obtained by probability propagation; survival beyond step 30 remains possible. These are adaptations of the published model families rather than exact ports of all released settings~\citep{ren2019,martinsson2017,lee2018deephit}.
+
+The DRSA objective is $\alpha L_z+(1-\alpha)L_c$, where $L_z$ is the uncensored event-time negative log-likelihood and $L_c$ combines the event-status and censoring terms, averaged over the minibatch. The competing-risks event-time term uses the observed cause. The search retained this composite objective and considered $\alpha\in\{0.05,0.10,0.25,0.50,0.75,0.90\}$. Both selected configurations use $\alpha=0.50$, giving equal weights to the two objective components. Observed deaths use the recorded terminal time for both event-time and event-status terms; this differs from an observation scheme that follows individuals beyond their event time.
+
+The search was frozen before optimization and used the original 40,000 training and 5,000 validation patients in each experiment. Screening crossed the six alpha values with four architectures: 32 units/one layer/no projection; 128 units/one layer/no projection; 128 units/one layer/ReLU-64; and 256 units/two layers/ReLU-128. These 24 candidates used seed 42 and cumulative budgets of 5, 15 and 30 epochs. Two candidates per alpha were retained after the first budget and one per alpha after the second, so all six alpha values remained represented through screening. The two leading alpha values then entered refinement. Each was crossed with five fixed new recipes and its screening winner, giving 12 refinement entries. The new recipes explored widths 64, 128 and 256, one or two layers, ReLU projections of width 64 or 128, learning rates from 0.0001 to 0.003, dropout 0 to 0.2, L2 coefficients 0 to 0.0001, and batch sizes 128 or 256. Refinement used cumulative budgets of 10, 30 and 60 epochs, retaining six then four entries. Two finalists were confirmed using training seeds 42, 43 and 45; the selected configuration minimized their mean best validation score.
+
+Every checkpoint and promotion decision used conditional observed-outcome validation negative log-likelihood averaged equally over the evaluated landmarks, using all eligible validation patients. Eligibility required the recorded event or censoring time to exceed the landmark. The score did not include the training penalty. Analytical reference curves and test-set MAE were not used for selection. Confirmation and final training used Adam with $(\beta_1,\beta_2)=(0.9,0.99)$, gradient clipping at 5, a maximum of 200 epochs and patience 15, with a minimum validation improvement of $10^{-6}$. The L2 penalty was $\lambda\|\theta\|_2^2/(2\cdot128)$, with the fixed denominator preserving its strength across batch sizes. Dropout was applied after the covariate projection and recurrent output, and between recurrent layers when applicable. Final fits used all training patients, one record per patient; selected confirmation fits were reused unchanged for seeds 42, 43 and 45.
+
+\begin{center}\begin{minipage}{\textwidth}\centering\small
+\begin{tabular}{lrr}\toprule
+Selected DRSA setting & Duration-dependent & Competing risks\\\midrule
+LSTM width / layers & 256 / 1 & 256 / 2\\
+ReLU projection width & 128 & 128\\
+Alpha & 0.50 & 0.50\\
+Learning rate & 0.003 & 0.0015\\
+Dropout & 0.20 & 0.10\\
+L2 coefficient & 0.0001 & 0.00001\\
+Batch size & 128 & 256\\
+Selected epoch across final fits & 12--66 & 11--15\\\bottomrule
+\end{tabular}
+\captionof*{table}{Selected DRSA configurations. The nine duration-dependent and five competing-risk fits use the original training seeds and evaluation patients. Selected epochs refer to retained checkpoints, not stopping epochs. Per-fit settings and logs are supplied in the accompanying data/code package.}
+\end{minipage}\end{center}
+
+For all covariate-only models, survival at a landmark is obtained by conditioning on survival to $L$. In a competing-risk joint distribution, the future CIF and survival are
+\[
+\frac{F_k(t)-F_k(L)}{S(L)}\quad\text{and}\quad\frac{S(t)}{S(L)},
+\]
+respectively. This changes the prediction origin without supplying the observed state history.
+
+\subsection{History-aware Dynamic-DeepHit (optimized)}
+The optimized Dynamic-DeepHit adaptations retain a recurrent history encoder, attention conditioned on the latest measurement, cause-specific subnetworks, and a joint event-time probability distribution with a shared beyond-horizon category. In both selected configurations, hidden states from all recurrent layers are concatenated for attention and context construction. The cause-specific representations are then combined through a common output projection. The auxiliary task predicts observed next-step live-state indicators using masked binary cross-entropy, while L1 regularization applies to the cause-specific and output weights.
+
+The search evaluated 12 configurations per experiment using successive training budgets of 5, 15, and 30 joint epochs, preceded by five auxiliary-only burn-in epochs. Six configurations advanced to the second stage and three to the third. The two strongest validation configurations were evaluated at two additional training seeds, and the final configuration was selected by mean validation performance across the three search and confirmation seeds. The selection criterion equally weighted conditional negative log-likelihood across the experiment's evaluated landmarks, using up to 512 fixed eligible validation patients at each landmark. Analytical reference curves and test-set MAE were not used for selection.
+
+Final fits used all training prefixes, Adam optimization, batch size 256, and a maximum of 200 joint epochs with early-stopping patience 15. Each fit retained the checkpoint with the lowest landmark-averaged validation negative log-likelihood. The duration-dependent configuration retained a nonzero ranking term. In contrast, the competing-risks configuration selected a ranking weight of zero and therefore represents an optimized adaptation with ranking loss disabled.
+
+The history representation contains one-hot live-state indicators, covariates and time information. The latest measurement bypasses the recurrent past, and a baseline context with no observed state is handled explicitly. The cause-time probabilities and shared tail are conditioned on survival through the landmark. The retained duration-dependent ranking term compares conditional incidence at common elapsed horizons and excludes prefixes of the same patient. The SFSA encoding, finite-horizon tail and binary auxiliary target are adaptations of the longitudinal framework~\citep{lee2019dynamic}; the optimized configurations are distinct from both DynamicDeepHit-Lite and an exact port of the released PBC2 example.
+
+\subsection{SurvTRACE-based history models}
+Each observed state/time position is a categorical feature token. Covariates and the landmark are additional feature tokens. Future positions are masked from attention and readout, so the model receives the complete observed prefix without future leakage. The adapted encoder follows the article's SELU residual construction and combines contextual representations with the original embeddings before the task heads. This differs from the inspected public BERT-style implementation's GELU/layer-normalization architecture~\citep{wang2022survtrace}.
+
+Let $z_{k,t}$ be a cause-hazard logit and $a_{k,t}=\operatorname{softplus}(z_{k,t})$. Set $a_t=\sum_k a_{k,t}$. For observed endpoint $D>L$ and cause $J$, the primary piecewise-constant-hazard negative log likelihood is
+\[
+\mathcal L_{\rm PCH}=\sum_{t=L+1}^{D}a_t-\ind\{J>0\}\log a_{J,D}.
+\]
+Integer endpoints occupy a full final interval. This is the operational cause-specific likelihood from the released trainer, not the article's inverse-propensity-weighted objective~\citep{survtracecode}. Both variants convert hazards to coherent interval probabilities using Eq.~\eqref{eq:crconversion}.
+
+SurvTransformer-Discrete instead uses $\sum_{t=L+1}^{D-1}a_t-\log p_{J,D}$ for an event, and $\sum_{t=L+1}^{D}a_t$ for censoring. It therefore scores the observed integer event bin rather than a continuous event density. Both variants retain observed-event-status and observed-duration auxiliary tasks, where a censored endpoint supplies an observed duration rather than proof of eventual survival. The history representation and retained article components make these explicitly documented SFSA adaptations.
+
+\subsection{ATLAS generative implementations}
+The ATLAS recurrent models~\citep{cho2014,hochreiter1997} use state embeddings of dimension eight and two recurrent layers of width 32, concatenating standardized covariates. The causal Transformer~\citep{vaswani2017} has width 32, two layers, four attention heads, and feed-forward width 64. The first experiment includes GRU, RNN and Transformer; the second includes GRU and Transformer. Their observed state vocabularies have five and ten outcomes, respectively, plus a distinct input start token.
+
+For patient $i$ and step $j$, let $m_{ij}$ equal one if the preceding token is live or the start token, and zero if it is absorbed. The teacher-forced objective is
+\begin{equation}\label{eq:atlasloss}
+\mathcal L=-\frac{\sum_{i,j}m_{ij}\log p_\theta(s_{ij}\mid s_{i,<j},x_i)}{\sum_{i,j}m_{ij}}.
+\end{equation}
+Inputs are shifted relative to targets. The loss includes the first terminal transition but masks subsequent repeated absorbing states. Its normalization weights observed transitions rather than giving every patient the same total contribution. At inference, each walk conditions on its own complete history. The generator's transition graph and hard rules are not enforced on the learned logits.
+
+\paragraph{Runtime and hardware provenance.}\label{app:runtime}
+GPU hardware and software versions differ across runs. The optimized Dynamic-DeepHit models were fitted on an NVIDIA RTX PRO 6000 Blackwell Server Edition GPU, whereas the optimized DRSA models were fitted locally on an NVIDIA GeForce RTX 3060 using PyTorch 2.11.0 with CUDA 13.0. Hardware and software details are retained in the corresponding run records. For the original Dynamic-DeepHit results retained in Section~S10, training seeds 50, 51 and 52 used native PyTorch CUDA kernels with cuDNN disabled for compatibility. In the original competing-risks comparison, seed 42 used an NVIDIA L4, whereas the other four runs used an NVIDIA RTX PRO 6000 Blackwell. These differences should be considered when interpreting the recorded timings, which do not constitute a controlled hardware comparison.
+
+\paragraph{Archived prediction and metric audits.}
+For the original seed-42 archives, we regenerated every saved conditional reference curve from its recorded covariates, prefix, and landmark. Maximum absolute differences were below $6\times10^{-16}$. Recomputing MAE, post-rule MAE where applicable, and RMSE from the 721 saved prediction files reproduced 1,219 metric rows to below $2\times10^{-16}$. Separately, the nine-training-run single-covariate audit recomputed MAE, post-rule MAE and RMSE from 4,248 saved prediction files, reproducing all 4,248 metric rows to within $1.01\times10^{-16}$. The saved reference arrays were identical across the nine runs; this comparison reused the archived reference arrays rather than regenerating them for each training run. For the five-run competing-risks analysis, recomputing MAE and RMSE from 1,245 saved prediction files reproduced 3,735 metric rows to within $1.01\times10^{-16}$. Aggregate means and standard deviations agreed with the rounded supplied tables to within $5\times10^{-13}$. Saved reference arrays were identical across runs, and checkpoint tensors confirmed five distinct fitted weight sets for each neural model. The original archive audit is included in the later multi-run checks, so these file counts are not disjoint. These checks verify the consistency of the archived calculations. They do not establish that any trained model is optimal.

@@ -1,0 +1,127 @@
+\section{Generator specifications for the two experiments}\label{app:generator}
+This appendix gives the generative laws used by the result archives. The single-covariate generator matches the source hashes stored with its run, and the competing-risks generator is taken from the source snapshot inside its archive. These are two distinct data-generating processes. The second is not obtained by relabeling the first one's deaths.
+
+\subsection{Single-covariate initialization and base matrix}
+The state order is $(\Healthy,\Sick,\Sicker,\Dead,\Cens)$, meaning Healthy, Sick, Sicker, Death and dropout. For a patient with fixed covariate $x$, set
+\[
+f=F(x)=0.2+1.5(x/10)^4e^{-(x/10)^5},\qquad p=0.003,
+\]
+with $X\sim\operatorname{TruncNormal}(10,1.5^2;[7,13])$. The unmodified transition matrix is
+\begin{equation}\label{eq:matrix}
+T(f,p)=\begin{pmatrix}
+f-p/3-0.001 &(1-f)/2-p/3 &(1-f)/2-p/3 &0.001&p\\
+2f/3-p/3 &(1-f)/3-p/3-0.002 &(2-f)/3-p/3 &0.002&p\\
+0 &f/8-2p/3+0.306 &0.69-f/8-p/3 &0.004&p\\
+0&0&0&1&0\\0&0&0&0&1
+\end{pmatrix}.
+\end{equation}
+Every row sums to one. All entries are nonnegative over the declared covariate domain. At step 1 the state is sampled from the live distribution $(2/3,1/4,1/12)$, independently of $x$, and the run length is one. This initial draw is not a transition from Eq.~\eqref{eq:matrix}; no death or dropout occurs at step 1.
+
+\subsection{Duration-dependent modification and the two clock changes}
+Before a transition ending at absolute step $t\in\{2,\ldots,30\}$, let $s$ be the source state and $u$ its current run length. The source is Sick or Sicker for the adjustments in the following table.
+\begin{center}\small
+\begin{tabular}{llllrrr}\toprule
+Source & Boosted destination & Donor destinations & Donor mass & $\lambda$ & $\nu$ & $\kappa$\\\midrule
+Sick & Sicker & Healthy, Sick & $\Omega_{\Sick}$ & 0.35 & 2.5 & 0.90\\
+Sicker & Death & Sick, Sicker & $\Omega_{\Sicker}$ & 0.97 & 3 & 0.99\\\bottomrule
+\end{tabular}
+\end{center}
+The donor mass $\Omega_s$ is the sum of the corresponding entries in the unmodified row $T_{s,\cdot}$. Define $\rho(t)=5$ for $t<20$ and $\rho(t)=3$ for $t\ge20$, and calculate $\Delta_s$ from Eq.~\eqref{eq:ramp}. For each donor destination $r$ and boosted destination $\tau(s)$, the adjusted row is
+\begin{align}
+T^{\rm sm}_{s,r}(u,t)&=T_{s,r}(1-\Delta_s/\Omega_s),\label{eq:donors}\\
+T^{\rm sm}_{s,\tau(s)}(u,t)&=T_{s,\tau(s)}+\Delta_s.
+\end{align}
+All other entries remain unchanged. If $\Omega_s=0$, set $\Delta_s=0$ and leave the row unchanged. The amount removed from donors equals the amount added to the worsening transition. Because $\Delta_s\le.95\Omega_s$, donor entries remain nonnegative. Healthy has no duration adjustment, and no adjustment changes the dropout entry.
+
+For example, longer consecutive Sick runs redirect probability away from recovery and continued sickness toward Sicker. Longer Sicker runs redirect probability away from recovery and continued Sicker status toward death. The cap can make two different run lengths yield the same transition row. The step-20 change strengthens the uncapped duration effect without creating an additional deterministic death threshold.
+
+Draw a proposed outcome from the adjusted row. Beginning at step 24, apply Eq.~\eqref{eq:hard24}, so that a proposal to remain Sicker when already Sicker is replaced by Death. Equivalently, the final row entries satisfy
+\[
+T^{\rm final}_{\Sicker,\Dead}=T^{\rm sm}_{\Sicker,\Dead}+T^{\rm sm}_{\Sicker,\Sicker},
+\qquad T^{\rm final}_{\Sicker,\Sicker}=0
+\quad(t\ge24).
+\]
+The rule is applied after the proposal, and only to that proposal. A proposed dropout remains dropout, and an already absorbed patient stays absorbed. Among live outcomes, an unchanged state increases the run length by one and a changed state resets it to one. There is no additional hard run-length threshold of three or five in this experiment; those values enter the duration ramp through $\rho(t)$.
+
+The observed endpoint is the first Death or dropout step. Live patients remaining after step 30 are administratively censored at 30. Death and dropout are mutually exclusive categorical outcomes of the same draw. Setting $p=0$ also changes the live entries of Eq.~\eqref{eq:matrix}, so it is not the same thing as removing an independent observation mechanism. This is why the reference target for this experiment is explicitly the observed-generator Kaplan--Meier functional.
+
+\subsection{Multi-covariate competing-risks initialization}
+Use the order
+\[
+(H,A,B,AB,V_A,V_B,V_{AB},D_A,D_B,C),
+\]
+where $H$ denotes Healthy; $A,B,AB$ denote the three Sick states; $V_A,V_B,V_{AB}$ denote their Sicker counterparts; $D_A,D_B$ are the death causes; and $C$ is dropout. These symbols are state labels rather than covariates.
+
+The covariates $x_c$ (calcium), $x_a$ (age) and $x_d$ (drug) are independent uniform draws on $[8,13]$, $[30,90]$ and $[0,1]$. They remain fixed within a patient. Define three dimensionless effects
+\begin{equation}\label{eq:crcovariates}
+z=\left(\frac{x_c-8}{5}\right)^{2.5},\qquad
+a=\frac{\max(x_a-50,0)}{40},\qquad d=x_d.
+\end{equation}
+All three lie in $[0,1]$. Calcium uses a bounded power response. Age has a ReLU-like threshold at 50. Drug changes the two specified recovery probabilities and is not a time-varying treatment assignment.
+
+The initial biological probabilities at step 1 are
+\begin{align*}
+\pi_A&=0.08+0.10z,&\pi_B&=0.08+0.10a,&\pi_{AB}&=0.025+0.05za,\\
+\pi_{V_A}&=0.01+0.02z,&\pi_{V_B}&=0.01+0.02a,&\pi_{V_{AB}}&=0.005+0.015za.
+\end{align*}
+Healthy receives the remainder $\pi_H=1-\sum_{s\ne H}\pi_s$. Both death probabilities are zero at initialization. Unlike the first experiment, independent observation dropout can occur at step 1 after the live state is drawn.
+
+\subsection{Complete competing-risks transition matrix}
+Let $P(x)$ be the biological transition matrix on the seven live states and two death states, excluding dropout. Its block form is
+\begin{equation}\label{eq:crmatrix}
+P(x)=\begin{pmatrix}
+Q(x)&r_A(x)&r_B(x)\\
+0_{1\times7}&1&0\\
+0_{1\times7}&0&1
+\end{pmatrix},
+\end{equation}
+where $Q$ is $7\times7$ and $r_A,r_B$ are $7\times1$ death-exit vectors. The following table specifies every nonzero off-diagonal entry. All unlisted off-diagonal entries are zero, and each live diagonal is one minus the sum of its row's listed entries, so the table and the absorbing rows completely specify the matrix.
+
+\begin{center}\begin{minipage}{\textwidth}\centering\small
+\begin{tabular}{lll}\toprule
+From & To & Biological transition probability\\\midrule
+$H$ & $A$ & $0.02+0.10z+0.025a$\\
+$H$ & $B$ & $0.02+0.08a+0.01z$\\
+$H$ & $AB$ & $0.005+0.02za$\\
+$A$ & $H$ & $0.08/(1+z+0.25a)$\\
+$A$ & $V_A$ & $0.04+0.20z+0.05a$\\
+$A$ & $AB$ & $0.025+0.065a$\\
+$B$ & $H$ & $0.08/(1+a+0.25z)$\\
+$B$ & $V_B$ & $0.04+0.18a+0.04z$\\
+$B$ & $AB$ & $0.025+0.06z$\\
+$AB$ & $A$ & $0.025$\\
+$AB$ & $B$ & $0.025$\\
+$AB$ & $V_{AB}$ & $0.05+0.15z+0.12a$\\
+$V_A$ & $A$ & $0.09$\\
+$V_A$ & $V_{AB}$ & $0.025+0.055a$\\
+$V_A$ & $D_A$ & $0.025+0.14z+0.08a$\\
+$V_B$ & $B$ & $0.06+0.35d$\\
+$V_B$ & $V_{AB}$ & $0.025+0.055z$\\
+$V_B$ & $D_B$ & $0.02+0.10a+0.03z$\\
+$V_{AB}$ & $AB$ & $0.04+0.30d$\\
+$V_{AB}$ & $D_B$ & $b=0.02+0.06a+0.025z$\\
+$V_{AB}$ & $D_A$ & $1.8b+0.03z+0.015$\\\bottomrule
+\end{tabular}
+\captionof{table}{Complete off-diagonal specification of the competing-risks biological matrix. The scalar $b$ in the last two rows is a transition probability, distinct from the observed-mass vector $b_j$ used in the KM reference.}
+\end{minipage}\end{center}
+
+Increasing drug level transfers mass from the self-transition to recovery in the $V_B$ and $V_{AB}$ rows, leaving their immediate death entries unchanged. From $V_{AB}$, the Death A minus Death B probability is $0.8b+0.03z+0.015>0$. This local ordering does not force Death A's cumulative incidence to exceed Death B's for every patient, because patients can visit different states.
+
+There is no dependence on run length or absolute time in this matrix. The matrices remain valid throughout the specified covariate domain. In particular, every live row includes a nonnegative residual self-transition, and $Q\ind+r_A+r_B=\ind$.
+
+\subsection{Competing-risks observation matrix and endpoint extraction}
+Set $r=0.008$. After a biological transition, record a death immediately if one occurs. For a live outcome, apply an independent dropout draw with probability $r$. The complete observed matrix on all ten states is
+\begin{equation}\label{eq:observedcr}
+P_{\rm obs}(x)=\begin{pmatrix}
+(1-r)Q&r_A&r_B&rQ\ind\\
+0_{1\times7}&1&0&0\\
+0_{1\times7}&0&1&0\\
+0_{1\times7}&0&0&1
+\end{pmatrix}.
+\end{equation}
+Each live destination probability is thus scaled by $1-r$, death probabilities are unchanged, and the dropout probability is $r$ times the probability of a live biological outcome. Every row sums to one. The observed initialization is $((1-r)\pi,0,0,r)$, with $\pi$ the seven-state live distribution. There is still no death at step 1.
+
+Death A, Death B and dropout are absorbing. The first terminal step supplies the observed duration and cause; live patients at step 30 are administratively censored. Cause zero denotes censoring, not a third death cause. This construction specifies independent censoring with death recorded before same-time censor removal, so the biological recursion and the observed-process population Kaplan--Meier and Aalen--Johansen curves agree. That identification is specific to this experiment and is not asserted for the first generator.
+
+\subsection{Cohort generation and archived provenance}
+Both cohorts have 50,000 independently generated patients. Cohort seeds are 24001 for the single-covariate process and 34001 for the competing-risks process; split seeds are 24002 and 34002. Both splits contain 40,000 training, 5,000 validation and 5,000 test patients. The first archive reuses the original cohort and older model predictions while adding three newly fitted history-aware comparators. The original competing-risks archive supplies its own cohort, model checkpoints and generator snapshot. The expanded analyses retain the same cohort and split within each experiment while adding independently trained neural checkpoints. The original \texttt{results\_20260919} records are preserved; separately named multi-seed supplements contain per-run scores, training and rollout variability, source hashes and runtime provenance. An accompanying \texttt{supplementary/MULTISEED\_MANIFEST.json} maps manuscript tables and figures to their supporting files.

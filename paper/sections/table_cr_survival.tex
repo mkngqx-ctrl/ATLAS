@@ -1,0 +1,22 @@
+\begin{center}\begin{minipage}{\textwidth}\centering\small
+\begin{tabular}{lrrr}
+\toprule
+Model / method & $L=0$ & $L=10$ & $L=20$ \\\midrule
+\multicolumn{4}{l}{\textit{Direct models, covariates only}}\\
+CPH & 0.054183 & 0.115799 & 0.093079 \\
+Weibull-MLP & 0.015510 & 0.089976 & 0.085369 \\
+DRSA (optimized) & 0.083310 & 0.095651 & 0.077448 \\
+DynamicDeepHit-Lite & 0.022706 & 0.091415 & 0.077370 \\
+SurvTransformer-Lite & 0.023853 & 0.090584 & 0.076661 \\
+\multicolumn{4}{l}{\textit{Direct models, covariates and observed history}}\\
+Dynamic-DeepHit (optimized) & 0.016242 & 0.023061 & 0.022753 \\
+SurvTransformer & 0.025686 & 0.040604 & 0.050470 \\
+SurvTransformer-Discrete & 0.025778 & 0.040464 & 0.048941 \\
+\multicolumn{4}{l}{\textit{ATLAS, covariates and observed history, common Sobol sampler}}\\
+ATLAS-GRU / Sobol & \textbf{0.007902} & \textbf{0.008825} & \textbf{0.006704} \\
+ATLAS-Transformer / Sobol & 0.010378 & 0.011727 & 0.008094 \\
+\multicolumn{4}{l}{\textit{Control}}\\
+Oracle sampler / IID & 0.002556 & 0.002407 & 0.001681 \\
+\bottomrule\end{tabular}
+\captionof{table}{Overall survival MAE in the multi-covariate competing-risks experiment. Neural-model entries are means across five training runs. ATLAS rows use Sobol at $M=10{,}000$, first averaging five sampling seeds within each training run. Training-run standard deviations, ranges and individual-run scores appear in Supplementary Tables~S4 and~S5. CPH predictions agree across runs to numerical precision; the oracle is a reused true-generator sampling control. The eligible counts are 300, 251 and 179.}\label{tab:cr_survival}
+\end{minipage}\end{center}

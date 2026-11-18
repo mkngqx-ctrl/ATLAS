@@ -1,0 +1,27 @@
+\section{Conditional reference algorithms}\label{app:truth}
+\subsection{Observed-generator KM for the single-covariate experiment}
+The augmented state is $(s,u)$ with health state $s\in\{\Healthy,\Sick,\Sicker\}$ and current run length $u\in\{1,\ldots,30\}$. We construct one kernel for every destination time 2 through 30, including the duration ramp, the step-20 change, and the step-24 override. For a live destination $r$, the new run length is $u+1$ if $r=s$, otherwise one. The finite 30-step horizon makes larger durations unreachable; representing them is unnecessary.
+
+From each kernel we extract the live matrix $Q_j$, death column $d_j$, and dropout column $c_j$ for the transition from $j$ to $j+1$, checking nonnegativity and $Q_j\ind+d_j+c_j=\ind$ for every row. We start from the normalized initial distribution or from the unit vector at the observed landmark augmented state, propagate $b_{j+1}=b_jQ_j$, and calculate the Kaplan--Meier update in Eq.~\eqref{eq:kmreference}. For a landmark $L$ the first future kernel ends at $L+1$, not at $L$, so the hard rule first changes $Q_{23}$ and $d_{23}$.
+
+For positive risk mass, define the death and dropout fractions
+\[
+h_j=\frac{b_jd_j}{b_j\ind},\qquad g_j=\frac{b_jc_j}{b_j\ind}.
+\]
+Writing $A_j=b_j\ind$ yields
+\[
+A_{j+1}=A_j(1-h_j-g_j),\qquad S^*_{\rm KM}(j+1)=S^*_{\rm KM}(j)(1-h_j).
+\]
+With the same normalized starting mass, $A_j\le S^*_{\rm KM}(j)$. Without dropout they coincide. The hazard ratios are invariant to a common positive rescaling of $b_j$, which can be useful for numerical stability, but rescaled mass must not be interpreted as the original probability of remaining observed. An exactly empty risk set has no further defined conditional death fraction; the implementation retains the final product-limit value.
+
+\subsection{Biological reference for the competing-risks experiment}
+For fixed covariates, let $v_j$ be a $1\times7$ row vector of biological live-state probabilities, and use $Q,r_A,r_B$ from Eq.~\eqref{eq:crmatrix}. Accumulate the death masses using
+\begin{equation}\label{eq:dp}
+v_{j+1}=v_jQ,\qquad
+F_k(j+1)=F_k(j)+v_jr_k,\qquad S(j)=v_j\ind.
+\end{equation}
+At baseline, initialize $v_1=\pi$ and both CIFs to zero, with $S(0)=S(1)=1$. At a landmark, initialize $v_L$ as the unit vector at the observed live state and both future CIFs to zero. All future times use the same covariate-specific matrix because there are no clock changes or duration effects.
+
+The observed live-state distribution is a common scalar multiple of $v_j$, because the independent dropout factor is identical for every surviving biological path of the same length. It therefore cancels from the observed death-to-risk ratios. Since biological deaths are recorded before dropout on each transition, the observed-process population Kaplan--Meier and Aalen--Johansen updates equal Eq.~\eqref{eq:dp}. This argument relies on the specific observation matrix in Appendix~\ref{app:generator} and should not be carried over to the single-covariate experiment without an equivalent observation construction.
+
+Every saved reference curve and every reported metric was recomputed from the archived predictions and agreed to within $10^{-15}$; details are in Supplementary Section~S1.

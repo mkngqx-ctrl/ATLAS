@@ -1,0 +1,12 @@
+{
+  "timestamp_UTC": "2026-11-04T14:42:34.294289+00:00",
+  "GPU": "NVIDIA GeForce RTX 3060",
+  "GPU_GiB": 11.99951171875,
+  "torch": "2.11.0+cu130",
+  "CUDA": "13.0",
+  "cudnn": 91900,
+  "python": "3.10.20",
+  "cpu_threads": 2,
+  "source_sha256": "8a88312ed6cee8551962a2fff6df8c283d3b4aa9d639ea1cb97acc70de555f64",
+  "protocol_sha256": "ffae62ba8285e8ca1357d31617aede9b32b036243b90d4c476573321604f1be3"
+}

@@ -1,0 +1,6 @@
+{
+  "issue": "Hard24 exact-survival arrays were stored as views and aliased the final survival value",
+  "correction": "copy each time step; cross-check with prior independent exact outputs; recompute all exact-reference diagnostics",
+  "sampled_predictions_unchanged": true,
+  "benchmark_MAEs_unchanged": true
+}

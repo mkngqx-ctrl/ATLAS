@@ -1,0 +1,8 @@
+{
+  "final_fits": 14,
+  "settings_checked": 81,
+  "largest_CPU_NumPy_vs_saved_difference": 7.415111102915262e-07,
+  "test_membership_verified": true,
+  "selected_checkpoint_verified": true,
+  "all_checks_passed": true
+}

@@ -1,0 +1,20 @@
+{
+  "selection": [
+    {
+      "degree": 1,
+      "validation_logloss_per_transition": 0.6343076647108177
+    },
+    {
+      "degree": 2,
+      "validation_logloss_per_transition": 0.6336171320097752
+    }
+  ],
+  "selected_degree": 2,
+  "training": "train split only; per-current-state multinomial logistic observed transition likelihood",
+  "features": "standardized baseline covariates; degree 2 adds squares and pairwise interactions",
+  "support": "classes observed in training for each source state; no oracle transition graph supplied",
+  "initialization": "separate fitted multinomial for first observed state at baseline",
+  "censoring": "explicit censor outcome; event-first observed-process KM/AJ exact propagation",
+  "selection_rule": "lowest held-out validation transition logloss; no oracle or test scoring used in selection",
+  "status": "exploratory pilot, not yet incorporated in manuscript"
+}

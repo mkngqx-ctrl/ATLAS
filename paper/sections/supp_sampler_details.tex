@@ -1,0 +1,16 @@
+\section{Sampling estimator details}\label{supp:samplers}
+This section expands the sampler table in Appendix D of the main text. Within each ATLAS architecture and training run, all seven samplers share the same checkpoint and change only how walks or particles are constructed.
+
+Stratification uses fresh randomized assignments at each step. Antithetic and Sobol walks are deliberately dependent. Although the intended marginal path law is retained, the finite-sample product-limit estimator is nonlinear, so identical marginal draws do not guarantee unbiased or lower-variance Kaplan--Meier and Aalen--Johansen estimates.
+
+In importance sampling, let $q$ be the altered proposal and $p_\theta$ the learned law. For a path ending at observed time $D_m$, the weight is
+\[
+w_m=\prod_{j=L+1}^{D_m}\frac{p_\theta(s_{mj}\mid h_{m,j-1},x)}{q(s_{mj}\mid h_{m,j-1},x)}.
+\]
+The product stops at the first absorbing outcome or at the horizon. Both death causes are tilted in the competing-risks experiment. A common scaling of the weights cancels from the weighted risk and event ratios. The weight-based effective sample size $(\sum_mw_m)^2/\sum_mw_m^2$ describes weight concentration and is not a measure of learned-model accuracy.
+
+For the particle methods, normalized weights $a_m$ represent the current live observed-history distribution. The death fraction for cause $k$ is integrated as $\sum_ma_mp_{m,k}$ and enters the Kaplan--Meier and Aalen--Johansen updates. Conditional Monte Carlo samples a live successor from the normalized live probabilities and multiplies the path weight by its total live probability before renormalizing. Branching instead enumerates live successors with masses $a_mp_{m,s}$ and resamples from their combined distribution.
+
+Resampling can copy the same ancestor more than once, and equal weights afterward do not make the resulting paths independent. The competing-risks implementation records the particle effective sample size before resampling; the earlier implementation's post-resampling value must not be read as a count of independent paths. Ordinary independent-observation Kaplan--Meier uncertainty formulas do not apply to these correlated designs without an appropriate sampling-design argument.
+
+At exactly 10,000 points, Sobol lacks its usual power-of-two balance guarantee~\citep{owen1998,owen2013}. The reported sampler comparisons are empirical for this budget, these training runs, and these targets. The source package keeps the original records and separately named multi-seed results, with per-run scores, training-run and within-run sampling standard deviations, and timing provenance, so that point-estimate improvements are not mistaken for universal guarantees.

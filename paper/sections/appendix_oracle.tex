@@ -1,0 +1,15 @@
+\section{Oracle weighting, attainment and uncertainty}\label{app:oracle}
+The oracle floor is a population statement for a specified input restriction. For each allowed-information condition, a median minimizes the expected absolute distance to the reference value. Taking the conditional expectation over eligible patients proves Eq.~\eqref{eq:floor}. A zero expected nonnegative error requires equality with the reference almost surely, meaning with probability one in that eligible population. Conversely, if the inputs determine the reference, predicting it gives zero error. When information is added, the previous predictor is still admissible, so the infimum cannot increase.
+
+The zero-floor statement concerns reference probabilities, not the prediction of an individual's random future event with certainty. Knowing the process and sufficient current information permits exact calculation of the distribution even though realized futures remain stochastic. It also does not imply that a finite fitted network or a finite rollout sample attains that distribution.
+
+For a finite set of survival horizons, choosing the lower conditional median consistently gives a nonincreasing median curve because the underlying reference curves are ordered across time. Cause-specific CIFs are nondecreasing, but independently selecting marginal medians for survival and two CIFs need not preserve their joint sum of one. The componentwise absolute-error bound remains valid; simultaneous attainment under joint probability constraints requires additional care.
+
+If the calculation groups patients into augmented-state classes $z$, use weights $w_z(x,L)=\PP(Z_L=z\mid X=x,A_L)$, not an unweighted average over classes. To average covariate-specific errors $r_{L,t}(x)$ over eligible patients, write $a_L(x)=\PP(A_L\mid X=x)$ and let $f_X$ be the baseline covariate density. Then
+\begin{equation}\label{eq:weight}
+R_{L,t}=\frac{\int r_{L,t}(x)a_L(x)f_X(x)\,dx}{\int a_L(x)f_X(x)\,dx}.
+\end{equation}
+The eligibility weights account for the fact that the landmark cohort is a selected subset of the baseline cohort. Standardizing instead to the baseline distribution is a different target and must be labeled accordingly.
+
+Removing rare classes and renormalizing need not lower the computed floor. If retained classes have mass $p$ and normalized minimum absolute error $R_{\rm ret}$, bounded reference values imply $pR_{\rm ret}\le R_{\rm full}\le pR_{\rm ret}+1-p$. The reference calculations for the present experiments retain every reachable state rather than truncate small-probability classes.
+

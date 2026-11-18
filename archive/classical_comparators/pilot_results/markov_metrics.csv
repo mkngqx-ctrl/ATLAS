@@ -1,0 +1,10 @@
+experiment,model,target,landmark,n_patients,MAE
+CR3,Fitted-multinomial-Markov,Survival,0,300,0.011368078815901083
+CR3,Fitted-multinomial-Markov,CIF_Death_A,0,300,0.005601839869438567
+CR3,Fitted-multinomial-Markov,CIF_Death_B,0,300,0.0073002021674977635
+CR3,Fitted-multinomial-Markov,Survival,10,251,0.009047786969766184
+CR3,Fitted-multinomial-Markov,CIF_Death_A,10,251,0.005150562344143304
+CR3,Fitted-multinomial-Markov,CIF_Death_B,10,251,0.005527595386828452
+CR3,Fitted-multinomial-Markov,Survival,20,179,0.005077708227002817
+CR3,Fitted-multinomial-Markov,CIF_Death_A,20,179,0.0028419376709631155
+CR3,Fitted-multinomial-Markov,CIF_Death_B,20,179,0.003467903936601651

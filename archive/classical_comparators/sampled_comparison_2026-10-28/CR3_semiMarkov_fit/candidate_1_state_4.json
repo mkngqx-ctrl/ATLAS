@@ -1,0 +1,10 @@
+{
+  "n_observations": 51648,
+  "n_features": 113,
+  "n_classes": 5,
+  "iterations": 632,
+  "gradient_max_average": 9.562431056379927e-08,
+  "converged": true,
+  "seconds": 9.943640232086182,
+  "ridge": 1.0
+}

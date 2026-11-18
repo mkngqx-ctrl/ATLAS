@@ -1,0 +1,14 @@
+{
+  "version": 1,
+  "files": {
+    "colab_ddh_engine.py": "6849aa7641698230684625c7e9d6b487c8844c1ea1821970be23178c3e74f55b",
+    "data_provenance.json": "988b05df12fcf6fd97506c82db38fe5d8cd5c19934c7dfb38f615d5b96f44783",
+    "ddh_base.py": "89eb7210876afc7420a3ec27e86658c20dcd2ecd72c9985f7dc37d9c6ea3355d",
+    "evaluation_payload.zip": "ccd6b33b0628957f99810b784c922e16f01bc7a9be1801f1bd9b82f3466dd0a9",
+    "sensitivity_schedule.json": "b51a0f3fda8ee4743ef781feb73250e01a874f8b98ed20103474b66cbdfd3d4f",
+    "data/CR3/train.npz": "9d3769a79f78966f53bfa3208bd07a70fb7cf57da056b17418bf5a90bcbdf26d",
+    "data/CR3/validation.npz": "5048bbc32f5bb02953dbc8d627273fbe91904b9bb60cf1915dc0d12612d44c3f",
+    "data/Hard24/train.npz": "74efe7d47e148b0123cea2715eac9bb432514c489e1d8674a71aa3a169772d85",
+    "data/Hard24/validation.npz": "c872ebd2d14040819e4626a6163682e4318d1f34f3574a8ebc0359705e4086c3"
+  }
+}
